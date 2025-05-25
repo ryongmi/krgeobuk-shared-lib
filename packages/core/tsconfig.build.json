@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true, // 타입 정의 파일 생성
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "noEmit": false
+  },
+  "exclude": ["**/*.spec.ts", "test", "tests", "node_modules"]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@krgeobuk/core",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build-origin": "tsc -b",
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "ts-node src/main.ts"
+  },
+  "dependencies": {
+    "class-validator": "^0.14.0"
+  }
+}
