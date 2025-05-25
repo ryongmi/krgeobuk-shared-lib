@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "krgeobuk 관련 서비스에서 사용할 공통 패키지",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -b tsconfig.build.json"
   },
   "keywords": [],
   "author": "",

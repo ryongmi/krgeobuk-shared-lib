@@ -1,10 +1,10 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "declaration": true, // 타입 정의 파일 생성
-    "declarationMap": true,
-    "emitDeclarationOnly": false,
-    "noEmit": false
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": true
   },
+  "include": ["src/**/*"],
   "exclude": ["**/*.spec.ts", "test", "tests", "node_modules"]
 }
