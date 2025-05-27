@@ -5,10 +5,13 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
+    ignores: ["dist", "node_modules"], // 기존 .eslintignore 대체
+  },
+  {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     languageOptions: {
       parser: tsParser,
-      globals: { ...globals.browser, ...globals.node },
+      globals: {  ...globals.node },
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
