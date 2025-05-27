@@ -1,6 +1,7 @@
 import globals from "globals";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import tsRecommended from "@typescript-eslint/eslint-plugin/dist/configs/recommended.js";
 
 export default [
   {
@@ -23,6 +24,8 @@ export default [
       "@typescript-eslint/no-unused-vars": ["warn"],
       "no-console": "off",
     },
-    extends: ["plugin:@typescript-eslint/recommended", "eslint:recommended"],
+    // 직접 배열로 확장 config 포함
+    ...tsRecommended,
+    // extends: ["plugin:@typescript-eslint/recommended", "eslint:recommended"],
   },
 ];
