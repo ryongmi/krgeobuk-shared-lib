@@ -1,0 +1,19 @@
+{
+  "name": "@krgeobuk/jest-config",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "base.cjs",
+  "exports": {
+    ".": "./base.cjs",
+    "./nest": "./nest.cjs",
+    "./next": "./next.cjs"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp *.js dist/"
+  },
+  "peerDependencies": {
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "identity-obj-proxy": "^3.0.0"
+  }
+}

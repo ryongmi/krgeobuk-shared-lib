@@ -1,0 +1,11 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "jsx": "preserve",
+    "allowJs": true,
+    "moduleResolution": "bundler",
+    "forceConsistentCasingInFileNames": true
+  }
+}

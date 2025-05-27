@@ -1,0 +1,13 @@
+{
+  "name": "@krgeobuk/tsconfig",
+  "version": "1.0.0",
+  "main": "base.json",
+  "exports": {
+    ".": "./base.json",
+    "./nest": "./nest.json",
+    "./next": "./next.json"
+  },
+  "scripts": {
+    "build": "mkdir -p dist && cp *.json dist/"
+  }
+}

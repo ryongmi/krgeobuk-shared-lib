@@ -2,7 +2,8 @@
   "files": [],
   "references": [
     { "path": "./packages/core" },
-    { "path": "./packages/portal" }
+    { "path": "./packages/portal" },
+    { "path": "./packages/logger" }
   ],
   "compilerOptions": {
     "target": "ES2019",

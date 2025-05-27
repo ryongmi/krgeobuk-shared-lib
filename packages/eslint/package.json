@@ -1,0 +1,21 @@
+{
+  "name": "@krgeobuk/eslint-config",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "base.mjs",
+  "exports": {
+    ".": "./base.mjs",
+    "./base": "./base.mjs",
+    "./nest": "./nest.mjs",
+    "./next": "./next.mjs"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "peerDependencies": {
+    "eslint": "^8.21.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "globals": "^13.0.0"
+  }
+}
