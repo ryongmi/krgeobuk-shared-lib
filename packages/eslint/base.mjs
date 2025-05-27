@@ -1,9 +1,9 @@
 import globals from "globals";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import tsRecommended from "@typescript-eslint/eslint-plugin/dist/configs/recommended.js";
+import { defineConfig } from "eslint/config";
 
-export default [
+export default defineConfig([
   {
     ignores: ["dist", "node_modules"], // 기존 .eslintignore 대체
   },
@@ -20,12 +20,12 @@ export default [
     plugins: {
       "@typescript-eslint": tseslint,
     },
-    rules: {
+    rules: {      
+      // @typescript-eslint 추천 룰 중 자주 쓰이는 예시
       "@typescript-eslint/no-unused-vars": ["warn"],
-      "no-console": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
-    // 직접 배열로 확장 config 포함
-    ...tsRecommended,
     // extends: ["plugin:@typescript-eslint/recommended", "eslint:recommended"],
   },
-];
+]);
