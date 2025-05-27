@@ -30,8 +30,6 @@
 //   },
 // ]);
 import globals from "globals";
-import tseslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
 import js from "@eslint/js";
 import typescriptEslint from "typescript-eslint";
 
@@ -39,7 +37,7 @@ export default [
   // ESLint 기본 추천 설정
   js.configs.recommended,
   
-  // TypeScript ESLint 추천 설정들
+  // TypeScript ESLint 추천 설정들 (parser, plugin 자동 포함)
   ...typescriptEslint.configs.recommended,
   
   {
@@ -48,15 +46,11 @@ export default [
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     languageOptions: {
-      parser: tsParser,
-      globals: {  ...globals.node },
+      globals: { ...globals.node },
       parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
       },
-    },
-    plugins: {
-      "@typescript-eslint": tseslint,
     },
     rules: {      
       // @typescript-eslint 추천 룰 중 자주 쓰이는 예시
