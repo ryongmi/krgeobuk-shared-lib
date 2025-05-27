@@ -1,9 +1,8 @@
 import globals from "globals";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import { defineConfig } from "eslint/config";
 
-export default defineConfig([
+export default [
   {
     ignores: ["dist", "node_modules"], // 기존 .eslintignore 대체
   },
@@ -26,4 +25,4 @@ export default defineConfig([
     },
     extends: ["plugin:@typescript-eslint/recommended", "eslint:recommended"],
   },
-]);
+];
