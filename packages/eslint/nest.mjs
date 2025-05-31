@@ -45,8 +45,10 @@ export default [
     files: ['**/*.ts'],
     rules: {
       // NestJS 프로젝트 특화 규칙 추가 또는 override
-      "@typescript-eslint/no-unused-vars": ["error"],
       "no-console": "off",
+      "@typescript-eslint/no-unused-vars": ["error"],
+      "@typescript-eslint/explicit-function-return-type": "error",  // 함수 리턴 타입 명시를 강제여부
+      "@typescript-eslint/no-explicit-any": "error",                // any 타입 사용 가능여부
     },
   },
 
