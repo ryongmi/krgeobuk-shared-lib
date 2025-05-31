@@ -1,25 +1,22 @@
-import baseConfig from "./base.mjs";
-import globals from "globals";
+import baseConfig from './base.mjs';
+import prettier from 'eslint-config-prettier';
 
-export default {
+export default [
   ...baseConfig,
-  languageOptions: {
-    ...baseConfig[0].languageOptions,
-    globals: { ...baseConfig[0].languageOptions.globals, ...globals.browser },
-  },
-  extends: [
-    ...baseConfig[0].extends,
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "next/core-web-vitals",
-  ],
-  rules: {
-    ...baseConfig[0].rules,
-    // NextJS 전용 룰 추가 가능
-  },
-  settings: {
-    react: {
-      version: "detect",
+
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      "@typescript-eslint/no-unused-vars": ["error"], // 사용하지 않는 변수는 에러
+      "no-console": "warn",                            // console.log는 경고
+      "react/react-in-jsx-scope": "off",               // Next.js에서는 React import 불필요
+      "react/jsx-key": "warn",                         // key props 경고로 알림
     },
   },
-};
+
+  {
+    files: ['**/*.{ts,tsx,js,jsx}'],
+    ...prettier, // 포맷 관련 규칙 제거하여 Prettier에 위임
+  },
+];
+
