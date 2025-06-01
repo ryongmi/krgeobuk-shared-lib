@@ -4,6 +4,7 @@
   "main": "base.json",
   "exports": {
     ".": "./base.json",
+    "./base": "./base.json",
     "./nest": "./nest.json",
     "./next": "./next.json"
   },
