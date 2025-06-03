@@ -1,10 +1,6 @@
 {
   // "files": [],
-  "references": [
-    { "path": "./packages/core" },
-    { "path": "./packages/portal" },
-    { "path": "./packages/logger" }
-  ],
+  "references": [{ "path": "./packages/database" }],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 

@@ -27,6 +27,7 @@
 //     extends: ["plugin:@typescript-eslint/recommended", "eslint:recommended"],
 //   },
 // ]);
-import config from "@krgeobuk/eslint-config/nest";
+// import config from "@krgeobuk/eslint-config/nest";
+import config from './packages/eslint/nest.mjs';
 
 export default config;
