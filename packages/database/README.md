@@ -19,12 +19,34 @@ NestJS 프로젝트에서 TypeORM(MySQL)과 Redis를 손쉽게 설정하고 사�
 
 ```sh
 pnpm add @krgeobuk/database-config
+```
+
+## 의존성 설치 안내
+
+이 패키지는 핵심 라이브러리(`typeorm`, `ioredis` 등)를 **peerDependencies**로 명시하고 있습니다.  
+따라서 실제로 사용하는 프로젝트에서는 아래와 같이 **직접 설치**해야 합니다.
+
+### 필수 peerDependencies
+
+```sh
 pnpm add @nestjs/common @nestjs/config @nestjs/typeorm typeorm ioredis
 ```
 
-> **참고:**
->
-> - 이 패키지는 NestJS, TypeORM, ioredis 등과 함께 사용해야 하므로 peerDependencies에 명시된 패키지도 반드시 설치해야 합니다.
+- **MySQL을 사용할 경우** 추가로 아래 드라이버도 설치해야 합니다:
+  ```sh
+  pnpm add mysql2
+  ```
+- (PostgreSQL 등 다른 DB를 쓸 경우 해당 드라이버를 설치하세요.)
+
+> `typeorm-naming-strategies`는 이 패키지 내부에서 사용하므로 별도 설치할 필요 없습니다.
+
+---
+
+**정리:**
+
+- `typeorm`, `ioredis` 등은 peerDependencies이므로  
+  실제 사용하는 프로젝트에서 직접 설치해야 정상 동작합니다.
+- MySQL을 쓴다면 `mysql2`도 꼭 설치하세요!
 
 ---
 
