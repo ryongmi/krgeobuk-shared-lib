@@ -10,5 +10,12 @@
   },
   "publishConfig": {
     "registry": "http://localhost:4873/"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "typescript": "^5.1.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
   }
 }
