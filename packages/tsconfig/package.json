@@ -8,7 +8,7 @@
     "./nest": "./nest.json",
     "./next": "./next.json"
   },
-  "scripts": {
-    "build": "mkdir -p dist && cp *.json dist/"
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
   }
 }
