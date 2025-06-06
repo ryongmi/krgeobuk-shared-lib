@@ -1,6 +1,12 @@
 {
   // "files": [],
-  "references": [{ "path": "./packages/database" }],
+  "references": [
+    { "path": "./packages/database" },
+    { "path": "./packages/swagger" },
+    { "path": "./packages/database" },
+    { "path": "./packages/core" }
+  ],
+
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 

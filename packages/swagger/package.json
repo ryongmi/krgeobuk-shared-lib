@@ -1,0 +1,30 @@
+{
+  "name": "@krgeobuk/swagger",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./decorators": "./dist/decorators/index.js",
+    "./types": "./dist/types/index.js"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "dependencies": {
+    "@krgeobuk/core": "^1.0.0",
+    "@nestjs/common": "^10.0.0",
+    "class-validator": "^0.14.0"
+  },
+  "peerDependencies": {},
+  "devDependencies": {
+    "@nestjs/swagger": "^11.2.0",
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
+  }
+}
+
