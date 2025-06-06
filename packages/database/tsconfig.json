@@ -1,11 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../tsconfig/nest.json",
   "compilerOptions": {
     "composite": true, // 프로젝트 참조를 사용할 경우 반드시 필요
-    "declaration": true, // 타입 정의 파일 생성
     "declarationMap": true,
     "outDir": "./dist",
-    "rootDir": "./src"
+    "rootDir": "./src",
+    "baseUrl": "./"
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
