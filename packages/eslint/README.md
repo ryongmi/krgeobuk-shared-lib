@@ -18,7 +18,8 @@ pnpm add -D eslint @eslint/js typescript typescript-eslint eslint-config-prettie
 ### Next.js 프로젝트 전용
 
 ```sh
-pnpm add -D eslint-plugin-next eslint-plugin-react
+pnpm add -D eslint-plugin-react @next/eslint-plugin-next
+# pnpm add -D eslint-plugin-next eslint-plugin-react
 ```
 
 ### NestJS 프로젝트 전용
@@ -28,6 +29,7 @@ pnpm add -D eslint-plugin-next eslint-plugin-react
 ```
 
 > **참고**
+>
 > - Next.js 프로젝트는 반드시 `eslint-plugin-next`, `eslint-plugin-react`를 추가로 설치해야 합니다.
 > - NestJS 프로젝트는 공통 패키지만 설치하면 충분합니다.
 > - 실제 서비스 코드에서 import하지 않으므로 반드시 `devDependencies`로 설치하세요.
@@ -80,7 +82,7 @@ pnpm add -D eslint-plugin-next eslint-plugin-react
 
 ```js
 module.exports = {
-  extends: ["@krgeobuk/eslint-config"],
+  extends: ['@krgeobuk/eslint-config'],
 };
 ```
 
@@ -88,7 +90,7 @@ module.exports = {
 
 ```js
 module.exports = {
-  extends: ["@krgeobuk/eslint-config/next"],
+  extends: ['@krgeobuk/eslint-config/next'],
 };
 ```
 
@@ -96,7 +98,7 @@ module.exports = {
 
 ```js
 module.exports = {
-  extends: ["@krgeobuk/eslint-config/nest"],
+  extends: ['@krgeobuk/eslint-config/nest'],
 };
 ```
 
@@ -107,28 +109,22 @@ module.exports = {
 #### 기본(공통) 설정
 
 ```js
-import krgeobuk from "@krgeobuk/eslint-config";
-export default [
-  ...krgeobuk,
-];
+import krgeobuk from '@krgeobuk/eslint-config';
+export default [...krgeobuk];
 ```
 
 #### Next.js 프로젝트
 
 ```js
-import krgeobukNext from "@krgeobuk/eslint-config/next";
-export default [
-  ...krgeobukNext,
-];
+import krgeobukNext from '@krgeobuk/eslint-config/next';
+export default [...krgeobukNext];
 ```
 
 #### NestJS 프로젝트
 
 ```js
-import krgeobukNest from "@krgeobuk/eslint-config/nest";
-export default [
-  ...krgeobukNest,
-];
+import krgeobukNest from '@krgeobuk/eslint-config/nest';
+export default [...krgeobukNest];
 ```
 
 ---
@@ -146,21 +142,22 @@ export default [
 
 ```json
 {
-  "semi": true,                // 모든 구문 끝에 세미콜론(;)을 붙입니다.
-  "singleQuote": true,         // 문자열에 홑따옴표(')를 사용합니다.
-  "printWidth": 100,           // 한 줄 최대 길이를 100자로 제한합니다.
-  "tabWidth": 2,               // 들여쓰기는 스페이스 2칸입니다.
-  "trailingComma": "es5",      // ES5에서 허용하는 곳(객체, 배열 등)에만 후행 콤마를 추가합니다.
-  "arrowParens": "always",     // 화살표 함수의 매개변수에 항상 괄호를 사용합니다.
-  "endOfLine": "crlf",         // 줄바꿈 문자를 CRLF(Windows 스타일)로 강제합니다.
-  "bracketSpacing": true,      // 객체 리터럴 중괄호 내부에 공백을 추가합니다. { foo: bar }
-  "jsxSingleQuote": true,      // JSX에서 홑따옴표(')를 사용합니다.
-  "proseWrap": "preserve",     // 마크다운에서 자동 줄바꿈을 보존합니다.
-  "quoteProps": "as-needed"    // 객체 속성에 필요한 경우에만 따옴표를 사용합니다.
+  "semi": true, // 모든 구문 끝에 세미콜론(;)을 붙입니다.
+  "singleQuote": true, // 문자열에 홑따옴표(')를 사용합니다.
+  "printWidth": 100, // 한 줄 최대 길이를 100자로 제한합니다.
+  "tabWidth": 2, // 들여쓰기는 스페이스 2칸입니다.
+  "trailingComma": "es5", // ES5에서 허용하는 곳(객체, 배열 등)에만 후행 콤마를 추가합니다.
+  "arrowParens": "always", // 화살표 함수의 매개변수에 항상 괄호를 사용합니다.
+  "endOfLine": "crlf", // 줄바꿈 문자를 CRLF(Windows 스타일)로 강제합니다.
+  "bracketSpacing": true, // 객체 리터럴 중괄호 내부에 공백을 추가합니다. { foo: bar }
+  "jsxSingleQuote": true, // JSX에서 홑따옴표(')를 사용합니다.
+  "proseWrap": "preserve", // 마크다운에서 자동 줄바꿈을 보존합니다.
+  "quoteProps": "as-needed" // 객체 속성에 필요한 경우에만 따옴표를 사용합니다.
 }
 ```
 
 > **참고**
+>
 > - `semi`: 구문 끝에 세미콜론(;)을 붙일지 여부를 지정합니다.
 >   - `true`: 항상 세미콜론 사용
 >   - `false`: 세미콜론 사용하지 않음
@@ -216,7 +213,7 @@ pnpm prettier --write .
 ```jsonc
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
 }
 ```
 

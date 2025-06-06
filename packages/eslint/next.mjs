@@ -1,10 +1,12 @@
 import baseConfig from './base.mjs';
 import prettier from 'eslint-config-prettier';
+// import next from 'eslint-plugin-next';
 import { configs as nextConfigs } from '@next/eslint-plugin-next';
 import globals from 'globals';
 
 export default [
   ...baseConfig,
+  // next.configs.recommended, // Next.js 공식 권장 규칙 추가
   nextConfigs.recommended, // ✅ 공식 Next.js ESLint 권장 규칙
 
   {
