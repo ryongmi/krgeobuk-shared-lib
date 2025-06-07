@@ -3,10 +3,20 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./decorators": "./dist/decorators/index.js",
+    "./types": "./dist/types/index.js"
+  },
   "scripts": {
     "build": "tsc -b"
   },
   "dependencies": {
     "class-validator": "^0.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3"
   }
 }

@@ -5,7 +5,7 @@
   "description": "krgeobuk 관련 서비스에서 사용할 공통 패키지",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -b tsconfig.build.json",
+    "build": "tsc -b",
     "npm:i:core": "pnpm --filter @krgeobuk/core install",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -18,5 +18,8 @@
   "license": "ISC",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
 }
