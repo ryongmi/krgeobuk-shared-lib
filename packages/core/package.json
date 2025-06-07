@@ -5,7 +5,8 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
-    "./dtos": "./dist/dtos/index.js"
+    "./dtos": "./dist/dtos/index.js",
+    "./validation": "./dist/validation/index.js"
   },
   "scripts": {
     "build": "tsc -b"
