@@ -9,7 +9,8 @@
     "./validation": "./dist/validation/index.js"
   },
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "clean": "tsc -b --clean"
   },
   "publishConfig": {
     "registry": "http://localhost:4873/"

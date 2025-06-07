@@ -2,14 +2,30 @@
   "name": "@krgeobuk/core",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": "./dist/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./validation": "./dist/validation/index.js"
   },
+  "typesVersions": {
+    "*": {
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ],
+      "validation": [
+        "dist/validation/index.d.ts"
+      ],
+      "validation/*": [
+        "dist/validation/*"
+      ]
+    }
+  },
   "scripts": {
-    "build": "tsc -b"
+    "build": "tsc -b",
+    "clean": "tsc -b --clean"
   },
   "publishConfig": {
     "registry": "http://localhost:4873/"
