@@ -16,11 +16,13 @@
     "registry": "http://localhost:4873/"
   },
   "dependencies": {
-    "@krgeobuk/core": "^1.0.0",
-    "@nestjs/common": "^10.0.0",
+    "@krgeobuk/core": "workspace:*",
     "class-validator": "^0.14.0"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@nestjs/common": "^11.1.3",
+    "@nestjs/core": "^11.1.3"
+  },
   "devDependencies": {
     "@nestjs/swagger": "^11.2.0",
     "@types/node": "^20.3.1",

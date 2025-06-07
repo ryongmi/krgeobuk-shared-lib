@@ -3,7 +3,6 @@
   "references": [
     { "path": "./packages/database" },
     { "path": "./packages/swagger" },
-    { "path": "./packages/database" },
     { "path": "./packages/core" }
   ],
 
