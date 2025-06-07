@@ -10,7 +10,7 @@ export default [
   ...typescriptEslint.configs.recommended,
 
   {
-    ignores: ['dist', 'node_modules'], // 기존 .eslintignore 대체
+    ignores: ['**/dist/**', '**/node_modules/**', '**/.next/**'], // 기존 .eslintignore 대체
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],

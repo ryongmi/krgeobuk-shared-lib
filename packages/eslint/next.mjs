@@ -9,9 +9,9 @@ export default [
   // next.configs.recommended, // Next.js 공식 권장 규칙 추가
   nextConfigs.recommended, // ✅ 공식 Next.js ESLint 권장 규칙
 
-  {
-    ignores: ['dist', 'node_modules', '.next'], // Next.js 빌드 폴더도 무시
-  },
+  // {
+  //   ignores: ['dist', 'node_modules', '.next'], // Next.js 빌드 폴더도 무시
+  // },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     languageOptions: {
