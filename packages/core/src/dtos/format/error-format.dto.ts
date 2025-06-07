@@ -1,30 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
 import { Expose } from 'class-transformer';
 
 import { ErrorFormatInterface } from '../../interfaces';
 
+import { IsValidStatusCode, IsValidError, IsValidMessage } from '../../validation/format';
+
 export class ErrorFormatDto implements ErrorFormatInterface {
-  @ApiProperty({
-    example: 0,
-    description: '해당 HTTP 코드',
-    type: Number,
-  })
+  @IsValidStatusCode()
   @Expose()
   statusCode!: number;
 
-  @ApiProperty({
-    example: 'Bad Request',
-    description: '에러발생시 해당 에러종류',
-    type: String,
-  })
+  @IsValidError()
   @Expose()
   error!: string;
 
-  @ApiProperty({
-    example: '서버에서 에러가 발생하였습니다.',
-    description: '에러발생시 해당 에러관련 메세지',
-    type: String,
-  })
+  @IsValidMessage()
   @Expose()
   message!: string;
 }
