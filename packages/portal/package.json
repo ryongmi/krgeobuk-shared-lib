@@ -1,17 +1,47 @@
 {
   "name": "@krgeobuk/portal",
   "version": "1.0.0",
+  "type": "module",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean"
+  },
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": "./dist/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./decorators": "./dist/decorators/index.js",
     "./types": "./dist/types/index.js"
   },
-  "scripts": {
-    "build": "tsc -b",
-    "clean": "tsc -b --clean"
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "config": [
+        "dist/config/index.d.ts"
+      ],
+      "config/*": [
+        "dist/config/*"
+      ],
+      "decorators": [
+        "dist/decorators/index.d.ts"
+      ],
+      "decorators/*": [
+        "dist/decorators/*"
+      ],
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
   },
   "dependencies": {
     "class-validator": "^0.14.0"

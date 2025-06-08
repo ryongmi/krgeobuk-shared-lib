@@ -24,7 +24,7 @@
       "@krgeobuk/portal": ["packages/portal"],
       "@krgeobuk/portal/*": ["packages/portal/*"]
     },
-    "module": "commonjs",
+    "module": "es2022",
     "moduleResolution": "node",
     "target": "ES2021",
     "lib": ["ES2021", "DOM"],
