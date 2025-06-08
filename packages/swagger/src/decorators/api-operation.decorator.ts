@@ -1,13 +1,13 @@
 import { ApiOperation } from '@nestjs/swagger';
-import { SwaagerApiOperationDto } from '../dtos';
+import { SwaggerApiOperationOptions } from '../interface';
 
 /**
  *
  * @param summary Api 설명
  * @returns
  */
-export const SwaagerApiOperation = (param: SwaagerApiOperationDto): MethodDecorator => {
-  const { summary } = param;
+export const SwaggerApiOperation = (param: SwaggerApiOperationOptions): MethodDecorator => {
+  const { summary: summary = '' } = param;
 
   return ApiOperation({ summary });
 };

@@ -13,8 +13,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./config": "./dist/config/index.js",
-    "./decorators": "./dist/decorators/index.js",
-    "./dtos": "./dist/dtos/index.js"
+    "./decorators": "./dist/decorators/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -30,12 +29,6 @@
       ],
       "decorators/*": [
         "dist/decorators/*"
-      ],
-      "dtos": [
-        "dist/dtos/index.d.ts"
-      ],
-      "dtos/*": [
-        "dist/dtos/*"
       ]
     }
   },

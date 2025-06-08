@@ -1,5 +1,5 @@
 import { ApiBody } from '@nestjs/swagger';
-import { SwaagerApiBodyDto } from '../dtos';
+import { SwaggerApiBodyOptions } from '../interface';
 
 /**
  *
@@ -8,8 +8,8 @@ import { SwaagerApiBodyDto } from '../dtos';
  * @param required Body 필요 유무
  * @returns
  */
-export const SwaagerApiBody = (param: SwaagerApiBodyDto): MethodDecorator => {
-  const { dto: type, description, required } = param;
+export const SwaagerApiBody = (param: SwaggerApiBodyOptions): MethodDecorator => {
+  const { dto: type, description: description = '', required: required = true } = param;
 
   return ApiBody({ type, description, required });
 };

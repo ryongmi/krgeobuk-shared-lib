@@ -1,7 +1,7 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiExtraModels, ApiResponse, getSchemaPath } from '@nestjs/swagger';
 import { ResponseFormatDto, ErrorFormatDto } from '@krgeobuk/core/dtos';
-import { SwaagerApiResponseDto } from '../dtos';
+import { SwaggerApiResponseOptions } from '../interface';
 
 /**
  *
@@ -10,8 +10,8 @@ import { SwaagerApiResponseDto } from '../dtos';
  * @param dto 해당 응답 JSON 구조
  * @returns
  */
-export const SwaagerApiOkResponse = (param: SwaagerApiResponseDto): MethodDecorator => {
-  const { status, description, dto } = param;
+export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDecorator => {
+  const { status, description: description = '', dto } = param;
 
   if (dto) {
     return applyDecorators(
@@ -71,8 +71,8 @@ export const SwaagerApiOkResponse = (param: SwaagerApiResponseDto): MethodDecora
  * @param description 해당 응답 설명
  * @returns
  */
-export const SwaagerApiErrorResponse = (param: SwaagerApiResponseDto): MethodDecorator => {
-  const { status, description } = param;
+export const SwaggerApiErrorResponse = (param: SwaggerApiResponseOptions): MethodDecorator => {
+  const { status, description: description = '' } = param;
 
   return ApiResponse({
     status,

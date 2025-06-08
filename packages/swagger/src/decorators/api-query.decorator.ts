@@ -1,5 +1,5 @@
 import { ApiQuery } from '@nestjs/swagger';
-import { SwaagerApiQueryDto } from '../dtos';
+import { SwaggerApiQueryOptions } from '../interface';
 
 /**
  *
@@ -9,8 +9,10 @@ import { SwaagerApiQueryDto } from '../dtos';
  * @param required Query 필요 유무
  * @returns
  */
-export const SwaagerApiQuery = (param: SwaagerApiQueryDto): MethodDecorator & ClassDecorator => {
-  const { name, type, description, required } = param;
+export const SwaggerApiQuery = (
+  param: SwaggerApiQueryOptions
+): MethodDecorator & ClassDecorator => {
+  const { name, type, description: description = '', required: required = true } = param;
 
   return ApiQuery({ name, type, description, required });
 };

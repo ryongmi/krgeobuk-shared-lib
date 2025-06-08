@@ -1,9 +1,9 @@
 import { ApiPropertyOptions } from '@nestjs/swagger';
 
-export class SwaagerApiPropertyDto {
+export interface SwaggerApiPropertyOptions {
   example: ApiPropertyOptions['example'];
   description?: ApiPropertyOptions['description'];
-  required?: boolean = false;
+  required?: boolean;
   default?: ApiPropertyOptions['default'];
   nullable?: ApiPropertyOptions['nullable'];
   format?: ApiPropertyOptions['format'];
