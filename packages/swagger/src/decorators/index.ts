@@ -1,3 +1,4 @@
+export * from './api-bearer.decorator';
 export * from './api-body.decorator';
 export * from './api-operation.decorator';
 export * from './api-property.decorator';
