@@ -1,8 +1,11 @@
 import { Expose } from 'class-transformer';
 
 import { ErrorFormatInterface } from '../../interfaces';
-
-import { IsValidStatusCode, IsValidError, IsValidMessage } from '../../validation/format';
+import {
+  IsValidStatusCode,
+  IsValidError,
+  IsValidMessage,
+} from '../../decorators/validation/format';
 
 export class ErrorFormatDto implements ErrorFormatInterface {
   @IsValidStatusCode()
