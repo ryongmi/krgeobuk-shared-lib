@@ -1,9 +1,13 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
+import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 // message 유효성 검사
-export function IsValidMessage(isOptional = false): PropertyDecorator {
+export function IsValidMessage(options: IsValidOptions = {}): PropertyDecorator {
+  const { isOptional = false, isExpose = false } = options;
+
   const decorators = [
     ApiProperty({
       example: '서버에서 에러가 발생하였습니다.',
@@ -12,6 +16,10 @@ export function IsValidMessage(isOptional = false): PropertyDecorator {
     }),
     IsString(),
   ];
+
+  if (isExpose) {
+    decorators.push(Expose());
+  }
 
   if (isOptional) {
     return applyDecorators(IsOptional(), ...decorators);

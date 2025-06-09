@@ -1,4 +1,4 @@
-export interface ResponseFormatInterface<T> {
+export interface ResponseFormat<T> {
   statusCode: number;
   isLogin: boolean;
   data: T;

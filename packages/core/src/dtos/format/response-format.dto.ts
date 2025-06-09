@@ -1,18 +1,17 @@
-import { Expose } from 'class-transformer';
+import { ResponseFormat } from '@krgeobuk/core/src/interfaces';
+import {
+  IsValidStatusCode,
+  IsValidIsLogin,
+  IsValidData,
+} from '@krgeobuk/core/src/decorators/validation';
 
-import { ResponseFormatInterface } from '../../interfaces';
-import { IsValidStatusCode, IsValidIsLogin, IsValidData } from '../../decorators/validation/format';
-
-export class ResponseFormatDto<T> implements ResponseFormatInterface<T> {
-  @IsValidStatusCode()
-  @Expose()
+export class ResponseFormatDto<T> implements ResponseFormat<T> {
+  @IsValidStatusCode({ isExpose: true })
   statusCode: number = 200;
 
-  @IsValidIsLogin()
-  @Expose()
+  @IsValidIsLogin({ isExpose: true })
   isLogin!: boolean;
 
-  @IsValidData()
-  @Expose()
+  @IsValidData({ isExpose: true })
   data!: T;
 }

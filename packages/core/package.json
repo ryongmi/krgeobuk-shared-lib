@@ -12,8 +12,8 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./dtos": "./dist/dtos/index.js",
     "./decorators": "./dist/decorators/index.js",
+    "./dtos": "./dist/dtos/index.js",
     "./interfaces": "./dist/interfaces/index.js"
   },
   "types": "dist/index.d.ts",
@@ -22,17 +22,17 @@
       "interfaces/express": [
         "dist/interfaces/express/index.d.ts"
       ],
-      "dtos": [
-        "dist/dtos/index.d.ts"
-      ],
-      "dtos/*": [
-        "dist/dtos/*"
-      ],
       "decorators": [
         "dist/decorators/index.d.ts"
       ],
       "decorators/*": [
         "dist/decorators/*"
+      ],
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
       ],
       "interfaces": [
         "dist/interfaces/index.d.ts"

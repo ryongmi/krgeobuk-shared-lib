@@ -1,10 +1,18 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
+import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsObject } from 'class-validator';
 
 // data 유효성 검사
-export function IsValidData(isOptional = false): PropertyDecorator {
+export function IsValidData(options: IsValidOptions = {}): PropertyDecorator {
+  const { isOptional = false, isExpose = false } = options;
+
   const decorators = [ApiProperty({ type: Object }), IsObject()];
+
+  if (isExpose) {
+    decorators.push(Expose());
+  }
 
   if (isOptional) {
     return applyDecorators(IsOptional(), ...decorators);

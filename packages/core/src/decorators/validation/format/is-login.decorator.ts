@@ -1,9 +1,13 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
+import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
 
 // isLogin 유효성 검사
-export function IsValidIsLogin(isOptional = false): PropertyDecorator {
+export function IsValidIsLogin(options: IsValidOptions = {}): PropertyDecorator {
+  const { isOptional = false, isExpose = false } = options;
+
   const decorators = [
     ApiProperty({
       example: false,
@@ -12,6 +16,10 @@ export function IsValidIsLogin(isOptional = false): PropertyDecorator {
     }),
     IsBoolean(),
   ];
+
+  if (isExpose) {
+    decorators.push(Expose());
+  }
 
   if (isOptional) {
     return applyDecorators(IsOptional(), ...decorators);

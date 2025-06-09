@@ -1,22 +1,17 @@
-import { Expose } from 'class-transformer';
-
-import { ErrorFormatInterface } from '../../interfaces';
+import { ErrorFormat } from '@krgeobuk/core/src/interfaces';
 import {
   IsValidStatusCode,
   IsValidError,
   IsValidMessage,
-} from '../../decorators/validation/format';
+} from '@krgeobuk/core/src/decorators/validation';
 
-export class ErrorFormatDto implements ErrorFormatInterface {
-  @IsValidStatusCode()
-  @Expose()
+export class ErrorFormatDto implements ErrorFormat {
+  @IsValidStatusCode({ isExpose: true })
   statusCode!: number;
 
-  @IsValidError()
-  @Expose()
+  @IsValidError({ isExpose: true })
   error!: string;
 
-  @IsValidMessage()
-  @Expose()
+  @IsValidMessage({ isExpose: true })
   message!: string;
 }
