@@ -13,22 +13,32 @@
   "exports": {
     ".": "./dist/index.js",
     "./dtos": "./dist/dtos/index.js",
-    "./validation": "./dist/validation/index.js"
+    "./decorators": "./dist/decorators/index.js",
+    "./interfaces": "./dist/interfaces/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "interfaces/express": [
+        "dist/interfaces/express/index.d.ts"
+      ],
       "dtos": [
         "dist/dtos/index.d.ts"
       ],
       "dtos/*": [
         "dist/dtos/*"
       ],
-      "validation": [
-        "dist/validation/index.d.ts"
+      "decorators": [
+        "dist/decorators/index.d.ts"
       ],
-      "validation/*": [
-        "dist/validation/*"
+      "decorators/*": [
+        "dist/decorators/*"
+      ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
       ]
     }
   },
@@ -37,14 +47,15 @@
     "registry": "http://localhost:4873/"
   },
   "dependencies": {
-    "class-validator": "^0.14.0",
-    "class-transformer": "^0.5.1"
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0"
   },
   "devDependencies": {
+    "@types/express": "^5.0.3",
     "@nestjs/swagger": "^11.2.0",
     "@types/node": "^20.3.1",
     "typescript": "^5.1.3"
