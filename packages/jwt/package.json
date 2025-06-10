@@ -1,0 +1,47 @@
+{
+  "name": "@krgeobuk/jwt",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./interfaces": "./dist/interfaces/index.js",
+    "./utils": "./dist/utils/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ],
+      "utils": [
+        "dist/utils/index.d.ts"
+      ],
+      "utils/*": [
+        "dist/utils/*"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^20.19.0",
+    "typescript": "^5.8.3"
+  }
+}
