@@ -51,6 +51,7 @@
     "@nestjs/core": "^11.0.0"
   },
   "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
     "@krgeobuk/swagger": "workspace:*",
     "@types/node": "^20.19.0",
     "typescript": "^5.8.3"
