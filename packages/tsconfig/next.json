@@ -1,7 +1,12 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
+    "module": "esnext",
+    "types": ["node", "DOM"],
+    "lib": ["DOM"],
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "sourceMap": false,
+    "inlineSources": false
   }
 }

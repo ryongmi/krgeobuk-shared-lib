@@ -1,5 +1,5 @@
 import { applyDecorators } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsDate } from 'class-validator';
@@ -8,10 +8,9 @@ import { IsNotEmpty, IsOptional, IsDate } from 'class-validator';
 export function IsValidCreatedAt(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
-  const decorators = [
-    ApiProperty({ type: String, format: 'date-time', description: '생성된 날짜' }),
-    IsDate(),
-  ];
+  const propertyData = { type: String, format: 'date-time', description: '생성된 날짜' };
+  const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
+  const decorators = [apiDecorator, IsDate()];
 
   if (isExpose) {
     decorators.push(Expose());
