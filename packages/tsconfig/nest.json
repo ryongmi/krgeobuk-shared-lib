@@ -1,7 +1,12 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": ["node"],
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "inlineSources": true
   }
 }
