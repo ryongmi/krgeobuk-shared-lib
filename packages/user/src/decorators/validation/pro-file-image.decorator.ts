@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { IsValidOptions } from '@krgeobuk/core/interfaces';
-import { SwaggerApiProperty } from '@krgeobuk/swagger/decorators';
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsNotEmpty, IsOptional, IsUrl, MaxLength } from 'class-validator';
 import { Expose } from 'class-transformer';
 
@@ -8,12 +8,16 @@ import { Expose } from 'class-transformer';
 export function IsValidProfileImage(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
+  const propertyData = {
+    example:
+      'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',
+    description: '프로필 이미지 URL',
+  };
+  const apiDecorator = isOptional
+    ? SwaggerApiPropertyOptional(propertyData)
+    : SwaggerApiProperty(propertyData);
   const decorators = [
-    SwaggerApiProperty({
-      example:
-        'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',
-      description: '프로필 이미지 URL',
-    }),
+    apiDecorator,
     IsUrl(
       { protocols: ['https'] }, // HTTPS URL만 허용
       { message: 'Profile image must be a valid HTTPS URL' }

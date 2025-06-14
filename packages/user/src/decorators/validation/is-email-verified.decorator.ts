@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { IsValidOptions } from '@krgeobuk/core/interfaces';
-import { SwaggerApiProperty } from '@krgeobuk/swagger/decorators';
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
 import { Expose } from 'class-transformer';
 
@@ -8,13 +8,14 @@ import { Expose } from 'class-transformer';
 export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
-  const decorators = [
-    SwaggerApiProperty({
-      example: false,
-      description: '이메일 검증 여부',
-    }),
-    IsBoolean(),
-  ];
+  const propertyData = {
+    example: false,
+    description: '이메일 검증 여부',
+  };
+  const apiDecorator = isOptional
+    ? SwaggerApiPropertyOptional(propertyData)
+    : SwaggerApiProperty(propertyData);
+  const decorators = [apiDecorator, IsBoolean()];
 
   if (isExpose) {
     decorators.push(Expose());

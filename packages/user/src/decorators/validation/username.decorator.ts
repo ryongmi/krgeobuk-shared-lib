@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { IsValidOptions } from '@krgeobuk/core/interfaces';
-import { SwaggerApiProperty } from '@krgeobuk/swagger/decorators';
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsNotEmpty, IsOptional, MinLength, IsString, Length } from 'class-validator';
 import { Expose } from 'class-transformer';
 
@@ -8,8 +8,12 @@ import { Expose } from 'class-transformer';
 export function IsValidUsername(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
+  const propertyData = { example: '홍길동', description: '사용자 이름' };
+  const apiDecorator = isOptional
+    ? SwaggerApiPropertyOptional(propertyData)
+    : SwaggerApiProperty(propertyData);
   const decorators = [
-    SwaggerApiProperty({ example: '홍길동', description: '사용자 이름' }),
+    apiDecorator,
     IsString(),
     MinLength(3, { message: '사용자 이름은 최소 3자 이상이어야 합니다' }),
     Length(3, 30),

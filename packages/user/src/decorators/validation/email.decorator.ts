@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { IsValidOptions } from '@krgeobuk/core/interfaces';
-import { SwaggerApiProperty } from '@krgeobuk/swagger/decorators';
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsNotEmpty, IsOptional, IsEmail, MaxLength } from 'class-validator';
 import { Expose } from 'class-transformer';
 
@@ -8,8 +8,12 @@ import { Expose } from 'class-transformer';
 export function IsValidEmail(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
+  const propertyData = { example: 'auth@naver.com', description: '사용자 이메일' };
+  const apiDecorator = isOptional
+    ? SwaggerApiPropertyOptional(propertyData)
+    : SwaggerApiProperty(propertyData);
   const decorators = [
-    SwaggerApiProperty({ example: 'auth@naver.com', description: '사용자 이메일' }),
+    apiDecorator,
     IsEmail({}, { message: '유효한 이메일 형식이 아닙니다' }), // 이메일 형식 검증
     MaxLength(255, { message: 'Email address is too long' }), // 최대 길이 제한
   ];

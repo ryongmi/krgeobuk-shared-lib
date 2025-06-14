@@ -12,23 +12,17 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./dtos": "./dist/dtos/index.js",
-    "./validation": "./dist/validation/index.js"
+    "./interfaces": "./dist/interfaces/index.js",
+    "./dtos": "./dist/dtos/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "config": [
-        "dist/config/index.d.ts"
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
       ],
-      "config/*": [
-        "dist/config/*"
-      ],
-      "decorators": [
-        "dist/decorators/index.d.ts"
-      ],
-      "decorators/*": [
-        "dist/decorators/*"
+      "interfaces/*": [
+        "dist/interfaces/*"
       ],
       "dtos": [
         "dist/dtos/index.d.ts"
@@ -53,6 +47,7 @@
   "devDependencies": {
     "@krgeobuk/core": "workspace:*",
     "@krgeobuk/swagger": "workspace:*",
+    "@krgeobuk/jwt": "workspace:*",
     "@types/node": "^20.19.0",
     "typescript": "^5.8.3"
   }
