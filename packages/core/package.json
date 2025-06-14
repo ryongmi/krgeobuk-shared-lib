@@ -19,6 +19,12 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ],
       "interfaces/express": [
         "dist/interfaces/express/index.d.ts"
       ],
@@ -33,12 +39,6 @@
       ],
       "dtos/*": [
         "dist/dtos/*"
-      ],
-      "interfaces": [
-        "dist/interfaces/index.d.ts"
-      ],
-      "interfaces/*": [
-        "dist/interfaces/*"
       ]
     }
   },
@@ -48,16 +48,16 @@
   },
   "dependencies": {
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.14.0"
+    "class-validator": "^0.14.2"
   },
   "peerDependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3",
     "@nestjs/swagger": "^11.2.0",
-    "@types/node": "^20.3.1",
-    "typescript": "^5.1.3"
+    "@types/express": "^5.0.3",
+    "@types/node": "^20.19.0",
+    "typescript": "^5.8.3"
   }
 }
