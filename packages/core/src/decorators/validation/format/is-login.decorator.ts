@@ -1,5 +1,5 @@
 import { applyDecorators } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
@@ -8,14 +8,13 @@ import { IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
 export function IsValidIsLogin(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
-  const decorators = [
-    ApiProperty({
-      example: false,
-      description: '로그인 유무',
-      type: Boolean,
-    }),
-    IsBoolean(),
-  ];
+  const propertyData = {
+    example: false,
+    description: '로그인 유무',
+    type: Boolean,
+  };
+  const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
+  const decorators = [apiDecorator, IsBoolean()];
 
   if (isExpose) {
     decorators.push(Expose());

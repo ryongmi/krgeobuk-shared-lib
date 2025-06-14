@@ -1,5 +1,5 @@
 import { applyDecorators } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
@@ -8,7 +8,9 @@ import { IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
 export function IsValidAutoIncrementId(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
-  const decorators = [ApiProperty({ example: 5, description: 'Auto Increment' }), IsNumber()];
+  const propertyData = { example: 5, description: 'Auto Increment', type: Number };
+  const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
+  const decorators = [apiDecorator, IsNumber()];
 
   if (isExpose) {
     decorators.push(Expose());

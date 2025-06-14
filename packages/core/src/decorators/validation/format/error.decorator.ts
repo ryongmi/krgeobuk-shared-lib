@@ -1,5 +1,5 @@
 import { applyDecorators } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
@@ -8,14 +8,13 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export function IsValidError(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false, isExpose = false } = options;
 
-  const decorators = [
-    ApiProperty({
-      example: 'Bad Request',
-      description: '에러발생시 해당 에러종류',
-      type: String,
-    }),
-    IsString(),
-  ];
+  const propertyData = {
+    example: 'Bad Request',
+    description: '에러발생시 해당 에러종류',
+    type: String,
+  };
+  const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
+  const decorators = [apiDecorator, IsString()];
 
   if (isExpose) {
     decorators.push(Expose());
