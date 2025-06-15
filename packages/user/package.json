@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
-    "clean": "tsc -b --clean"
+    "clean": "tsc -b --clean && rm -rf dist",
+    "publish": "pnpm publish"
   },
   "files": [
     "dist"
