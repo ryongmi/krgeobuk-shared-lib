@@ -35,14 +35,17 @@ uplinks:
     url: https://registry.npmjs.org/
 
 packages:
-  '@jota/*':
-    access: $all
-    publish: $all
+  '@krgeobuk/*':
+    access: $all # 모두 접근 가능
+    publish: $authenticated # 로그인된 사용자만 publish 가능
+    # publish: $all # 모두 퍼블리시 가능
+    delete: krgeobuk # 모두 삭제 가능 (운영 시 권한 제한 권장)
 
   '@*/*':
     # scoped packages
     access: $all
-    publish: $all
+    publish: $authenticated # 로그인된 사용자만 publish 가능
+    delete: krgeobuk # 모두 삭제 가능 (운영 시 권한 제한 권장)
     proxy: npmjs
 
   '**':
@@ -55,7 +58,7 @@ packages:
 
     # allow all known users to publish packages
     # (anyone can register by default, remember?)
-    publish: $all
+    # publish: $all
 
     # if package is not available locally, proxy requests to 'npmjs' registry
     proxy: npmjs
