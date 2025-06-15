@@ -2,6 +2,11 @@
   "name": "@krgeobuk/tsconfig",
   "version": "1.0.0",
   "main": "base.json",
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "publish": "pnpm verdaccio:login && pnpm publish"
+  },
   "exports": {
     ".": "./base.json",
     "./base": "./base.json",
