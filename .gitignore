@@ -132,3 +132,10 @@ dist
 
 # Visual Studio Code settings
 .vscode
+
+# Docker volumes
+
+# verdaccio
+data/verdaccio/plugins
+data/verdaccio/storage
+data/verdaccio/conf/htpasswd
