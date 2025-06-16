@@ -1,3 +1,4 @@
+import { OptionalUuidIdDto } from '@krgeobuk/core/dtos';
 import {
   IsValidEmail,
   IsValidNickname,
@@ -5,8 +6,7 @@ import {
   IsValidProfileImage,
   IsValidUsername,
 } from '@krgeobuk/user/src/decorators';
-import { CreateUser } from '@krgeobuk/user/src/interfaces';
-import { OptionalUuidIdDto } from '@krgeobuk/core/dtos';
+import type { CreateUser } from '@krgeobuk/user/src/interfaces';
 
 export class CreateUserDto extends OptionalUuidIdDto implements CreateUser {
   @IsValidEmail()
