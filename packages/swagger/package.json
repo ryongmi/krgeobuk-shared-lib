@@ -45,7 +45,8 @@
   },
   "peerDependencies": {
     "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0"
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/config": "^4.0.2"
   },
   "devDependencies": {
     "@nestjs/swagger": "^11.2.0",
