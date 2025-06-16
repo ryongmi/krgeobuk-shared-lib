@@ -1,5 +1,5 @@
 import { ApiQuery } from '@nestjs/swagger';
-import { SwaggerApiQueryOptions } from '../interface';
+import type { SwaggerApiQueryOptions } from '../interface';
 
 /**
  *

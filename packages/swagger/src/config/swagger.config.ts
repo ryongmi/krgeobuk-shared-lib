@@ -1,6 +1,6 @@
-import { DocumentBuilder, OpenAPIObject, SwaggerModule } from '@nestjs/swagger';
+import { DocumentBuilder, SwaggerModule, type OpenAPIObject } from '@nestjs/swagger';
 import { SWAGGER_AUTH_NAME } from '../constants';
-import { SwaggerOptions } from '../interface';
+import type { SwaggerOptions } from '../interface';
 
 // OpenAPIObject - 추후 Swagger 문서화에 사용할 수도 있어서 정의만 해놓음
 export function setupSwagger({ app, configService }: SwaggerOptions): void | OpenAPIObject {

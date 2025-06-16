@@ -1,5 +1,5 @@
 import { ApiBody } from '@nestjs/swagger';
-import { SwaggerApiBodyOptions } from '../interface';
+import type { SwaggerApiBodyOptions } from '../interface';
 
 /**
  *
