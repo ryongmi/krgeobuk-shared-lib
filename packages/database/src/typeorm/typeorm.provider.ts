@@ -1,4 +1,4 @@
-import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
+import { type TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { ConfigService } from '@nestjs/config';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
