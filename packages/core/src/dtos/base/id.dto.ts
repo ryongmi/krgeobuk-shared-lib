@@ -1,6 +1,6 @@
 import { TimestampDto } from '@krgeobuk/core/src/dtos';
 import { IsValidUuidId, IsValidAutoIncrementId } from '@krgeobuk/core/src/decorators';
-import {
+import type {
   AutoIncrementId,
   OptionalAutoIncrementId,
   UuidId,

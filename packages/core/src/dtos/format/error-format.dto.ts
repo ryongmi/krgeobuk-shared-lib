@@ -1,4 +1,4 @@
-import { ErrorFormat } from '@krgeobuk/core/src/interfaces';
+import type { ErrorFormat } from '@krgeobuk/core/src/interfaces';
 import {
   IsValidStatusCode,
   IsValidError,

@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsValidOptions } from '@krgeobuk/core/src/interfaces';
+import type { IsValidOptions } from '@krgeobuk/core/src/interfaces';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsObject } from 'class-validator';
 

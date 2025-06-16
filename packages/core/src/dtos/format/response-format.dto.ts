@@ -1,4 +1,4 @@
-import { ResponseFormat } from '@krgeobuk/core/src/interfaces';
+import type { ResponseFormat } from '@krgeobuk/core/src/interfaces';
 import {
   IsValidStatusCode,
   IsValidIsLogin,
