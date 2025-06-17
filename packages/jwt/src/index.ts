@@ -1,8 +1,9 @@
 export * from './decorators';
+export * from './exception';
 export * from './interfaces';
+export * from './types';
 export * from './utils';
 // export * from './dtos';
-// export * from "./types";
 // export * from "./guards";
 // export * from "./filters";
 // export * from "./interceptors";
