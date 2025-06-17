@@ -8,7 +8,7 @@ import type { SwaggerApiBodyOptions } from '../interface';
  * @param required Body 필요 유무
  * @returns
  */
-export const SwaagerApiBody = (param: SwaggerApiBodyOptions): MethodDecorator => {
+export const SwaggerApiBody = (param: SwaggerApiBodyOptions): MethodDecorator => {
   const { dto: type, description: description = '', required: required = true } = param;
 
   return ApiBody({ type, description, required });
