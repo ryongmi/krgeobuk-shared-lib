@@ -1,5 +1,6 @@
-// // Barrel export
-export * from "./dto";
+export * from './dtos';
+export * from './interfaces';
+
 // export * from "./types";
 // export * from "./decorators";
 // export * from "./guards";

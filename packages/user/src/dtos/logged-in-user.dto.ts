@@ -4,9 +4,9 @@ import {
   IsValidProfileImage,
   IsValidUsername,
 } from '@krgeobuk/user/src/decorators';
-import type { LoginUser } from '@krgeobuk/user/src/interfaces';
+import type { LoggedInUser } from '@krgeobuk/user/src/interfaces';
 
-export class LoginUserDto implements LoginUser {
+export class LoggedInUserDto implements LoggedInUser {
   @IsValidEmail({ isExpose: true })
   email!: string;
 
@@ -21,4 +21,7 @@ export class LoginUserDto implements LoginUser {
 
   // @Expose()
   // isEmailVerified: IsEmailVerifiedDto;
+
+  // @Expose()
+  // isIntegrated: IsEmailVerifiedDto;
 }

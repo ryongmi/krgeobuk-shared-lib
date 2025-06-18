@@ -5,10 +5,10 @@ import {
   IsValidPassword,
   IsValidProfileImage,
   IsValidUsername,
-} from '@krgeobuk/user/src/decorators';
-import type { CreateUser } from '@krgeobuk/user/src/interfaces';
+} from '@krgeobuk/user/decorators';
+import type { SignupRequest } from '@krgeobuk/auth/src/interfaces';
 
-export class CreateUserDto extends OptionalUuidIdDto implements CreateUser {
+export class SignupRequestDto extends OptionalUuidIdDto implements SignupRequest {
   @IsValidEmail()
   email!: string;
 

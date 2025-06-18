@@ -1,20 +1,55 @@
 {
   "name": "@krgeobuk/auth",
   "version": "1.0.0",
+  "type": "module",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "exports": {
-    ".": "./dist/index.js",
-    "./types": "./dist/types/index.js"
-  },
   "scripts": {
     "build": "tsc -b",
-    "clean": "tsc -b --clean"
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm verdaccio:login && pnpm publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./interfaces": "./dist/interfaces/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
   },
   "dependencies": {
-    "class-validator": "^0.14.0"
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0"
   },
   "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/user": "workspace:*",
+    "@krgeobuk/jwt": "workspace:*",
     "@types/node": "^20.3.1",
     "typescript": "^5.1.3"
   }

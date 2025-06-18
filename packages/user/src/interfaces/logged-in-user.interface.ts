@@ -1,6 +1,5 @@
-export interface CreateUser {
+export interface LoggedInUser {
   email: string;
-  password: string;
   name: string;
   nickname?: string;
   profileImage?: string;

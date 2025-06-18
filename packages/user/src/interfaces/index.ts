@@ -1,4 +1,1 @@
-export * from './create.interface';
-export * from './login-response.interface';
-export * from './login-user.interface';
-export * from './login.interface';
+export * from './logged-in-user.interface';
