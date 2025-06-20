@@ -57,6 +57,7 @@
     "@krgeobuk/core": "workspace:*",
     "@krgeobuk/swagger": "workspace:*",
     "@krgeobuk/jwt": "workspace:*",
+    "@krgeobuk/oauth": "workspace:*",
     "@types/node": "^20.19.0",
     "typescript": "^5.8.3"
   }
