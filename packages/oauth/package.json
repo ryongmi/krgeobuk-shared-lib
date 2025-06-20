@@ -15,6 +15,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./dtos": "./dist/dtos/index.js",
+    "./enum": "./dist/enum/index.js",
     "./interfaces": "./dist/interfaces/index.js"
   },
   "types": "dist/index.d.ts",
@@ -25,6 +26,12 @@
       ],
       "dtos/*": [
         "dist/dtos/*"
+      ],
+      "enum": [
+        "dist/enum/index.d.ts"
+      ],
+      "enum/*": [
+        "dist/enum/*"
       ],
       "interfaces": [
         "dist/interfaces/index.d.ts"
