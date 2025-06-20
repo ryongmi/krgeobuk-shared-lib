@@ -1,4 +1,4 @@
 export interface LoginResponse<T> {
-  accessToken?: string;
+  accessToken: string;
   user: T;
 }

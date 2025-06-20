@@ -6,7 +6,7 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 // error 유효성 검사
 export function IsValidError(options: IsValidOptions = {}): PropertyDecorator {
-  const { isOptional = false, isExpose = false } = options;
+  const { isOptional = false } = options;
 
   const propertyData = {
     example: 'Bad Request',
@@ -14,14 +14,18 @@ export function IsValidError(options: IsValidOptions = {}): PropertyDecorator {
     type: String,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [apiDecorator, IsString()];
+  const validators = [IsString()];
+  const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Error는 필수입니다' });
 
-  if (isExpose) {
-    decorators.push(Expose());
-  }
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'Error는 필수입니다' }), ...decorators);
+export function ExposeError(): PropertyDecorator {
+  const propertyData = {
+    example: 'Bad Request',
+    description: '에러발생시 해당 에러종류',
+    type: String,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }

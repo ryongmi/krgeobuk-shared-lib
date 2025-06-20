@@ -306,6 +306,9 @@ importers:
       '@krgeobuk/jwt':
         specifier: workspace:*
         version: link:../jwt
+      '@krgeobuk/oauth':
+        specifier: workspace:*
+        version: link:../oauth
       '@krgeobuk/swagger':
         specifier: workspace:*
         version: link:../swagger

@@ -6,18 +6,20 @@ import { IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
 
 // statusCode 유효성 검사
 export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorator {
-  const { isOptional = false, isExpose = false } = options;
+  const { isOptional = false } = options;
 
   const propertyData = { example: 0, description: '해당 HTTP 코드', type: Number };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [apiDecorator, IsNumber()];
+  const validators = [IsNumber()];
+  const optionality = isOptional
+    ? IsOptional()
+    : IsNotEmpty({ message: 'Status Code는 필수입니다' });
 
-  if (isExpose) {
-    decorators.push(Expose());
-  }
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'Status Code는 필수입니다' }), ...decorators);
+export function ExposeStatusCode(): PropertyDecorator {
+  const propertyData = { example: 0, description: '해당 HTTP 코드', type: Number };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }

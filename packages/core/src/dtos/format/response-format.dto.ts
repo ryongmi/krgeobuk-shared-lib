@@ -1,17 +1,17 @@
 import type { ResponseFormat } from '@krgeobuk/core/src/interfaces';
 import {
-  IsValidStatusCode,
-  IsValidIsLogin,
-  IsValidData,
+  ExposeStatusCode,
+  ExposeIsLogin,
+  ExposeData,
 } from '@krgeobuk/core/src/decorators/validation';
 
 export class ResponseFormatDto<T> implements ResponseFormat<T> {
-  @IsValidStatusCode({ isExpose: true })
+  @ExposeStatusCode()
   statusCode: number = 200;
 
-  @IsValidIsLogin({ isExpose: true })
+  @ExposeIsLogin()
   isLogin!: boolean;
 
-  @IsValidData({ isExpose: true })
+  @ExposeData()
   data!: T;
 }

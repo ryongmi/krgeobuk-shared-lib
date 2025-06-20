@@ -1,13 +1,17 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import type { IsValidOptions, IsValidAllowedOptions } from '@krgeobuk/core/src/interfaces';
+import type {
+  IsValidOptions,
+  IsValidAllowedOptions,
+  ExposeAllowedOptions,
+} from '@krgeobuk/core/src/interfaces';
 import { SORT_ORDER_TYPE_VALUES } from '@krgeobuk/core/src/enum';
 import { Expose, Type } from 'class-transformer';
 import { IsNotEmpty, IsOptional, Min, IsInt, IsIn, IsString } from 'class-validator';
 
 // Page 유효성 검사
 export function IsValidPage(options: IsValidOptions = {}): PropertyDecorator {
-  const { isOptional = false, isExpose = false } = options;
+  const { isOptional = false } = options;
 
   const propertyData = {
     example: 5,
@@ -15,21 +19,25 @@ export function IsValidPage(options: IsValidOptions = {}): PropertyDecorator {
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [apiDecorator, IsInt(), Min(1), Type(() => Number)];
+  const validators = [IsInt(), Min(1), Type(() => Number)];
+  const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'page는 필수입니다' });
 
-  if (isExpose) {
-    decorators.push(Expose());
-  }
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'page는 필수입니다' }), ...decorators);
+export function ExposePage(): PropertyDecorator {
+  const propertyData = {
+    example: 5,
+    description: '전체조회시 페이징용 시작페이지수',
+    type: Number,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 // Limit 유효성 검사
 export function IsValidLimit(options: IsValidOptions = {}): PropertyDecorator {
-  const { isOptional = false, isExpose = false } = options;
+  const { isOptional = false } = options;
 
   const propertyData = {
     example: 30,
@@ -37,66 +45,76 @@ export function IsValidLimit(options: IsValidOptions = {}): PropertyDecorator {
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [apiDecorator, IsInt(), Min(1), Type(() => Number)];
+  const validators = [IsInt(), Min(1), Type(() => Number)];
+  const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Limit는 필수입니다' });
 
-  if (isExpose) {
-    decorators.push(Expose());
-  }
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'Limit는 필수입니다' }), ...decorators);
+export function ExposeLimit(): PropertyDecorator {
+  const propertyData = {
+    example: 30,
+    description: '전체조회시 페이징용 로우수 넘버',
+    type: Number,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 // SortOrder 유효성 검사
 export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyDecorator {
-  const {
-    isOptional = false,
-    isExpose = false,
-    allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES,
-  } = options;
+  const { isOptional = false, allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
 
   const propertyData = {
     example: allowedSortOrders[0],
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [
-    apiDecorator,
+  const validators = [
     IsIn(allowedSortOrders, {
       message: `SortOrder는 다음 값 중 하나여야 합니다: ${allowedSortOrders.join(', ')}`,
     }),
   ];
+  const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortOrder는 필수입니다' });
 
-  if (isExpose) {
-    // sort-order 쿼리 → sortOrder 프로퍼티에 매핑
-    decorators.push(Expose({ name: 'sort-order' }));
-  }
+  return applyDecorators(
+    apiDecorator,
+    optionality,
+    Expose({ name: 'sort-order' }), // sort-order 쿼리 → sortOrder 프로퍼티에 매핑
+    ...validators
+  );
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'SortOrder는 필수입니다' }), ...decorators);
+export function ExposeSortOrder(options: ExposeAllowedOptions = {}): PropertyDecorator {
+  const { allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
+  const propertyData = {
+    example: allowedSortOrders[0],
+    description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 // SortBy 유효성 검사
 export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
-  const { isOptional = false, isExpose = false } = options;
+  const { isOptional = false } = options;
 
   const propertyData = {
     example: 'createdAt',
     description: '전체조회시 정렬기준',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const decorators = [apiDecorator, IsString()];
+  const validators = [IsString()];
+  const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortBy는 필수입니다' });
 
-  if (isExpose) {
-    decorators.push(Expose());
-  }
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
 
-  if (isOptional) {
-    return applyDecorators(IsOptional(), ...decorators);
-  }
-  return applyDecorators(IsNotEmpty({ message: 'SortBy는 필수입니다' }), ...decorators);
+export function ExposeSortBy(): PropertyDecorator {
+  const propertyData = {
+    example: 'createdAt',
+    description: '전체조회시 정렬기준',
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }

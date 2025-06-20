@@ -1,17 +1,17 @@
 import type { ErrorFormat } from '@krgeobuk/core/src/interfaces';
 import {
-  IsValidStatusCode,
-  IsValidError,
-  IsValidMessage,
+  ExposeStatusCode,
+  ExposeError,
+  ExposeMessage,
 } from '@krgeobuk/core/src/decorators/validation';
 
 export class ErrorFormatDto implements ErrorFormat {
-  @IsValidStatusCode({ isExpose: true })
+  @ExposeStatusCode()
   statusCode!: number;
 
-  @IsValidError({ isExpose: true })
+  @ExposeError()
   error!: string;
 
-  @IsValidMessage({ isExpose: true })
+  @ExposeMessage()
   message!: string;
 }

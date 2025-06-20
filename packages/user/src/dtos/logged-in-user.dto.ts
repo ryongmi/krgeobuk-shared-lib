@@ -1,23 +1,23 @@
 import {
-  IsValidEmail,
-  IsValidNickname,
-  IsValidProfileImage,
-  IsValidUsername,
+  ExposeEmail,
+  ExposeNickname,
+  ExposeProfileImage,
+  ExposeUsername,
 } from '@krgeobuk/user/src/decorators';
 import type { LoggedInUser } from '@krgeobuk/user/src/interfaces';
 
 export class LoggedInUserDto implements LoggedInUser {
-  @IsValidEmail({ isExpose: true })
+  @ExposeEmail()
   email!: string;
 
-  @IsValidUsername({ isExpose: true })
+  @ExposeUsername()
   name!: string;
 
-  @IsValidNickname({ isOptional: true, isExpose: true })
-  nickname?: string;
+  @ExposeNickname()
+  nickname?: string | null;
 
-  @IsValidProfileImage({ isOptional: true, isExpose: true })
-  profileImage?: string;
+  @ExposeProfileImage()
+  profileImage?: string | null;
 
   // @Expose()
   // isEmailVerified: IsEmailVerifiedDto;
