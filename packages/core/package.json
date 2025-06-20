@@ -17,6 +17,7 @@
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./entities": "./dist/entities/index.js",
+    "./enum": "./dist/enum/index.js",
     "./filters": "./dist/filters/index.js",
     "./interceptors": "./dist/interceptors/index.js",
     "./interfaces": "./dist/interfaces/index.js",
@@ -42,6 +43,12 @@
       ],
       "entities/*": [
         "dist/entities/*"
+      ],
+      "enum": [
+        "dist/enum/index.d.ts"
+      ],
+      "enum/*": [
+        "dist/enum/*"
       ],
       "filters": [
         "dist/filters/index.d.ts"

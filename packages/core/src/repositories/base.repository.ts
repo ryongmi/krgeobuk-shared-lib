@@ -69,7 +69,7 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
     alias: string,
     options: PaginateWithFilterOptions<T>
   ): Promise<Partial<PaginatedResult<T>>> {
-    const { page = 1, limit = 15, filter } = options;
+    const { page = 1, limit = 15, sortOrder = 'DESC', sortBy = 'createdAt', filter } = options;
     const qb = this.getQueryBuilder(alias);
 
     // 필터가 주어졌으면 where 절 동적 추가
@@ -81,12 +81,26 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
       });
     }
 
+    // 정렬 여러개 각각 오름차순 내림차순 적용하는법
+    //     const sortBy: string[] = ['createdAt', 'id'];
+    // const sortOrder: ('ASC' | 'DESC')[] = ['DESC', 'ASC'];
+
+    // const orderConditions = sortBy.reduce((acc, field, index) => {
+    //   acc[`${alias}.${field}`] = sortOrder[index] ?? 'DESC'; // fallback
+    //   return acc;
+    // }, {} as Record<string, 'ASC' | 'DESC'>);
+
+    // qb.orderBy(orderConditions);
+
     const [data, total] = await qb
+      .orderBy(`${alias}.${sortBy}`, sortOrder)
       .skip((page - 1) * limit)
       .take(limit)
       .getManyAndCount();
 
-    return { data, total, page, limit };
+    const totalPages = Math.ceil(total / limit);
+
+    return { data, total, page, limit, totalPages };
   }
 
   async softDeleteById(id: T['id']): Promise<void> {

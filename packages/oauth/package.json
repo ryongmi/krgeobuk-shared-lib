@@ -14,6 +14,7 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./enum": "./dist/enum/index.js",
     "./interfaces": "./dist/interfaces/index.js"
@@ -21,6 +22,12 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "decorators": [
+        "dist/decorators/index.d.ts"
+      ],
+      "decorators/*": [
+        "dist/decorators/*"
+      ],
       "dtos": [
         "dist/dtos/index.d.ts"
       ],
