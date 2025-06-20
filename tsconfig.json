@@ -6,6 +6,7 @@
     { "path": "./packages/database" },
     { "path": "./packages/user" },
     { "path": "./packages/auth" },
+    { "path": "./packages/oauth" },
     { "path": "./packages/jwt" }
   ],
   "compilerOptions": {
@@ -21,6 +22,8 @@
       "@krgeobuk/user/*": ["packages/user/*"],
       "@krgeobuk/auth": ["packages/auth"],
       "@krgeobuk/auth/*": ["packages/auth/*"],
+      "@krgeobuk/oauth": ["packages/oauth"],
+      "@krgeobuk/oauth/*": ["packages/oauth/*"],
       "@krgeobuk/jwt": ["packages/jwt"],
       "@krgeobuk/jwt/*": ["packages/jwt/*"]
     },
