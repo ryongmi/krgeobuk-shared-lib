@@ -86,7 +86,7 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
       .take(limit)
       .getManyAndCount();
 
-    return { data, total };
+    return { data, total, page, limit };
   }
 
   async softDeleteById(id: T['id']): Promise<void> {
