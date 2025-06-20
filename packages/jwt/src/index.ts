@@ -1,4 +1,3 @@
-export * from './decorators';
 export * from './exception';
 export * from './guards';
 export * from './interfaces';

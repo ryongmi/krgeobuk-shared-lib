@@ -14,7 +14,6 @@
   ],
   "exports": {
     ".": "./dist/index.js",
-    "./decorators": "./dist/decorators/index.js",
     "./exception": "./dist/exception/index.js",
     "./guards": "./dist/guards/index.js",
     "./interfaces": "./dist/interfaces/index.js",
@@ -24,12 +23,6 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "decorators": [
-        "dist/decorators/index.d.ts"
-      ],
-      "decorators/*": [
-        "dist/decorators/*"
-      ],
       "exception": [
         "dist/exception/index.d.ts"
       ],
