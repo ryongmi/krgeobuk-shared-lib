@@ -1,6 +1,7 @@
 export * from './constants';
 export * from './decorators';
 export * from './dtos';
+export * from './entities';
 export * from './filters';
 export * from './interceptors';
 export * from './interfaces';
