@@ -7,7 +7,7 @@ export * from './filters';
 export * from './interceptors';
 export * from './interfaces';
 export * from './repositories';
+export * from './utils';
 // export * from "./types";
 // export * from "./guards";
 // export * from "./services";
-// export * from "./utils";
