@@ -17,7 +17,8 @@
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./enum": "./dist/enum/index.js",
-    "./interfaces": "./dist/interfaces/index.js"
+    "./interfaces": "./dist/interfaces/index.js",
+    "./types": "./dist/types/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -45,6 +46,12 @@
       ],
       "interfaces/*": [
         "dist/interfaces/*"
+      ],
+      "types": [
+        "dist/types/index.d.ts"
+      ],
+      "types/*": [
+        "dist/types/*"
       ]
     }
   },
@@ -63,6 +70,7 @@
   "devDependencies": {
     "@krgeobuk/core": "workspace:*",
     "@krgeobuk/swagger": "workspace:*",
+    "@krgeobuk/jwt": "workspace:*",
     "@types/node": "^20.3.1",
     "typescript": "^5.1.3"
   }
