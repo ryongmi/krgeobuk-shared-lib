@@ -6,7 +6,7 @@ import type {
   ExposeAllowedOptions,
 } from '@krgeobuk/core/src/interfaces';
 import { SORT_ORDER_TYPE_VALUES } from '@krgeobuk/core/src/enum';
-import { Expose, Type } from 'class-transformer';
+import { Expose, Transform } from 'class-transformer';
 import { IsNotEmpty, IsOptional, Min, IsInt, IsIn, IsString } from 'class-validator';
 
 // Page 유효성 검사
@@ -19,7 +19,7 @@ export function IsValidPage(options: IsValidOptions = {}): PropertyDecorator {
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsInt(), Min(1), Type(() => Number)];
+  const validators = [Transform(({ value }) => Number(value)), IsInt(), Min(1)];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'page는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
@@ -45,7 +45,7 @@ export function IsValidLimit(options: IsValidOptions = {}): PropertyDecorator {
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsInt(), Min(1), Type(() => Number)];
+  const validators = [Transform(({ value }) => Number(value)), IsInt(), Min(1)];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Limit는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);

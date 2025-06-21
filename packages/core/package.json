@@ -21,7 +21,8 @@
     "./filters": "./dist/filters/index.js",
     "./interceptors": "./dist/interceptors/index.js",
     "./interfaces": "./dist/interfaces/index.js",
-    "./repositories": "./dist/repositories/index.js"
+    "./repositories": "./dist/repositories/index.js",
+    "./utils": "./dist/utils/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -76,6 +77,12 @@
       ],
       "repositories/*": [
         "dist/repositories/*"
+      ],
+      "utils": [
+        "dist/utils/index.d.ts"
+      ],
+      "utils/*": [
+        "dist/utils/*"
       ]
     }
   },
