@@ -17,6 +17,7 @@
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./enum": "./dist/enum/index.js",
+    "./exception": "./dist/exception/index.js",
     "./interfaces": "./dist/interfaces/index.js",
     "./types": "./dist/types/index.js"
   },
@@ -40,6 +41,12 @@
       ],
       "enum/*": [
         "dist/enum/*"
+      ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
       ],
       "interfaces": [
         "dist/interfaces/index.d.ts"
