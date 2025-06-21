@@ -1,5 +1,12 @@
 import { NotFoundException } from '@nestjs/common';
-import { Repository, EntityTarget, SelectQueryBuilder, ObjectLiteral, DataSource } from 'typeorm';
+import {
+  Repository,
+  EntityTarget,
+  SelectQueryBuilder,
+  ObjectLiteral,
+  DataSource,
+  EntityManager,
+} from 'typeorm';
 
 import type { PaginateWithFilterOptions, PaginatedResult } from '@krgeobuk/core/src/interfaces';
 
@@ -9,8 +16,20 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
   }
 
   // 쿼리 빌더로 복잡한 쿼리 작성
-  getQueryBuilder(alias: string): SelectQueryBuilder<T> {
+  protected getQueryBuilder(alias: string): SelectQueryBuilder<T> {
     return this.createQueryBuilder(alias);
+  }
+
+  protected getRepo(manager?: EntityManager): Repository<T> | this {
+    if (manager) return manager.getRepository(this.constructor as EntityTarget<T>);
+
+    return this;
+  }
+
+  async saveEntity(entity: T, manager?: EntityManager): Promise<T> {
+    const repo = this.getRepo(manager);
+
+    return repo.save(entity);
   }
 
   /**
