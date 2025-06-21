@@ -1,4 +1,4 @@
-import { ExposeAccessToken } from '@krgeobuk/auth/src/decorators';
+import { ExposeAccessToken } from '@krgeobuk/jwt/decorators';
 import { ExposeNested } from '@krgeobuk/core/decorators';
 import { LoggedInUserDto } from '@krgeobuk/user/dtos';
 import type { LoginResponse } from '@krgeobuk/auth/src/interfaces';
