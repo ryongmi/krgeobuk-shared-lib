@@ -4,10 +4,10 @@
     { "path": "./packages/core" },
     { "path": "./packages/swagger" },
     { "path": "./packages/database" },
+    { "path": "./packages/jwt" },
     { "path": "./packages/user" },
     { "path": "./packages/auth" },
-    { "path": "./packages/oauth" },
-    { "path": "./packages/jwt" }
+    { "path": "./packages/oauth" }
   ],
   "compilerOptions": {
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
@@ -18,14 +18,14 @@
       "@krgeobuk/swagger/*": ["packages/swagger/*"],
       "@krgeobuk/database": ["packages/database"],
       "@krgeobuk/database/*": ["packages/database/*"],
+      "@krgeobuk/jwt": ["packages/jwt"],
+      "@krgeobuk/jwt/*": ["packages/jwt/*"],
       "@krgeobuk/user": ["packages/user"],
       "@krgeobuk/user/*": ["packages/user/*"],
       "@krgeobuk/auth": ["packages/auth"],
       "@krgeobuk/auth/*": ["packages/auth/*"],
       "@krgeobuk/oauth": ["packages/oauth"],
-      "@krgeobuk/oauth/*": ["packages/oauth/*"],
-      "@krgeobuk/jwt": ["packages/jwt"],
-      "@krgeobuk/jwt/*": ["packages/jwt/*"]
+      "@krgeobuk/oauth/*": ["packages/oauth/*"]
     },
     "module": "es2022",
     "moduleResolution": "node",

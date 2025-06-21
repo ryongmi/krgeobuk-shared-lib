@@ -2,12 +2,7 @@ import { PaginateBaseDto } from '@krgeobuk/core/dtos';
 import { IsValidProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
-import {
-  IsValidEmail,
-  IsValidNickname,
-  IsValidProfileImage,
-  IsValidUsername,
-} from '@krgeobuk/user/src/decorators';
+import { IsValidEmail, IsValidNickname, IsValidUsername } from '@krgeobuk/user/src/decorators';
 import type { ListQuery } from '@krgeobuk/user/src/interfaces';
 
 export class ListQueryDto extends PaginateBaseDto implements ListQuery {
@@ -19,9 +14,6 @@ export class ListQueryDto extends PaginateBaseDto implements ListQuery {
 
   @IsValidNickname({ isOptional: true })
   nickname?: string;
-
-  @IsValidProfileImage({ isOptional: true })
-  profileImage?: string;
 
   @IsValidProvider({ isOptional: true })
   provider?: ProviderType;

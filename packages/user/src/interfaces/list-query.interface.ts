@@ -5,6 +5,5 @@ export interface ListQuery extends PaginateBaseOptions {
   email?: string;
   name?: string;
   nickname?: string;
-  profileImage?: string;
   provider?: ProviderType;
 }
