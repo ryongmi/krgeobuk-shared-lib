@@ -4,24 +4,30 @@ import { type IsValidOptions } from '@krgeobuk/core/interfaces';
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { Expose } from 'class-transformer';
 
-// accessToken 유효성 검사
-export function IsValidAccessToken(options: IsValidOptions = {}): PropertyDecorator {
+// Refresh Token 유효성 검사
+export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
-  const propertyData = { example: '홍길동', description: '사용자 이름' };
+  const propertyData = {
+    example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
+    description: 'Refresh Token',
+  };
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString()];
+  const validators = [IsString(), Expose({ name: 'refreshToken' })];
   const optionality = isOptional
     ? IsOptional()
-    : IsNotEmpty({ message: 'Access Token은 필수입니다' });
+    : IsNotEmpty({ message: 'Refresh Token은 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
 }
 
-export function ExposeAccessToken(): PropertyDecorator {
-  const propertyData = { example: '홍길동', description: '사용자 이름' };
+export function ExposeRefreshToken(): PropertyDecorator {
+  const propertyData = {
+    example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
+    description: 'Refresh Token',
+  };
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
