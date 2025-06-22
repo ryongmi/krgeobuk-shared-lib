@@ -34,7 +34,7 @@ export class AccessTokenGuard implements CanActivate {
       const { id, tokenData } = decodeAccessToken({ token, secret: this.secret });
 
       // 3. 요청에 유저 정보 주입
-      request.user = { id, tokenData };
+      request.jwt = { id, tokenData };
 
       return true;
     } catch (error: unknown) {
