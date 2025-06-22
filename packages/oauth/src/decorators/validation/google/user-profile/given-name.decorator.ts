@@ -1,0 +1,27 @@
+import { applyDecorators } from '@nestjs/common';
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
+import type { IsValidOptions } from '@krgeobuk/core/interfaces';
+import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { Expose } from 'class-transformer';
+
+// Google OAuth Given Name 유효성 검사
+export function IsValidGoogleGivenName(options: IsValidOptions = {}): PropertyDecorator {
+  const { isOptional = false } = options;
+
+  const propertyData = { example: 'Aaron', description: 'Google OAuth Given Name' };
+  const apiDecorator = isOptional
+    ? SwaggerApiPropertyOptional(propertyData)
+    : SwaggerApiProperty(propertyData);
+  const validators = [IsString(), Expose({ name: 'givenName' })];
+  const optionality = isOptional
+    ? IsOptional()
+    : IsNotEmpty({ message: 'Google OAuth Given Name은 필수입니다' });
+
+  return applyDecorators(apiDecorator, optionality, ...validators);
+}
+
+export function ExposeGoogleGivenName(): PropertyDecorator {
+  const propertyData = { example: 'Aaron', description: 'Google OAuth Given Name' };
+
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+}
