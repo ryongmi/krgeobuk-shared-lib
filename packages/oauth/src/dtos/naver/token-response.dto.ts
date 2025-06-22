@@ -1,14 +1,17 @@
-import { IsValidAccessToken, IsValidRefreshToken } from '@krgeobuk/jwt/decorators';
-
-import { IsValidNaverTokenType, IsValidNaverExpiresIn } from '@krgeobuk/oauth/src/decorators';
+import {
+  IsValidNaverAccessToken,
+  IsValidNaverRefreshToken,
+  IsValidNaverTokenType,
+  IsValidNaverExpiresIn,
+} from '@krgeobuk/oauth/src/decorators';
 import type { NaverTokenType } from '@krgeobuk/oauth/src/enum';
 import type { NaverTokenResponse } from '@krgeobuk/oauth/src/interfaces';
 
 export class NaverTokenResponseDto implements NaverTokenResponse {
-  @IsValidAccessToken()
+  @IsValidNaverAccessToken()
   accessToken!: string;
 
-  @IsValidRefreshToken()
+  @IsValidNaverRefreshToken()
   refreshToken!: string;
 
   @IsValidNaverTokenType()
