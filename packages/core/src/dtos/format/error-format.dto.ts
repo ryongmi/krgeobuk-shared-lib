@@ -1,9 +1,5 @@
-import type { ErrorFormat } from '@krgeobuk/core/src/interfaces';
-import {
-  ExposeStatusCode,
-  ExposeError,
-  ExposeMessage,
-} from '@krgeobuk/core/src/decorators/validation';
+import type { ErrorFormat } from '../../interfaces';
+import { ExposeStatusCode, ExposeError, ExposeMessage } from '../../decorators/validation';
 
 export class ErrorFormatDto implements ErrorFormat {
   @ExposeStatusCode()

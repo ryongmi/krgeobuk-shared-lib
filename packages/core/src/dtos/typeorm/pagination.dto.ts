@@ -1,11 +1,6 @@
-import {
-  IsValidPage,
-  IsValidLimit,
-  IsValidSortOrder,
-  IsValidSortBy,
-} from '@krgeobuk/core/src/decorators';
-import type { PaginateBaseOptions } from '@krgeobuk/core/src/interfaces';
-import { SortOrderType } from '@krgeobuk/core/src/enum';
+import { IsValidPage, IsValidLimit, IsValidSortOrder, IsValidSortBy } from '../../decorators';
+import type { PaginateBaseOptions } from '../../interfaces';
+import { SortOrderType } from '../../enum';
 
 export abstract class PaginateBaseDto implements PaginateBaseOptions {
   @IsValidPage({ isOptional: true })

@@ -1,4 +1,4 @@
-import type { GoogleTokenType } from '@krgeobuk/oauth/src/enum';
+import type { GoogleTokenType } from '../../enum';
 
 export interface GoogleTokenResponse {
   accessToken: string;

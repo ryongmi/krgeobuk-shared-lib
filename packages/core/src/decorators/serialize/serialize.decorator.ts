@@ -1,8 +1,8 @@
 import { SetMetadata, UseInterceptors } from '@nestjs/common';
 
-import { SERIALIZE_META_KEY } from '@krgeobuk/core/src/constants';
-import { SerializerInterceptor } from '@krgeobuk/core/src/interceptors';
-import { SerializeOptions } from '@krgeobuk/core/src/interfaces';
+import { SERIALIZE_META_KEY } from '../../constants';
+import { SerializerInterceptor } from '../../interceptors';
+import { SerializeOptions } from '../../interfaces';
 
 export function Serialize(options: SerializeOptions): MethodDecorator {
   // return function (target: object, key: string | symbol, descriptor: PropertyDescriptor) {

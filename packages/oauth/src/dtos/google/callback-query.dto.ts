@@ -1,5 +1,5 @@
-import { IsValidGoogleCode, IsValidGoogleState } from '@krgeobuk/oauth/src/decorators';
-import type { GoogleOAuthCallbackQuery } from '@krgeobuk/oauth/src/interfaces';
+import { IsValidGoogleCode, IsValidGoogleState } from '../../decorators';
+import type { GoogleOAuthCallbackQuery } from '../../interfaces';
 
 export class GoogleOAuthCallbackQueryDto implements GoogleOAuthCallbackQuery {
   @IsValidGoogleCode()

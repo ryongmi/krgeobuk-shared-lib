@@ -7,8 +7,8 @@ import {
   IsValidGoogleFamilyName,
   IsValidGoogleLocale,
   IsValidGoogleEmailVerified,
-} from '@krgeobuk/oauth/src/decorators';
-import type { GoogleUserProfileResponse } from '@krgeobuk/oauth/src/interfaces';
+} from '../../decorators';
+import type { GoogleUserProfileResponse } from '../../interfaces';
 
 export class GoogleUserProfileResponseDto implements GoogleUserProfileResponse {
   @IsValidGoogleId()

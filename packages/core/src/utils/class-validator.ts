@@ -1,7 +1,7 @@
 import { plainToInstance } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 
-import { TransformValidateOptions } from '@krgeobuk/core/src/interfaces';
+import { TransformValidateOptions } from '../interfaces';
 
 export async function transformAndValidate<T extends object>(
   option: TransformValidateOptions<T>

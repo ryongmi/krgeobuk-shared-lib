@@ -10,7 +10,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 
-import type { TokenType } from '@krgeobuk/jwt/src/types';
+import type { TokenType } from '../types';
 
 export class JwtException {
   private static label(type: TokenType): string {

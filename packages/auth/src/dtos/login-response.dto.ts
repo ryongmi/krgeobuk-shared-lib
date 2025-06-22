@@ -1,7 +1,7 @@
 import { ExposeAccessToken } from '@krgeobuk/jwt/decorators';
 import { ExposeNested } from '@krgeobuk/core/decorators';
 import { LoggedInUserDto } from '@krgeobuk/user/dtos';
-import type { LoginResponse } from '@krgeobuk/auth/src/interfaces';
+import type { LoginResponse } from '../interfaces';
 
 export class LoginResponseDto implements LoginResponse<LoggedInUserDto> {
   @ExposeAccessToken()

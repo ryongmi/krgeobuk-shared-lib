@@ -4,8 +4,8 @@ import type {
   IsValidOptions,
   IsValidAllowedOptions,
   ExposeAllowedOptions,
-} from '@krgeobuk/core/src/interfaces';
-import { SORT_ORDER_TYPE_VALUES } from '@krgeobuk/core/src/enum';
+} from '../../../interfaces';
+import { SORT_ORDER_TYPE_VALUES } from '../../../enum';
 import { Expose, Transform } from 'class-transformer';
 import { IsNotEmpty, IsOptional, Min, IsInt, IsIn, IsString } from 'class-validator';
 

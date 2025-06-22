@@ -1,5 +1,5 @@
 import { ApiBody } from '@nestjs/swagger';
-import type { SwaggerApiBodyOptions } from '@krgeobuk/swagger/src/interface';
+import type { SwaggerApiBodyOptions } from '../interface';
 
 /**
  *

@@ -9,9 +9,9 @@ import {
   IsValidNaverUsername,
   IsValidNaverBirthday,
   IsValidNaverMobile,
-} from '@krgeobuk/oauth/src/decorators';
-import type { NaverUserProfileResponse } from '@krgeobuk/oauth/src/interfaces';
-import type { NaverGenderTypeValue } from '@krgeobuk/oauth/src/types';
+} from '../../decorators';
+import type { NaverUserProfileResponse } from '../../interfaces';
+import type { NaverGenderTypeValue } from '../../types';
 
 export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
   @IsValidNaverId()

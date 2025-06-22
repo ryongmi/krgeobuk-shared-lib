@@ -1,10 +1,5 @@
-import {
-  ExposeEmail,
-  ExposeNickname,
-  ExposeProfileImage,
-  ExposeUsername,
-} from '@krgeobuk/user/src/decorators';
-import type { LoggedInUser } from '@krgeobuk/user/src/interfaces';
+import { ExposeEmail, ExposeNickname, ExposeProfileImage, ExposeUsername } from '../decorators';
+import type { LoggedInUser } from '../interfaces';
 
 export class LoggedInUserDto implements LoggedInUser {
   @ExposeEmail()

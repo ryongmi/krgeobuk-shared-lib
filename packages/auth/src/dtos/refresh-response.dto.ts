@@ -1,5 +1,5 @@
 import { ExposeAccessToken } from '@krgeobuk/jwt/decorators';
-import type { RefreshResponse } from '@krgeobuk/auth/src/interfaces';
+import type { RefreshResponse } from '../interfaces';
 
 export class RefreshResponseDto implements RefreshResponse {
   @ExposeAccessToken()

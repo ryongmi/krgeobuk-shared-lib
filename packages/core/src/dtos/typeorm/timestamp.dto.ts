@@ -5,8 +5,8 @@ import {
   ExposeCreatedAt,
   ExposeUpdatedAt,
   ExposeDeletedAt,
-} from '@krgeobuk/core/src/decorators';
-import type { Timestamp } from '@krgeobuk/core/src/interfaces';
+} from '../../decorators';
+import type { Timestamp } from '../../interfaces';
 
 export abstract class TimestampDto implements Timestamp {
   @IsValidCreatedAt({ isOptional: true })

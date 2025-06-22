@@ -8,7 +8,7 @@ import {
   EntityManager,
 } from 'typeorm';
 
-import type { PaginateWithFilterOptions, PaginatedResult } from '@krgeobuk/core/src/interfaces';
+import type { PaginateWithFilterOptions, PaginatedResult } from '../interfaces';
 
 export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
   constructor(entity: EntityTarget<T>, dataSource: DataSource) {

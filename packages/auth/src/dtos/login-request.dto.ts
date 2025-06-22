@@ -1,5 +1,5 @@
 import { IsValidEmail, IsValidPassword } from '@krgeobuk/user/decorators';
-import type { LoginRequest } from '@krgeobuk/auth/src/interfaces';
+import type { LoginRequest } from '../interfaces';
 
 export class LoginRequestDto implements LoginRequest {
   @IsValidEmail()

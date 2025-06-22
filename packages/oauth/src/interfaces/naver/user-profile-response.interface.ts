@@ -1,4 +1,4 @@
-import type { NaverGenderTypeValue } from '@krgeobuk/oauth/src/types';
+import type { NaverGenderTypeValue } from '../../types';
 
 export interface NaverUserProfileResponse {
   id: string;

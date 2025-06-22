@@ -2,7 +2,7 @@ import { applyDecorators } from '@nestjs/common';
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsString, IsIn, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
-import { GOOGLE_TOKEN_TYPE_VALUES } from '@krgeobuk/oauth/src/enum';
+import { GOOGLE_TOKEN_TYPE_VALUES } from '../../../../enum';
 import type { IsValidAllowedOptions, ExposeAllowedOptions } from '@krgeobuk/core/interfaces';
 
 // Google OAuth Token Type 유효성 검사

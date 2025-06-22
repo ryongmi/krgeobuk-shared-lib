@@ -1,9 +1,5 @@
-import type { ResponseFormat } from '@krgeobuk/core/src/interfaces';
-import {
-  ExposeStatusCode,
-  ExposeIsLogin,
-  ExposeData,
-} from '@krgeobuk/core/src/decorators/validation';
+import type { ResponseFormat } from '../../interfaces';
+import { ExposeStatusCode, ExposeIsLogin, ExposeData } from '../../decorators/validation';
 
 export class ResponseFormatDto<T> implements ResponseFormat<T> {
   @ExposeStatusCode()

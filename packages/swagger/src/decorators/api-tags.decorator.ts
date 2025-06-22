@@ -1,5 +1,5 @@
 import { ApiTags } from '@nestjs/swagger';
-import { SwaggerApiTagsOptions } from '@krgeobuk/swagger/src/interface';
+import { SwaggerApiTagsOptions } from '../interface';
 
 /**
  *

@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import type { DecodeAccessTokenOptions, JwtPayload } from '@krgeobuk/jwt/src/interfaces';
+import type { DecodeAccessTokenOptions, JwtPayload } from '../interfaces';
 
 export function decodeAccessToken(options: DecodeAccessTokenOptions): JwtPayload {
   const { token, secret } = options;

@@ -4,9 +4,9 @@ import {
   IsValidGoogleTokenType,
   IsValidGoogleExpiresIn,
   IsValidGoogleScope,
-} from '@krgeobuk/oauth/src/decorators';
-import type { GoogleTokenType } from '@krgeobuk/oauth/src/enum';
-import type { GoogleTokenResponse } from '@krgeobuk/oauth/src/interfaces';
+} from '../../decorators';
+import type { GoogleTokenType } from '../../enum';
+import type { GoogleTokenResponse } from '../../interfaces';
 
 export class GoogleTokenResponseDto implements GoogleTokenResponse {
   @IsValidGoogleAccessToken()

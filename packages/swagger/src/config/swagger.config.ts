@@ -1,6 +1,6 @@
 import { DocumentBuilder, SwaggerModule, type OpenAPIObject } from '@nestjs/swagger';
-import { SWAGGER_AUTH_NAME } from '@krgeobuk/swagger/src/constants';
-import type { SwaggerOptions } from '@krgeobuk/swagger/src/interface';
+import { SWAGGER_AUTH_NAME } from '../constants';
+import type { SwaggerOptions } from '../interface';
 
 // OpenAPIObject - 추후 Swagger 문서화에 사용할 수도 있어서 정의만 해놓음
 export function setupSwagger({ app, configService }: SwaggerOptions): void | OpenAPIObject {

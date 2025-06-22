@@ -1,4 +1,4 @@
-import { NaverTokenResponse, NaverUserProfileResponse } from '@krgeobuk/oauth/src/interfaces';
+import { NaverTokenResponse, NaverUserProfileResponse } from '../../interfaces';
 
 export interface NaverInfoResponse {
   tokenData: NaverTokenResponse;

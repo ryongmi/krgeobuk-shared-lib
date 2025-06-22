@@ -1,5 +1,5 @@
 import { ApiOperation } from '@nestjs/swagger';
-import type { SwaggerApiOperationOptions } from '@krgeobuk/swagger/src/interface';
+import type { SwaggerApiOperationOptions } from '../interface';
 
 /**
  *

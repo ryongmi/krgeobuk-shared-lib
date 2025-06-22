@@ -1,4 +1,4 @@
-import '@krgeobuk/core/src/interfaces/express';
+import '../interfaces/express';
 
 import {
   Injectable,
@@ -13,8 +13,8 @@ import { map } from 'rxjs/operators';
 import { plainToClass } from 'class-transformer';
 import { Request } from 'express';
 
-import { SERIALIZE_META_KEY } from '@krgeobuk/core/src/constants';
-import type { SerializeOptions } from '@krgeobuk/core/src/interfaces';
+import { SERIALIZE_META_KEY } from '../constants';
+import type { SerializeOptions } from '../interfaces';
 
 @Injectable()
 export class SerializerInterceptor implements NestInterceptor {

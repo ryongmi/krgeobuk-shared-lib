@@ -1,4 +1,4 @@
-import { SortOrderType } from '@krgeobuk/core/src/enum';
+import { SortOrderType } from '../../enum';
 
 export interface PaginateBaseOptions {
   page?: number;

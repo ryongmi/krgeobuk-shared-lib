@@ -1,5 +1,5 @@
 import { ApiQuery } from '@nestjs/swagger';
-import type { SwaggerApiQueryOptions } from '@krgeobuk/swagger/src/interface';
+import type { SwaggerApiQueryOptions } from '../interface';
 
 /**
  *

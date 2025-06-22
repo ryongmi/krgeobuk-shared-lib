@@ -3,9 +3,9 @@ import {
   IsValidNaverRefreshToken,
   IsValidNaverTokenType,
   IsValidNaverExpiresIn,
-} from '@krgeobuk/oauth/src/decorators';
-import type { NaverTokenType } from '@krgeobuk/oauth/src/enum';
-import type { NaverTokenResponse } from '@krgeobuk/oauth/src/interfaces';
+} from '../../decorators';
+import type { NaverTokenType } from '../../enum';
+import type { NaverTokenResponse } from '../../interfaces';
 
 export class NaverTokenResponseDto implements NaverTokenResponse {
   @IsValidNaverAccessToken()

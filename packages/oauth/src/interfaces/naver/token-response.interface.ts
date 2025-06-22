@@ -1,4 +1,4 @@
-import type { NaverTokenType } from '@krgeobuk/oauth/src/enum';
+import type { NaverTokenType } from '../../enum';
 
 export interface NaverTokenResponse {
   accessToken: string;

@@ -1,16 +1,16 @@
-import { TimestampDto } from '@krgeobuk/core/src/dtos';
+import { TimestampDto } from '../../dtos';
 import {
   IsValidUuidId,
   IsValidAutoIncrementId,
   ExposeAutoIncrementId,
   ExposeUuidId,
-} from '@krgeobuk/core/src/decorators';
+} from '../../decorators';
 import type {
   AutoIncrementId,
   OptionalAutoIncrementId,
   UuidId,
   OptionalUuidId,
-} from '@krgeobuk/core/src/interfaces';
+} from '../../interfaces';
 
 export abstract class AutoIncrementIdDto extends TimestampDto implements AutoIncrementId {
   @IsValidAutoIncrementId({ isOptional: false })

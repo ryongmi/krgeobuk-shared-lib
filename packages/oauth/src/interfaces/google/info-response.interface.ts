@@ -1,4 +1,4 @@
-import { GoogleTokenResponse, GoogleUserProfileResponse } from '@krgeobuk/oauth/src/interfaces';
+import { GoogleTokenResponse, GoogleUserProfileResponse } from '../../interfaces';
 
 export interface GoogleInfoResponse {
   tokenData: GoogleTokenResponse;
