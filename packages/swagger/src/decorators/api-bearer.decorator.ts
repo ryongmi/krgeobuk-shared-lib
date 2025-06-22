@@ -1,5 +1,5 @@
 import { ApiBearerAuth } from '@nestjs/swagger';
-import { SWAGGER_AUTH_NAME } from '../constants';
+import { SWAGGER_AUTH_NAME } from '@krgeobuk/swagger/src/constants';
 
 /**
  * Swagger 인증 헤더 설정 데코레이터
