@@ -8,7 +8,7 @@
     "build": "tsc -b",
     "clean": "tsc -b --clean",
     "npm:i:core": "pnpm --filter @krgeobuk/core install",
-    "docker:start": "docker-compose up -d",
+    "docker:up": "docker-compose up -d",
     "docker:down": "docker-compose down",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
