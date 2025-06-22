@@ -21,6 +21,7 @@
     "./filters": "./dist/filters/index.js",
     "./interceptors": "./dist/interceptors/index.js",
     "./interfaces": "./dist/interfaces/index.js",
+    "./interfaces/express": "./dist/interfaces/express/index.js",
     "./repositories": "./dist/repositories/index.js",
     "./utils": "./dist/utils/index.js"
   },
