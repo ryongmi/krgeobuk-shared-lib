@@ -230,9 +230,6 @@ importers:
       '@krgeobuk/core':
         specifier: workspace:*
         version: link:../core
-      '@krgeobuk/jwt':
-        specifier: workspace:*
-        version: link:../jwt
       '@krgeobuk/swagger':
         specifier: workspace:*
         version: link:../swagger
