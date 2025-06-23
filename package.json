@@ -9,7 +9,7 @@
     "clean": "tsc -b --clean",
     "npm:i:core": "pnpm --filter @krgeobuk/core install",
     "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose -f docker-compose.yaml down",
+    "docker:down": "docker-compose down",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint-orgin": "eslint src/**/*.{ts,js} --format=stylish",
