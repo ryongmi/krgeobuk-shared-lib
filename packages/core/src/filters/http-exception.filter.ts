@@ -19,6 +19,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
       | string
       | { error: string; statusCode: number; message: string[] };
 
+    // Chrome DevTools 관련 요청은 로깅하지 않음
+    if (request.url.includes('.well-known/appspecific/com.chrome.devtools')) {
+      return response.status(404).send();
+    }
+
     let logMessage = `${method} ${url} ${status} \nException Message: ${exception.message}`;
 
     if (typeof error === 'string') {
