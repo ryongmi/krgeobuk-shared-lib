@@ -1,4 +1,4 @@
-import { TimestampDto } from '../../dtos/index.js';
+import { TimestampDto } from './timestamp.dto.js';
 import {
   IsValidUuidId,
   IsValidAutoIncrementId,
