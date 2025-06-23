@@ -3,7 +3,7 @@ import { ExposeStatusCode, ExposeError, ExposeMessage } from '../../decorators/v
 
 export class ErrorFormatDto implements ErrorFormat {
   @ExposeStatusCode()
-  statusCode!: number;
+  statusCode: number = 500;
 
   @ExposeError()
   error!: string;
