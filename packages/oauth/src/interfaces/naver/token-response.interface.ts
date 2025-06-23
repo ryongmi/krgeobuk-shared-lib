@@ -1,4 +1,4 @@
-import type { NaverTokenType } from '../../enum';
+import type { NaverTokenType } from '../../enum/index.js';
 
 export interface NaverTokenResponse {
   accessToken: string;

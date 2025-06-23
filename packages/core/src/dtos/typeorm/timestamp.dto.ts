@@ -5,8 +5,8 @@ import {
   ExposeCreatedAt,
   ExposeUpdatedAt,
   ExposeDeletedAt,
-} from '../../decorators';
-import type { Timestamp } from '../../interfaces';
+} from '../../decorators/index.js';
+import type { Timestamp } from '../../interfaces/index.js';
 
 export abstract class TimestampDto implements Timestamp {
   @IsValidCreatedAt({ isOptional: true })

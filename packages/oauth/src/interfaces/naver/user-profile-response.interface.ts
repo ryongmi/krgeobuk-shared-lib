@@ -1,4 +1,4 @@
-import type { NaverGenderTypeValue } from '../../types';
+import type { NaverGenderTypeValue } from '../../types/index.js';
 
 export interface NaverUserProfileResponse {
   id: string;

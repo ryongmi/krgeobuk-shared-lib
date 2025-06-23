@@ -4,9 +4,9 @@ import {
   IsValidGoogleTokenType,
   IsValidGoogleExpiresIn,
   IsValidGoogleScope,
-} from '../../decorators';
-import type { GoogleTokenType } from '../../enum';
-import type { GoogleTokenResponse } from '../../interfaces';
+} from '../../decorators/index.js';
+import type { GoogleTokenType } from '../../enum/index.js';
+import type { GoogleTokenResponse } from '../../interfaces/index.js';
 
 export class GoogleTokenResponseDto implements GoogleTokenResponse {
   @IsValidGoogleAccessToken()

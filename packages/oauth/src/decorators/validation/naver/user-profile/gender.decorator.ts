@@ -2,7 +2,7 @@ import { applyDecorators } from '@nestjs/common';
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsString, IsIn, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
-import { NAVER_GENDER_TYPE_KEYS } from '../../../../enum';
+import { NAVER_GENDER_TYPE_KEYS } from '../../../../enum/index.js';
 import type { IsValidAllowedOptions, ExposeAllowedOptions } from '@krgeobuk/core/interfaces';
 
 // Naver OAuth User Gender 유효성 검사

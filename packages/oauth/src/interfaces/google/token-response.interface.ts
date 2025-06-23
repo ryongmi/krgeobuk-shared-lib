@@ -1,4 +1,4 @@
-import type { GoogleTokenType } from '../../enum';
+import type { GoogleTokenType } from '../../enum/index.js';
 
 export interface GoogleTokenResponse {
   accessToken: string;

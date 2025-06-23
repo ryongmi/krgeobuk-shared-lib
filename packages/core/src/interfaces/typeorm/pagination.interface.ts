@@ -1,4 +1,4 @@
-import { SortOrderType } from '../../enum';
+import { SortOrderType } from '../../enum/index.js';
 
 export interface PaginateBaseOptions {
   page?: number;

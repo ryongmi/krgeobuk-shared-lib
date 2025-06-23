@@ -9,9 +9,9 @@ import {
   IsValidNaverUsername,
   IsValidNaverBirthday,
   IsValidNaverMobile,
-} from '../../decorators';
-import type { NaverUserProfileResponse } from '../../interfaces';
-import type { NaverGenderTypeValue } from '../../types';
+} from '../../decorators/index.js';
+import type { NaverUserProfileResponse } from '../../interfaces/index.js';
+import type { NaverGenderTypeValue } from '../../types/index.js';
 
 export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
   @IsValidNaverId()

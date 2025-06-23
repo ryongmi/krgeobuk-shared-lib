@@ -1,4 +1,4 @@
-import '../interfaces/express';
+import '../interfaces/express/index.js';
 
 import {
   Injectable,
@@ -13,8 +13,8 @@ import { map } from 'rxjs/operators';
 import { plainToClass } from 'class-transformer';
 import { Request } from 'express';
 
-import { SERIALIZE_META_KEY } from '../constants';
-import type { SerializeOptions } from '../interfaces';
+import { SERIALIZE_META_KEY } from '../constants/index.js';
+import type { SerializeOptions } from '../interfaces/index.js';
 
 @Injectable()
 export class SerializerInterceptor implements NestInterceptor {

@@ -1,6 +1,6 @@
-export * from './decorators';
-export * from './dtos';
-export * from './interfaces';
+export * from './decorators/index.js';
+export * from './dtos/index.js';
+export * from './interfaces/index.js';
 // export * from "./types";
 // export * from "./guards";
 // export * from "./filters";

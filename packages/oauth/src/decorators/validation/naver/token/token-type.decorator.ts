@@ -3,7 +3,7 @@ import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagge
 import { IsString, IsIn, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
 import type { IsValidAllowedOptions, ExposeAllowedOptions } from '@krgeobuk/core/interfaces';
-import { NAVER_TOKEN_TYPE_VALUES } from '../../../../enum';
+import { NAVER_TOKEN_TYPE_VALUES } from '../../../../enum/index.js';
 
 // Naver OAuth Token Type 유효성 검사
 export function IsValidNaverTokenType(options: IsValidAllowedOptions = {}): PropertyDecorator {

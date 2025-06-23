@@ -1,2 +1,2 @@
-export * from './list-query.interface';
-export * from './logged-in-user.interface';
+export * from './list-query.interface.js';
+export * from './logged-in-user.interface.js';

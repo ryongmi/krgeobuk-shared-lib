@@ -1,1 +1,1 @@
-export * from './jwt.exception';
+export * from './jwt.exception.js';

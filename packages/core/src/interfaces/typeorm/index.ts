@@ -1,3 +1,3 @@
-export * from './id.interface';
-export * from './pagination.interface';
-export * from './timestamp.interface';
+export * from './id.interface.js';
+export * from './pagination.interface.js';
+export * from './timestamp.interface.js';

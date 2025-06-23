@@ -1,6 +1,6 @@
-export * from './dtos';
-export * from './exception';
-export * from './interfaces';
+export * from './dtos/index.js';
+export * from './exception/index.js';
+export * from './interfaces/index.js';
 
 // export * from './decorators';
 // export * from "./types";

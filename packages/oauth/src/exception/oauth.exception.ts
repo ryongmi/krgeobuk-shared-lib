@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 
 import { StringUtils } from '@krgeobuk/core/utils';
-import { ProviderTypeValue } from '../types';
+import { ProviderTypeValue } from '../types/index.js';
 
 export class OAuthException {
   /** 상태 값 누락 */

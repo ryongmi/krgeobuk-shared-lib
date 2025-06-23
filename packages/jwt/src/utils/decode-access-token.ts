@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import type { DecodeAccessTokenOptions, JwtPayload } from '../interfaces';
+import type { DecodeAccessTokenOptions, JwtPayload } from '../interfaces/index.js';
 
 export function decodeAccessToken(options: DecodeAccessTokenOptions): JwtPayload {
   const { token, secret } = options;

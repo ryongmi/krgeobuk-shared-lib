@@ -1,4 +1,4 @@
-import { GoogleTokenResponse, GoogleUserProfileResponse } from '../../interfaces';
+import { GoogleTokenResponse, GoogleUserProfileResponse } from '../../interfaces/index.js';
 
 export interface GoogleInfoResponse {
   tokenData: GoogleTokenResponse;

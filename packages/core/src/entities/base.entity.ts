@@ -1,5 +1,5 @@
-import { PrimaryGeneratedColumn } from "typeorm";
-import { TimestampEntity } from "./timestamp.entity";
+import { PrimaryGeneratedColumn } from 'typeorm';
+import { TimestampEntity } from './timestamp.entity.js';
 
 export abstract class BaseEntityIncrement extends TimestampEntity {
   @PrimaryGeneratedColumn()
@@ -7,6 +7,6 @@ export abstract class BaseEntityIncrement extends TimestampEntity {
 }
 
 export abstract class BaseEntityUUID extends TimestampEntity {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 }

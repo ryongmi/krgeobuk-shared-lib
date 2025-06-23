@@ -1,1 +1,1 @@
-export * from './typeorm';
+export * from './typeorm/index.js';

@@ -1,2 +1,2 @@
-export * from './list-query.dto';
-export * from './logged-in-user.dto';
+export * from './list-query.dto.js';
+export * from './logged-in-user.dto.js';

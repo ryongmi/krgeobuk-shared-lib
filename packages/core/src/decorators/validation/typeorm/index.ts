@@ -1,3 +1,3 @@
-export * from './id.decorator';
-export * from './pagination.decorator';
-export * from './timestamp.decorator';
+export * from './id.decorator.js';
+export * from './pagination.decorator.js';
+export * from './timestamp.decorator.js';

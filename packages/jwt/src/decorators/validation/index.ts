@@ -1,2 +1,2 @@
-export * from './access-token.decorator';
-export * from './refresh-token.decorator';
+export * from './access-token.decorator.js';
+export * from './refresh-token.decorator.js';

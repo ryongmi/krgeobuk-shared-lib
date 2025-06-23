@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -b",
+    "build:prod": "tsc -b --declarationMap false",
     "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
     "verdaccio:login": "pnpm login --registry=http://localhost:4873",
     "verdaccio:publish": "pnpm publish"

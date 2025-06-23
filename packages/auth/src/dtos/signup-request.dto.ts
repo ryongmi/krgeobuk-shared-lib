@@ -6,7 +6,7 @@ import {
   IsValidProfileImage,
   IsValidUsername,
 } from '@krgeobuk/user/decorators';
-import type { SignupRequest } from '../interfaces';
+import type { SignupRequest } from '../interfaces/index.js';
 
 export class SignupRequestDto extends OptionalUuidIdDto implements SignupRequest {
   @IsValidEmail()

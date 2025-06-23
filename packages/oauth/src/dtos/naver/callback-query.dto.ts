@@ -1,5 +1,5 @@
-import { IsValidNaverCode, IsValidNaverState } from '../../decorators';
-import type { NaverOAuthCallbackQuery } from '../../interfaces';
+import { IsValidNaverCode, IsValidNaverState } from '../../decorators/index.js';
+import type { NaverOAuthCallbackQuery } from '../../interfaces/index.js';
 
 export class NaverOAuthCallbackQueryDto implements NaverOAuthCallbackQuery {
   @IsValidNaverCode()

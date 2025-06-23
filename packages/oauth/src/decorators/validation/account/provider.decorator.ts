@@ -2,7 +2,7 @@ import { applyDecorators } from '@nestjs/common';
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsString, MaxLength, IsIn, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
-import { PROVIDER_TYPE_VALUES } from '../../../enum';
+import { PROVIDER_TYPE_VALUES } from '../../../enum/index.js';
 import type { IsValidAllowedOptions, ExposeAllowedOptions } from '@krgeobuk/core/interfaces';
 
 // Oauth 제공자 도메인 유효성 검사

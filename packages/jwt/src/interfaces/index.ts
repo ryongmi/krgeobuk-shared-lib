@@ -1,3 +1,3 @@
-export * from './decode-token-option.interface';
-export * from './jwt-payload.interface';
-export * from './token-pair.interface';
+export * from './decode-token-option.interface.js';
+export * from './jwt-payload.interface.js';
+export * from './token-pair.interface.js';

@@ -1,2 +1,2 @@
-export * from './transaction-manager.decorator';
-export * from './transaction.decorator';
+export * from './transaction-manager.decorator.js';
+export * from './transaction.decorator.js';

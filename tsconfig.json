@@ -27,10 +27,13 @@
       "@krgeobuk/oauth": ["packages/oauth"],
       "@krgeobuk/oauth/*": ["packages/oauth/*"]
     },
-    "module": "es2022",
-    "moduleResolution": "node",
-    "target": "ES2021",
-    "lib": ["ES2021", "DOM"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "allowJs": true,
+    "lib": ["ES2022", "DOM"],
+    "composite": true,
+    "moduleDetection": "force",
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -44,8 +47,11 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "incremental": true,
-    "sourceMap": true,
-    "inlineSources": true,
+    "declarationMap": false,
+    // "declarationMap": true, 빌드시 index.d.js.map <- 이 map 파일 만들어줌
+    "sourceMap": false,
+    // "sourceMap": true, 빌드시 index.js.map <- 이 map 파일 만들어줌
+    // "inlineSources": true,
     "skipLibCheck": true,
     "types": ["node"]
   }

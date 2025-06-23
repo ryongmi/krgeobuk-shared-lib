@@ -1,2 +1,2 @@
-export * from './response.interface';
-export * from './error.interface';
+export * from './response.interface.js';
+export * from './error.interface.js';

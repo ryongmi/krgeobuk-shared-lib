@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true, // 프로젝트 참조를 사용할 경우 반드시 필요
-    "declarationMap": true,
+    // "declarationMap": true,
     "outDir": "./dist",
     "rootDir": "./src" // Ensure the root directory is set correctly
   },

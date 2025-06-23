@@ -1,1 +1,1 @@
-export * from './serialize-options.interface';
+export * from './serialize-options.interface.js';

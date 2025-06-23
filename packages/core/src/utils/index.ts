@@ -1,2 +1,2 @@
-export * from './class-validator';
-export * from './string-utils';
+export * from './class-validator.js';
+export * from './string-utils.js';

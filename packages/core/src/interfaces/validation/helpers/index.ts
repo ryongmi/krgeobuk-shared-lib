@@ -1,1 +1,1 @@
-export * from './transform-and-validate';
+export * from './transform-and-validate.js';

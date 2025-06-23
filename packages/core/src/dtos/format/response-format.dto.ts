@@ -1,5 +1,5 @@
-import type { ResponseFormat } from '../../interfaces';
-import { ExposeStatusCode, ExposeIsLogin, ExposeData } from '../../decorators/validation';
+import type { ResponseFormat } from '../../interfaces/index.js';
+import { ExposeStatusCode, ExposeIsLogin, ExposeData } from '../../decorators/validation/index.js';
 
 export class ResponseFormatDto<T> implements ResponseFormat<T> {
   @ExposeStatusCode()

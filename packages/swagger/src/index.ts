@@ -1,3 +1,3 @@
-export * from './config';
-export * from './decorators';
+export * from './config/index.js';
+export * from './decorators/index.js';
 // export * from './dtos';

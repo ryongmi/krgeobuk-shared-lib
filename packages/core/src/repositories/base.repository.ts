@@ -8,7 +8,7 @@ import {
   EntityManager,
 } from 'typeorm';
 
-import type { PaginateWithFilterOptions, PaginatedResult } from '../interfaces';
+import type { PaginateWithFilterOptions, PaginatedResult } from '../interfaces/index.js';
 
 export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
   constructor(entity: EntityTarget<T>, dataSource: DataSource) {

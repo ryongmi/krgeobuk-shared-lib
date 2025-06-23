@@ -1,6 +1,6 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import type { IsValidNestedOptions, ExposeNestedOptions } from '../../../interfaces';
+import type { IsValidNestedOptions, ExposeNestedOptions } from '../../../interfaces/index.js';
 import { IsNotEmpty, IsOptional, ValidateNested } from 'class-validator';
 import { Expose, Type } from 'class-transformer';
 

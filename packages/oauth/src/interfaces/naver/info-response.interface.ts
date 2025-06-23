@@ -1,4 +1,4 @@
-import { NaverTokenResponse, NaverUserProfileResponse } from '../../interfaces';
+import { NaverTokenResponse, NaverUserProfileResponse } from '../../interfaces/index.js';
 
 export interface NaverInfoResponse {
   tokenData: NaverTokenResponse;

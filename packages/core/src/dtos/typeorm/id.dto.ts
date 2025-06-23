@@ -1,16 +1,16 @@
-import { TimestampDto } from '../../dtos';
+import { TimestampDto } from '../../dtos/index.js';
 import {
   IsValidUuidId,
   IsValidAutoIncrementId,
   ExposeAutoIncrementId,
   ExposeUuidId,
-} from '../../decorators';
+} from '../../decorators/index.js';
 import type {
   AutoIncrementId,
   OptionalAutoIncrementId,
   UuidId,
   OptionalUuidId,
-} from '../../interfaces';
+} from '../../interfaces/index.js';
 
 export abstract class AutoIncrementIdDto extends TimestampDto implements AutoIncrementId {
   @IsValidAutoIncrementId({ isOptional: false })

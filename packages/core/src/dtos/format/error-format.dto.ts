@@ -1,5 +1,5 @@
-import type { ErrorFormat } from '../../interfaces';
-import { ExposeStatusCode, ExposeError, ExposeMessage } from '../../decorators/validation';
+import type { ErrorFormat } from '../../interfaces/index.js';
+import { ExposeStatusCode, ExposeError, ExposeMessage } from '../../decorators/validation/index.js';
 
 export class ErrorFormatDto implements ErrorFormat {
   @ExposeStatusCode()

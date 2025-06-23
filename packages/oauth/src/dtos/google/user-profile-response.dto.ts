@@ -7,8 +7,8 @@ import {
   IsValidGoogleFamilyName,
   IsValidGoogleLocale,
   IsValidGoogleEmailVerified,
-} from '../../decorators';
-import type { GoogleUserProfileResponse } from '../../interfaces';
+} from '../../decorators/index.js';
+import type { GoogleUserProfileResponse } from '../../interfaces/index.js';
 
 export class GoogleUserProfileResponseDto implements GoogleUserProfileResponse {
   @IsValidGoogleId()

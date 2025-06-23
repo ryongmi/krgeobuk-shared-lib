@@ -2,7 +2,6 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "composite": true, // 프로젝트 참조를 사용할 경우 반드시 필요
-    "declarationMap": true,
     "types": ["node", "express"],
     "typeRoots": ["node_modules/@types"],
     "outDir": "./dist",

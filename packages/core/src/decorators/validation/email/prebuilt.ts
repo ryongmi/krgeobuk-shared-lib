@@ -1,4 +1,4 @@
-import { IsEmailWithDomain } from './is-email-with-domain.validator';
+import { IsEmailWithDomain } from './is-email-with-domain.validator.js';
 
 export const IsNaverEmail = (
   options?: Parameters<typeof IsEmailWithDomain>[1]

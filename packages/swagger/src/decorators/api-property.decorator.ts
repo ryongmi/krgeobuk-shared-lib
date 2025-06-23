@@ -1,5 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import type { SwaggerApiPropertyOptions } from '../interface';
+import type { SwaggerApiPropertyOptions } from '../interface/index.js';
 
 /**
  *

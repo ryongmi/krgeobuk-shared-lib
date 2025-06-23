@@ -1,1 +1,1 @@
-export * from './serialize.constants';
+export * from './serialize.constants.js';

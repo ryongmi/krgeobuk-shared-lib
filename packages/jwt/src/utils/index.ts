@@ -1,1 +1,1 @@
-export * from './decode-access-token';
+export * from './decode-access-token.js';

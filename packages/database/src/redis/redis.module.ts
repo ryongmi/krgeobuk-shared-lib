@@ -1,6 +1,6 @@
 import { Module, type DynamicModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { createRedisProvider } from './redis.provider';
+import { createRedisProvider } from './redis.provider.js';
 
 @Module({})
 export class SharedRedisModule {

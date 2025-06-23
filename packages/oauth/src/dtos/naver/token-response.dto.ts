@@ -3,9 +3,9 @@ import {
   IsValidNaverRefreshToken,
   IsValidNaverTokenType,
   IsValidNaverExpiresIn,
-} from '../../decorators';
-import type { NaverTokenType } from '../../enum';
-import type { NaverTokenResponse } from '../../interfaces';
+} from '../../decorators/index.js';
+import type { NaverTokenType } from '../../enum/index.js';
+import type { NaverTokenResponse } from '../../interfaces/index.js';
 
 export class NaverTokenResponseDto implements NaverTokenResponse {
   @IsValidNaverAccessToken()

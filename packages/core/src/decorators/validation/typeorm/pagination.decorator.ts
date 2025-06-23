@@ -4,8 +4,8 @@ import type {
   IsValidOptions,
   IsValidAllowedOptions,
   ExposeAllowedOptions,
-} from '../../../interfaces';
-import { SORT_ORDER_TYPE_VALUES } from '../../../enum';
+} from '../../../interfaces/index.js';
+import { SORT_ORDER_TYPE_VALUES } from '../../../enum/index.js';
 import { Expose, Transform } from 'class-transformer';
 import { IsNotEmpty, IsOptional, Min, IsInt, IsIn, IsString } from 'class-validator';
 

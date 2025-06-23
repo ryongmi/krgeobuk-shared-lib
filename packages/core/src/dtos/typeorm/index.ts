@@ -1,3 +1,3 @@
-export * from './id.dto';
-export * from './pagination.dto';
-export * from './timestamp.dto';
+export * from './id.dto.js';
+export * from './pagination.dto.js';
+export * from './timestamp.dto.js';

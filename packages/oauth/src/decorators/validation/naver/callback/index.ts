@@ -1,2 +1,2 @@
-export * from './code.decorator';
-export * from './state.decorator';
+export * from './code.decorator.js';
+export * from './state.decorator.js';

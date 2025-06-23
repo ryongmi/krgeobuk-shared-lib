@@ -1,8 +1,8 @@
 import { SetMetadata, UseInterceptors } from '@nestjs/common';
 
-import { SERIALIZE_META_KEY } from '../../constants';
-import { SerializerInterceptor } from '../../interceptors';
-import { SerializeOptions } from '../../interfaces';
+import { SERIALIZE_META_KEY } from '../../constants/index.js';
+import { SerializerInterceptor } from '../../interceptors/index.js';
+import { SerializeOptions } from '../../interfaces/index.js';
 
 export function Serialize(options: SerializeOptions): MethodDecorator {
   // return function (target: object, key: string | symbol, descriptor: PropertyDescriptor) {

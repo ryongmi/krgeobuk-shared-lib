@@ -1,10 +1,10 @@
 import { ConfigService } from '@nestjs/config';
 import Redis, { type RedisOptions } from 'ioredis';
-import { type Provider } from '@nestjs/common';
+import type { Provider } from '@nestjs/common';
 
 export const createRedisProvider = (token = 'REDIS_CLIENT'): Provider => ({
   provide: token,
-  useFactory: async (configService: ConfigService): Promise<Redis> => {
+  useFactory: async (configService: ConfigService): Promise<Redis.default> => {
     const options: RedisOptions = {
       host: configService.get<string>('db-redis.host'),
       port: configService.get<number>('db-redis.port') ?? 6379,
@@ -16,7 +16,7 @@ export const createRedisProvider = (token = 'REDIS_CLIENT'): Provider => ({
       connectTimeout: 10000,
     };
 
-    const client = new Redis(options);
+    const client = new Redis.default(options);
 
     client.on('connect', () => {
       console.log('Redis client connected');

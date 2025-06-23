@@ -1,2 +1,2 @@
-export * from './google';
-export * from './naver';
+export * from './google/index.js';
+export * from './naver/index.js';

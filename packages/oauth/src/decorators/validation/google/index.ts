@@ -1,3 +1,3 @@
-export * from './callback';
-export * from './token';
-export * from './user-profile';
+export * from './callback/index.js';
+export * from './token/index.js';
+export * from './user-profile/index.js';

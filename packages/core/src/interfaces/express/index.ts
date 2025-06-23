@@ -1,4 +1,4 @@
-import type { UserPayload, JwtPayload } from './payload.interface';
+import type { UserPayload, JwtPayload } from './payload.interface.js';
 
 declare module 'express' {
   export interface Request {

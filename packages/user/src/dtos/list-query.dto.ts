@@ -2,8 +2,8 @@ import { PaginateBaseDto } from '@krgeobuk/core/dtos';
 import { IsValidProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
-import { IsValidEmail, IsValidNickname, IsValidUsername } from '../decorators';
-import type { ListQuery } from '../interfaces';
+import { IsValidEmail, IsValidNickname, IsValidUsername } from '../decorators/index.js';
+import type { ListQuery } from '../interfaces/index.js';
 
 export class ListQueryDto extends PaginateBaseDto implements ListQuery {
   @IsValidEmail({ isOptional: true })

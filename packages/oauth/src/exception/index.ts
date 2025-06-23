@@ -1,1 +1,1 @@
-export * from './oauth.exception';
+export * from './oauth.exception.js';

@@ -4,8 +4,8 @@ import { Injectable, CanActivate, ExecutionContext, Inject } from '@nestjs/commo
 import { Reflector } from '@nestjs/core';
 import { Request } from 'express';
 
-import { JwtException } from '../exception';
-import { decodeAccessToken } from '../utils';
+import { JwtException } from '../exception/index.js';
+import { decodeAccessToken } from '../utils/index.js';
 
 @Injectable()
 export class AccessTokenGuard implements CanActivate {

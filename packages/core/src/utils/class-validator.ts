@@ -1,7 +1,7 @@
 import { plainToInstance } from 'class-transformer';
 import { validateOrReject } from 'class-validator';
 
-import { TransformValidateOptions } from '../interfaces';
+import { TransformValidateOptions } from '../interfaces/index.js';
 
 export async function transformAndValidate<T extends object>(
   option: TransformValidateOptions<T>
