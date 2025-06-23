@@ -15,8 +15,9 @@
   "exports": {
     ".": "./dist/index.js",
     "./decorators": "./dist/decorators/index.js",
-    "./interfaces": "./dist/interfaces/index.js",
-    "./dtos": "./dist/dtos/index.js"
+    "./dtos": "./dist/dtos/index.js",
+    "./exception": "./dist/exception/index.js",
+    "./interfaces": "./dist/interfaces/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -27,17 +28,23 @@
       "decorators/*": [
         "dist/decorators/*"
       ],
-      "interfaces": [
-        "dist/interfaces/index.d.ts"
-      ],
-      "interfaces/*": [
-        "dist/interfaces/*"
-      ],
       "dtos": [
         "dist/dtos/index.d.ts"
       ],
       "dtos/*": [
         "dist/dtos/*"
+      ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
+      ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
       ]
     }
   },
