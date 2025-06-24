@@ -10,7 +10,7 @@ import {
 import { Reflector } from '@nestjs/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { plainToClass } from 'class-transformer';
+import { plainToInstance } from 'class-transformer';
 import { Request } from 'express';
 
 import { SERIALIZE_META_KEY } from '../constants/index.js';
@@ -31,7 +31,7 @@ export class SerializerInterceptor implements NestInterceptor {
       map((data: object | null) => {
         const transformed =
           options.dto !== undefined
-            ? plainToClass(options.dto, data, {
+            ? plainToInstance(options.dto, data, {
                 excludeExtraneousValues: true,
               })
             : data;
