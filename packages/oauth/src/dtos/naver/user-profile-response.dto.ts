@@ -56,4 +56,5 @@ export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
 //     "birthday": "10-01",
 //     "birthyear": "1900",
 //     "mobile": "010-0000-0000"
+//     "mobile_e164" = "+821012340000"
 //   }
