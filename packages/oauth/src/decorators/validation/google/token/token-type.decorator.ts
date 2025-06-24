@@ -21,7 +21,7 @@ export function IsValidGoogleTokenType(options: IsValidAllowedOptions = {}): Pro
     IsIn(allowedTokenTypes, {
       message: `Google OAuth Token Type는 다음 값 중 하나여야 합니다: ${allowedTokenTypes.join(', ')}`,
     }),
-    Expose({ name: 'tokenType' }),
+    Expose({ name: 'token_type' }),
   ];
   const optionality = isOptional
     ? IsOptional()
@@ -38,5 +38,5 @@ export function ExposeGoogleTokenType(options: ExposeAllowedOptions = {}): Prope
     description: `Google OAuth Token Type. 허용값: ${allowedTokenTypes.join(', ')}`,
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'token_type' }));
 }

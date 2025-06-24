@@ -27,5 +27,5 @@ export function ExposeIsLogin(): PropertyDecorator {
     type: Boolean,
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'is_login' }));
 }

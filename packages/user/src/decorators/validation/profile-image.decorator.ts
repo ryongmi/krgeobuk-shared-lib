@@ -22,6 +22,7 @@ export function IsValidProfileImage(options: IsValidOptions = {}): PropertyDecor
       { message: 'Profile image must be a valid HTTPS URL' }
     ),
     MaxLength(2048, { message: 'Profile image URL is too long' }), // URL 길이 제한,
+    Expose({ name: 'profile_image' }),
   ];
   const optionality = isOptional
     ? IsOptional()
@@ -37,5 +38,5 @@ export function ExposeProfileImage(): PropertyDecorator {
     description: '프로필 이미지 URL',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'profile_image' }));
 }

@@ -15,7 +15,7 @@ export function IsValidGoogleTokenId(options: IsValidOptions = {}): PropertyDeco
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'idToken' })];
+  const validators = [IsString(), Expose({ name: 'id_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Token ID는 필수입니다' });
@@ -29,5 +29,5 @@ export function ExposeGoogleTokenId(): PropertyDecorator {
     description: 'Google OAuth Token ID',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'id_token' }));
 }

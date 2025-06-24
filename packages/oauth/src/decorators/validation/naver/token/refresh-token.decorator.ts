@@ -15,7 +15,7 @@ export function IsValidNaverRefreshToken(options: IsValidOptions = {}): Property
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'refreshToken' })];
+  const validators = [IsString(), Expose({ name: 'refresh_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth Refresh Token은 필수입니다' });
@@ -29,5 +29,5 @@ export function ExposeNaverRefreshToken(): PropertyDecorator {
     description: 'Naver OAuth Refresh Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'refresh_token' }));
 }

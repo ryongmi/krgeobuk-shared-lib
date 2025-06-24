@@ -15,7 +15,7 @@ export function IsValidGoogleAccessToken(options: IsValidOptions = {}): Property
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'accessToken' })];
+  const validators = [IsString(), Expose({ name: 'access_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Access Token은 필수입니다' });
@@ -29,5 +29,5 @@ export function ExposeGoogleAccessToken(): PropertyDecorator {
     description: 'Google OAuth Access Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'access_token' }));
 }

@@ -21,7 +21,7 @@ export function IsValidNaverProfileImage(options: IsValidOptions = {}): Property
       { message: 'Profile image must be a valid HTTPS URL' }
     ),
     MaxLength(2048, { message: 'Profile image URL is too long' }), // URL 길이 제한,
-    Expose({ name: 'profileImage' }),
+    Expose({ name: 'profile_image' }),
   ];
   const optionality = isOptional
     ? IsOptional()
@@ -36,5 +36,5 @@ export function ExposeNaverProfileImage(): PropertyDecorator {
     description: 'Naver OAuth User ProfileImage URL',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'profile_image' }));
 }

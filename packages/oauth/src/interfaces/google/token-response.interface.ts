@@ -6,7 +6,7 @@ export interface GoogleTokenResponse {
   scope: string;
   tokenType: GoogleTokenType;
   refreshToken?: string;
-  // idToken: string;
+  idToken?: string;
 }
 
 //   {
@@ -15,4 +15,5 @@ export interface GoogleTokenResponse {
 //   "refresh_token": "REFRESH_TOKEN",
 //   "scope": "profile email",
 //   "token_type": "Bearer"
+//   "id_token": 'eyJhbGciOiJSUzI1NiIsImtpZC...'
 // }

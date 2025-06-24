@@ -92,7 +92,7 @@ export function ExposeSortOrder(options: ExposeAllowedOptions = {}): PropertyDec
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'sort_order' }));
 }
 
 // SortBy 유효성 검사
@@ -104,7 +104,7 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
     description: '전체조회시 정렬기준',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsString()];
+  const validators = [IsString(), Expose({ name: 'sort-by' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortBy는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
@@ -116,5 +116,5 @@ export function ExposeSortBy(): PropertyDecorator {
     description: '전체조회시 정렬기준',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'sort_by' }));
 }

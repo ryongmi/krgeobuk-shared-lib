@@ -12,7 +12,7 @@ export function IsValidGoogleGivenName(options: IsValidOptions = {}): PropertyDe
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'givenName' })];
+  const validators = [IsString(), Expose({ name: 'given_name' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Given Name은 필수입니다' });
@@ -23,5 +23,5 @@ export function IsValidGoogleGivenName(options: IsValidOptions = {}): PropertyDe
 export function ExposeGoogleGivenName(): PropertyDecorator {
   const propertyData = { example: 'Aaron', description: 'Google OAuth Given Name' };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'given_name' }));
 }

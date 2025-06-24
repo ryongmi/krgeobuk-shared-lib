@@ -12,7 +12,7 @@ export function IsValidGoogleFamilyName(options: IsValidOptions = {}): PropertyD
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'familyName' })];
+  const validators = [IsString(), Expose({ name: 'family_name' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Family Name은 필수입니다' });
@@ -23,5 +23,5 @@ export function IsValidGoogleFamilyName(options: IsValidOptions = {}): PropertyD
 export function ExposeGoogleFamilyName(): PropertyDecorator {
   const propertyData = { example: 'Parecki', description: 'Google OAuth Family Name' };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'family_name' }));
 }

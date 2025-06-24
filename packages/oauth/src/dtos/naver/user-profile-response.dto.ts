@@ -46,8 +46,14 @@ export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
 }
 
 // {
-//     "access_token":"AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg",
-//     "refresh_token":"c8ceMEJisO4Se7uGisHoX0f5JEii7JnipglQipkOn5Zp3tyP7dHQoP0zNKHUq2gY",
-//     "token_type":"bearer",
-//     "expires_in":"3600"
-// }
+//     "email": "openapi@naver.com",
+//     "nickname": "OpenAPI",
+//     "profile_image": "https://ssl.pstatic.net/static/pwe/address/nodata_33x33.gif",
+//     "age": "40-49",
+//     "gender": "F",
+//     "id": "32742776",
+//     "name": "오픈 API",
+//     "birthday": "10-01",
+//     "birthyear": "1900",
+//     "mobile": "010-0000-0000"
+//   }

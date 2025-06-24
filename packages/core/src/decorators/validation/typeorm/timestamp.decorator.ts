@@ -10,7 +10,7 @@ export function IsValidCreatedAt(options: IsValidOptions = {}): PropertyDecorato
 
   const propertyData = { type: String, format: 'date-time', description: '생성된 날짜' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate()];
+  const validators = [IsDate(), Expose({ name: 'created_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'CreatedAt는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
@@ -19,7 +19,7 @@ export function IsValidCreatedAt(options: IsValidOptions = {}): PropertyDecorato
 export function ExposeCreatedAt(): PropertyDecorator {
   const propertyData = { type: String, format: 'date-time', description: '생성된 날짜' };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'created_at' }));
 }
 
 // updatedAt 유효성 검사
@@ -28,7 +28,7 @@ export function IsValidUpdatedAt(options: IsValidOptions = {}): PropertyDecorato
 
   const propertyData = { type: String, format: 'date-time', description: '수정된 날짜' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate()];
+  const validators = [IsDate(), Expose({ name: 'updated_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'UpdatedAt는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
@@ -37,7 +37,7 @@ export function IsValidUpdatedAt(options: IsValidOptions = {}): PropertyDecorato
 export function ExposeUpdatedAt(): PropertyDecorator {
   const propertyData = { type: String, format: 'date-time', description: '수정된 날짜' };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'updated_at' }));
 }
 
 // deletedAt 유효성 검사
@@ -51,7 +51,7 @@ export function IsValidDeletedAt(options: IsValidOptions = {}): PropertyDecorato
     description: '삭제된 날짜',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate()];
+  const validators = [IsDate(), Expose({ name: 'deleted_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'DeletedAt는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators);
@@ -65,5 +65,5 @@ export function ExposeDeletedAt(): PropertyDecorator {
     description: '삭제된 날짜',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'deleted_at' }));
 }

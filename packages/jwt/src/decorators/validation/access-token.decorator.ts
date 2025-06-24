@@ -15,7 +15,7 @@ export function IsValidAccessToken(options: IsValidOptions = {}): PropertyDecora
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'accessToken' })];
+  const validators = [IsString(), Expose({ name: 'access_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Access Token은 필수입니다' });
@@ -29,5 +29,5 @@ export function ExposeAccessToken(): PropertyDecorator {
     description: 'Access Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'access_token' }));
 }

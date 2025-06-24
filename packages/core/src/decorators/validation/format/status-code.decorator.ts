@@ -21,5 +21,5 @@ export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorat
 export function ExposeStatusCode(): PropertyDecorator {
   const propertyData = { example: 0, description: '해당 HTTP 코드', type: Number };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'status_code' }));
 }

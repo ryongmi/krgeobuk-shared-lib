@@ -15,7 +15,11 @@ export function IsValidProviderId(options: IsValidOptions = {}): PropertyDecorat
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), MaxLength(255, { message: 'Provider ID는 최대 255자 입니다' })];
+  const validators = [
+    IsString(),
+    MaxLength(255, { message: 'Provider ID는 최대 255자 입니다' }),
+    Expose({ name: 'provider_id' }),
+  ];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Provider ID는 필수입니다' });
@@ -29,5 +33,5 @@ export function ExposeProviderId(): PropertyDecorator {
     description: 'Oauth 제공자 고유 ID',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'provider_id' }));
 }

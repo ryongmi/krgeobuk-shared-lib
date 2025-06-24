@@ -4,6 +4,7 @@ import {
   IsValidGoogleTokenType,
   IsValidGoogleExpiresIn,
   IsValidGoogleScope,
+  IsValidGoogleTokenId,
 } from '../../decorators/index.js';
 import type { GoogleTokenType } from '../../enum/index.js';
 import type { GoogleTokenResponse } from '../../interfaces/index.js';
@@ -20,6 +21,9 @@ export class GoogleTokenResponseDto implements GoogleTokenResponse {
 
   @IsValidGoogleScope()
   scope!: string;
+
+  @IsValidGoogleTokenId()
+  idToken?: string;
 
   @IsValidGoogleRefreshToken({ isOptional: true })
   refreshToken?: string;

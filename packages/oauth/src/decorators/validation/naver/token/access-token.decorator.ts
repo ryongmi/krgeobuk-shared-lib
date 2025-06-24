@@ -15,7 +15,7 @@ export function IsValidNaverAccessToken(options: IsValidOptions = {}): PropertyD
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'accessToken' })];
+  const validators = [IsString(), Expose({ name: 'access_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth Access Token은 필수입니다' });
@@ -29,5 +29,5 @@ export function ExposeNaverAccessToken(): PropertyDecorator {
     description: 'Naver OAuth Access Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'access_token' }));
 }
