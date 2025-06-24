@@ -6,6 +6,8 @@ import {
   ObjectLiteral,
   DataSource,
   EntityManager,
+  UpdateResult,
+  InsertResult,
 } from 'typeorm';
 
 import type { PaginateWithFilterOptions, PaginatedResult } from '../interfaces/index.js';
@@ -21,7 +23,8 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
   }
 
   protected getRepo(manager?: EntityManager): Repository<T> | this {
-    if (manager) return manager.getRepository(this.constructor as EntityTarget<T>);
+    // if (manager) return manager.getRepository(this.constructor as EntityTarget<T>);
+    if (manager) return manager.getRepository(this.metadata.target);
 
     return this;
   }
@@ -30,6 +33,18 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
     const repo = this.getRepo(manager);
 
     return repo.save(entity);
+  }
+
+  async insertEntity(entity: T, manager?: EntityManager): Promise<InsertResult> {
+    const repo = this.getRepo(manager);
+
+    return repo.insert(entity);
+  }
+
+  async updateEntity(entity: T, manager?: EntityManager): Promise<UpdateResult> {
+    const repo = this.getRepo(manager);
+
+    return repo.update(entity['id'], entity);
   }
 
   /**
@@ -72,7 +87,7 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
     const entity = await this.findOneById(id);
 
     if (!entity) {
-      throw new NotFoundException(`${this.metadata.name} with ID ${id} not found`);
+      throw new NotFoundException(`${this.metadata.tableName} with ID ${id} not found`);
     }
 
     return entity;
@@ -124,9 +139,17 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
 
   async softDeleteById(id: T['id']): Promise<void> {
     await this.softDelete(id);
+    // const result = await this.softDelete(id);
+    // if (result.affected === 0) {
+    //   throw new NotFoundException(`${this.metadata.name} with ID ${id} not found`);
+    // }
   }
 
   async restoreById(id: T['id']): Promise<void> {
     await this.restore(id);
+    // const result = await this.restore(id);
+    // if (result.affected === 0) {
+    //   throw new NotFoundException(`${this.metadata.name} with ID ${id} not found`);
+    // }
   }
 }
