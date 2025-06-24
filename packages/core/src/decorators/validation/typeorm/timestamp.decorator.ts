@@ -10,10 +10,11 @@ export function IsValidCreatedAt(options: IsValidOptions = {}): PropertyDecorato
 
   const propertyData = { type: String, format: 'date-time', description: '생성된 날짜' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate(), Expose({ name: 'created_at' })];
+  const validators = [IsDate()];
+  const exposeDators = [Expose({ name: 'created_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'CreatedAt는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeCreatedAt(): PropertyDecorator {
@@ -28,10 +29,11 @@ export function IsValidUpdatedAt(options: IsValidOptions = {}): PropertyDecorato
 
   const propertyData = { type: String, format: 'date-time', description: '수정된 날짜' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate(), Expose({ name: 'updated_at' })];
+  const validators = [IsDate()];
+  const exposeDators = [Expose({ name: 'updated_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'UpdatedAt는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeUpdatedAt(): PropertyDecorator {
@@ -51,10 +53,11 @@ export function IsValidDeletedAt(options: IsValidOptions = {}): PropertyDecorato
     description: '삭제된 날짜',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsDate(), Expose({ name: 'deleted_at' })];
+  const validators = [IsDate()];
+  const exposeDators = [Expose({ name: 'deleted_at' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'DeletedAt는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeDeletedAt(): PropertyDecorator {

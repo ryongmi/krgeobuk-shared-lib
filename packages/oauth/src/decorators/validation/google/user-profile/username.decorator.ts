@@ -17,11 +17,12 @@ export function IsValidGoogleUsername(options: IsValidOptions = {}): PropertyDec
     MinLength(2, { message: 'Google OAuth User Name은 최소 2자 이상이어야 합니다' }),
     Length(2, 30),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth User Name은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleUsername(): PropertyDecorator {

@@ -17,11 +17,12 @@ export function IsValidNested<T>(nestedOptions: IsValidNestedOptions<T> = {}): P
   const propertyData = { type: typeFn, description };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [ValidateNested(), Type(typeFn)];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: message ?? `${description}는 필수입니다` });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNested<T>(nestedOptions: ExposeNestedOptions<T> = {}): PropertyDecorator {

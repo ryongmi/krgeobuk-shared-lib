@@ -21,13 +21,13 @@ export function IsValidNaverTokenType(options: IsValidAllowedOptions = {}): Prop
     IsIn(allowedTokenTypes, {
       message: `Naver OAuth Token Type는 다음 값 중 하나여야 합니다: ${allowedTokenTypes.join(', ')}`,
     }),
-    Expose({ name: 'token_type' }),
   ];
+  const exposeDators = [Expose({ name: 'token_type' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth Token Type는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverTokenType(options: ExposeAllowedOptions = {}): PropertyDecorator {

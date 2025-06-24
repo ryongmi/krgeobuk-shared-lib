@@ -16,9 +16,10 @@ export function IsValidEmail(options: IsValidOptions = {}): PropertyDecorator {
     IsEmail({}, { message: '유효한 이메일 형식이 아닙니다' }), // 이메일 형식 검증
     MaxLength(255, { message: 'Email address is too long' }), // 최대 길이 제한
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '이메일은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeEmail(): PropertyDecorator {

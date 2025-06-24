@@ -15,12 +15,13 @@ export function IsValidGoogleTokenId(options: IsValidOptions = {}): PropertyDeco
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'id_token' })];
+  const validators = [IsString()];
+  const exposeDators = [Expose({ name: 'id_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Token ID는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleTokenId(): PropertyDecorator {

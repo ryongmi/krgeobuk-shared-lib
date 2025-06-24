@@ -12,7 +12,7 @@ export interface GoogleTokenResponse {
 //   {
 //   "access_token": "ACCESS_TOKEN",
 //   "expires_in": 3599,
-//   "refresh_token": "REFRESH_TOKEN",
+//   "refresh_token"?: "REFRESH_TOKEN",
 //   "scope": "profile email",
 //   "token_type": "Bearer"
 //   "id_token": 'eyJhbGciOiJSUzI1NiIsImtpZC...'

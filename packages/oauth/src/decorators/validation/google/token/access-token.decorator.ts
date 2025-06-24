@@ -15,12 +15,13 @@ export function IsValidGoogleAccessToken(options: IsValidOptions = {}): Property
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'access_token' })];
+  const validators = [IsString()];
+  const exposeDators = [Expose({ name: 'access_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Access Token은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleAccessToken(): PropertyDecorator {

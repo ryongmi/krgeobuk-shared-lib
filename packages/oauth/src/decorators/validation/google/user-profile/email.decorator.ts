@@ -20,9 +20,10 @@ export function IsValidGoogleEmail(options: IsValidOptions = {}): PropertyDecora
     // IsGoogleEmail(), // 구글 이메일은 여러 도메인이 있을수 있어서 체크x
     MaxLength(255, { message: 'Email address is too long' }), // 최대 길이 제한
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '이메일은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleEmail(): PropertyDecorator {

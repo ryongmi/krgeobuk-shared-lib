@@ -15,12 +15,13 @@ export function IsValidGoogleRefreshToken(options: IsValidOptions = {}): Propert
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'refresh_token' })];
+  const validators = [IsString()];
+  const exposeDators = [Expose({ name: 'refresh_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Refresh Token은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleRefreshToken(): PropertyDecorator {

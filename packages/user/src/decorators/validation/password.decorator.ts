@@ -18,9 +18,10 @@ export function IsValidPassword(options: IsValidOptions = {}): PropertyDecorator
       message: '비밀번호는 최소 하나의 대문자, 소문자, 숫자나 특수문자를 포함해야 합니다',
     }),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '비밀번호는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposePassword(): PropertyDecorator {

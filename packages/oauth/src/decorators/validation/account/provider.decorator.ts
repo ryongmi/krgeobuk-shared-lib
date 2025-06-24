@@ -23,9 +23,10 @@ export function IsValidProvider(options: IsValidAllowedOptions = {}): PropertyDe
       message: `Provider는 다음 값 중 하나여야 합니다: ${allowedProviders.join(', ')}`,
     }),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Provider는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeProvider(options: ExposeAllowedOptions = {}): PropertyDecorator {

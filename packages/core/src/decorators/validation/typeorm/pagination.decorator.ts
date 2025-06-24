@@ -20,9 +20,10 @@ export function IsValidPage(options: IsValidOptions = {}): PropertyDecorator {
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [Transform(({ value }) => Number(value)), IsInt(), Min(1)];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'page는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposePage(): PropertyDecorator {
@@ -46,9 +47,10 @@ export function IsValidLimit(options: IsValidOptions = {}): PropertyDecorator {
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [Transform(({ value }) => Number(value)), IsInt(), Min(1)];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Limit는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeLimit(): PropertyDecorator {
@@ -70,6 +72,7 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
+  const exposeDators = [Expose({ name: 'sort-order' })]; // sort-order 쿼리 → sortOrder 프로퍼티에 매핑
   const validators = [
     IsIn(allowedSortOrders, {
       message: `SortOrder는 다음 값 중 하나여야 합니다: ${allowedSortOrders.join(', ')}`,
@@ -77,12 +80,7 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
   ];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortOrder는 필수입니다' });
 
-  return applyDecorators(
-    apiDecorator,
-    optionality,
-    Expose({ name: 'sort-order' }), // sort-order 쿼리 → sortOrder 프로퍼티에 매핑
-    ...validators
-  );
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeSortOrder(options: ExposeAllowedOptions = {}): PropertyDecorator {
@@ -104,10 +102,11 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
     description: '전체조회시 정렬기준',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'sort-by' })];
+  const validators = [IsString()];
+  const exposeDators = [Expose({ name: 'sort-by' })];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortBy는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeSortBy(): PropertyDecorator {

@@ -15,12 +15,13 @@ export function IsValidAccessToken(options: IsValidOptions = {}): PropertyDecora
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsString(), Expose({ name: 'access_token' })];
+  const validators = [IsString()];
+  const exposeDators = [Expose({ name: 'access_token' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Access Token은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeAccessToken(): PropertyDecorator {

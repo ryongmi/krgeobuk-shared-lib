@@ -23,11 +23,12 @@ export function IsValidNaverProfileImage(options: IsValidOptions = {}): Property
     MaxLength(2048, { message: 'Profile image URL is too long' }), // URL 길이 제한,
     Expose({ name: 'profile_image' }),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth User ProfileImage URL은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverProfileImage(): PropertyDecorator {

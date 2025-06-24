@@ -15,12 +15,13 @@ export function IsValidGoogleEmailVerified(options: IsValidOptions = {}): Proper
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsBoolean(), Expose({ name: 'email_verified' })];
+  const validators = [IsBoolean()];
+  const exposeDators = [Expose({ name: 'verified_email' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Email Verified는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleEmailVerified(): PropertyDecorator {
@@ -29,5 +30,5 @@ export function ExposeGoogleEmailVerified(): PropertyDecorator {
     description: 'Google OAuth Email Verified',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'email_verified' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'verified_email' }));
 }

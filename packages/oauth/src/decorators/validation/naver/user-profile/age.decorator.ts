@@ -13,9 +13,10 @@ export function IsValidNaverAge(options: IsValidOptions = {}): PropertyDecorator
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsString()];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '나이는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverAge(): PropertyDecorator {

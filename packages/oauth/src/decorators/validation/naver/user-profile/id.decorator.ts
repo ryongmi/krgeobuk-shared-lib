@@ -16,11 +16,12 @@ export function IsValidNaverId(options: IsValidOptions = {}): PropertyDecorator 
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsString()];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth ID는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverId(): PropertyDecorator {

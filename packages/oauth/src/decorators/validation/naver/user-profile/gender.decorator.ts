@@ -22,11 +22,12 @@ export function IsValidNaverGender(options: IsValidAllowedOptions = {}): Propert
       message: `Naver OAuth User Gender는 다음 값 중 하나여야 합니다: ${allowedNaverGenders.join(', ')}`,
     }),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth User Gender는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverGender(options: ExposeAllowedOptions = {}): PropertyDecorator {

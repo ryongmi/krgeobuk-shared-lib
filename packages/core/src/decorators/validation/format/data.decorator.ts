@@ -11,9 +11,10 @@ export function IsValidData(options: IsValidOptions = {}): PropertyDecorator {
   const propertyData = { type: Object };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsObject()];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'Data는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeData(): PropertyDecorator {

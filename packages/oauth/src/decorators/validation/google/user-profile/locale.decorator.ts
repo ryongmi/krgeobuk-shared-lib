@@ -13,11 +13,12 @@ export function IsValidGoogleLocale(options: IsValidOptions = {}): PropertyDecor
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsString()];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Locale은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleLocale(): PropertyDecorator {

@@ -28,3 +28,12 @@ export class GoogleTokenResponseDto implements GoogleTokenResponse {
   @IsValidGoogleRefreshToken({ isOptional: true })
   refreshToken?: string;
 }
+
+//   {
+//   "access_token": "ACCESS_TOKEN",
+//   "expires_in": 3599,
+//   "scope": "profile email",
+//   "id_token": 'eyJhbGciOiJSUzI1NiIsImtpZC...'
+//   "token_type"?: "Bearer"
+//   "refresh_token"?: "REFRESH_TOKEN",
+// }

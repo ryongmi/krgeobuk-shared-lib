@@ -15,17 +15,13 @@ export function IsValidGoogleExpiresIn(options: IsValidOptions = {}): PropertyDe
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [
-    Transform(({ value }) => Number(value)),
-    IsNumber(),
-    Min(1),
-    Expose({ name: 'expires_in' }),
-  ];
+  const validators = [Transform(({ value }) => Number(value)), IsNumber(), Min(1)];
+  const exposeDators = [Expose({ name: 'expires_in' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Google OAuth Token ExpiresIn는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGoogleExpiresIn(): PropertyDecorator {

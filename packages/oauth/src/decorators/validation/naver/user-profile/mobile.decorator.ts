@@ -20,11 +20,12 @@ export function IsValidNaverMobile(options: IsValidOptions = {}): PropertyDecora
       message: '유효한 휴대폰 번호 형식이 아닙니다 (예: 010-1234-5678)',
     }),
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth User Mobile은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeNaverMobile(): PropertyDecorator {

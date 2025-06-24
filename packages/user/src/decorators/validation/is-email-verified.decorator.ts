@@ -15,12 +15,13 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
-  const validators = [IsBoolean(), Expose({ name: 'is_email_verified' })];
+  const validators = [IsBoolean()];
+  const exposeDators = [Expose({ name: 'is_email_verified' })];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '이메일 검증유무는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeEmailVerified(): PropertyDecorator {

@@ -11,9 +11,10 @@ export function IsValidAutoIncrementId(options: IsValidOptions = {}): PropertyDe
   const propertyData = { example: 5, description: 'Auto Increment', type: Number };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsNumber()];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'id는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeAutoIncrementId(): PropertyDecorator {
@@ -29,9 +30,10 @@ export function IsValidUuidId(options: IsValidOptions = {}): PropertyDecorator {
   const propertyData = { example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2', description: 'UUID' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsUUID()];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'id는 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeUuidId(): PropertyDecorator {

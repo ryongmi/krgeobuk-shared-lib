@@ -22,11 +22,12 @@ export function IsValidGooglePicture(options: IsValidOptions = {}): PropertyDeco
     ),
     MaxLength(2048, { message: 'Profile image URL is too long' }), // URL 길이 제한,
   ];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Naver OAuth User Picture URL은 필수입니다' });
 
-  return applyDecorators(apiDecorator, optionality, ...validators);
+  return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
 export function ExposeGooglePicture(): PropertyDecorator {
