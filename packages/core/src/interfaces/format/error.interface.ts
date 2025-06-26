@@ -1,5 +1,6 @@
 export interface ErrorFormat {
+  code: string;
   statusCode: number;
-  error: string;
   message: string;
+  error: string;
 }

@@ -13,6 +13,9 @@ import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
 import { Request } from 'express';
 
+import { CoreCode } from '../codes/index.js';
+import { CoreMessage } from '../messages/index.js';
+
 import { SERIALIZE_META_KEY } from '../constants/index.js';
 import type { SerializeOptions } from '../interfaces/index.js';
 
@@ -37,8 +40,9 @@ export class SerializerInterceptor implements NestInterceptor {
             : data;
 
         return {
+          code: options?.code || CoreCode.REQUEST_SUCCESS,
           statusCode: statusCode || HttpStatus.OK,
-          message: options?.message || '요청이 성공적으로 처리되었습니다.',
+          message: options?.message || CoreMessage.REQUEST_SUCCESS,
           isLogin: Boolean(req?.user),
           // Boolean(req.cookies['refreshToken']) ||
           // 'accessToken' in transformed,
