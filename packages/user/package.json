@@ -17,7 +17,8 @@
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./exception": "./dist/exception/index.js",
-    "./interfaces": "./dist/interfaces/index.js"
+    "./interfaces": "./dist/interfaces/index.js",
+    "./response": "./dist/response/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -45,6 +46,12 @@
       ],
       "interfaces/*": [
         "dist/interfaces/*"
+      ],
+      "response": [
+        "dist/response/index.d.ts"
+      ],
+      "response/*": [
+        "dist/response/*"
       ]
     }
   },
