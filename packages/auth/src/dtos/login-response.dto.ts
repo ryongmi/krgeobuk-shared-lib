@@ -3,7 +3,7 @@ import { ExposeNested } from '@krgeobuk/core/decorators';
 import { LoggedInUserDto } from '@krgeobuk/user/dtos';
 import type { LoginResponse } from '../interfaces/index.js';
 
-export class LoginResponseDto implements LoginResponse<LoggedInUserDto> {
+export class LoginResponseDto implements LoginResponse {
   @ExposeAccessToken()
   accessToken!: string;
 
