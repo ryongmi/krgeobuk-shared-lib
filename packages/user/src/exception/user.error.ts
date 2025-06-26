@@ -81,6 +81,6 @@ export class UserError {
   static readonly EMAIL_ALREADY_EXISTS = {
     code: UserCode.EMAIL_ALREADY_EXISTS,
     message: UserMessage.EMAIL_ALREADY_EXISTS,
-    statusCode: 403,
+    statusCode: 409,
   };
 }
