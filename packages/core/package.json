@@ -18,11 +18,13 @@
     "./dtos": "./dist/dtos/index.js",
     "./entities": "./dist/entities/index.js",
     "./enum": "./dist/enum/index.js",
+    "./exception": "./dist/exception/index.js",
     "./filters": "./dist/filters/index.js",
     "./interceptors": "./dist/interceptors/index.js",
     "./interfaces": "./dist/interfaces/index.js",
     "./interfaces/express": "./dist/interfaces/express/index.js",
     "./repositories": "./dist/repositories/index.js",
+    "./response": "./dist/response/index.js",
     "./utils": "./dist/utils/index.js"
   },
   "types": "dist/index.d.ts",
@@ -52,6 +54,12 @@
       "enum/*": [
         "dist/enum/*"
       ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
+      ],
       "filters": [
         "dist/filters/index.d.ts"
       ],
@@ -78,6 +86,12 @@
       ],
       "repositories/*": [
         "dist/repositories/*"
+      ],
+      "response": [
+        "dist/response/index.d.ts"
+      ],
+      "response/*": [
+        "dist/response/*"
       ],
       "utils": [
         "dist/utils/index.d.ts"
