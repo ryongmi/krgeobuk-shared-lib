@@ -3,9 +3,9 @@ import { IsValidProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
 import { IsValidEmail, IsValidNickname, IsValidUsername } from '../decorators/index.js';
-import type { ListQuery } from '../interfaces/index.js';
+import type { SearchQuery } from '../interfaces/index.js';
 
-export class ListQueryDto extends PaginateBaseDto implements ListQuery {
+export class SearchQueryDto extends PaginateBaseDto implements SearchQuery {
   @IsValidEmail({ isOptional: true })
   email?: string;
 
