@@ -1,21 +1,20 @@
-import type { ErrorFormat } from '../../interfaces/index.js';
 import {
-  ExposeCode,
+  ExposeErrorCode,
   ExposeStatusCode,
   ExposeError,
-  ExposeMessage,
+  ExposeErrorMessage,
 } from '../../decorators/validation/index.js';
-
 import { CoreError } from '../../exception/index.js';
+import type { ErrorFormat } from '../../interfaces/index.js';
 
 export class ErrorFormatDto implements ErrorFormat {
-  @ExposeCode()
+  @ExposeErrorCode()
   code: string = CoreError.SERVER_ERROR.code;
 
   @ExposeStatusCode()
   statusCode: number = CoreError.SERVER_ERROR.statusCode;
 
-  @ExposeMessage()
+  @ExposeErrorMessage()
   message: string = CoreError.SERVER_ERROR.message;
 
   @ExposeError()

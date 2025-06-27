@@ -1,22 +1,21 @@
-import type { ResponseFormat } from '../../interfaces/index.js';
 import {
-  ExposeCode,
+  ExposeSuccessCode,
   ExposeStatusCode,
   ExposeIsLogin,
-  ExposeMessage,
+  ExposeSuccessMessage,
   ExposeData,
 } from '../../decorators/validation/index.js';
-
 import { CoreResponse } from '../../response/index.js';
+import type { ResponseFormat } from '../../interfaces/index.js';
 
 export class ResponseFormatDto<T> implements ResponseFormat<T> {
-  @ExposeCode()
+  @ExposeSuccessCode()
   code: string = CoreResponse.REQUEST_SUCCESS.code;
 
   @ExposeStatusCode()
   statusCode: number = CoreResponse.REQUEST_SUCCESS.statusCode;
 
-  @ExposeMessage()
+  @ExposeSuccessMessage()
   message: string = CoreResponse.REQUEST_SUCCESS.message;
 
   @ExposeIsLogin()
