@@ -1,4 +1,3 @@
-import { OptionalUuidIdDto } from '@krgeobuk/core/dtos';
 import {
   IsValidEmail,
   IsValidNickname,
@@ -8,7 +7,7 @@ import {
 } from '@krgeobuk/user/decorators';
 import type { SignupRequest } from '../interfaces/index.js';
 
-export class SignupRequestDto extends OptionalUuidIdDto implements SignupRequest {
+export class SignupRequestDto implements SignupRequest {
   @IsValidEmail()
   email!: string;
 
