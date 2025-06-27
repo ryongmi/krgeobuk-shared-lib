@@ -6,4 +6,7 @@ export interface Detail {
   nickname: string | null;
   profileImageUrl: string | null;
   provider: ProviderType;
+  isIntegrated: boolean;
+  isEmailVerified: boolean;
+  createdAt: Date;
 }
