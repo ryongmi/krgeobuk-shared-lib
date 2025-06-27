@@ -5,7 +5,7 @@ export interface SearchResult {
   email: string;
   name: string;
   nickname: string | null;
-  profileImage: string | null;
+  profileImageUrl: string | null;
   provider: ProviderType;
   isIntegrated: boolean;
   isEmailVerified: boolean;

@@ -7,7 +7,7 @@ import {
   ExposeEmailVerified,
   ExposeIsIntegrated,
   ExposeNickname,
-  ExposeProfileImage,
+  ExposeProfileImageUrl,
   ExposeUsername,
 } from '../decorators/index.js';
 import type { Detail } from '../interfaces/index.js';
@@ -22,8 +22,8 @@ export class DetailDto implements Detail {
   @ExposeNickname()
   nickname!: string | null;
 
-  @ExposeProfileImage()
-  profileImage!: string | null;
+  @ExposeProfileImageUrl()
+  profileImageUrl!: string | null;
 
   @ExposeProvider()
   provider!: ProviderType;

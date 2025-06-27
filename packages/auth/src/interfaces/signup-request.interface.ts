@@ -3,5 +3,5 @@ export interface SignupRequest {
   password: string;
   name: string;
   nickname?: string;
-  profileImage?: string;
+  profileImageUrl?: string;
 }

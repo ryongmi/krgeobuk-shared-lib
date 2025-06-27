@@ -12,7 +12,7 @@ import {
   ExposeEmailVerified,
   ExposeIsIntegrated,
   ExposeNickname,
-  ExposeProfileImage,
+  ExposeProfileImageUrl,
   ExposeUsername,
 } from '../decorators/index.js';
 import type { SearchResult } from '../interfaces/index.js';
@@ -30,8 +30,8 @@ export class SearchResultDto implements SearchResult {
   @ExposeNickname()
   nickname!: string | null;
 
-  @ExposeProfileImage()
-  profileImage!: string | null;
+  @ExposeProfileImageUrl()
+  profileImageUrl!: string | null;
 
   @ExposeProvider()
   provider!: ProviderType;

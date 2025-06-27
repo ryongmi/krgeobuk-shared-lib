@@ -3,7 +3,7 @@ import {
   IsValidEmail,
   IsValidNickname,
   IsValidPassword,
-  IsValidProfileImage,
+  IsValidProfileImageUrl,
   IsValidUsername,
 } from '@krgeobuk/user/decorators';
 import type { SignupRequest } from '../interfaces/index.js';
@@ -21,6 +21,6 @@ export class SignupRequestDto extends OptionalUuidIdDto implements SignupRequest
   @IsValidNickname({ isOptional: true })
   nickname?: string;
 
-  @IsValidProfileImage({ isOptional: true })
-  profileImage?: string;
+  @IsValidProfileImageUrl({ isOptional: true })
+  profileImageUrl?: string;
 }

@@ -1,7 +1,7 @@
 import {
   ExposeEmail,
   ExposeNickname,
-  ExposeProfileImage,
+  ExposeProfileImageUrl,
   ExposeUsername,
 } from '../decorators/index.js';
 import type { LoggedInUser } from '../interfaces/index.js';
@@ -16,8 +16,8 @@ export class LoggedInUserDto implements LoggedInUser {
   @ExposeNickname()
   nickname?: string | null;
 
-  @ExposeProfileImage()
-  profileImage?: string | null;
+  @ExposeProfileImageUrl()
+  profileImageUrl?: string | null;
 
   // @Expose()
   // isEmailVerified: IsEmailVerifiedDto;

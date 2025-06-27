@@ -3,7 +3,7 @@ export interface UserPayload {
   email: string;
   name: string;
   nickname?: string | null;
-  profileImage?: string | null;
+  profileImageUrl?: string | null;
   // email: string;
 }
 
