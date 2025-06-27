@@ -16,9 +16,15 @@ export class JwtError {
     statusCode: 500,
   };
 
-  static readonly SECRET_MISSING = {
-    code: JwtCode.SECRET_MISSING,
-    message: JwtMessage.SECRET_MISSING,
+  static readonly PRIVATE_KEY_MISSING = {
+    code: JwtCode.PRIVATE_KEY_MISSING,
+    message: JwtMessage.PRIVATE_KEY_MISSING,
+    statusCode: 500,
+  };
+
+  static readonly PUBLIC_KEY_MISSING = {
+    code: JwtCode.PUBLIC_KEY_MISSING,
+    message: JwtMessage.PUBLIC_KEY_MISSING,
     statusCode: 500,
   };
 

@@ -8,7 +8,8 @@ export const JwtMessage = {
   /** */
 
   CONFIG_MISSING: '토큰 설정값(JWT config)이 누락되었습니다.',
-  SECRET_MISSING: '토큰 시크릿(secret)이 설정되어 있지 않습니다.',
+  PRIVATE_KEY_MISSING: '토큰 개인키(private key)가 설정되어 있지 않습니다.',
+  PUBLIC_KEY_MISSING: '토큰 공개키(public key)가 설정되어 있지 않습니다.',
   EXPIRE_MISSING: '토큰 만료시간(expireIn)이 설정되어 있지 않습니다.',
   SIGN_FAILURE: '토큰 생성(서명)에 실패했습니다.',
   DECRYPTION_FAILED: '토큰 복호화에 실패했습니다.',

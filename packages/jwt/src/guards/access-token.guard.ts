@@ -10,7 +10,7 @@ import { decodeAccessToken } from '../utils/index.js';
 @Injectable()
 export class AccessTokenGuard implements CanActivate {
   constructor(
-    @Inject('JWT_ACCESS_SECRET') private readonly secret: string,
+    @Inject('JWT_ACCESS_PUBLIC_KEY') private readonly publicKey: string,
     private readonly reflector: Reflector // 필요한 경우 Role같은 거 추후 적용용
   ) {}
 
@@ -29,9 +29,12 @@ export class AccessTokenGuard implements CanActivate {
       token = authorization.split(' ')[1];
     }
 
+    // const header = JSON.parse(Buffer.from(token.split('.')[0], 'base64url').toString());
+    // if(header.alg !== 'RS256') throw
+
     try {
       // 2. 토큰 검증
-      const { id, tokenData } = decodeAccessToken({ token, secret: this.secret });
+      const { id, tokenData } = decodeAccessToken({ token, publicKey: this.publicKey });
 
       // 3. 요청에 유저 정보 주입
       request.jwt = { id, tokenData };

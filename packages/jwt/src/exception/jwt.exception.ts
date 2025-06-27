@@ -27,9 +27,18 @@ export class JwtException {
     );
   }
 
-  /** 토큰 시크릿(secret) 미설정 */
-  static secretMissing(type: TokenType): HttpException {
-    const e = JwtError.SECRET_MISSING;
+  /** 토큰 개인키(private key) 미설정 */
+  static privateKeyMissing(type: TokenType): HttpException {
+    const e = JwtError.PRIVATE_KEY_MISSING;
+    return new HttpException(
+      { code: e.code, message: `${this.label(type)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** 토큰 공개키(public key) 미설정 */
+  static publicKeyMissing(type: TokenType): HttpException {
+    const e = JwtError.PUBLIC_KEY_MISSING;
     return new HttpException(
       { code: e.code, message: `${this.label(type)} ${e.message}` },
       e.statusCode

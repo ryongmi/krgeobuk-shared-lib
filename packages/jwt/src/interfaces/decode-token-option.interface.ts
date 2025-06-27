@@ -1,4 +1,4 @@
 export interface DecodeAccessTokenOptions {
   token: string;
-  secret: string;
+  publicKey: string;
 }
