@@ -1,15 +1,12 @@
-import type { ProviderType } from '@krgeobuk/oauth/enum';
+import { OAuthAccount } from '@krgeobuk/oauth/interfaces';
+import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
 
-export interface SearchResult {
-  id: string;
+export interface SearchResult extends OptionalUuidId {
   email: string;
   name: string;
   nickname: string | null;
   profileImageUrl: string | null;
-  provider: ProviderType;
   isIntegrated: boolean;
   isEmailVerified: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-  deletedAt?: Date | null;
+  oauthAccount: OAuthAccount;
 }

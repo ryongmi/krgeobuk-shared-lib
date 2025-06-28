@@ -1,14 +1,7 @@
-import {
-  ExposeUuidId,
-  ExposeCreatedAt,
-  ExposeUpdatedAt,
-  ExposeDeletedAt,
-  ExposeNested,
-} from '@krgeobuk/core/decorators';
+import { ExposeUuidIdDto, PaginateResultBaseDto } from '@krgeobuk/core/dtos';
+import { ExposeNested } from '@krgeobuk/core/decorators';
 import { PaginatedResult } from '@krgeobuk/core/interfaces';
-import { PaginateResultBaseDto } from '@krgeobuk/core/dtos';
-import { ExposeProvider } from '@krgeobuk/oauth/decorators';
-import type { ProviderType } from '@krgeobuk/oauth/enum';
+import { OAuthAccountDto } from '@krgeobuk/oauth/dtos';
 
 import {
   ExposeEmail,
@@ -20,10 +13,7 @@ import {
 } from '../decorators/index.js';
 import type { SearchResult } from '../interfaces/index.js';
 
-export class SearchResultDto implements SearchResult {
-  @ExposeUuidId()
-  id!: string;
-
+export class SearchResultDto extends ExposeUuidIdDto implements SearchResult {
   @ExposeEmail()
   email!: string;
 
@@ -36,23 +26,18 @@ export class SearchResultDto implements SearchResult {
   @ExposeProfileImageUrl()
   profileImageUrl!: string | null;
 
-  @ExposeProvider()
-  provider!: ProviderType;
-
   @ExposeIsIntegrated()
   isIntegrated!: boolean;
 
   @ExposeEmailVerified()
   isEmailVerified!: boolean;
 
-  @ExposeCreatedAt()
-  createdAt!: Date;
-
-  @ExposeUpdatedAt()
-  updatedAt!: Date;
-
-  @ExposeDeletedAt()
-  deletedAt?: Date | null;
+  @ExposeNested({
+    type: OAuthAccountDto,
+    typeFn: () => OAuthAccountDto,
+    description: '해당 User의 OAuth 데이터',
+  })
+  oauthAccount!: OAuthAccountDto;
 }
 
 export class PaginatedSearchResultDto
