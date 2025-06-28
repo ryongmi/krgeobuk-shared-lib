@@ -13,10 +13,13 @@ export interface PaginateWithFilterOptions<T> extends PaginateBaseOptions {
   // 추가 옵션들
 }
 
-export interface PaginatedResult<T> {
-  items: T[];
+export interface PaginatedResultBase {
   total: number;
   page: number;
   limit: number;
   totalPages: number;
+}
+
+export interface PaginatedResult<T> extends PaginatedResultBase {
+  items: T[];
 }
