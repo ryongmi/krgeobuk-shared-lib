@@ -18,6 +18,7 @@ export interface IsValidNestedOptions<T> {
 
 export interface ExposeOptions {
   message?: string;
+  isArray?: boolean;
 }
 
 export interface ExposeAllowedOptions {

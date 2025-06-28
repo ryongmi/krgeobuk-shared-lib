@@ -117,3 +117,22 @@ export function ExposeSortBy(): PropertyDecorator {
 
   return applyDecorators(ApiProperty(propertyData), Expose({ name: 'sort_by' }));
 }
+
+export function ExposeTotal(): PropertyDecorator {
+  const propertyData = {
+    example: 623,
+    description: '전체조회시 데이터 총 개수',
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
+}
+
+export function ExposeTotalPaages(): PropertyDecorator {
+  const propertyData = {
+    example: 100,
+    description: '전체조회시 총 페이지 수',
+    type: Number,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'total_pages' }));
+}

@@ -26,9 +26,9 @@ export function IsValidNested<T>(nestedOptions: IsValidNestedOptions<T> = {}): P
 }
 
 export function ExposeNested<T>(nestedOptions: ExposeNestedOptions<T> = {}): PropertyDecorator {
-  const { typeFn, description = '' } = nestedOptions;
-
-  const propertyData = { type: typeFn, description };
+  const { typeFn, description = '', options = { isArray: false } } = nestedOptions;
+  const { isArray } = options;
+  const propertyData = { type: typeFn, description, isArray };
 
   return applyDecorators(ApiProperty(propertyData), Type(typeFn), Expose());
 }
