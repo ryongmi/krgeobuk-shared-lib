@@ -14,20 +14,20 @@ import type {
   PaginatedResult,
   PaginatedResultBase,
 } from '../../interfaces/index.js';
-import { SortOrderType } from '../../enum/index.js';
+import { LimitType, SortOrderType, SortByBaseType } from '../../enum/index.js';
 
 export abstract class PaginateBaseDto implements PaginateBaseOptions {
   @IsValidPage({ isOptional: true })
-  page?: number;
+  page?: number = 1;
 
   @IsValidLimit({ isOptional: true })
-  limit?: number;
+  limit?: LimitType = LimitType.THIRTY;
 
   @IsValidSortOrder({ isOptional: true })
-  sortOrder?: SortOrderType;
+  sortOrder?: SortOrderType = SortOrderType.DESC;
 
   @IsValidSortBy({ isOptional: true })
-  sortBy?: string;
+  sortBy?: string = SortByBaseType.CREATED_AT;
 
   // @IsOptional()
   // @Transform(({ value }) => value.split(','))
@@ -43,7 +43,7 @@ export abstract class PaginateResultBaseDto implements PaginatedResultBase {
   page!: number;
 
   @ExposeLimit()
-  limit!: number;
+  limit!: LimitType;
 
   @ExposeTotal()
   total!: number;

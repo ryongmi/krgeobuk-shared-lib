@@ -1,8 +1,8 @@
-import { SortOrderType } from '../../enum/index.js';
+import type { LimitType, SortOrderType } from '../../enum/index.js';
 
 export interface PaginateBaseOptions {
   page?: number;
-  limit?: number;
+  limit?: LimitType;
   sortOrder?: SortOrderType;
   sortBy?: string;
   // 추가 옵션들
@@ -14,9 +14,9 @@ export interface PaginateWithFilterOptions<T> extends PaginateBaseOptions {
 }
 
 export interface PaginatedResultBase {
-  total: number;
   page: number;
-  limit: number;
+  limit: LimitType;
+  total: number;
   totalPages: number;
 }
 
