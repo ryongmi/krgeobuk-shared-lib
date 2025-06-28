@@ -6,7 +6,7 @@ import {
   ExposeNested,
 } from '@krgeobuk/core/decorators';
 import { PaginatedResult } from '@krgeobuk/core/interfaces';
-import { PaginateResultDto } from '@krgeobuk/core/dtos';
+import { PaginateResultBaseDto } from '@krgeobuk/core/dtos';
 import { ExposeProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
@@ -56,10 +56,10 @@ export class SearchResultDto implements SearchResult {
 }
 
 export class PaginatedSearchResultDto
-  extends PaginateResultDto
+  extends PaginateResultBaseDto
   implements PaginatedResult<SearchResultDto>
 {
-  @ExposeNested<SearchResultDto>({
+  @ExposeNested({
     type: SearchResultDto,
     typeFn: () => SearchResultDto,
     description: '응답 데이터 목록',

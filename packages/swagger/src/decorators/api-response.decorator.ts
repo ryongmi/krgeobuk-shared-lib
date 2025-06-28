@@ -1,7 +1,10 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiExtraModels, ApiResponse, getSchemaPath } from '@nestjs/swagger';
-import { ResponseFormatDto, ErrorFormatDto } from '@krgeobuk/core/dtos';
-import type { SwaggerApiResponseOptions } from '../interface/index.js';
+import { ResponseFormatDto, PaginateResultDto, ErrorFormatDto } from '@krgeobuk/core/dtos';
+import type {
+  SwaggerApiResponseOptions,
+  SwaggerPaginatedResponseOptions,
+} from '../interface/index.js';
 
 /**
  *
@@ -36,33 +39,42 @@ export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDe
   } else {
     return ApiResponse({ status, description });
   }
-  // if (dto) {
-  //   return applyDecorators(
-  //     ApiExtraModels(dto),
-  //     ApiResponse({
-  //       status,
-  //       description,
-  //       schema: {
-  //         type: 'object',
-  //         properties: {
-  //           statusCode: {
-  //             type: 'number',
-  //             example: status,
-  //             description: '해당 HTTP 코드',
-  //           },
-  //           isLogin: {
-  //             type: 'boolean',
-  //             example: false,
-  //             description: '로그인 유무',
-  //           },
-  //           data: { $ref: getSchemaPath(dto) },
-  //         },
-  //       },
-  //     }),
-  //   );
-  // } else {
-  //   return ApiResponse({ status, description });
-  // }
+};
+
+export const SwaggerApiPaginatedResponse = (
+  param: SwaggerPaginatedResponseOptions
+): MethodDecorator => {
+  const { status, description = '', dto, extraModels = [] } = param;
+
+  return applyDecorators(
+    ApiExtraModels(ResponseFormatDto, PaginateResultDto, dto, ...extraModels),
+    ApiResponse({
+      status,
+      description,
+      schema: {
+        allOf: [
+          { $ref: getSchemaPath(ResponseFormatDto) },
+          {
+            properties: {
+              data: {
+                allOf: [
+                  { $ref: getSchemaPath(PaginateResultDto) },
+                  {
+                    properties: {
+                      items: {
+                        type: 'array',
+                        items: { $ref: getSchemaPath(dto) },
+                      },
+                    },
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      },
+    })
+  );
 };
 
 /**
