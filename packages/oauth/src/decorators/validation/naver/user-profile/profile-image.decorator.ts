@@ -9,6 +9,8 @@ export function IsValidNaverProfileImage(options: IsValidOptions = {}): Property
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'profile_image',
+    type: String,
     example: 'https://ssl.pstatic.net/static/pwe/address/nodata_33x33.gif',
     description: 'Naver OAuth User ProfileImage URL',
   };
@@ -32,9 +34,11 @@ export function IsValidNaverProfileImage(options: IsValidOptions = {}): Property
 
 export function ExposeNaverProfileImage(): PropertyDecorator {
   const propertyData = {
+    name: 'profile_image',
+    type: String,
     example: 'https://ssl.pstatic.net/static/pwe/address/nodata_33x33.gif',
     description: 'Naver OAuth User ProfileImage URL',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'profile_image' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

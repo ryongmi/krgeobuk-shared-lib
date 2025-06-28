@@ -9,6 +9,7 @@ export function IsValidGoogleExpiresIn(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'expires_in',
     example: '3600',
     description: 'Google OAuth Token ExpiresIn',
   };
@@ -26,9 +27,10 @@ export function IsValidGoogleExpiresIn(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeGoogleExpiresIn(): PropertyDecorator {
   const propertyData = {
+    name: 'expires_in',
     example: '3600',
     description: 'Google OAuth Token ExpiresIn',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'expires_in' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

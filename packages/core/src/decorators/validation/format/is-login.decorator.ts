@@ -9,6 +9,7 @@ export function IsValidIsLogin(options: IsValidOptions = {}): PropertyDecorator 
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'is_login',
     example: false,
     description: '로그인 유무',
     type: Boolean,
@@ -23,10 +24,11 @@ export function IsValidIsLogin(options: IsValidOptions = {}): PropertyDecorator 
 
 export function ExposeIsLogin(): PropertyDecorator {
   const propertyData = {
+    name: 'is_login',
     example: false,
     description: '로그인 유무',
     type: Boolean,
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'is_login' }));
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }

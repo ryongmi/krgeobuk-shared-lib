@@ -10,6 +10,8 @@ export function IsValidIsIntegrated(options: IsValidOptions = {}): PropertyDecor
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'is_integrated',
+    type: Boolean,
     example: false,
     description: 'OAuth 통합 여부',
   };
@@ -27,9 +29,11 @@ export function IsValidIsIntegrated(options: IsValidOptions = {}): PropertyDecor
 
 export function ExposeIsIntegrated(): PropertyDecorator {
   const propertyData = {
+    name: 'is_integrated',
+    type: Boolean,
     example: false,
     description: 'OAuth 통합 여부',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'is_integrated' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

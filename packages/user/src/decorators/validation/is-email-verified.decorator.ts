@@ -9,6 +9,8 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'is_email_verified',
+    type: Boolean,
     example: false,
     description: '이메일 검증 여부',
   };
@@ -26,9 +28,11 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeEmailVerified(): PropertyDecorator {
   const propertyData = {
+    name: 'is_email_verified',
+    type: Boolean,
     example: false,
     description: '이메일 검증 여부',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'is_email_verified' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

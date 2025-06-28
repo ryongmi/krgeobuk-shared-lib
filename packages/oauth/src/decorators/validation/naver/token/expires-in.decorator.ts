@@ -9,6 +9,8 @@ export function IsValidNaverExpiresIn(options: IsValidOptions = {}): PropertyDec
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'expires_in',
+    type: String,
     example: '3600',
     description: 'Naver OAuth Token ExpiresIn',
   };
@@ -26,9 +28,11 @@ export function IsValidNaverExpiresIn(options: IsValidOptions = {}): PropertyDec
 
 export function ExposeNaverExpiresIn(): PropertyDecorator {
   const propertyData = {
+    name: 'expires_in',
+    type: String,
     example: '3600',
     description: 'Naver OAuth Token ExpiresIn',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'expires_in' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

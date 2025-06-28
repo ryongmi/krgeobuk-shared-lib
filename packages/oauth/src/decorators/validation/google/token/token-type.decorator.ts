@@ -10,6 +10,7 @@ export function IsValidGoogleTokenType(options: IsValidAllowedOptions = {}): Pro
   const { isOptional = false, allowed: allowedTokenTypes = GOOGLE_TOKEN_TYPE_VALUES } = options;
 
   const propertyData = {
+    name: 'token_type',
     example: allowedTokenTypes[0],
     description: `Google OAuth Token Type. 허용값: ${allowedTokenTypes.join(', ')}`,
   };
@@ -34,9 +35,10 @@ export function ExposeGoogleTokenType(options: ExposeAllowedOptions = {}): Prope
   const { allowed: allowedTokenTypes = GOOGLE_TOKEN_TYPE_VALUES } = options;
 
   const propertyData = {
+    name: 'token_type',
     example: allowedTokenTypes[0],
     description: `Google OAuth Token Type. 허용값: ${allowedTokenTypes.join(', ')}`,
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'token_type' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

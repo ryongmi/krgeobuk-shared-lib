@@ -9,6 +9,8 @@ export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecor
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'refresh_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Refresh Token',
   };
@@ -26,9 +28,11 @@ export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecor
 
 export function ExposeRefreshToken(): PropertyDecorator {
   const propertyData = {
+    name: 'refresh_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Refresh Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'refresh_token' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

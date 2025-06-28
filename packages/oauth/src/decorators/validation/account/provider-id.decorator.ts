@@ -9,6 +9,8 @@ export function IsValidProviderId(options: IsValidOptions = {}): PropertyDecorat
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'provider_id',
+    type: String,
     example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2',
     description: 'Oauth 제공자 고유 ID',
   };
@@ -26,9 +28,11 @@ export function IsValidProviderId(options: IsValidOptions = {}): PropertyDecorat
 
 export function ExposeProviderId(): PropertyDecorator {
   const propertyData = {
+    name: 'provider_id',
+    type: String,
     example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2',
     description: 'Oauth 제공자 고유 ID',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'provider_id' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

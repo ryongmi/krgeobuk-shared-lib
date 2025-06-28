@@ -9,6 +9,8 @@ export function IsValidProfileImageUrl(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'profile_image_Url',
+    type: String,
     example:
       'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',
     description: '프로필 이미지 URL',
@@ -33,10 +35,12 @@ export function IsValidProfileImageUrl(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeProfileImageUrl(): PropertyDecorator {
   const propertyData = {
+    name: 'profile_image_Url',
+    type: String,
     example:
       'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',
     description: '프로필 이미지 URL',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'profile_image_Url' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

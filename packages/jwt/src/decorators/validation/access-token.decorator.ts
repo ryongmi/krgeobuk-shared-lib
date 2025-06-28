@@ -9,6 +9,8 @@ export function IsValidAccessToken(options: IsValidOptions = {}): PropertyDecora
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'access_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Access Token',
   };
@@ -26,9 +28,11 @@ export function IsValidAccessToken(options: IsValidOptions = {}): PropertyDecora
 
 export function ExposeAccessToken(): PropertyDecorator {
   const propertyData = {
+    name: 'access_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Access Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'access_token' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

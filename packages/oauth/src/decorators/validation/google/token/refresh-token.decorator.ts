@@ -9,6 +9,8 @@ export function IsValidGoogleRefreshToken(options: IsValidOptions = {}): Propert
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'refresh_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Google OAuth Refresh Token',
   };
@@ -26,9 +28,11 @@ export function IsValidGoogleRefreshToken(options: IsValidOptions = {}): Propert
 
 export function ExposeGoogleRefreshToken(): PropertyDecorator {
   const propertyData = {
+    name: 'refresh_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Google OAuth Refresh Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'refresh_token' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

@@ -68,6 +68,7 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
   const { isOptional = false, allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
 
   const propertyData = {
+    name: 'sort_order',
     example: allowedSortOrders[0],
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
@@ -86,11 +87,12 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
 export function ExposeSortOrder(options: ExposeAllowedOptions = {}): PropertyDecorator {
   const { allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
   const propertyData = {
+    name: 'sort_order',
     example: allowedSortOrders[0],
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'sort_order' }));
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 // SortBy 유효성 검사
@@ -98,6 +100,7 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'sort-by',
     example: 'createdAt',
     description: '전체조회시 정렬기준',
   };
@@ -111,11 +114,12 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
 
 export function ExposeSortBy(): PropertyDecorator {
   const propertyData = {
+    name: 'sort_by',
     example: 'createdAt',
     description: '전체조회시 정렬기준',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'sort_by' }));
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 export function ExposeTotal(): PropertyDecorator {
@@ -129,12 +133,13 @@ export function ExposeTotal(): PropertyDecorator {
 
 export function ExposeTotalPaages(): PropertyDecorator {
   const propertyData = {
+    name: 'total_pages',
     example: 100,
     description: '전체조회시 총 페이지 수',
     type: Number,
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'total_pages' }));
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
 export function ExposeItems(): PropertyDecorator {

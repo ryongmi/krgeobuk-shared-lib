@@ -10,6 +10,7 @@ export function IsValidNaverTokenType(options: IsValidAllowedOptions = {}): Prop
   const { isOptional = false, allowed: allowedTokenTypes = NAVER_TOKEN_TYPE_VALUES } = options;
 
   const propertyData = {
+    name: 'token_type',
     example: allowedTokenTypes[0],
     description: `Naver OAuth Token Type. 허용값: ${allowedTokenTypes.join(', ')}`,
   };
@@ -34,9 +35,10 @@ export function ExposeNaverTokenType(options: ExposeAllowedOptions = {}): Proper
   const { allowed: allowedTokenTypes = NAVER_TOKEN_TYPE_VALUES } = options;
 
   const propertyData = {
+    name: 'token_type',
     example: allowedTokenTypes[0],
     description: `Naver OAuth Token Type. 허용값: ${allowedTokenTypes.join(', ')}`,
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'token_type' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

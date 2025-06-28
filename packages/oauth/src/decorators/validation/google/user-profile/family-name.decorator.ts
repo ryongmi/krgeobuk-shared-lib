@@ -8,7 +8,12 @@ import { Expose } from 'class-transformer';
 export function IsValidGoogleFamilyName(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
-  const propertyData = { example: 'Parecki', description: 'Google OAuth Family Name' };
+  const propertyData = {
+    name: 'family_name',
+    type: String,
+    example: 'Parecki',
+    description: 'Google OAuth Family Name',
+  };
   const apiDecorator = isOptional
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
@@ -22,7 +27,12 @@ export function IsValidGoogleFamilyName(options: IsValidOptions = {}): PropertyD
 }
 
 export function ExposeGoogleFamilyName(): PropertyDecorator {
-  const propertyData = { example: 'Parecki', description: 'Google OAuth Family Name' };
+  const propertyData = {
+    name: 'family_name',
+    type: String,
+    example: 'Parecki',
+    description: 'Google OAuth Family Name',
+  };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'family_name' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

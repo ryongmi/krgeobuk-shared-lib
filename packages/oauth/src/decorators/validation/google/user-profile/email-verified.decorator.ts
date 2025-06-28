@@ -9,6 +9,8 @@ export function IsValidGoogleEmailVerified(options: IsValidOptions = {}): Proper
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'verified_email',
+    type: Boolean,
     example: true,
     description: 'Google OAuth Email Verified',
   };
@@ -26,9 +28,11 @@ export function IsValidGoogleEmailVerified(options: IsValidOptions = {}): Proper
 
 export function ExposeGoogleEmailVerified(): PropertyDecorator {
   const propertyData = {
+    name: 'verified_email',
+    type: Boolean,
     example: true,
     description: 'Google OAuth Email Verified',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'verified_email' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

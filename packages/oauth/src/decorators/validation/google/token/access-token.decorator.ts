@@ -9,6 +9,8 @@ export function IsValidGoogleAccessToken(options: IsValidOptions = {}): Property
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'access_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Google OAuth Access Token',
   };
@@ -26,9 +28,11 @@ export function IsValidGoogleAccessToken(options: IsValidOptions = {}): Property
 
 export function ExposeGoogleAccessToken(): PropertyDecorator {
   const propertyData = {
+    name: 'access_token',
+    type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Google OAuth Access Token',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'access_token' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }

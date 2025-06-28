@@ -8,7 +8,12 @@ import { IsNotEmpty, IsOptional, IsNumber } from 'class-validator';
 export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
-  const propertyData = { example: 0, description: '해당 HTTP 코드', type: Number };
+  const propertyData = {
+    name: 'status_code',
+    example: 0,
+    description: '해당 HTTP 코드',
+    type: Number,
+  };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsNumber()];
   const exposeDators = [Expose({ name: 'status_code' })];
@@ -20,7 +25,12 @@ export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorat
 }
 
 export function ExposeStatusCode(): PropertyDecorator {
-  const propertyData = { example: 0, description: '해당 HTTP 코드', type: Number };
+  const propertyData = {
+    name: 'status_code',
+    example: 0,
+    description: '해당 HTTP 코드',
+    type: Number,
+  };
 
-  return applyDecorators(ApiProperty(propertyData), Expose({ name: 'status_code' }));
+  return applyDecorators(ApiProperty(propertyData), Expose());
 }

@@ -9,6 +9,8 @@ export function IsValidGoogleTokenId(options: IsValidOptions = {}): PropertyDeco
   const { isOptional = false } = options;
 
   const propertyData = {
+    name: 'id_token',
+    type: String,
     example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2',
     description: 'Google OAuth Token ID',
   };
@@ -26,9 +28,11 @@ export function IsValidGoogleTokenId(options: IsValidOptions = {}): PropertyDeco
 
 export function ExposeGoogleTokenId(): PropertyDecorator {
   const propertyData = {
+    name: 'id_token',
+    type: String,
     example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2',
     description: 'Google OAuth Token ID',
   };
 
-  return applyDecorators(SwaggerApiProperty(propertyData), Expose({ name: 'id_token' }));
+  return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
