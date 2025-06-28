@@ -47,6 +47,7 @@ export function IsValidLimit(options: IsValidAllowedOptions = {}): PropertyDecor
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const exposeDators = [Expose()];
   const validators = [
+    Transform(({ value }) => Number(value)),
     IsIn(allowedLimits, {
       message: `Limit는 다음 값 중 하나여야 합니다: ${allowedLimits.join(', ')}`,
     }),
@@ -76,7 +77,7 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const exposeDators = [Expose({ name: 'sort-order' })];
+  const exposeDators = [Expose({ name: 'sort_order' })];
   const validators = [
     IsIn(allowedSortOrders, {
       message: `SortOrder는 다음 값 중 하나여야 합니다: ${allowedSortOrders.join(', ')}`,
