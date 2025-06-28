@@ -45,6 +45,12 @@ export const SwaggerApiPaginatedResponse = (
   param: SwaggerPaginatedResponseOptions
 ): MethodDecorator => {
   const { status, description = '', dto, extraModels = [] } = param;
+  const itemsDtos = [{ $ref: getSchemaPath(dto) }];
+
+  for (let index = 0; index < extraModels.length; index++) {
+    const dto = extraModels[index];
+    itemsDtos.push({ $ref: getSchemaPath(dto) });
+  }
 
   return applyDecorators(
     ApiExtraModels(ResponseFormatDto, PaginateResultDto, dto, ...extraModels),
@@ -63,7 +69,8 @@ export const SwaggerApiPaginatedResponse = (
                     properties: {
                       items: {
                         type: 'array',
-                        items: { $ref: getSchemaPath(dto) },
+                        oneOf: itemsDtos,
+                        // items: { $ref: getSchemaPath(dto) },
                       },
                     },
                   },
