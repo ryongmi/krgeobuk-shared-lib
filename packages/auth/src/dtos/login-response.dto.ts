@@ -8,6 +8,7 @@ export class LoginResponseDto implements LoginResponse {
   accessToken!: string;
 
   @ExposeNested({
+    type: LoggedInUserDto,
     typeFn: () => LoggedInUserDto,
     description: '로그인 사용자 정보',
   })

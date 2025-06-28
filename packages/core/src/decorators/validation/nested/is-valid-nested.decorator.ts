@@ -11,10 +11,15 @@ import { Expose, Type } from 'class-transformer';
  * @param nestedOptions - optional, message 설정
  */
 export function IsValidNested<T>(nestedOptions: IsValidNestedOptions<T> = {}): PropertyDecorator {
-  const { typeFn, description = '', options = {} } = nestedOptions;
-  const { isOptional = false, message } = options;
+  const { type, typeFn, description = '', options = {} } = nestedOptions;
+  const { isOptional = false, message, isArray = false } = options;
 
-  const propertyData = { type: typeFn, description };
+  const propertyData = {
+    type: isArray ? [type] : type,
+    description,
+    isArray,
+  };
+
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [ValidateNested(), Type(typeFn)];
   const exposeDators = [Expose()];
@@ -26,9 +31,13 @@ export function IsValidNested<T>(nestedOptions: IsValidNestedOptions<T> = {}): P
 }
 
 export function ExposeNested<T>(nestedOptions: ExposeNestedOptions<T> = {}): PropertyDecorator {
-  const { typeFn, description = '', options = { isArray: false } } = nestedOptions;
+  const { type, typeFn, description = '', options = {} } = nestedOptions;
   const { isArray } = options;
-  const propertyData = { type: typeFn, description, isArray };
+  const propertyData = {
+    type: isArray ? [type] : type,
+    description,
+    isArray,
+  };
 
   return applyDecorators(ApiProperty(propertyData), Type(typeFn), Expose());
 }

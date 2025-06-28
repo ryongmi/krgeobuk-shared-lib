@@ -60,6 +60,7 @@ export class PaginatedSearchResultDto
   implements PaginatedResult<SearchResultDto>
 {
   @ExposeNested<SearchResultDto>({
+    type: SearchResultDto,
     typeFn: () => SearchResultDto,
     description: '응답 데이터 목록',
     options: { isArray: true },
