@@ -3,8 +3,10 @@ import {
   ExposeCreatedAt,
   ExposeUpdatedAt,
   ExposeDeletedAt,
+  ExposeNested,
 } from '@krgeobuk/core/decorators';
-import { createPaginatedDto } from '@krgeobuk/core/dtos';
+import { PaginatedResult } from '@krgeobuk/core/interfaces';
+import { PaginateResultDto } from '@krgeobuk/core/dtos';
 import { ExposeProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
@@ -53,4 +55,14 @@ export class SearchResultDto implements SearchResult {
   deletedAt?: Date | null;
 }
 
-export const PaginatedSearchResultDto = createPaginatedDto(SearchResultDto);
+export class PaginatedSearchResultDto
+  extends PaginateResultDto
+  implements PaginatedResult<SearchResultDto>
+{
+  @ExposeNested<SearchResultDto>({
+    typeFn: () => SearchResultDto,
+    description: '응답 데이터 목록',
+    options: { isArray: true },
+  })
+  items!: SearchResultDto[];
+}

@@ -126,7 +126,7 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
 
     // qb.orderBy(orderConditions);
 
-    const [data, total] = await qb
+    const [items, total] = await qb
       .orderBy(`${alias}.${sortBy}`, sortOrder)
       .skip((page - 1) * limit)
       .take(limit)
@@ -134,7 +134,7 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
 
     const totalPages = Math.ceil(total / limit);
 
-    return { data, total, page, limit, totalPages };
+    return { items, total, page, limit, totalPages };
   }
 
   async softDeleteById(id: T['id']): Promise<void> {
