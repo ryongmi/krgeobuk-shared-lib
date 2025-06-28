@@ -11,11 +11,11 @@ import type { SwaggerApiResponseOptions } from '../interface/index.js';
  * @returns
  */
 export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDecorator => {
-  const { status, description: description = '', dto } = param;
+  const { status, description: description = '', dto, extraModels = [] } = param;
 
   if (dto) {
     return applyDecorators(
-      ApiExtraModels(ResponseFormatDto, dto),
+      ApiExtraModels(ResponseFormatDto, dto, ...extraModels),
       ApiResponse({
         status,
         description,
