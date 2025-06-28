@@ -1,7 +1,8 @@
-export enum GoogleTokenType {
-  BEARER = 'Bearer',
-}
+export const GoogleTokenType = {
+  BEARER: 'Bearer',
+} as const;
 
-// 배열이 필요할 때 사용하도록 따로 export
-export const GOOGLE_TOKEN_TYPE_KEYS = Object.keys(GoogleTokenType);
-export const GOOGLE_TOKEN_TYPE_VALUES = Object.values(GoogleTokenType);
+export type GoogleTokenType = (typeof GoogleTokenType)[keyof typeof GoogleTokenType];
+
+export const GOOGLE_TOKEN_TYPE_KEYS = Object.keys(GoogleTokenType) as GoogleTokenType[];
+export const GOOGLE_TOKEN_TYPE_VALUES = Object.values(GoogleTokenType) as GoogleTokenType[];

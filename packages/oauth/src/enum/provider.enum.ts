@@ -1,9 +1,9 @@
-export enum ProviderType {
-  HOMEPAGE = 'homePage',
-  GOOGLE = 'google',
-  NAVER = 'naver',
-  // INTEGRATE = 'integrate',
-}
+export const ProviderType = {
+  HOMEPAGE: 'homePage',
+  GOOGLE: 'google',
+  NAVER: 'naver',
+} as const;
 
-// 배열이 필요할 때 사용하도록 따로 export
-export const PROVIDER_TYPE_VALUES = Object.values(ProviderType);
+export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
+
+export const PROVIDER_TYPE_VALUES = Object.values(ProviderType) as ProviderType[];

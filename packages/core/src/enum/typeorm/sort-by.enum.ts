@@ -1,8 +1,9 @@
-export enum SortByBaseType {
-  CREATED_AT = 'createdAt',
-  UPDATED_AT = 'updatedAt',
-  DELETED_AT = 'deletedAt',
-}
+export const SortByBaseType = {
+  CREATED_AT: 'createdAt',
+  UPDATED_AT: 'updatedAt',
+  DELETED_AT: 'deletedAt',
+} as const;
 
-// 배열이 필요할 때 사용하도록 따로 export
+export type SortByBaseType = (typeof SortByBaseType)[keyof typeof SortByBaseType];
+
 export const SORT_BY_BASE_TYPE_VALUES = Object.values(SortByBaseType);

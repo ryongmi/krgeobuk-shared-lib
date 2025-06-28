@@ -1,18 +1,20 @@
-export enum NaverTokenType {
-  BEARER = 'bearer',
-  MAC = 'mac',
-}
+export const NaverTokenType = {
+  BEARER: 'bearer',
+  MAC: 'mac',
+} as const;
 
-// 배열이 필요할 때 사용하도록 따로 export
-export const NAVER_TOKEN_TYPE_KEYS = Object.keys(NaverTokenType);
-export const NAVER_TOKEN_TYPE_VALUES = Object.values(NaverTokenType);
+export type NaverTokenType = (typeof NaverTokenType)[keyof typeof NaverTokenType];
 
-export enum NaverGenderType {
-  F = '여성',
-  M = '남성',
-  U = '확인불가',
-}
+export const NAVER_TOKEN_TYPE_KEYS = Object.keys(NaverTokenType) as NaverTokenType[];
+export const NAVER_TOKEN_TYPE_VALUES = Object.values(NaverTokenType) as NaverTokenType[];
 
-// 배열이 필요할 때 사용하도록 따로 export
-export const NAVER_GENDER_TYPE_KEYS = Object.keys(NaverGenderType);
-export const NAVER_GENDER_TYPE_VALUES = Object.values(NaverGenderType);
+export const NaverGenderType = {
+  F: '여성',
+  M: '남성',
+  U: '확인불가',
+} as const;
+
+export type NaverGenderType = (typeof NaverGenderType)[keyof typeof NaverGenderType];
+
+export const NAVER_GENDER_TYPE_KEYS = Object.keys(NaverGenderType) as NaverGenderType[];
+export const NAVER_GENDER_TYPE_VALUES = Object.values(NaverGenderType) as NaverGenderType[];

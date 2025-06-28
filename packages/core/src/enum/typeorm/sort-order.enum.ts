@@ -1,7 +1,8 @@
-export enum SortOrderType {
-  ASC = 'ASC',
-  DESC = 'DESC',
-}
+export const SortOrderType = {
+  ASC: 'ASC',
+  DESC: 'DESC',
+} as const;
 
-// 배열이 필요할 때 사용하도록 따로 export
+export type SortOrderType = (typeof SortOrderType)[keyof typeof SortOrderType];
+
 export const SORT_ORDER_TYPE_VALUES = Object.values(SortOrderType);
