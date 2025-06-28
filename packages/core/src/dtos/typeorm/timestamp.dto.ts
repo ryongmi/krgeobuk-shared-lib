@@ -21,11 +21,11 @@ export abstract class TimestampDto implements Timestamp {
 
 export abstract class ExposeTimestampDto implements Timestamp {
   @ExposeCreatedAt()
-  createdAt!: Date;
+  createdAt?: Date;
 
   @ExposeUpdatedAt()
-  updatedAt!: Date;
+  updatedAt?: Date;
 
   @ExposeDeletedAt()
-  deletedAt!: Date | null;
+  deletedAt?: Date | null;
 }

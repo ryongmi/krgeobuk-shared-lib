@@ -17,9 +17,12 @@ export abstract class AutoIncrementIdDto extends TimestampDto implements AutoInc
   id!: number;
 }
 
-export abstract class ExposeAutoIncrementIdDto extends TimestampDto implements AutoIncrementId {
+export abstract class ExposeAutoIncrementIdDto
+  extends TimestampDto
+  implements OptionalAutoIncrementId
+{
   @ExposeAutoIncrementId()
-  id!: number;
+  id?: number;
 }
 
 export abstract class OptionalAutoIncrementIdDto
@@ -35,9 +38,9 @@ export abstract class UuidIdDto extends TimestampDto implements UuidId {
   id!: string;
 }
 
-export abstract class ExposeUuidIdDto extends TimestampDto implements UuidId {
+export abstract class ExposeUuidIdDto extends TimestampDto implements OptionalUuidId {
   @ExposeUuidId()
-  id!: string;
+  id?: string;
 }
 
 export abstract class OptionalUuidIdDto extends TimestampDto implements OptionalUuidId {
