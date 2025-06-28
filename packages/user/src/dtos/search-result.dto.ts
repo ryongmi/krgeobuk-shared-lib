@@ -4,6 +4,7 @@ import {
   ExposeUpdatedAt,
   ExposeDeletedAt,
 } from '@krgeobuk/core/decorators';
+import { createPaginatedDto } from '@krgeobuk/core/dtos';
 import { ExposeProvider } from '@krgeobuk/oauth/decorators';
 import type { ProviderType } from '@krgeobuk/oauth/enum';
 
@@ -51,3 +52,5 @@ export class SearchResultDto implements SearchResult {
   @ExposeDeletedAt()
   deletedAt?: Date | null;
 }
+
+export const PaginatedSearchResultDto = createPaginatedDto(SearchResultDto);
