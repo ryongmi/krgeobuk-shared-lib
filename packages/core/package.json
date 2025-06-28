@@ -23,6 +23,7 @@
     "./interceptors": "./dist/interceptors/index.js",
     "./interfaces": "./dist/interfaces/index.js",
     "./interfaces/express": "./dist/interfaces/express/index.js",
+    "./logger": "./dist/logger/index.js",
     "./repositories": "./dist/repositories/index.js",
     "./response": "./dist/response/index.js",
     "./utils": "./dist/utils/index.js"
@@ -81,6 +82,12 @@
       "interfaces/express": [
         "dist/interfaces/express/index.d.ts"
       ],
+      "logger": [
+        "dist/logger/index.d.ts"
+      ],
+      "logger/*": [
+        "dist/logger/*"
+      ],
       "repositories": [
         "dist/repositories/index.d.ts"
       ],
@@ -112,11 +119,14 @@
     "@nestjs/swagger": "^7.0.0",
     "@types/express": "^5.0.0",
     "@types/node": "^20.19.0",
-    "typescript": "^5.8.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "typescript": "^5.8.3",
+    "nest-winston": "^1.10.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@nestjs/common": "^10.0.0",
@@ -124,10 +134,13 @@
     "@nestjs/swagger": "^7.0.0",
     "@types/express": "^5.0.0",
     "@types/node": "^20.19.0",
-    "typescript": "^5.8.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "rxjs": "^7.8.1",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "typescript": "^5.8.3",
+    "nest-winston": "^1.10.2",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   }
 }
