@@ -1,7 +1,7 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import type { IsValidOptions } from '../../../interfaces/index.js';
-import { Expose } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsDate } from 'class-validator';
 
 // createdAt 유효성 검사
@@ -30,7 +30,11 @@ export function ExposeCreatedAt(): PropertyDecorator {
     description: '생성된 날짜',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(
+    ApiProperty(propertyData),
+    Type(() => Date),
+    Expose()
+  );
 }
 
 // updatedAt 유효성 검사
@@ -59,7 +63,11 @@ export function ExposeUpdatedAt(): PropertyDecorator {
     description: '수정된 날짜',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(
+    ApiProperty(propertyData),
+    Type(() => Date),
+    Expose()
+  );
 }
 
 // deletedAt 유효성 검사
@@ -90,5 +98,9 @@ export function ExposeDeletedAt(): PropertyDecorator {
     description: '삭제된 날짜',
   };
 
-  return applyDecorators(ApiProperty(propertyData), Expose());
+  return applyDecorators(
+    ApiProperty(propertyData),
+    Type(() => Date),
+    Expose()
+  );
 }
