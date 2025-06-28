@@ -20,7 +20,7 @@ export function IsValidData(options: IsValidOptions = {}): PropertyDecorator {
 export function ExposeData(): PropertyDecorator {
   const propertyData = {
     type: Object,
-    // description: 'Oauth 제공자 고유 ID',
+    description: '응답 데이터',
   };
 
   return applyDecorators(ApiProperty(propertyData), Expose());

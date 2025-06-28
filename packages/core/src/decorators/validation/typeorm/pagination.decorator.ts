@@ -136,3 +136,12 @@ export function ExposeTotalPaages(): PropertyDecorator {
 
   return applyDecorators(ApiProperty(propertyData), Expose({ name: 'total_pages' }));
 }
+
+export function ExposeItems(): PropertyDecorator {
+  const propertyData = {
+    type: Array,
+    description: '응답 데이터 목록',
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
+}

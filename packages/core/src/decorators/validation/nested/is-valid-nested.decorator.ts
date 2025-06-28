@@ -32,7 +32,7 @@ export function IsValidNested<T>(nestedOptions: IsValidNestedOptions<T> = {}): P
 
 export function ExposeNested<T>(nestedOptions: ExposeNestedOptions<T> = {}): PropertyDecorator {
   const { type, typeFn, description = '', options = {} } = nestedOptions;
-  const { isArray } = options;
+  const { isArray = false } = options;
   const propertyData = {
     type: isArray ? [type] : type,
     description,
