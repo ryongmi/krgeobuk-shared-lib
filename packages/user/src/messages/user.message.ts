@@ -27,6 +27,7 @@ export const UserMessage = {
   INVALID_UPDATE_PAYLOAD: '수정 요청에 잘못된 데이터가 포함되어 있습니다.',
   UNAUTHORIZED_UPDATE: '해당 유저에 대한 수정 권한이 없습니다.',
   EMAIL_ALREADY_EXISTS: '이미 사용 중인 이메일입니다.',
+  INVALID_CREDENTIALS: '아이디 또는 비밀번호가 일치하지 않습니다.',
 
   /**  =============================================================================
    *

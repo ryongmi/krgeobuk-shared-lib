@@ -83,4 +83,10 @@ export class UserError {
     message: UserMessage.EMAIL_ALREADY_EXISTS,
     statusCode: 409,
   };
+
+  static readonly INVALID_CREDENTIALS = {
+    code: UserCode.INVALID_CREDENTIALS,
+    message: UserMessage.INVALID_CREDENTIALS,
+    statusCode: 401,
+  };
 }

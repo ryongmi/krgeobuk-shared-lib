@@ -82,4 +82,10 @@ export class UserException {
     const e = UserError.EMAIL_ALREADY_EXISTS;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
+
+  /** ID or PW 불일치치 */
+  static invalidCredentials(): HttpException {
+    const e = UserError.INVALID_CREDENTIALS;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
 }
