@@ -1,6 +1,5 @@
-import { ExposeCreatedAt } from '@krgeobuk/core/decorators';
-import { ExposeProvider } from '@krgeobuk/oauth/decorators';
-import type { ProviderType } from '@krgeobuk/oauth/enum';
+import { ExposeNested, ExposeUuidId, ExposeCreatedAt } from '@krgeobuk/core/decorators';
+import { OAuthAccountDto } from '@krgeobuk/oauth/dtos';
 
 import {
   ExposeEmail,
@@ -13,6 +12,9 @@ import {
 import type { Detail } from '../interfaces/index.js';
 
 export class DetailDto implements Detail {
+  @ExposeUuidId()
+  id?: string;
+
   @ExposeEmail()
   email!: string;
 
@@ -25,9 +27,6 @@ export class DetailDto implements Detail {
   @ExposeProfileImageUrl()
   profileImageUrl!: string | null;
 
-  @ExposeProvider()
-  provider!: ProviderType;
-
   @ExposeIsIntegrated()
   isIntegrated!: boolean;
 
@@ -36,4 +35,11 @@ export class DetailDto implements Detail {
 
   @ExposeCreatedAt()
   createdAt!: Date;
+
+  @ExposeNested({
+    type: OAuthAccountDto,
+    typeFn: () => OAuthAccountDto,
+    description: '해당 User의 OAuth 데이터',
+  })
+  oauthAccount!: OAuthAccountDto;
 }

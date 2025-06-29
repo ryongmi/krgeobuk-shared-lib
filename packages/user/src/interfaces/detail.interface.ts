@@ -1,12 +1,13 @@
-import type { ProviderType } from '@krgeobuk/oauth/enum';
+import { OAuthAccount } from '@krgeobuk/oauth/interfaces';
 
 export interface Detail {
+  id?: string;
   email: string;
   name: string;
   nickname: string | null;
   profileImageUrl: string | null;
-  provider: ProviderType;
   isIntegrated: boolean;
   isEmailVerified: boolean;
   createdAt: Date;
+  oauthAccount: OAuthAccount;
 }
