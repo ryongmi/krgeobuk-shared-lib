@@ -1,6 +1,6 @@
 import { OAuthAccount } from '@krgeobuk/oauth/interfaces';
 
-export interface Detail {
+export interface UserDetail {
   id?: string;
   email: string;
   name: string;

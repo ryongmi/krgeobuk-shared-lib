@@ -1,7 +1,7 @@
 import { ExposeAccessToken } from '@krgeobuk/jwt/decorators';
-import type { RefreshResponse } from '../interfaces/index.js';
+import type { AuthRefreshResponse } from '../interfaces/index.js';
 
-export class RefreshResponseDto implements RefreshResponse {
+export class AuthRefreshResponseDto implements AuthRefreshResponse {
   @ExposeAccessToken()
   accessToken!: string;
 }

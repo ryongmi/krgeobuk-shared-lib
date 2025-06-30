@@ -5,9 +5,9 @@ import {
   IsValidProfileImageUrl,
   IsValidUsername,
 } from '@krgeobuk/user/decorators';
-import type { SignupRequest } from '../interfaces/index.js';
+import type { AuthSignupRequest } from '../interfaces/index.js';
 
-export class SignupRequestDto implements SignupRequest {
+export class AuthSignupRequestDto implements AuthSignupRequest {
   @IsValidEmail()
   email!: string;
 

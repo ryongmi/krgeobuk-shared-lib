@@ -1,7 +1,7 @@
 import { IsValidEmail, IsValidPassword } from '@krgeobuk/user/decorators';
-import type { LoginRequest } from '../interfaces/index.js';
+import type { AuthLoginRequest } from '../interfaces/index.js';
 
-export class LoginRequestDto implements LoginRequest {
+export class AuthLoginRequestDto implements AuthLoginRequest {
   @IsValidEmail()
   email!: string;
 

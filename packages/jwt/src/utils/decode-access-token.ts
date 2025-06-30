@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 
-import type { DecodeAccessTokenOptions, JwtPayload } from '../interfaces/index.js';
+import type { JwtDecodeAccessTokenOptions, JwtPayload } from '../interfaces/index.js';
 
-export function decodeAccessToken(options: DecodeAccessTokenOptions): JwtPayload {
+export function decodeAccessToken(options: JwtDecodeAccessTokenOptions): JwtPayload {
   const { token, publicKey } = options;
 
   return jwt.verify(token, publicKey, { algorithms: ['RS256'] }) as JwtPayload;

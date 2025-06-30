@@ -1,6 +1,6 @@
 import type { LoggedInUser } from '@krgeobuk/user/interfaces';
 
-export interface LoginResponse {
+export interface AuthLoginResponse {
   accessToken: string;
   user: LoggedInUser;
 }

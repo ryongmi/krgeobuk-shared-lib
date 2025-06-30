@@ -1,1 +1,1 @@
-export type TokenType = 'access' | 'refresh';
+export type JwtTokenType = 'access' | 'refresh';

@@ -11,9 +11,9 @@ import {
   ExposeProfileImageUrl,
   ExposeUsername,
 } from '../decorators/index.js';
-import type { SearchResult } from '../interfaces/index.js';
+import type { UserSearchResult } from '../interfaces/index.js';
 
-export class SearchResultDto extends ExposeUuidIdDto implements SearchResult {
+export class UserSearchResultDto extends ExposeUuidIdDto implements UserSearchResult {
   @ExposeEmail()
   email!: string;
 
@@ -40,15 +40,15 @@ export class SearchResultDto extends ExposeUuidIdDto implements SearchResult {
   oauthAccount!: OAuthAccountDto;
 }
 
-export class PaginatedSearchResultDto
+export class UserPaginatedSearchResultDto
   extends PaginateResultBaseDto
-  implements PaginatedResult<SearchResultDto>
+  implements PaginatedResult<UserSearchResultDto>
 {
   @ExposeNested({
-    type: SearchResultDto,
-    typeFn: () => SearchResultDto,
+    type: UserSearchResultDto,
+    typeFn: () => UserSearchResultDto,
     description: '응답 데이터 목록',
     options: { isArray: true },
   })
-  items!: SearchResultDto[];
+  items!: UserSearchResultDto[];
 }

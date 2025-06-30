@@ -9,9 +9,9 @@ import {
   ExposeProfileImageUrl,
   ExposeUsername,
 } from '../decorators/index.js';
-import type { Detail } from '../interfaces/index.js';
+import type { UserDetail } from '../interfaces/index.js';
 
-export class DetailDto implements Detail {
+export class UserDetailDto implements UserDetail {
   @ExposeUuidId()
   id?: string;
 

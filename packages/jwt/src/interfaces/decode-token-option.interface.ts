@@ -1,4 +1,4 @@
-export interface DecodeAccessTokenOptions {
+export interface JwtDecodeAccessTokenOptions {
   token: string;
   publicKey: string;
 }
