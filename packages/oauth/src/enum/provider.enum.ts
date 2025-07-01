@@ -1,9 +1,12 @@
-export const ProviderType = {
+export const OAuthAccountProviderType = {
   HOMEPAGE: 'homePage',
   GOOGLE: 'google',
   NAVER: 'naver',
 } as const;
 
-export type ProviderType = (typeof ProviderType)[keyof typeof ProviderType];
+export type OAuthAccountProviderType =
+  (typeof OAuthAccountProviderType)[keyof typeof OAuthAccountProviderType];
 
-export const PROVIDER_TYPE_VALUES = Object.values(ProviderType) as ProviderType[];
+export const OAUTH_ACCOUNT_PROVIDER_TYPE_VALUES = Object.values(
+  OAuthAccountProviderType
+) as OAuthAccountProviderType[];
