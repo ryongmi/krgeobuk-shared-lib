@@ -29,18 +29,18 @@ export default [
 
         // ✅ 서비스 인터페이스는 반드시 "Interface"로 끝나야 함
         // 2. 이름에 "Service" 포함된 인터페이스는 반드시 Interface로 끝나야 함
-        {
-          selector: 'interface',
-          format: ['PascalCase'],
-          custom: {
-            regex: '^.*ServiceInterface$',
-            match: true,
-          },
-          filter: {
-            regex: 'Service',
-            match: true,
-          },
-        },
+        // {
+        //   selector: 'interface',
+        //   format: ['PascalCase'],
+        //   custom: {
+        //     regex: '^.*ServiceInterface$',
+        //     match: true,
+        //   },
+        //   filter: {
+        //     regex: 'Service',
+        //     match: true,
+        //   },
+        // },
 
         // 3. Service 미포함 인터페이스는 Interface로 끝나면 안 됨 PascalCase만 허용 (명사형)
         {
