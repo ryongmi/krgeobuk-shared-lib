@@ -1,6 +1,7 @@
 import type { OAuthAccountProviderType } from '../../enum/index.js';
 
 export interface OAuthAccountFilter {
-  userId?: string;
+  providerId?: string;
   provider?: OAuthAccountProviderType;
+  userId?: string;
 }
