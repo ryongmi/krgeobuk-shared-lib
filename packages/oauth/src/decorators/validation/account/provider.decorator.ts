@@ -2,12 +2,13 @@ import { applyDecorators } from '@nestjs/common';
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import { IsString, MaxLength, IsIn, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
-import { PROVIDER_TYPE_VALUES } from '../../../enum/index.js';
+import { OAUTH_ACCOUNT_PROVIDER_TYPE_VALUES } from '../../../enum/index.js';
 import type { IsValidAllowedOptions, ExposeAllowedOptions } from '@krgeobuk/core/interfaces';
 
 // Oauth 제공자 도메인 유효성 검사
 export function IsValidProvider(options: IsValidAllowedOptions = {}): PropertyDecorator {
-  const { isOptional = false, allowed: allowedProviders = PROVIDER_TYPE_VALUES } = options;
+  const { isOptional = false, allowed: allowedProviders = OAUTH_ACCOUNT_PROVIDER_TYPE_VALUES } =
+    options;
 
   const propertyData = {
     example: allowedProviders[0],
@@ -30,7 +31,7 @@ export function IsValidProvider(options: IsValidAllowedOptions = {}): PropertyDe
 }
 
 export function ExposeProvider(options: ExposeAllowedOptions = {}): PropertyDecorator {
-  const { allowed: allowedProviders = PROVIDER_TYPE_VALUES } = options;
+  const { allowed: allowedProviders = OAUTH_ACCOUNT_PROVIDER_TYPE_VALUES } = options;
 
   const propertyData = {
     example: allowedProviders[0],
