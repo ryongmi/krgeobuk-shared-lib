@@ -4,7 +4,8 @@ import {
   IsValidPassword,
   IsValidProfileImageUrl,
   IsValidUsername,
-} from '@krgeobuk/user/decorators';
+} from '@krgeobuk/shared/user';
+
 import type { AuthSignupRequest } from '../interfaces/index.js';
 
 export class AuthSignupRequestDto implements AuthSignupRequest {

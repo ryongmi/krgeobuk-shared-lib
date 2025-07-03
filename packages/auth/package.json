@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@krgeobuk/core": "workspace:*",
-    "@krgeobuk/user": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
     "@krgeobuk/jwt": "workspace:*",
     "@types/node": "^20.3.1",
     "typescript": "^5.1.3"
