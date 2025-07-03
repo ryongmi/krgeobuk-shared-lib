@@ -3,10 +3,13 @@
   "references": [
     { "path": "./packages/core" },
     { "path": "./packages/swagger" },
+    { "path": "./packages/shared" },
     { "path": "./packages/database" },
     { "path": "./packages/jwt" },
     { "path": "./packages/user" },
     { "path": "./packages/auth" },
+    { "path": "./packages/role" },
+    { "path": "./packages/service" },
     { "path": "./packages/oauth" }
   ],
   "compilerOptions": {
@@ -16,6 +19,8 @@
       "@krgeobuk/core/*": ["packages/core/*"],
       "@krgeobuk/swagger": ["packages/swagger"],
       "@krgeobuk/swagger/*": ["packages/swagger/*"],
+      "@krgeobuk/shared": ["packages/shared"],
+      "@krgeobuk/shared/*": ["packages/shared/*"],
       "@krgeobuk/database": ["packages/database"],
       "@krgeobuk/database/*": ["packages/database/*"],
       "@krgeobuk/jwt": ["packages/jwt"],
@@ -24,6 +29,10 @@
       "@krgeobuk/user/*": ["packages/user/*"],
       "@krgeobuk/auth": ["packages/auth"],
       "@krgeobuk/auth/*": ["packages/auth/*"],
+      "@krgeobuk/role": ["packages/role"],
+      "@krgeobuk/role/*": ["packages/role/*"],
+      "@krgeobuk/service": ["packages/service"],
+      "@krgeobuk/service/*": ["packages/service/*"],
       "@krgeobuk/oauth": ["packages/oauth"],
       "@krgeobuk/oauth/*": ["packages/oauth/*"]
     },
