@@ -1,8 +1,9 @@
 import { applyDecorators } from '@nestjs/common';
-import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
-import type { IsValidOptions } from '@krgeobuk/core/interfaces';
 import { IsBoolean, IsNotEmpty, IsOptional } from 'class-validator';
 import { Expose } from 'class-transformer';
+
+import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
+import type { IsValidOptions } from '@krgeobuk/core/interfaces';
 
 // Google OAuth Email Verified 유효성 검사
 export function IsValidGoogleEmailVerified(options: IsValidOptions = {}): PropertyDecorator {

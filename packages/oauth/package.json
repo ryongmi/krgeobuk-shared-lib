@@ -19,8 +19,7 @@
     "./enum": "./dist/enum/index.js",
     "./exception": "./dist/exception/index.js",
     "./interfaces": "./dist/interfaces/index.js",
-    "./response": "./dist/response/index.js",
-    "./types": "./dist/types/index.js"
+    "./response": "./dist/response/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -60,12 +59,6 @@
       ],
       "response/*": [
         "dist/response/*"
-      ],
-      "types": [
-        "dist/types/index.d.ts"
-      ],
-      "types/*": [
-        "dist/types/*"
       ]
     }
   },
@@ -83,6 +76,7 @@
   },
   "devDependencies": {
     "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
     "@krgeobuk/swagger": "workspace:*",
     "@types/node": "^20.3.1",
     "typescript": "^5.1.3"

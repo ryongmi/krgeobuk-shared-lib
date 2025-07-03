@@ -1,4 +1,4 @@
-import type { OAuthAccountProviderType } from '../../enum/index.js';
+import type { OAuthAccountProviderType } from '@krgeobuk/shared/oauth';
 
 export interface OAuthAccountFilter {
   providerId?: string;

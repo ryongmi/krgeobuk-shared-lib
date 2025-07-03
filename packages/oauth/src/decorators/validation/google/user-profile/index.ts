@@ -5,4 +5,4 @@ export * from './given-name.decorator.js';
 export * from './id.decorator.js';
 export * from './locale.decorator.js';
 export * from './picture.decorator.js';
-export * from './username.decorator.js';
+export * from './name.decorator.js';

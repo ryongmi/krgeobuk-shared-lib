@@ -1,4 +1,4 @@
-import type { NaverGenderTypeValue } from '../../types/index.js';
+import type { NaverGenderType } from '../../enum/index.js';
 
 export interface NaverUserProfileResponse {
   id: string;
@@ -6,7 +6,7 @@ export interface NaverUserProfileResponse {
   nickname: string;
   profileImage: string;
   age: string;
-  gender: NaverGenderTypeValue;
+  gender: NaverGenderType;
   name: string;
   birthday: string;
   birthyear: string;

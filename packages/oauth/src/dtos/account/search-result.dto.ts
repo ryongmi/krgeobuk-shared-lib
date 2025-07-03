@@ -1,8 +1,8 @@
 import { ExposeUuidIdDto } from '@krgeobuk/core/dtos';
+import { ExposeProvider } from '@krgeobuk/shared/oauth';
+import type { OAuthAccountProviderType } from '@krgeobuk/shared/oauth';
 
-import { ExposeProvider } from '../../decorators/index.js';
 import type { OAuthAccountSearchResult } from '../../interfaces/index.js';
-import type { OAuthAccountProviderType } from '../../enum/index.js';
 
 export class OAuthAccountSearchResultDto
   extends ExposeUuidIdDto

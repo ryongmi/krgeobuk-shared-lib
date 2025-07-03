@@ -11,7 +11,7 @@ import {
   IsValidNaverMobile,
 } from '../../decorators/index.js';
 import type { NaverUserProfileResponse } from '../../interfaces/index.js';
-import type { NaverGenderTypeValue } from '../../types/index.js';
+import type { NaverGenderType } from '../../enum/index.js';
 
 export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
   @IsValidNaverId()
@@ -30,7 +30,7 @@ export class NaverUserProfileResponseDto implements NaverUserProfileResponse {
   age!: string;
 
   @IsValidNaverGender()
-  gender!: NaverGenderTypeValue;
+  gender!: NaverGenderType;
 
   @IsValidNaverUsername()
   name!: string;

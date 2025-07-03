@@ -7,4 +7,4 @@ export * from './id.decorator.js';
 export * from './mobile.decorator.js';
 export * from './nickname.decorator.js';
 export * from './profile-image.decorator.js';
-export * from './username.decorator.js';
+export * from './name.decorator.js';
