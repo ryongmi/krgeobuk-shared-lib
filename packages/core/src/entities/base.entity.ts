@@ -1,4 +1,5 @@
 import { PrimaryGeneratedColumn } from 'typeorm';
+
 import { TimestampEntity } from './timestamp.entity.js';
 
 export abstract class BaseEntityIncrement extends TimestampEntity {

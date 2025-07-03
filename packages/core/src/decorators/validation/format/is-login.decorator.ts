@@ -1,8 +1,9 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import type { IsValidOptions } from '../../../interfaces/index.js';
 import { Expose } from 'class-transformer';
 import { IsNotEmpty, IsOptional, IsBoolean } from 'class-validator';
+
+import type { IsValidOptions } from '../../../interfaces/index.js';
 
 // isLogin 유효성 검사
 export function IsValidIsLogin(options: IsValidOptions = {}): PropertyDecorator {

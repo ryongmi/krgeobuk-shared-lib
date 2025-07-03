@@ -9,12 +9,12 @@ import {
   ExposeTotalPaages,
   ExposeItems,
 } from '../../decorators/index.js';
+import { LimitType, SortOrderType, SortByBaseType } from '../../enum/index.js';
 import type {
   PaginateBaseOptions,
   PaginatedResult,
   PaginatedResultBase,
 } from '../../interfaces/index.js';
-import { LimitType, SortOrderType, SortByBaseType } from '../../enum/index.js';
 
 export abstract class PaginateBaseDto implements PaginateBaseOptions {
   @IsValidPage({ isOptional: true })

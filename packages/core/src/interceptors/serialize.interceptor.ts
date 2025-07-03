@@ -15,9 +15,7 @@ import { Request } from 'express';
 
 import { CoreCode } from '../codes/index.js';
 import { CoreMessage } from '../messages/index.js';
-
 import { toSnakeCase } from '../utils/index.js';
-
 import { SERIALIZE_META_KEY } from '../constants/index.js';
 import type { SerializeOptions } from '../interfaces/index.js';
 
