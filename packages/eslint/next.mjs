@@ -1,8 +1,9 @@
-import baseConfig from './base.mjs';
-import prettier from 'eslint-config-prettier';
-// import next from 'eslint-plugin-next';
 import { configs as nextConfigs } from '@next/eslint-plugin-next';
+import prettier from 'eslint-config-prettier';
 import globals from 'globals';
+// import next from 'eslint-plugin-next';
+
+import baseConfig from './base.mjs';
 
 export default [
   ...baseConfig,

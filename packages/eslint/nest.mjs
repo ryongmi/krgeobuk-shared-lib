@@ -1,5 +1,6 @@
-import baseConfig from './base.mjs';
 import prettier from 'eslint-config-prettier';
+
+import baseConfig from './base.mjs';
 
 export default [
   ...baseConfig, // base 설정들을 전개 연산자로 포함
