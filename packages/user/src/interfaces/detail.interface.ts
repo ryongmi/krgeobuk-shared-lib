@@ -1,4 +1,4 @@
-import { OAuthAccount } from '@krgeobuk/oauth/interfaces';
+import { OAuthAccount } from '@krgeobuk/shared/oauth';
 
 export interface UserDetail {
   id?: string;
@@ -8,6 +8,5 @@ export interface UserDetail {
   profileImageUrl: string | null;
   isIntegrated: boolean;
   isEmailVerified: boolean;
-  createdAt: Date;
   oauthAccount: OAuthAccount;
 }

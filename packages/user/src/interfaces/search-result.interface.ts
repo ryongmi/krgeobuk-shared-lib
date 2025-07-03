@@ -1,4 +1,4 @@
-import { OAuthAccount } from '@krgeobuk/oauth/interfaces';
+import { OAuthAccount } from '@krgeobuk/shared/oauth';
 import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
 
 export interface UserSearchResult extends OptionalUuidId {

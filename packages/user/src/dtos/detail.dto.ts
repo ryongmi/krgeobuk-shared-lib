@@ -1,6 +1,5 @@
-import { ExposeNested, ExposeUuidId, ExposeCreatedAt } from '@krgeobuk/core/decorators';
-import { OAuthAccountDto } from '@krgeobuk/oauth/dtos';
-
+import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
+import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
   ExposeEmail,
   ExposeEmailVerified,
@@ -8,7 +7,8 @@ import {
   ExposeNickname,
   ExposeProfileImageUrl,
   ExposeUsername,
-} from '../decorators/index.js';
+} from '@krgeobuk/shared/user';
+
 import type { UserDetail } from '../interfaces/index.js';
 
 export class UserDetailDto implements UserDetail {
@@ -32,9 +32,6 @@ export class UserDetailDto implements UserDetail {
 
   @ExposeEmailVerified()
   isEmailVerified!: boolean;
-
-  @ExposeCreatedAt()
-  createdAt!: Date;
 
   @ExposeNested({
     type: OAuthAccountDto,

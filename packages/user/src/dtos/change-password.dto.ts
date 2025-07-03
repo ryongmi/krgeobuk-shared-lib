@@ -1,4 +1,5 @@
-import { IsValidPassword } from '../decorators/index.js';
+import { IsValidPassword } from '@krgeobuk/shared/user';
+
 import type { ChangePassword } from '../interfaces/index.js';
 
 export class ChangePasswordDto implements ChangePassword {

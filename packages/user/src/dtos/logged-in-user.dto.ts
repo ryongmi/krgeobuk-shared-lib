@@ -3,7 +3,8 @@ import {
   ExposeNickname,
   ExposeProfileImageUrl,
   ExposeUsername,
-} from '../decorators/index.js';
+} from '@krgeobuk/shared/user';
+
 import type { LoggedInUser } from '../interfaces/index.js';
 
 export class LoggedInUserDto implements LoggedInUser {

@@ -1,4 +1,5 @@
-import { IsValidNickname, IsValidProfileImageUrl } from '../decorators/index.js';
+import { IsValidNickname, IsValidProfileImageUrl } from '@krgeobuk/shared/user';
+
 import type { UpdateMyProfile } from '../interfaces/index.js';
 
 export class UpdateMyProfileDto implements UpdateMyProfile {
