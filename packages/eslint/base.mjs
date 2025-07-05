@@ -9,6 +9,7 @@ export default [
 
   // TypeScript ESLint 추천 설정들 (parser, plugin 자동 포함)
   ...typescriptEslint.configs.recommended,
+  // ...typescriptEslint.configs.strict,
 
   {
     ignores: ['**/dist/**', '**/node_modules/**', '**/.next/**'], // 기존 .eslintignore 대체

@@ -63,29 +63,40 @@ export default [
         'error',
         {
           groups: [
-            'builtin', // Node.js 내장 모듈
-            'external', // npm 패키지
-            ['internal'], // 사설 패키지 (아래 pathGroups로 상세 지정)
-            ['parent', 'sibling', 'index'], // 상대경로
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index'
           ],
           pathGroups: [
             {
-              pattern: '@krgeobuk/**',
-              group: 'internal',
-              position: 'after',
+              pattern: 'node:*',
+              group: 'builtin',
             },
             {
-              pattern: '@/**',
+              pattern: '@nestjs/**',
+              group: 'external',
+              position: 'before',
+            },
+            {
+              pattern: '@krgeobuk/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@/**', // ✅ 모든 @ 접두사 별칭을 internal로 처리
               group: 'internal',
               position: 'after',
             },
           ],
-          pathGroupsExcludedImportTypes: ['builtin', 'external'],
+          pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
             order: 'asc',
             caseInsensitive: true,
           },
-          'newlines-between': 'always', // ✅ 그룹 간 공백 한 줄
+          'newlines-between': 'always',
         },
       ],
     },
