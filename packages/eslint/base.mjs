@@ -24,7 +24,6 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest', // 최신 JS 문법을 지원
         sourceType: 'module',
-        project: './tsconfig.json', // 타입 체킹 활성화
       },
     },
     rules: {
