@@ -1,6 +1,7 @@
 import js from '@eslint/js';
 import globals from 'globals';
 import typescriptEslint from 'typescript-eslint';
+import importPlugin from 'eslint-plugin-import';
 
 export default [
   // ESLint 기본 추천 설정
@@ -14,11 +15,15 @@ export default [
   },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    plugins: {
+      import: importPlugin, // 추가
+    },
     languageOptions: {
       globals: { ...globals.node },
       parserOptions: {
         ecmaVersion: 'latest', // 최신 JS 문법을 지원
         sourceType: 'module',
+        project: './tsconfig.json', // 타입 체킹 활성화
       },
     },
     rules: {
