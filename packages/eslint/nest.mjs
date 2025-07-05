@@ -74,19 +74,20 @@ export default [
               position: 'before',
             },
             {
-              pattern: '@krgeobuk/**',
+              pattern: '@krgeobuk/**', // 내부 공통 패키지로 처리
               group: 'internal',
-              position: 'before', // 먼저 위치
+              position: 'before',
             },
             {
-              pattern: '@**',
+              pattern: '@**', // 기타 모든 alias
               group: 'internal',
-              position: 'after', // 나중에 위치
+              position: 'after',
             },
           ],
           pathGroupsExcludedImportTypes: ['builtin'],
           alphabetize: {
-            order: 'asc',
+            // order: 'asc',
+            order: 'ignore',
             caseInsensitive: true,
           },
           'newlines-between': 'always',
