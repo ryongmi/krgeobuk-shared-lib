@@ -74,13 +74,14 @@ export default [
               position: 'before',
             },
             {
-              pattern: '@krgeobuk/**', // ✅ 공유 패키지 - external 그룹으로
-              group: 'external',
-              position: 'after',
+              pattern: '@krgeobuk/**',
+              group: 'internal',
+              position: 'before', // 먼저 위치
             },
             {
-              pattern: '@/**', // ✅ 프로젝트 별칭들 - internal 그룹으로
+              pattern: '@/**',
               group: 'internal',
+              position: 'after', // 나중에 위치
             },
           ],
           pathGroupsExcludedImportTypes: ['builtin'],
