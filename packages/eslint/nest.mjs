@@ -62,7 +62,7 @@ export default [
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'alias', 'parent', 'sibling', 'index'],
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
           pathGroups: [
             {
               pattern: 'node:*',
