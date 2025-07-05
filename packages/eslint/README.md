@@ -153,7 +153,33 @@ export default [...krgeobukNest];
   "jsxSingleQuote": true, // JSX에서 홑따옴표(')를 사용합니다.
   "proseWrap": "preserve", // 마크다운에서 자동 줄바꿈을 보존합니다.
   "quoteProps": "as-needed" // 객체 속성에 필요한 경우에만 따옴표를 사용합니다.
+
+  // 임포트 정렬 설정
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^node:",
+    "^@nestjs/",
+    "^[^@\\.]",
+    "^@krgeobuk/",
+    "^@common/", // 각 프로젝트당 별칭
+    "^@config$",
+    "^@config/",
+    "^@database$",
+    "^@database/",
+    "^@modules/",
+    "^@/",
+    "^\\.\\.\\./",
+    "^\\./[^/]+$",
+    "^\\."
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }
+
+
+
 ```
 
 > **참고**

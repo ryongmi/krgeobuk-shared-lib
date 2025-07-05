@@ -57,6 +57,37 @@ export default [
           },
         },
       ],
+
+      // ✅ import 순서 규칙
+      'import/order': [
+        'error',
+        {
+          groups: [
+            'builtin', // Node.js 내장 모듈
+            'external', // npm 패키지
+            ['internal'], // 사설 패키지 (아래 pathGroups로 상세 지정)
+            ['parent', 'sibling', 'index'], // 상대경로
+          ],
+          pathGroups: [
+            {
+              pattern: '@krgeobuk/**',
+              group: 'internal',
+              position: 'after',
+            },
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin', 'external'],
+          alphabetize: {
+            order: 'asc',
+            caseInsensitive: true,
+          },
+          'newlines-between': 'always', // ✅ 그룹 간 공백 한 줄
+        },
+      ],
     },
   },
 
