@@ -75,8 +75,8 @@ export default [
             },
             {
               pattern: '@krgeobuk/**', // 내부 공통 패키지로 처리
-              group: 'internal',
-              position: 'before',
+              group: 'external',
+              position: 'after',
             },
             {
               pattern: '@**', // 기타 모든 alias
