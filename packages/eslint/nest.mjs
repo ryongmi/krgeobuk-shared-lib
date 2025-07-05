@@ -79,7 +79,7 @@ export default [
               position: 'before', // 먼저 위치
             },
             {
-              pattern: '@/**',
+              pattern: '@**',
               group: 'internal',
               position: 'after', // 나중에 위치
             },
