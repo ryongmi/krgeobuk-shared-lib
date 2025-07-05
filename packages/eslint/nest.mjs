@@ -62,14 +62,7 @@ export default [
       'import/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index'
-          ],
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
           pathGroups: [
             {
               pattern: 'node:*',
@@ -81,14 +74,13 @@ export default [
               position: 'before',
             },
             {
-              pattern: '@krgeobuk/**',
-              group: 'internal',
-              position: 'before',
+              pattern: '@krgeobuk/**', // ✅ 공유 패키지 - external 그룹으로
+              group: 'external',
+              position: 'after',
             },
             {
-              pattern: '@/**', // ✅ 모든 @ 접두사 별칭을 internal로 처리
+              pattern: '@/**', // ✅ 프로젝트 별칭들 - internal 그룹으로
               group: 'internal',
-              position: 'after',
             },
           ],
           pathGroupsExcludedImportTypes: ['builtin'],
