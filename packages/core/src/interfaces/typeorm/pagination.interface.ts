@@ -22,6 +22,10 @@ export interface PaginatedResultBase {
   hasNextPage: boolean;
 }
 
+export interface PageInfoWrapper {
+  pageInfo: PaginatedResultBase;
+}
+
 export interface PaginatedResult<T> {
   items: T[];
   pageInfo: PaginatedResultBase;

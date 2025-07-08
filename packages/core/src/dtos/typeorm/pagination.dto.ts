@@ -14,6 +14,7 @@ import {
 } from '../../decorators/index.js';
 import { LimitType, SortOrderType, SortByBaseType } from '../../enum/index.js';
 import type {
+  PageInfoWrapper,
   PaginateBaseOptions,
   PaginatedResult,
   PaginatedResultBase,
@@ -61,12 +62,17 @@ export abstract class PaginateResultBaseDto implements PaginatedResultBase {
   hasNextPage!: boolean;
 }
 
-export abstract class PaginateResultDto<T> implements PaginatedResult<T> {
-  @ExposeItems()
-  items!: T[];
-
+export abstract class PageInfoWrapperDto implements PageInfoWrapper {
   @ExposePageInfo()
   pageInfo!: PaginateResultBaseDto;
+}
+
+export abstract class PaginateResultDto<T>
+  extends PageInfoWrapperDto
+  implements PaginatedResult<T>
+{
+  @ExposeItems()
+  items!: T[];
 
   // "meta": {
   //   "page": 1,
