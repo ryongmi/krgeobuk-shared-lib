@@ -60,10 +60,14 @@ throw PermissionException.permissionFetchError();
 ### 응답 포맷
 
 ```typescript
+import { Serialize } from '@krgeobuk/core';
 import { PermissionResponse } from '@krgeobuk/permission/response';
 
 // 성공 응답
-const response = PermissionResponse.permissionFetchSuccess(permissionData);
+@Serialize({
+    dto: UserDetailDto,
+    ...UserResponse.PROFILE_FETCH_SUCCESS,
+  })
 ```
 
 ## 패키지 구조

@@ -118,7 +118,7 @@ import { OAuthException, OAuthError } from '@krgeobuk/oauth';
 try {
   // OAuth 처리 로직
 } catch (error) {
-  throw new OAuthException(OAuthError.INVALID_TOKEN);
+  throw new OAuthException.configMissing();
 }
 ```
 

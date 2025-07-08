@@ -47,7 +47,7 @@ loginRequest.password = 'password123';
 try {
   // 인증 로직
 } catch (error) {
-  throw new AuthException('로그인에 실패했습니다.');
+  throw new AuthException.loginError();
 }
 ```
 
