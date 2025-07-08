@@ -30,7 +30,7 @@ export function IsValidUuidId(options: IsValidOptions = {}): PropertyDecorator {
 
   const propertyData = { example: '0ba9965b-afaf-4771-bc59-7d697b3aa4b2', description: 'UUID' };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [IsUUID()];
+  const validators = [IsUUID('4', { message: 'id는 유효한 UUID여야 합니다.' })];
   const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'id는 필수입니다' });
 
@@ -42,3 +42,4 @@ export function ExposeUuidId(): PropertyDecorator {
 
   return applyDecorators(ApiProperty(propertyData), Expose());
 }
+
