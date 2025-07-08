@@ -8,8 +8,9 @@ export function ExposeUserCount(): PropertyDecorator {
     name: 'user_count',
     type: Number,
     example: 5,
-    description: '해당 권한 사용하는 유저 수',
+    description: '해당 역활 사용하는 유저 수',
   };
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
+
