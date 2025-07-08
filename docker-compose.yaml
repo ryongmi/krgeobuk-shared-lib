@@ -10,8 +10,8 @@ services:
       - ./data/verdaccio/plugins:/verdaccio/plugins # 사용자 플러그인
     restart: unless-stopped
     networks:
-      - network-shared
+      - shared-network
 
 networks:
-  network-shared:
+  shared-network:
     external: true
