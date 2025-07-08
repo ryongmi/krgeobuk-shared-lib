@@ -16,10 +16,14 @@ export interface PaginateWithFilterOptions<T> extends PaginateBaseOptions {
 export interface PaginatedResultBase {
   page: number;
   limit: LimitType;
-  total: number;
+  totalItems: number;
   totalPages: number;
+  hasPreviousPage: boolean;
+  hasNextPage: boolean;
 }
 
-export interface PaginatedResult<T> extends PaginatedResultBase {
+export interface PaginatedResult<T> {
   items: T[];
+  pageInfo: PaginatedResultBase;
 }
+
