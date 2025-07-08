@@ -10,7 +10,14 @@ export default [
     rules: {
       // NestJS 프로젝트 특화 규칙 추가 또는 override
       'no-console': 'off', // console 사용 허용
-      '@typescript-eslint/no-unused-vars': ['warn'], // 경고 수준
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_', // underscore로 시작하는 매개변수 무시
+          varsIgnorePattern: '^_', // underscore로 시작하는 변수 무시
+          caughtErrorsIgnorePattern: '^_', // underscore로 시작하는 catch 오류 무시
+        },
+      ], // 경고 수준
       '@typescript-eslint/explicit-member-accessibility': 'off', // NestJS에서 접근제어자 명시 강제 해제
       '@typescript-eslint/no-empty-function': 'off', // 빈 함수 허용 (필요시)
       '@typescript-eslint/naming-convention': [
