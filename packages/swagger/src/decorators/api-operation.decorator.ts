@@ -7,7 +7,8 @@ import type { SwaggerApiOperationOptions } from '../interface/index.js';
  * @returns
  */
 export const SwaggerApiOperation = (param: SwaggerApiOperationOptions): MethodDecorator => {
-  const { summary: summary = '' } = param;
+  const { summary: summary = '', description: description = '' } = param;
 
   return ApiOperation({ summary });
 };
+

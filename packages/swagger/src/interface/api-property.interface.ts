@@ -7,6 +7,7 @@ export interface SwaggerApiPropertyOptions {
   default?: ApiPropertyOptions['default'];
   nullable?: ApiPropertyOptions['nullable'];
   format?: ApiPropertyOptions['format'];
+  type?: ApiPropertyOptions['type'];
   enum?: ApiPropertyOptions['enum'];
   isArray?: ApiPropertyOptions['isArray'];
   readOnly?: ApiPropertyOptions['readOnly'];
@@ -26,3 +27,4 @@ export interface SwaggerApiPropertyOptions {
 //   readonly?: boolean = false;
 //   deprecated?: boolean = false;
 // }
+
