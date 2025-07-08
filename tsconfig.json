@@ -10,7 +10,8 @@
     { "path": "./packages/auth" },
     { "path": "./packages/role" },
     { "path": "./packages/service" },
-    { "path": "./packages/oauth" }
+    { "path": "./packages/oauth" },
+    { "path": "./packages/permission" }
   ],
   "compilerOptions": {
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
@@ -34,7 +35,9 @@
       "@krgeobuk/service": ["packages/service"],
       "@krgeobuk/service/*": ["packages/service/*"],
       "@krgeobuk/oauth": ["packages/oauth"],
-      "@krgeobuk/oauth/*": ["packages/oauth/*"]
+      "@krgeobuk/oauth/*": ["packages/oauth/*"],
+      "@krgeobuk/permission": ["packages/permission"],
+      "@krgeobuk/permission/*": ["packages/permission/*"]
     },
     "module": "NodeNext",
     "moduleResolution": "NodeNext",

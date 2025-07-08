@@ -130,7 +130,7 @@ import { UserException, UserError } from '@krgeobuk/user';
 try {
   // 사용자 관련 로직
 } catch (error) {
-  throw new UserException(UserError.USER_NOT_FOUND);
+  throw new UserException.profileFetchError();
 }
 ```
 

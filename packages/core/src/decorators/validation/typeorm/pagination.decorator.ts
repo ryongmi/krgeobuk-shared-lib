@@ -147,6 +147,27 @@ export function ExposeTotalPaages(): PropertyDecorator {
   return applyDecorators(ApiProperty(propertyData), Expose());
 }
 
+export function ExposeHasPreviousPage(): PropertyDecorator {
+  const propertyData = {
+    name: 'has_previous_page',
+    example: false,
+    description: '이전 페이지 존재 여부',
+    type: Boolean,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
+}
+export function ExposeHasNextPage(): PropertyDecorator {
+  const propertyData = {
+    name: 'has_next_page',
+    example: true,
+    description: '다음 페이지 존재 여부',
+    type: Boolean,
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
+}
+
 export function ExposeItems(): PropertyDecorator {
   const propertyData = {
     type: Array,
@@ -155,3 +176,13 @@ export function ExposeItems(): PropertyDecorator {
 
   return applyDecorators(ApiProperty(propertyData), Expose());
 }
+
+export function ExposePageInfo(): PropertyDecorator {
+  const propertyData = {
+    type: Object,
+    description: '페이징 관련 데이터',
+  };
+
+  return applyDecorators(ApiProperty(propertyData), Expose());
+}
+

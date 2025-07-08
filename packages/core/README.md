@@ -71,7 +71,8 @@ import {
   SerializeInterceptor,
   LoggerInterceptor,
   HttpExceptionFilter,
-  CoreResponse 
+  CoreResponse,
+  Serialize
 } from '@krgeobuk/core';
 
 // 기본 엔터티 확장
@@ -89,6 +90,10 @@ export class UserRepository extends BaseRepository<User> {
 
 // 응답 포맷 사용
 return CoreResponse.success(data, '성공적으로 처리되었습니다.');
+@Serialize({
+    dto: UserDetailDto,
+    ...CoreResponse.REQUEST_SUCCESS,
+  })
 ```
 
 ## 의존성

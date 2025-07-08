@@ -1,6 +1,11 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiExtraModels, ApiResponse, getSchemaPath } from '@nestjs/swagger';
-import { ResponseFormatDto, PaginateResultDto, ErrorFormatDto } from '@krgeobuk/core/dtos';
+import {
+  ResponseFormatDto,
+  PaginateResultBaseDto,
+  PaginateResultDto,
+  ErrorFormatDto,
+} from '@krgeobuk/core/dtos';
 import type {
   SwaggerApiResponseOptions,
   SwaggerPaginatedResponseOptions,
@@ -51,7 +56,7 @@ export const SwaggerApiPaginatedResponse = (
       ? {
           oneOf: [
             { $ref: getSchemaPath(dto) },
-            ...extraModels.map(model => ({ $ref: getSchemaPath(model) })),
+            ...extraModels.map((model) => ({ $ref: getSchemaPath(model) })),
           ],
         }
       : { $ref: getSchemaPath(dto) };
@@ -74,6 +79,16 @@ export const SwaggerApiPaginatedResponse = (
                       items: {
                         type: 'array',
                         items: itemsSchema,
+                      },
+                    },
+                  },
+                  {
+                    properties: {
+                      pageInfo: {
+                        type: 'object',
+                        items: {
+                          $ref: getSchemaPath(PaginateResultBaseDto),
+                        },
                       },
                     },
                   },
@@ -122,3 +137,4 @@ export const SwaggerApiErrorResponse = (param: SwaggerApiResponseOptions): Metho
     // },
   });
 };
+

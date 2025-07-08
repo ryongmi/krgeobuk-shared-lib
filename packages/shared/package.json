@@ -17,6 +17,10 @@
       "import": "./dist/oauth/index.js",
       "types": "./dist/oauth/index.d.ts"
     },
+    "./permission": {
+      "import": "./dist/permission/index.js",
+      "types": "./dist/permission/index.d.ts"
+    },
     "./role": {
       "import": "./dist/role/index.js",
       "types": "./dist/role/index.d.ts"
@@ -37,6 +41,12 @@
       ],
       "oauth/*": [
         "dist/oauth/*"
+      ],
+      "permission": [
+        "dist/permission/index.d.ts"
+      ],
+      "permission/*": [
+        "dist/permission/*"
       ],
       "role": [
         "dist/role/index.d.ts"
