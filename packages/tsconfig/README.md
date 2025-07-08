@@ -7,14 +7,19 @@ Next.js, NestJS 등 다양한 프로젝트에서 일관된 TypeScript 환경을 
 
 ## 설치 방법
 
-아래 패키지는 **개발 의존성(devDependencies)** 으로 설치하세요.
+### krgeobuk 패키지 설치
 
 ```sh
 pnpm add -D @krgeobuk/tsconfig
 ```
 
+### Peer Dependencies
+
+이 패키지는 TypeScript 설정 파일만 제공하므로 별도의 peer dependencies가 없습니다. 
+
 > **참고**
-> - 이 패키지는 TypeScript 설정 파일만 제공하므로, 별도의 빌드나 런타임 의존성 없이 devDependencies로만 설치하면 됩니다.
+> - TypeScript 설정 파일만 제공하므로 런타임 의존성이 없습니다.
+> - 프로젝트에서 TypeScript를 사용한다면 `typescript`는 별도로 설치해야 합니다.
 
 ---
 

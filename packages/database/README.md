@@ -1,4 +1,4 @@
-# @krgeobuk/database-config
+# @krgeobuk/database
 
 NestJS 프로젝트에서 TypeORM(MySQL)과 Redis를 손쉽게 설정하고 사용할 수 있도록 도와주는 공통 데이터베이스 패키지입니다.
 
@@ -18,7 +18,7 @@ NestJS 프로젝트에서 TypeORM(MySQL)과 Redis를 손쉽게 설정하고 사�
 ## 설치 방법
 
 ```sh
-pnpm add @krgeobuk/database-config
+pnpm add @krgeobuk/database
 ```
 
 ## 의존성 설치 안내
@@ -58,7 +58,7 @@ pnpm add @nestjs/common @nestjs/config @nestjs/typeorm typeorm ioredis
 // db.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { createTypeOrmConfig } from '@krgeobuk/database-config';
+import { createTypeOrmConfig } from '@krgeobuk/database';
 
 @Module({
   imports: [TypeOrmModule.forRootAsync(createTypeOrmConfig([__dirname + '/**/*.entity{.ts,.js}']))],
@@ -91,7 +91,7 @@ export const REDIS_CLIENT_TOKEN = 'REDIS_CLIENT';
 
 // redis.module.ts (실제 프로젝트)
 import { Module } from '@nestjs/common';
-import { SharedRedisModule, REDIS_CLIENT_TOKEN } from '@krgeobuk/database-config';
+import { SharedRedisModule, REDIS_CLIENT_TOKEN } from '@krgeobuk/database';
 import { RedisService } from './redis.service';
 
 @Module({
@@ -124,7 +124,7 @@ export class AppModule {}
 ```typescript
 import { Injectable, Inject } from '@nestjs/common';
 import { Redis } from 'ioredis';
-import { REDIS_CLIENT_TOKEN } from '@krgeobuk/database-config';
+import { REDIS_CLIENT_TOKEN } from '@krgeobuk/database';
 
 @Injectable()
 export class RedisService {

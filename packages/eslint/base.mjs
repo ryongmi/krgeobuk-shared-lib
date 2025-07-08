@@ -15,7 +15,7 @@ export default [
     ignores: ['**/dist/**', '**/node_modules/**', '**/.next/**'], // 기존 .eslintignore 대체
   },
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     plugins: {
       import: importPlugin, // 추가
     },

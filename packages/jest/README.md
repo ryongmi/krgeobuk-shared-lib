@@ -7,14 +7,22 @@ Next.js, NestJS 등 다양한 프로젝트에서 일관된 테스트 환경을 �
 
 ## 설치 방법
 
-아래 패키지들은 **모두 개발 의존성(devDependencies)** 으로 설치하세요.
+### krgeobuk 패키지 설치
+
+```sh
+pnpm add -D @krgeobuk/jest-config
+```
+
+### Peer Dependencies 설치
+
+이 패키지를 사용하려면 다음 peer dependencies를 설치해야 합니다:
 
 ```sh
 pnpm add -D jest ts-jest @types/jest typescript
 ```
 
 > **참고**
-> - `jest`, `ts-jest`, `@types/jest`, `typescript`는 테스트 및 타입스크립트 개발 환경에 필요한 패키지입니다.
+> - `jest`, `ts-jest`, `@types/jest`, `typescript`는 테스트 및 TypeScript 개발 환경에 필요한 패키지입니다.
 > - 실제 서비스 코드에서 import하지 않으므로 반드시 `devDependencies`로 설치하세요.
 
 ---

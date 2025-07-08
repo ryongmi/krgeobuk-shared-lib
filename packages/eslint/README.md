@@ -7,30 +7,35 @@ Next.js, NestJS 등 다양한 프로젝트에서 일관된 코드 스타일을 �
 
 ## 설치 방법
 
-아래 패키지들은 **모두 개발 의존성(devDependencies)** 으로 설치하세요.
-
-### 공통(필수)
+### krgeobuk 패키지 설치
 
 ```sh
-pnpm add -D eslint @eslint/js typescript typescript-eslint eslint-config-prettier globals
+pnpm add -D @krgeobuk/eslint-config
 ```
 
-### Next.js 프로젝트 전용
+### Peer Dependencies 설치
+
+이 패키지를 사용하려면 다음 peer dependencies를 설치해야 합니다:
+
+#### 공통(필수)
+
+```sh
+pnpm add -D eslint @eslint/js typescript typescript-eslint eslint-config-prettier globals eslint-import-resolver-typescript eslint-plugin-import
+```
+
+#### Next.js 프로젝트 전용
 
 ```sh
 pnpm add -D eslint-plugin-react @next/eslint-plugin-next
-# pnpm add -D eslint-plugin-next eslint-plugin-react
 ```
 
-### NestJS 프로젝트 전용
+#### NestJS 프로젝트
 
-```sh
-# (NestJS 전용 추가 패키지는 없습니다. 공통 패키지만 설치하면 됩니다.)
-```
+NestJS 프로젝트는 공통 패키지만 설치하면 충분합니다.
 
 > **참고**
 >
-> - Next.js 프로젝트는 반드시 `eslint-plugin-next`, `eslint-plugin-react`를 추가로 설치해야 합니다.
+> - Next.js 프로젝트는 반드시 `eslint-plugin-react`, `@next/eslint-plugin-next`를 추가로 설치해야 합니다.
 > - NestJS 프로젝트는 공통 패키지만 설치하면 충분합니다.
 > - 실제 서비스 코드에서 import하지 않으므로 반드시 `devDependencies`로 설치하세요.
 
@@ -124,7 +129,30 @@ export default [...krgeobukNext];
 
 ```js
 import krgeobukNest from '@krgeobuk/eslint-config/nest';
-export default [...krgeobukNest];
+export default [
+  ...krgeobukNest
+
+  {
+    // eslint 설정 확장
+    // tsconfig 별칭 인식하게 하기
+    settings: {
+      'import/resolver': {
+        typescript: {
+          project: './tsconfig.json',
+        },
+      },
+    },
+  },
+  {
+    // 타입 체킹 활성화
+    files: ['**/*.{js,cjs,ts}'],
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+    },
+  },
+];
 ```
 
 ---
@@ -153,33 +181,7 @@ export default [...krgeobukNest];
   "jsxSingleQuote": true, // JSX에서 홑따옴표(')를 사용합니다.
   "proseWrap": "preserve", // 마크다운에서 자동 줄바꿈을 보존합니다.
   "quoteProps": "as-needed" // 객체 속성에 필요한 경우에만 따옴표를 사용합니다.
-
-  // 임포트 정렬 설정
-  "plugins": [
-    "@trivago/prettier-plugin-sort-imports"
-  ],
-  "importOrder": [
-    "^node:",
-    "^@nestjs/",
-    "^[^@\\.]",
-    "^@krgeobuk/",
-    "^@common/", // 각 프로젝트당 별칭
-    "^@config$",
-    "^@config/",
-    "^@database$",
-    "^@database/",
-    "^@modules/",
-    "^@/",
-    "^\\.\\.\\./",
-    "^\\./[^/]+$",
-    "^\\."
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
 }
-
-
-
 ```
 
 > **참고**
