@@ -1,4 +1,4 @@
-import { ExposeUuidIdDto, PaginateResultBaseDto } from '@krgeobuk/core/dtos';
+import { ExposeUuidIdDto, PageInfoWrapperDto } from '@krgeobuk/core/dtos';
 import { ExposeNested } from '@krgeobuk/core/decorators';
 import { PaginatedResult } from '@krgeobuk/core/interfaces';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
@@ -41,7 +41,7 @@ export class UserSearchResultDto extends ExposeUuidIdDto implements UserSearchRe
 }
 
 export class UserPaginatedSearchResultDto
-  extends PaginateResultBaseDto
+  extends PageInfoWrapperDto
   implements PaginatedResult<UserSearchResultDto>
 {
   @ExposeNested({
@@ -52,3 +52,4 @@ export class UserPaginatedSearchResultDto
   })
   items!: UserSearchResultDto[];
 }
+
