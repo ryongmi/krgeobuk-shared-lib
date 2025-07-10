@@ -2,8 +2,9 @@ import { HttpException } from '@nestjs/common';
 
 import { StringUtils } from '@krgeobuk/core/utils';
 
-import { JwtError } from './jwt.error.js';
 import type { JwtTokenType } from '../types/index.js';
+
+import { JwtError } from './jwt.error.js';
 
 export class JwtException {
   private static label(type: JwtTokenType): string {

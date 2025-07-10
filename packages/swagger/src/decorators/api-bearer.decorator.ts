@@ -1,4 +1,5 @@
 import { ApiBearerAuth } from '@nestjs/swagger';
+
 import { SWAGGER_AUTH_NAME } from '../constants/index.js';
 
 /**

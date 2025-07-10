@@ -1,11 +1,12 @@
 import { applyDecorators } from '@nestjs/common';
+
 import { IsNotEmpty, Length, Matches, IsString, IsOptional } from 'class-validator';
 import { Transform, Expose } from 'class-transformer';
 
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import type { IsValidOptions } from '@krgeobuk/core/interfaces';
 
-export function IsValidPermissionAction(options: IsValidOptions = {}) {
+export function IsValidPermissionAction(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
   const propertyData = {
@@ -32,7 +33,7 @@ export function IsValidPermissionAction(options: IsValidOptions = {}) {
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
-export function ExposePermissionAction() {
+export function ExposePermissionAction(): PropertyDecorator {
   const propertyData = {
     description: '권한 액션 (예: user:create, post:read)',
     example: 'user:create',
@@ -43,4 +44,3 @@ export function ExposePermissionAction() {
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
-

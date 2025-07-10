@@ -1,4 +1,5 @@
 import { DocumentBuilder, SwaggerModule, type OpenAPIObject } from '@nestjs/swagger';
+
 import { SWAGGER_AUTH_NAME } from '../constants/index.js';
 import type { SwaggerOptions } from '../interface/index.js';
 

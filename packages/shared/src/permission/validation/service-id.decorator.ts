@@ -1,11 +1,12 @@
 import { applyDecorators } from '@nestjs/common';
+
 import { IsUUID, IsOptional, IsNotEmpty } from 'class-validator';
 import { Expose } from 'class-transformer';
 
 import { SwaggerApiProperty, SwaggerApiPropertyOptional } from '@krgeobuk/swagger/decorators';
 import type { IsValidOptions } from '@krgeobuk/core/interfaces';
 
-export function IsValidServiceId(options: IsValidOptions = {}) {
+export function IsValidServiceId(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
   const propertyData = {
@@ -24,7 +25,7 @@ export function IsValidServiceId(options: IsValidOptions = {}) {
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }
 
-export function ExposeServiceId() {
+export function ExposeServiceId(): PropertyDecorator {
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174000',
     description: '서비스 ID',
@@ -34,4 +35,3 @@ export function ExposeServiceId() {
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
-

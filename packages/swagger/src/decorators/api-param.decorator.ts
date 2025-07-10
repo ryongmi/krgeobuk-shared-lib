@@ -1,4 +1,5 @@
 import { ApiParam } from '@nestjs/swagger';
+
 import type { SwaggerApiParamOptions } from '../interface/index.js';
 
 /**
