@@ -1,4 +1,5 @@
 import { NotFoundException } from '@nestjs/common';
+
 import {
   Repository,
   EntityTarget,
@@ -133,8 +134,16 @@ export class BaseRepository<T extends ObjectLiteral> extends Repository<T> {
       .getManyAndCount();
 
     const totalPages = Math.ceil(total / limit);
+    const pageInfo = {
+      page,
+      limit,
+      totalItems: total,
+      totalPages,
+      hasPreviousPage: page > 1,
+      hasNextPage: page < totalPages,
+    };
 
-    return { items, total, page, limit, totalPages };
+    return { items, pageInfo };
   }
 
   async softDeleteById(id: T['id']): Promise<void> {
