@@ -9,34 +9,40 @@ export class ServiceResponse {
    *   =============================================================================
    */
   /** */
-  // static readonly PROFILE_FETCH_SUCCESS = {
-  //   code: UserCode.PROFILE_FETCH_SUCCESS,
-  //   message: UserMessage.PROFILE_FETCH_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly PROFILE_UPDATE_SUCCESS = {
-  //   code: UserCode.PROFILE_UPDATE_SUCCESS,
-  //   message: UserMessage.PROFILE_UPDATE_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly PASSWORD_CHANGE_SUCCESS = {
-  //   code: UserCode.PASSWORD_CHANGE_SUCCESS,
-  //   message: UserMessage.PASSWORD_CHANGE_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly ACCOUNT_DELETE_SUCCESS = {
-  //   code: UserCode.ACCOUNT_DELETE_SUCCESS,
-  //   message: UserMessage.ACCOUNT_DELETE_SUCCESS,
-  //   statusCode: 204,
-  // };
-  // static readonly USER_FETCH_SUCCESS = {
-  //   code: UserCode.USER_FETCH_SUCCESS,
-  //   message: UserMessage.USER_FETCH_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly USER_SEARCH_SUCCESS = {
-  //   code: UserCode.USER_SEARCH_SUCCESS,
-  //   message: UserMessage.USER_SEARCH_SUCCESS,
-  //   statusCode: 200,
-  // };
+  
+  static readonly CREATE_SUCCESS = {
+    code: ServiceCode.SERVICE_CREATE_SUCCESS,
+    message: ServiceMessage.SERVICE_CREATE_SUCCESS,
+    statusCode: 201,
+  };
+  
+  static readonly UPDATE_SUCCESS = {
+    code: ServiceCode.SERVICE_UPDATE_SUCCESS,
+    message: ServiceMessage.SERVICE_UPDATE_SUCCESS,
+    statusCode: 200,
+  };
+  
+  static readonly DELETE_SUCCESS = {
+    code: ServiceCode.SERVICE_DELETE_SUCCESS,
+    message: ServiceMessage.SERVICE_DELETE_SUCCESS,
+    statusCode: 204,
+  };
+  
+  static readonly FETCH_SUCCESS = {
+    code: ServiceCode.SERVICE_FETCH_SUCCESS,
+    message: ServiceMessage.SERVICE_FETCH_SUCCESS,
+    statusCode: 200,
+  };
+  
+  static readonly SEARCH_SUCCESS = {
+    code: ServiceCode.SERVICE_SEARCH_SUCCESS,
+    message: ServiceMessage.SERVICE_SEARCH_SUCCESS,
+    statusCode: 200,
+  };
+  
+  static readonly HEALTH_CHECK_SUCCESS = {
+    code: ServiceCode.SERVICE_HEALTH_CHECK_SUCCESS,
+    message: ServiceMessage.SERVICE_HEALTH_CHECK_SUCCESS,
+    statusCode: 200,
+  };
 }

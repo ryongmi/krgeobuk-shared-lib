@@ -9,70 +9,83 @@ export class ServiceException {
    *
    *   =============================================================================
    */
-  /** 프로필 정보를 조회하는 중 서버 오류 */
-  // static profileFetchError(): HttpException {
-  //   const e = UserError.PROFILE_FETCH_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 프로필 정보를 수정하는 중 서버 오류 */
-  // static profileUpdateError(): HttpException {
-  //   const e = UserError.PROFILE_UPDATE_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 비밀번호를 변경하는 중 서버 오류 */
-  // static passwordChangeError(): HttpException {
-  //   const e = UserError.PASSWORD_CHANGE_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 회원 탈퇴 처리 중 서버 오류 */
-  // static accountDeleteError(): HttpException {
-  //   const e = UserError.ACCOUNT_DELETE_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 유저 목록을 조회하는 중 서버 오류 */
-  // static userSearchError(): HttpException {
-  //   const e = UserError.USER_SEARCH_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 유저 정보를 조회하는 중 서버 오류 */
-  // static userFetchError(): HttpException {
-  //   const e = UserError.USER_FETCH_ERROR;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /**  =============================================================================
-  //  *
-  //  *        100 ~ 199 에러 코드
-  //  *
-  //  *   =============================================================================
-  //  */
-  // /** 유저 정보 없음 */
-  // static userNotFound(): HttpException {
-  //   const e = UserError.USER_NOT_FOUND;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 비밀번호 미일치 */
-  // static passwordIncorrect(): HttpException {
-  //   const e = UserError.PASSWORD_INCORRECT;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 수정 요청에 잘못된 데이터 포함 -> 근데 이건 요청 들어올때 dto에서 body 검사하지않나? 필요없을지도 */
-  // static invalidUpdatePavload(): HttpException {
-  //   const e = UserError.INVALID_UPDATE_PAYLOAD;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 해당 유저에 대한 수정 권한 미보유 */
-  // static unauthorizedUpdate(): HttpException {
-  //   const e = UserError.UNAUTHORIZED_UPDATE;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** 이미 사용 중인 이메일 */
-  // static emailAlreadyExists(): HttpException {
-  //   const e = UserError.EMAIL_ALREADY_EXISTS;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
-  // /** ID or PW 불일치치 */
-  // static invalidCredentials(): HttpException {
-  //   const e = UserError.INVALID_CREDENTIALS;
-  //   return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  // }
+  
+  /** 서비스 생성 중 서버 오류 */
+  static serviceCreateError(): HttpException {
+    const e = ServiceError.SERVICE_CREATE_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 정보 수정 중 서버 오류 */
+  static serviceUpdateError(): HttpException {
+    const e = ServiceError.SERVICE_UPDATE_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 삭제 중 서버 오류 */
+  static serviceDeleteError(): HttpException {
+    const e = ServiceError.SERVICE_DELETE_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 목록 조회 중 서버 오류 */
+  static serviceSearchError(): HttpException {
+    const e = ServiceError.SERVICE_SEARCH_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 정보 조회 중 서버 오류 */
+  static serviceFetchError(): HttpException {
+    const e = ServiceError.SERVICE_FETCH_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 상태 확인 중 서버 오류 */
+  static serviceHealthCheckError(): HttpException {
+    const e = ServiceError.SERVICE_HEALTH_CHECK_ERROR;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /**  =============================================================================
+   *
+   *        100 ~ 199 에러 코드
+   *
+   *   =============================================================================
+   */
+   
+  /** 서비스 정보 없음 */
+  static serviceNotFound(): HttpException {
+    const e = ServiceError.SERVICE_NOT_FOUND;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 이미 존재하는 서비스명 */
+  static serviceAlreadyExists(): HttpException {
+    const e = ServiceError.SERVICE_ALREADY_EXISTS;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 유효하지 않은 서비스명 */
+  static invalidServiceName(): HttpException {
+    const e = ServiceError.INVALID_SERVICE_NAME;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 유효하지 않은 서비스 URL */
+  static invalidServiceUrl(): HttpException {
+    const e = ServiceError.INVALID_SERVICE_URL;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 사용 불가 */
+  static serviceUnavailable(): HttpException {
+    const e = ServiceError.SERVICE_UNAVAILABLE;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+  
+  /** 서비스 접근 권한 없음 */
+  static unauthorizedServiceAccess(): HttpException {
+    const e = ServiceError.UNAUTHORIZED_SERVICE_ACCESS;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
 }

@@ -9,71 +9,84 @@ export class ServiceError {
    *   =============================================================================
    */
   /** */
-  // static readonly PROFILE_FETCH_ERROR = {
-  //   code: UserCode.PROFILE_FETCH_ERROR,
-  //   message: UserMessage.PROFILE_FETCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly PROFILE_UPDATE_ERROR = {
-  //   code: UserCode.PROFILE_UPDATE_ERROR,
-  //   message: UserMessage.PROFILE_UPDATE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly PASSWORD_CHANGE_ERROR = {
-  //   code: UserCode.PASSWORD_CHANGE_ERROR,
-  //   message: UserMessage.PASSWORD_CHANGE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly ACCOUNT_DELETE_ERROR = {
-  //   code: UserCode.ACCOUNT_DELETE_ERROR,
-  //   message: UserMessage.ACCOUNT_DELETE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly USER_SEARCH_ERROR = {
-  //   code: UserCode.USER_SEARCH_ERROR,
-  //   message: UserMessage.USER_SEARCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly USER_FETCH_ERROR = {
-  //   code: UserCode.USER_FETCH_ERROR,
-  //   message: UserMessage.USER_FETCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // /**  =============================================================================
-  //  *
-  //  *        100 ~ 199 에러 코드
-  //  *
-  //  *   =============================================================================
-  //  */
-  // /** */
-  // static readonly USER_NOT_FOUND = {
-  //   code: UserCode.USER_NOT_FOUND,
-  //   message: UserMessage.USER_NOT_FOUND,
-  //   statusCode: 404,
-  // };
-  // static readonly PASSWORD_INCORRECT = {
-  //   code: UserCode.PASSWORD_INCORRECT,
-  //   message: UserMessage.PASSWORD_INCORRECT,
-  //   statusCode: 400,
-  // };
-  // static readonly INVALID_UPDATE_PAYLOAD = {
-  //   code: UserCode.INVALID_UPDATE_PAYLOAD,
-  //   message: UserMessage.INVALID_UPDATE_PAYLOAD,
-  //   statusCode: 400,
-  // };
-  // static readonly UNAUTHORIZED_UPDATE = {
-  //   code: UserCode.UNAUTHORIZED_UPDATE,
-  //   message: UserMessage.UNAUTHORIZED_UPDATE,
-  //   statusCode: 403,
-  // };
-  // static readonly EMAIL_ALREADY_EXISTS = {
-  //   code: UserCode.EMAIL_ALREADY_EXISTS,
-  //   message: UserMessage.EMAIL_ALREADY_EXISTS,
-  //   statusCode: 409,
-  // };
-  // static readonly INVALID_CREDENTIALS = {
-  //   code: UserCode.INVALID_CREDENTIALS,
-  //   message: UserMessage.INVALID_CREDENTIALS,
-  //   statusCode: 401,
-  // };
+  
+  static readonly SERVICE_CREATE_ERROR = {
+    code: ServiceCode.SERVICE_CREATE_ERROR,
+    message: ServiceMessage.SERVICE_CREATE_ERROR,
+    statusCode: 500,
+  };
+  
+  static readonly SERVICE_UPDATE_ERROR = {
+    code: ServiceCode.SERVICE_UPDATE_ERROR,
+    message: ServiceMessage.SERVICE_UPDATE_ERROR,
+    statusCode: 500,
+  };
+  
+  static readonly SERVICE_DELETE_ERROR = {
+    code: ServiceCode.SERVICE_DELETE_ERROR,
+    message: ServiceMessage.SERVICE_DELETE_ERROR,
+    statusCode: 500,
+  };
+  
+  static readonly SERVICE_SEARCH_ERROR = {
+    code: ServiceCode.SERVICE_SEARCH_ERROR,
+    message: ServiceMessage.SERVICE_SEARCH_ERROR,
+    statusCode: 500,
+  };
+  
+  static readonly SERVICE_FETCH_ERROR = {
+    code: ServiceCode.SERVICE_FETCH_ERROR,
+    message: ServiceMessage.SERVICE_FETCH_ERROR,
+    statusCode: 500,
+  };
+  
+  static readonly SERVICE_HEALTH_CHECK_ERROR = {
+    code: ServiceCode.SERVICE_HEALTH_CHECK_ERROR,
+    message: ServiceMessage.SERVICE_HEALTH_CHECK_ERROR,
+    statusCode: 500,
+  };
+
+  /**  =============================================================================
+   *
+   *        100 ~ 199 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+  
+  static readonly SERVICE_NOT_FOUND = {
+    code: ServiceCode.SERVICE_NOT_FOUND,
+    message: ServiceMessage.SERVICE_NOT_FOUND,
+    statusCode: 404,
+  };
+  
+  static readonly SERVICE_ALREADY_EXISTS = {
+    code: ServiceCode.SERVICE_ALREADY_EXISTS,
+    message: ServiceMessage.SERVICE_ALREADY_EXISTS,
+    statusCode: 409,
+  };
+  
+  static readonly INVALID_SERVICE_NAME = {
+    code: ServiceCode.INVALID_SERVICE_NAME,
+    message: ServiceMessage.INVALID_SERVICE_NAME,
+    statusCode: 400,
+  };
+  
+  static readonly INVALID_SERVICE_URL = {
+    code: ServiceCode.INVALID_SERVICE_URL,
+    message: ServiceMessage.INVALID_SERVICE_URL,
+    statusCode: 400,
+  };
+  
+  static readonly SERVICE_UNAVAILABLE = {
+    code: ServiceCode.SERVICE_UNAVAILABLE,
+    message: ServiceMessage.SERVICE_UNAVAILABLE,
+    statusCode: 503,
+  };
+  
+  static readonly UNAUTHORIZED_SERVICE_ACCESS = {
+    code: ServiceCode.UNAUTHORIZED_SERVICE_ACCESS,
+    message: ServiceMessage.UNAUTHORIZED_SERVICE_ACCESS,
+    statusCode: 403,
+  };
 }
