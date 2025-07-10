@@ -6,6 +6,5 @@ export interface PermissionDetail extends OptionalUuidId {
   action: string;
   description: string | null;
   service: Service;
-  roles!: Role[];
+  roles: Role[];
 }
-
