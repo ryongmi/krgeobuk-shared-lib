@@ -113,3 +113,10 @@ pnpm verdaccio:publish
 - TypeScript 컴포지트 프로젝트 설정으로 효율적인 증분 빌드 가능
 - ESLint 설정에는 임포트 순서와 NestJS 패턴을 위한 커스텀 규칙 포함
 - 대부분의 패키지는 NestJS, class-validator, class-transformer, TypeORM을 피어 의존성으로 사용
+
+## API 응답 포맷
+프로젝트 전체 API 응답 포맷 표준은 메인 CLAUDE.md의 "API 응답 포맷 표준" 섹션을 참조하세요. 
+
+**핵심 구현체:**
+- `@krgeobuk/core` 패키지의 `SerializerInterceptor`: 성공 응답 포맷 처리
+- `@krgeobuk/core` 패키지의 `HttpExceptionFilter`: 에러 응답 포맷 처리
