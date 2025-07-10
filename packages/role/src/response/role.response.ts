@@ -9,34 +9,28 @@ export class RoleResponse {
    *   =============================================================================
    */
   /** */
-  // static readonly PROFILE_FETCH_SUCCESS = {
-  //   code: UserCode.PROFILE_FETCH_SUCCESS,
-  //   message: UserMessage.PROFILE_FETCH_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly PROFILE_UPDATE_SUCCESS = {
-  //   code: UserCode.PROFILE_UPDATE_SUCCESS,
-  //   message: UserMessage.PROFILE_UPDATE_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly PASSWORD_CHANGE_SUCCESS = {
-  //   code: UserCode.PASSWORD_CHANGE_SUCCESS,
-  //   message: UserMessage.PASSWORD_CHANGE_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly ACCOUNT_DELETE_SUCCESS = {
-  //   code: UserCode.ACCOUNT_DELETE_SUCCESS,
-  //   message: UserMessage.ACCOUNT_DELETE_SUCCESS,
-  //   statusCode: 204,
-  // };
-  // static readonly USER_FETCH_SUCCESS = {
-  //   code: UserCode.USER_FETCH_SUCCESS,
-  //   message: UserMessage.USER_FETCH_SUCCESS,
-  //   statusCode: 200,
-  // };
-  // static readonly USER_SEARCH_SUCCESS = {
-  //   code: UserCode.USER_SEARCH_SUCCESS,
-  //   message: UserMessage.USER_SEARCH_SUCCESS,
-  //   statusCode: 200,
-  // };
+
+  static readonly FETCH_SUCCESS = {
+    code: RoleCode.ROLE_FETCH_SUCCESS,
+    message: RoleMessage.ROLE_FETCH_SUCCESS,
+    statusCode: 200,
+  };
+
+  static readonly CREATE_SUCCESS = {
+    code: RoleCode.ROLE_CREATE_SUCCESS,
+    message: RoleMessage.ROLE_CREATE_SUCCESS,
+    statusCode: 201,
+  };
+
+  static readonly UPDATE_SUCCESS = {
+    code: RoleCode.ROLE_UPDATE_SUCCESS,
+    message: RoleMessage.ROLE_UPDATE_SUCCESS,
+    statusCode: 200,
+  };
+
+  static readonly DELETE_SUCCESS = {
+    code: RoleCode.ROLE_DELETE_SUCCESS,
+    message: RoleMessage.ROLE_DELETE_SUCCESS,
+    statusCode: 204,
+  };
 }

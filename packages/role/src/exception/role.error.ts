@@ -2,78 +2,59 @@ import { RoleCode } from '../codes/index.js';
 import { RoleMessage } from '../messages/index.js';
 
 export class RoleError {
-  /**  =============================================================================
-   *
-   *        000 ~ 099	에러 코드
-   *
-   *   =============================================================================
-   */
-  /** */
-  // static readonly PROFILE_FETCH_ERROR = {
-  //   code: UserCode.PROFILE_FETCH_ERROR,
-  //   message: UserMessage.PROFILE_FETCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly PROFILE_UPDATE_ERROR = {
-  //   code: UserCode.PROFILE_UPDATE_ERROR,
-  //   message: UserMessage.PROFILE_UPDATE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly PASSWORD_CHANGE_ERROR = {
-  //   code: UserCode.PASSWORD_CHANGE_ERROR,
-  //   message: UserMessage.PASSWORD_CHANGE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly ACCOUNT_DELETE_ERROR = {
-  //   code: UserCode.ACCOUNT_DELETE_ERROR,
-  //   message: UserMessage.ACCOUNT_DELETE_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly USER_SEARCH_ERROR = {
-  //   code: UserCode.USER_SEARCH_ERROR,
-  //   message: UserMessage.USER_SEARCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // static readonly USER_FETCH_ERROR = {
-  //   code: UserCode.USER_FETCH_ERROR,
-  //   message: UserMessage.USER_FETCH_ERROR,
-  //   statusCode: 500,
-  // };
-  // /**  =============================================================================
-  //  *
-  //  *        100 ~ 199 에러 코드
-  //  *
-  //  *   =============================================================================
-  //  */
-  // /** */
-  // static readonly USER_NOT_FOUND = {
-  //   code: UserCode.USER_NOT_FOUND,
-  //   message: UserMessage.USER_NOT_FOUND,
-  //   statusCode: 404,
-  // };
-  // static readonly PASSWORD_INCORRECT = {
-  //   code: UserCode.PASSWORD_INCORRECT,
-  //   message: UserMessage.PASSWORD_INCORRECT,
-  //   statusCode: 400,
-  // };
-  // static readonly INVALID_UPDATE_PAYLOAD = {
-  //   code: UserCode.INVALID_UPDATE_PAYLOAD,
-  //   message: UserMessage.INVALID_UPDATE_PAYLOAD,
-  //   statusCode: 400,
-  // };
-  // static readonly UNAUTHORIZED_UPDATE = {
-  //   code: UserCode.UNAUTHORIZED_UPDATE,
-  //   message: UserMessage.UNAUTHORIZED_UPDATE,
-  //   statusCode: 403,
-  // };
-  // static readonly EMAIL_ALREADY_EXISTS = {
-  //   code: UserCode.EMAIL_ALREADY_EXISTS,
-  //   message: UserMessage.EMAIL_ALREADY_EXISTS,
-  //   statusCode: 409,
-  // };
-  // static readonly INVALID_CREDENTIALS = {
-  //   code: UserCode.INVALID_CREDENTIALS,
-  //   message: UserMessage.INVALID_CREDENTIALS,
-  //   statusCode: 401,
-  // };
+  // 000 ~ 099: 서버 에러
+  static readonly ROLE_FETCH_ERROR = {
+    code: RoleCode.ROLE_FETCH_ERROR,
+    message: RoleMessage.ROLE_FETCH_ERROR,
+    statusCode: 500,
+  };
+
+  static readonly ROLE_CREATE_ERROR = {
+    code: RoleCode.ROLE_CREATE_ERROR,
+    message: RoleMessage.ROLE_CREATE_ERROR,
+    statusCode: 500,
+  };
+
+  static readonly ROLE_UPDATE_ERROR = {
+    code: RoleCode.ROLE_UPDATE_ERROR,
+    message: RoleMessage.ROLE_UPDATE_ERROR,
+    statusCode: 500,
+  };
+
+  static readonly ROLE_DELETE_ERROR = {
+    code: RoleCode.ROLE_DELETE_ERROR,
+    message: RoleMessage.ROLE_DELETE_ERROR,
+    statusCode: 500,
+  };
+
+  // 100 ~ 199: 클라이언트 에러
+  static readonly ROLE_NOT_FOUND = {
+    code: RoleCode.ROLE_NOT_FOUND,
+    message: RoleMessage.ROLE_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  static readonly ROLE_ALREADY_EXISTS = {
+    code: RoleCode.ROLE_ALREADY_EXISTS,
+    message: RoleMessage.ROLE_ALREADY_EXISTS,
+    statusCode: 409,
+  };
+
+  static readonly ROLE_INVALID_PRIORITY = {
+    code: RoleCode.ROLE_INVALID_PRIORITY,
+    message: RoleMessage.ROLE_INVALID_PRIORITY,
+    statusCode: 400,
+  };
+
+  static readonly ROLE_INVALID_SERVICE = {
+    code: RoleCode.ROLE_INVALID_SERVICE,
+    message: RoleMessage.ROLE_INVALID_SERVICE,
+    statusCode: 400,
+  };
+
+  static readonly ROLE_PERMISSION_CONFLICT = {
+    code: RoleCode.ROLE_PERMISSION_CONFLICT,
+    message: RoleMessage.ROLE_PERMISSION_CONFLICT,
+    statusCode: 400,
+  };
 }

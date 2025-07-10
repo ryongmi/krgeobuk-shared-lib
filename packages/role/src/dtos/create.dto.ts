@@ -1,5 +1,9 @@
-import { IsValidServiceId } from '@krgeobuk/shared/role';
-import { IsValidRoleName, IsValidDescription, IsValidPriority } from '@krgeobuk/shared/role';
+import {
+  IsValidRoleName,
+  IsValidDescription,
+  IsValidPriority,
+  IsValidServiceId,
+} from '@krgeobuk/shared/role';
 
 import type { CreateRole } from '../interfaces/index.js';
 
