@@ -1,1 +1,1 @@
-export * from './current-permission.decorator.js';
+// export * from './current-permission.decorator.js';

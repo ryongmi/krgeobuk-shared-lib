@@ -1,15 +1,17 @@
-import '@krgeobuk/core/interfaces/express';
+// import '@krgeobuk/core/interfaces/express';
 
-import { createParamDecorator, ExecutionContext } from '@nestjs/common';
-import type { Request } from 'express';
+// import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 
-import type { PermissionDetail } from '../interfaces/index.js';
+// import type { Request } from 'express';
 
-export const CurrentPermission = createParamDecorator(
-  (data: keyof PermissionDetail | undefined, ctx: ExecutionContext): PermissionDetail => {
-    const request = ctx.switchToHttp().getRequest<Request>();
-    const permission = request.permission as PermissionDetail;
+// import type { PermissionDetail } from '../interfaces/index.js';
 
-    return data ? permission?.[data] : permission;
-  }
-);
+// export const CurrentPermission = createParamDecorator(
+//   (data: keyof PermissionDetail | undefined, ctx: ExecutionContext): PermissionDetail => {
+//     const request = ctx.switchToHttp().getRequest<Request>();
+//     return request.permission as PermissionDetail;
+//     // const permission = request.permission as PermissionDetail;
+
+//     // return data ? permission?.[data] : permission;
+//   }
+// );
