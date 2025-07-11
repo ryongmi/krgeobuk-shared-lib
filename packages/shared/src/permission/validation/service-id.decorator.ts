@@ -12,6 +12,7 @@ export function IsValidServiceId(options: IsValidOptions = {}): PropertyDecorato
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174000',
     description: '서비스 ID',
+    name: 'service_id',
     type: String,
     format: 'uuid',
   };
@@ -29,6 +30,7 @@ export function ExposeServiceId(): PropertyDecorator {
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174000',
     description: '서비스 ID',
+    name: 'service_id',
     type: String,
     format: 'uuid',
   };
