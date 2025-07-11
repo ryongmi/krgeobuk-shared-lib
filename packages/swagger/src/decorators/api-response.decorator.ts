@@ -1,4 +1,4 @@
-import { applyDecorators } from '@nestjs/common';
+import { applyDecorators, Type } from '@nestjs/common';
 import { ApiExtraModels, ApiResponse, getSchemaPath } from '@nestjs/swagger';
 
 import {
@@ -11,6 +11,7 @@ import {
 import type {
   SwaggerApiResponseOptions,
   SwaggerPaginatedResponseOptions,
+  PrimitiveType,
 } from '../interface/index.js';
 
 /**
@@ -20,10 +21,33 @@ import type {
  * @param dto 해당 응답 JSON 구조
  * @returns
  */
+/**
+ * 타입별 스키마 생성 헬퍼 함수
+ */
+const createTypeSchema = (type: PrimitiveType | Function, isArray: boolean) => {
+  if (typeof type === 'string') {
+    // PrimitiveType 처리
+    const baseSchema = { type };
+    return isArray ? { type: 'array', items: baseSchema } : baseSchema;
+  } else {
+    // Class Type 처리
+    const baseSchema = { $ref: getSchemaPath(type as Type<unknown>) };
+    return isArray ? { type: 'array', items: baseSchema } : baseSchema;
+  }
+};
+
 export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDecorator => {
-  const { status, description: description = '', dto, isArray = false, extraModels = [] } = param;
+  const {
+    status,
+    description: description = '',
+    dto,
+    type,
+    isArray = false,
+    extraModels = [],
+  } = param;
 
   if (dto) {
+    // 기존 DTO 로직
     const dataSchema = isArray
       ? {
           type: 'array',
@@ -37,6 +61,29 @@ export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDe
 
     return applyDecorators(
       ApiExtraModels(ResponseFormatDto, dto, ...extraModels),
+      ApiResponse({
+        status,
+        description,
+        schema: {
+          allOf: [
+            { $ref: getSchemaPath(ResponseFormatDto) },
+            {
+              properties: {
+                data: dataSchema,
+              },
+            },
+          ],
+        },
+      })
+    );
+  } else if (type) {
+    // 새로운 type 지원 로직
+    const dataSchema = createTypeSchema(type, isArray);
+    const models =
+      typeof type === 'function' ? [type as Type<unknown>, ...extraModels] : extraModels;
+
+    return applyDecorators(
+      ApiExtraModels(ResponseFormatDto, ...models),
       ApiResponse({
         status,
         description,
@@ -148,4 +195,3 @@ export const SwaggerApiErrorResponse = (param: SwaggerApiResponseOptions): Metho
     // },
   });
 };
-
