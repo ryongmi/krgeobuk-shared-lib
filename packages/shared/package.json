@@ -25,6 +25,10 @@
       "import": "./dist/role/index.js",
       "types": "./dist/role/index.d.ts"
     },
+    "./role-permission": {
+      "import": "./dist/role-permission/index.js",
+      "types": "./dist/role-permission/index.d.ts"
+    },
     "./service": {
       "import": "./dist/service/index.js",
       "types": "./dist/service/index.d.ts"
@@ -53,6 +57,12 @@
       ],
       "role/*": [
         "dist/role/*"
+      ],
+      "role-permission": [
+        "dist/role-permission/index.d.ts"
+      ],
+      "role-permission/*": [
+        "dist/role-permission/*"
       ],
       "service": [
         "dist/service/index.d.ts"

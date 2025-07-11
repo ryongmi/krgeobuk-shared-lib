@@ -1,0 +1,103 @@
+{
+  "name": "@krgeobuk/authz-relations",
+  "version": "0.0.1",
+  "description": "KRGeobuk Authorization Relations - 권한 관계 관리를 위한 공통 라이브러리",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./role-permission": {
+      "import": "./dist/role-permission/index.js",
+      "types": "./dist/role-permission/index.d.ts"
+    },
+    "./role-permission/dtos": {
+      "import": "./dist/role-permission/dtos/index.js",
+      "types": "./dist/role-permission/dtos/index.d.ts"
+    },
+    "./role-permission/interfaces": {
+      "import": "./dist/role-permission/interfaces/index.js",
+      "types": "./dist/role-permission/interfaces/index.d.ts"
+    },
+    "./role-permission/response": {
+      "import": "./dist/role-permission/response/index.js",
+      "types": "./dist/role-permission/response/index.d.ts"
+    },
+    "./role-permission/exception": {
+      "import": "./dist/role-permission/exception/index.js",
+      "types": "./dist/role-permission/exception/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "role-permission": [
+        "dist/role-permission/index.d.ts"
+      ],
+      "role-permission/*": [
+        "dist/role-permission/*"
+      ],
+      "role-permission/dtos": [
+        "dist/role-permission/dtos/index.d.ts"
+      ],
+      "role-permission/dtos/*": [
+        "dist/role-permission/dtos/*"
+      ],
+      "role-permission/interfaces": [
+        "dist/role-permission/interfaces/index.d.ts"
+      ],
+      "role-permission/interfaces/*": [
+        "dist/role-permission/interfaces/*"
+      ],
+      "role-permission/response": [
+        "dist/role-permission/response/index.d.ts"
+      ],
+      "role-permission/response/*": [
+        "dist/role-permission/response/*"
+      ],
+      "role-permission/exception": [
+        "dist/role-permission/exception/index.d.ts"
+      ],
+      "role-permission/exception/*": [
+        "dist/role-permission/exception/*"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
+  },
+  "keywords": ["krgeobuk", "authorization", "relations", "role", "permission"],
+  "author": "KRGeobuk",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
+    "@types/express": "^5.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.19.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "typescript": "^5.8.3"
+  }
+}
