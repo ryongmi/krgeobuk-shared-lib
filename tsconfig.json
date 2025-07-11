@@ -9,6 +9,7 @@
     { "path": "./packages/user" },
     { "path": "./packages/auth" },
     { "path": "./packages/role" },
+    { "path": "./packages/authz-relations" },
     { "path": "./packages/service" },
     { "path": "./packages/oauth" },
     { "path": "./packages/permission" }
@@ -32,6 +33,8 @@
       "@krgeobuk/auth/*": ["packages/auth/*"],
       "@krgeobuk/role": ["packages/role"],
       "@krgeobuk/role/*": ["packages/role/*"],
+      "@krgeobuk/authz-relations": ["packages/authz-relations"],
+      "@krgeobuk/authz-relations/*": ["packages/authz-relations/*"],
       "@krgeobuk/service": ["packages/service"],
       "@krgeobuk/service/*": ["packages/service/*"],
       "@krgeobuk/oauth": ["packages/oauth"],
