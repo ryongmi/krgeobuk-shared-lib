@@ -4,6 +4,7 @@ export interface SwaggerApiResponseOptions {
   status: number;
   description: string;
   dto?: Type<unknown> | null;
+  isArray?: boolean;
   extraModels?: Array<Type<unknown>>;
 }
 

@@ -21,9 +21,20 @@ import type {
  * @returns
  */
 export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDecorator => {
-  const { status, description: description = '', dto, extraModels = [] } = param;
+  const { status, description: description = '', dto, isArray = false, extraModels = [] } = param;
 
   if (dto) {
+    const dataSchema = isArray
+      ? {
+          type: 'array',
+          items: {
+            $ref: getSchemaPath(dto),
+          },
+        }
+      : {
+          $ref: getSchemaPath(dto),
+        };
+
     return applyDecorators(
       ApiExtraModels(ResponseFormatDto, dto, ...extraModels),
       ApiResponse({
@@ -34,9 +45,7 @@ export const SwaggerApiOkResponse = (param: SwaggerApiResponseOptions): MethodDe
             { $ref: getSchemaPath(ResponseFormatDto) },
             {
               properties: {
-                data: {
-                  $ref: getSchemaPath(dto),
-                },
+                data: dataSchema,
               },
             },
           ],
