@@ -1,4 +1,4 @@
-export interface UserIdParamsDto {
+export interface UserIdParams {
   userId: string;
 }
 
