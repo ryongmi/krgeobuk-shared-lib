@@ -66,6 +66,8 @@
     }
   },
   "sideEffects": false,
+  "private": true,
+  "license": "UNLICENSED",
   "publishConfig": {
     "registry": "http://localhost:4873/"
   },
@@ -77,7 +79,6 @@
   },
   "keywords": ["krgeobuk", "authorization", "relations", "role", "permission"],
   "author": "KRGeobuk",
-  "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
     "@nestjs/common": "^10.0.0",
