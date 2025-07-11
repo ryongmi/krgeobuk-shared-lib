@@ -32,13 +32,18 @@ export class SerializerInterceptor implements NestInterceptor {
       this.reflector.get<SerializeOptions>(SERIALIZE_META_KEY, context.getHandler()) || {};
 
     return next.handle().pipe(
-      map((data: object | null) => {
-        const transformed =
-          options.dto !== undefined
-            ? plainToInstance(options.dto, data, {
-                excludeExtraneousValues: true,
-              })
-            : data;
+      map((data: unknown) => {
+        let transformed: unknown;
+        
+        if (options.dto !== undefined) {
+          // DTO가 있으면 기존 로직
+          transformed = plainToInstance(options.dto, data, {
+            excludeExtraneousValues: true,
+          });
+        } else {
+          // DTO가 없으면 primitive type 처리
+          transformed = this.handlePrimitiveType(data);
+        }
 
         const responseData = toSnakeCase(transformed);
 
@@ -47,11 +52,41 @@ export class SerializerInterceptor implements NestInterceptor {
           status_code: statusCode || HttpStatus.OK,
           message: options?.message || CoreMessage.REQUEST_SUCCESS,
           isLogin: Boolean(req?.user),
-          // Boolean(req.cookies['refreshToken']) ||
-          // 'accessToken' in transformed,
           data: responseData,
         };
       })
     );
+  }
+
+  /**
+   * Primitive type 데이터 처리
+   */
+  private handlePrimitiveType(data: unknown): unknown {
+    // null이나 undefined는 그대로 반환
+    if (data === null || data === undefined) {
+      return data;
+    }
+
+    // primitive array 처리 (string[], number[], boolean[])
+    if (Array.isArray(data)) {
+      const firstItem = data[0];
+      if (firstItem !== undefined) {
+        const itemType = typeof firstItem;
+        // 모든 요소가 같은 primitive type인지 확인
+        if (['string', 'number', 'boolean'].includes(itemType) && 
+            data.every(item => typeof item === itemType)) {
+          return data; // primitive array는 그대로 유지
+        }
+      }
+      return data; // 빈 배열이거나 mixed type이면 그대로 반환
+    }
+
+    // primitive value 처리
+    if (['string', 'number', 'boolean'].includes(typeof data)) {
+      return data;
+    }
+
+    // object인 경우 기본 처리
+    return data;
   }
 }
