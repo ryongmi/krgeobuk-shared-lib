@@ -31,7 +31,7 @@ export class PermissionSearchResultDto implements PermissionSearchResult {
   service!: ServiceDto;
 }
 
-export class RolePaginatedSearchResultDto
+export class PermissionPaginatedSearchResultDto
   extends PageInfoWrapperDto
   implements PaginatedResult<PermissionSearchResultDto>
 {
@@ -43,4 +43,3 @@ export class RolePaginatedSearchResultDto
   })
   items!: PermissionSearchResultDto[];
 }
-
