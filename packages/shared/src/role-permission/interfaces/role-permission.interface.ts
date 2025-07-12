@@ -1,4 +1,4 @@
 export interface RolePermission {
-  roleId: string;
-  permissionId: string;
+  roleId?: string;
+  permissionId?: string;
 }

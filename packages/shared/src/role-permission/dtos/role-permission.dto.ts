@@ -3,8 +3,8 @@ import type { RolePermission } from '../interfaces/index.js';
 
 export class RolePermissionDto implements RolePermission {
   @ExposeRoleId()
-  roleId!: string;
+  roleId?: string;
 
   @ExposePermissionId()
-  permissionId!: string;
+  permissionId?: string;
 }

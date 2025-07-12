@@ -25,6 +25,10 @@
       "import": "./dist/role/index.js",
       "types": "./dist/role/index.d.ts"
     },
+    "./role/dtos": {
+      "import": "./dist/role/dtos/index.js",
+      "types": "./dist/role/dtos/index.d.ts"
+    },
     "./role-permission": {
       "import": "./dist/role-permission/index.js",
       "types": "./dist/role-permission/index.d.ts"
@@ -36,6 +40,18 @@
     "./user": {
       "import": "./dist/user/index.js",
       "types": "./dist/user/index.d.ts"
+    },
+    "./user/dtos": {
+      "import": "./dist/user/dtos/index.js",
+      "types": "./dist/user/dtos/index.d.ts"
+    },
+    "./user-role": {
+      "import": "./dist/user-role/index.js",
+      "types": "./dist/user-role/index.d.ts"
+    },
+    "./user-role/dtos": {
+      "import": "./dist/user-role/dtos/index.js",
+      "types": "./dist/user-role/dtos/index.d.ts"
     }
   },
   "typesVersions": {
@@ -58,6 +74,12 @@
       "role/*": [
         "dist/role/*"
       ],
+      "role/dtos": [
+        "dist/role/dtos/index.d.ts"
+      ],
+      "role/dtos/*": [
+        "dist/role/dtos/*"
+      ],
       "role-permission": [
         "dist/role-permission/index.d.ts"
       ],
@@ -75,6 +97,24 @@
       ],
       "user/*": [
         "dist/user/*"
+      ],
+      "user/dtos": [
+        "dist/user/dtos/index.d.ts"
+      ],
+      "user/dtos/*": [
+        "dist/user/dtos/*"
+      ],
+      "user-role": [
+        "dist/user-role/index.d.ts"
+      ],
+      "user-role/*": [
+        "dist/user-role/*"
+      ],
+      "user-role/dtos": [
+        "dist/user-role/dtos/index.d.ts"
+      ],
+      "user-role/dtos/*": [
+        "dist/user-role/dtos/*"
       ]
     }
   },
