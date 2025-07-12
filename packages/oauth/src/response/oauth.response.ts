@@ -25,6 +25,6 @@ export class OAuthResponse {
   static readonly LOGOUT_SUCCESS = {
     code: OAuthCode.LOGOUT_SUCCESS,
     message: OAuthMessage.LOGOUT_SUCCESS,
-    statusCode: 200,
+    statusCode: 204,
   };
 }

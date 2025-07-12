@@ -19,7 +19,7 @@ export class RolePermissionResponse {
   static readonly REVOKE_SUCCESS = {
     code: RolePermissionCode.REVOKE_SUCCESS,
     message: RolePermissionMessage.REVOKE_SUCCESS,
-    statusCode: 200,
+    statusCode: 204,
   };
 
   static readonly ASSIGN_MULTIPLE_SUCCESS = {
@@ -31,7 +31,7 @@ export class RolePermissionResponse {
   static readonly REVOKE_MULTIPLE_SUCCESS = {
     code: RolePermissionCode.REVOKE_MULTIPLE_SUCCESS,
     message: RolePermissionMessage.REVOKE_MULTIPLE_SUCCESS,
-    statusCode: 200,
+    statusCode: 204,
   };
 
   static readonly REPLACE_SUCCESS = {

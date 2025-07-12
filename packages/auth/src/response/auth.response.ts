@@ -25,7 +25,7 @@ export class AuthResponse {
   static readonly LOGOUT_SUCCESS = {
     code: AuthCode.LOGOUT_SUCCESS,
     message: AuthMessage.LOGOUT_SUCCESS,
-    statusCode: 200,
+    statusCode: 204,
   };
 
   static readonly REFRESH_SUCCESS = {
