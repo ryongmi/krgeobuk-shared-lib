@@ -502,3 +502,292 @@ shared-lib는 krgeobuk 생태계 전반의 API 응답 포맷을 표준화합니�
 - **`@krgeobuk/core`** 패키지의 `HttpExceptionFilter`: 에러 응답 포맷 처리
 
 상세한 API 응답 포맷 표준은 [authz-server/CLAUDE.md](../authz-server/CLAUDE.md)의 **"API 응답 포맷 표준"** 섹션을 참조하세요.
+
+---
+
+# 🚀 TCP 인터페이스 설계 표준
+
+> **중요**: 이 섹션은 마이크로서비스 간 TCP 통신을 위한 인터페이스 설계 표준입니다.
+
+## TCP 인터페이스 아키텍처 원칙
+
+### 1. 도메인 소유권 원칙
+각 도메인 패키지는 자신의 TCP 통신 계약을 완전히 소유하고 관리합니다:
+
+- **HTTP DTO**: 각 도메인 패키지의 `dtos/` 디렉토리 (현재 패턴)
+- **TCP 인터페이스**: 각 도메인 패키지의 `tcp/` 디렉토리 (새로운 표준)
+- **공통 ID Params**: `@krgeobuk/shared` 패키지에서 재사용
+
+### 2. 관심사 분리 기반 배치 전략
+
+#### HTTP vs TCP 배치 규칙
+```typescript
+// HTTP Params (shared에 유지)
+// @krgeobuk/shared/role/dtos/params.dto.ts
+export class RoleIdParamsDto {
+  @IsValidRoleIdParams()
+  roleId!: string;
+}
+
+// TCP Interfaces (각 도메인 패키지)
+// @krgeobuk/role/src/tcp/interfaces/
+export type TcpRoleParams = RoleIdParams;  // shared 재사용
+```
+
+**HTTP Params를 shared에 유지하는 이유:**
+- **검증 표준화**: 모든 서비스에서 동일한 URL 파라미터 검증
+- **클라이언트-서버 계약 통일**: 전체 시스템의 일관된 API 형식
+- **범용성**: 여러 도메인 서비스에서 동일한 형식으로 사용
+
+**TCP Interfaces를 도메인 패키지에 두는 이유:**
+- **서비스 자율성**: 각 서비스가 자체 통신 계약 소유
+- **독립적 진화**: TCP 인터페이스가 서비스별로 다른 속도로 발전
+- **마이크로서비스 원칙**: 계약이 구현체와 함께 위치
+
+## TCP 패키지 구조 표준
+
+### 1. 디렉토리 구조
+```
+packages/{domain}/src/
+├── dtos/              # HTTP 작업용 (기존)
+├── interfaces/        # 비즈니스 로직용 (기존)
+├── tcp/               # TCP 전용 (새로 추가)
+│   ├── interfaces/    # TCP 메시지 인터페이스
+│   │   ├── {domain}-params.interface.ts
+│   │   ├── tcp-response.interface.ts
+│   │   └── index.ts
+│   ├── patterns/      # 메시지 패턴 상수
+│   │   ├── {domain}.patterns.ts
+│   │   └── index.ts
+│   └── index.ts
+├── response/          # HTTP 응답 (기존)
+└── exception/         # 예외 처리 (기존)
+```
+
+### 2. TCP 인터페이스 파일 템플릿
+
+#### TCP 파라미터 인터페이스 (`tcp/interfaces/{domain}-params.interface.ts`)
+```typescript
+/**
+ * {Domain} 도메인 TCP 파라미터 인터페이스
+ * 간단한 ID 기반 조회/수정/삭제 작업용
+ */
+
+import type { {Domain}IdParams } from '@krgeobuk/shared/{domain}/interfaces';
+import type { Update{Domain} } from '../../interfaces/index.js';
+
+// shared의 기본 ID params 재사용
+export type Tcp{Domain}Params = {Domain}IdParams;
+
+// TCP 전용 복합 파라미터
+export interface TcpMultiServiceParams {
+  serviceIds: string[];
+}
+
+export interface Tcp{Domain}UpdateParams extends {Domain}IdParams {
+  updateData: Update{Domain};
+}
+```
+
+#### TCP 응답 인터페이스 (`tcp/interfaces/tcp-response.interface.ts`)
+```typescript
+/**
+ * {Domain} 도메인 TCP 응답 인터페이스
+ * TCP 통신에서 사용되는 공통 응답 구조
+ */
+
+import type { PaginatedResult } from '@krgeobuk/core/interfaces';
+
+export interface TcpOperationResponse {
+  success: boolean;
+}
+
+// 기존 PaginatedResult 재사용하여 중복 제거
+export type TcpSearchResponse<T> = PaginatedResult<T>;
+```
+
+#### TCP 메시지 패턴 (`tcp/patterns/{domain}.patterns.ts`)
+```typescript
+/**
+ * {Domain} 도메인 TCP 메시지 패턴 상수
+ * 다른 서비스에서 {service}-server의 {domain} 기능에 접근할 때 사용
+ */
+
+export const {Domain}TcpPatterns = {
+  // 조회 패턴
+  SEARCH: '{domain}.search',
+  FIND_BY_ID: '{domain}.findById',
+  FIND_BY_SERVICE_IDS: '{domain}.findByServiceIds',
+  EXISTS: '{domain}.exists',
+
+  // 변경 패턴
+  CREATE: '{domain}.create',
+  UPDATE: '{domain}.update',
+  DELETE: '{domain}.delete',
+} as const;
+
+export type {Domain}TcpPattern = typeof {Domain}TcpPatterns[keyof typeof {Domain}TcpPatterns];
+```
+
+### 3. package.json exports 설정
+```json
+{
+  "exports": {
+    ".": "./dist/index.js",
+    "./decorators": "./dist/decorators/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./exception": "./dist/exception/index.js",
+    "./interfaces": "./dist/interfaces/index.js",
+    "./response": "./dist/response/index.js",
+    "./tcp": "./dist/tcp/index.js",
+    "./tcp/interfaces": "./dist/tcp/interfaces/index.js",
+    "./tcp/patterns": "./dist/tcp/patterns/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "tcp": ["dist/tcp/index.d.ts"],
+      "tcp/*": ["dist/tcp/*"],
+      "tcp/interfaces": ["dist/tcp/interfaces/index.d.ts"],
+      "tcp/interfaces/*": ["dist/tcp/interfaces/*"],
+      "tcp/patterns": ["dist/tcp/patterns/index.d.ts"],
+      "tcp/patterns/*": ["dist/tcp/patterns/*"]
+    }
+  }
+}
+```
+
+### 4. 메인 index.ts export
+```typescript
+// packages/{domain}/src/index.ts
+export * from './decorators/index.js';
+export * from './dtos/index.js';
+export * from './exception/index.js';
+export * from './interfaces/index.js';
+export * from './response/index.js';
+export * from './tcp/index.js';        // TCP export 추가
+```
+
+## 타입 재사용 최적화 규칙
+
+### 1. 기존 타입 재사용 우선순위
+```typescript
+// 1순위: shared 패키지의 기본 ID params
+export type TcpRoleParams = RoleIdParams;  // @krgeobuk/shared에서 재사용
+
+// 2순위: core 패키지의 공통 인터페이스
+export type TcpSearchResponse<T> = PaginatedResult<T>;  // @krgeobuk/core에서 재사용
+
+// 3순위: 같은 패키지 내 인터페이스 (상대경로)
+import type { UpdateRole } from '../../interfaces/index.js';
+
+// 4순위: TCP 전용 새로운 인터페이스 정의
+export interface TcpMultiServiceParams {
+  serviceIds: string[];
+}
+```
+
+### 2. Import 방식 규칙
+```typescript
+// 외부 패키지 - 별칭 사용
+import type { RoleIdParams } from '@krgeobuk/shared/role/interfaces';
+import type { PaginatedResult } from '@krgeobuk/core/interfaces';
+
+// 같은 패키지 내부 - 상대경로 사용
+import type { UpdateRole } from '../../interfaces/index.js';
+```
+
+## TCP 컨트롤러 적용 예시
+
+### Before (인라인 타입)
+```typescript
+@MessagePattern('role.findById')
+async findById(@Payload() data: { roleId: string }) { }
+
+@MessagePattern('role.update')  
+async update(@Payload() data: { roleId: string; updateData: UpdateRole }) { }
+```
+
+### After (표준 인터페이스)
+```typescript
+import type { TcpRoleParams, TcpRoleUpdateParams } from '@krgeobuk/role/tcp/interfaces';
+import { RoleTcpPatterns } from '@krgeobuk/role/tcp/patterns';
+
+@MessagePattern(RoleTcpPatterns.FIND_BY_ID)
+async findById(@Payload() data: TcpRoleParams) { }
+
+@MessagePattern(RoleTcpPatterns.UPDATE)
+async update(@Payload() data: TcpRoleUpdateParams) { }
+```
+
+## 사용 방법 및 Import 패턴
+
+### 1. TCP 컨트롤러에서 사용
+```typescript
+// 서비스 구현체에서 (authz-server 등)
+import type {
+  TcpRoleParams,
+  TcpRoleUpdateParams,
+  TcpOperationResponse,
+} from '@krgeobuk/role/tcp/interfaces';
+import { RoleTcpPatterns } from '@krgeobuk/role/tcp/patterns';
+
+@Controller()
+export class RoleTcpController {
+  @MessagePattern(RoleTcpPatterns.FIND_BY_ID)
+  async findById(@Payload() data: TcpRoleParams): Promise<RoleDetail | null> {
+    // 구현
+  }
+}
+```
+
+### 2. TCP 클라이언트에서 사용
+```typescript
+// 다른 서비스에서 TCP 호출 시
+import { RoleTcpPatterns } from '@krgeobuk/role/tcp/patterns';
+
+@Injectable()
+export class SomeService {
+  constructor(@Inject('AUTHZ_SERVICE') private authzClient: ClientProxy) {}
+
+  async getRoleById(roleId: string) {
+    // 패턴 상수 사용으로 타입 안전성 보장
+    return this.authzClient.send(RoleTcpPatterns.FIND_BY_ID, { roleId });
+  }
+}
+```
+
+### 3. Import 최적화 옵션
+```typescript
+// Option 1: 세분화된 import (권장 - 트리 쉐이킹 최적화)
+import { TcpRoleParams } from '@krgeobuk/role/tcp/interfaces';
+import { RoleTcpPatterns } from '@krgeobuk/role/tcp/patterns';
+
+// Option 2: 통합 import (간편함)
+import { TcpRoleParams, RoleTcpPatterns } from '@krgeobuk/role/tcp';
+
+// Option 3: 기본 import (모든 것 포함)
+import { TcpRoleParams, RoleTcpPatterns } from '@krgeobuk/role';
+```
+
+## 개발 체크리스트
+
+### TCP 인터페이스 추가 시 확인사항
+- [ ] `tcp/interfaces/` 디렉토리 생성
+- [ ] `tcp/patterns/` 디렉토리 생성
+- [ ] 기본 ID params는 shared 패키지에서 재사용
+- [ ] 페이지네이션은 core의 `PaginatedResult` 재사용
+- [ ] 같은 패키지 내 import는 상대경로 사용
+- [ ] package.json에 tcp exports 추가
+- [ ] typesVersions에 tcp 타입 경로 추가
+- [ ] 메인 index.ts에 tcp export 추가
+- [ ] TCP 컨트롤러에 새 인터페이스 적용
+- [ ] 메시지 패턴 상수 사용으로 교체
+
+### 아키텍처 검증 포인트
+- [ ] HTTP와 TCP 인터페이스가 명확히 분리됨
+- [ ] 각 도메인이 독립적인 TCP 계약 소유
+- [ ] 중복 타입 정의 없이 기존 인터페이스 재사용
+- [ ] 마이크로서비스 원칙에 따른 서비스 자율성 보장
+- [ ] 트리 쉐이킹 최적화를 통한 번들 크기 최소화
+
+이 표준을 따르면 모든 도메인 패키지에서 일관되고 최적화된 TCP 인터페이스 설계를 유지할 수 있습니다.
