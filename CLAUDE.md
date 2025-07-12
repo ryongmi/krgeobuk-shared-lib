@@ -553,11 +553,11 @@ packages/{domain}/src/
 ├── interfaces/        # 비즈니스 로직용 (기존)
 ├── tcp/               # TCP 전용 (새로 추가)
 │   ├── interfaces/    # TCP 메시지 인터페이스
-│   │   ├── {domain}-params.interface.ts
+│   │   ├── params.interface.ts
 │   │   ├── tcp-response.interface.ts
 │   │   └── index.ts
 │   ├── patterns/      # 메시지 패턴 상수
-│   │   ├── {domain}.patterns.ts
+│   │   ├── patterns.ts
 │   │   └── index.ts
 │   └── index.ts
 ├── response/          # HTTP 응답 (기존)
@@ -566,7 +566,7 @@ packages/{domain}/src/
 
 ### 2. TCP 인터페이스 파일 템플릿
 
-#### TCP 파라미터 인터페이스 (`tcp/interfaces/{domain}-params.interface.ts`)
+#### TCP 파라미터 인터페이스 (`tcp/interfaces/params.interface.ts`)
 ```typescript
 /**
  * {Domain} 도메인 TCP 파라미터 인터페이스
@@ -606,7 +606,7 @@ export interface TcpOperationResponse {
 export type TcpSearchResponse<T> = PaginatedResult<T>;
 ```
 
-#### TCP 메시지 패턴 (`tcp/patterns/{domain}.patterns.ts`)
+#### TCP 메시지 패턴 (`tcp/patterns/patterns.ts`)
 ```typescript
 /**
  * {Domain} 도메인 TCP 메시지 패턴 상수
