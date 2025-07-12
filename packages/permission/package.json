@@ -19,7 +19,10 @@
     "./dtos": "./dist/dtos/index.js",
     "./exception": "./dist/exception/index.js",
     "./interfaces": "./dist/interfaces/index.js",
-    "./response": "./dist/response/index.js"
+    "./response": "./dist/response/index.js",
+    "./tcp": "./dist/tcp/index.js",
+    "./tcp/interfaces": "./dist/tcp/interfaces/index.js",
+    "./tcp/patterns": "./dist/tcp/patterns/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -53,6 +56,24 @@
       ],
       "response/*": [
         "dist/response/*"
+      ],
+      "tcp": [
+        "dist/tcp/index.d.ts"
+      ],
+      "tcp/*": [
+        "dist/tcp/*"
+      ],
+      "tcp/interfaces": [
+        "dist/tcp/interfaces/index.d.ts"
+      ],
+      "tcp/interfaces/*": [
+        "dist/tcp/interfaces/*"
+      ],
+      "tcp/patterns": [
+        "dist/tcp/patterns/index.d.ts"
+      ],
+      "tcp/patterns/*": [
+        "dist/tcp/patterns/*"
       ]
     }
   },
