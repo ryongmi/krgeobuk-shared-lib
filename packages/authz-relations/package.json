@@ -29,6 +29,54 @@
     "./role-permission/exception": {
       "import": "./dist/role-permission/exception/index.js",
       "types": "./dist/role-permission/exception/index.d.ts"
+    },
+    "./role-permission/tcp": {
+      "import": "./dist/role-permission/tcp/index.js",
+      "types": "./dist/role-permission/tcp/index.d.ts"
+    },
+    "./role-permission/tcp/interfaces": {
+      "import": "./dist/role-permission/tcp/interfaces/index.js",
+      "types": "./dist/role-permission/tcp/interfaces/index.d.ts"
+    },
+    "./role-permission/tcp/patterns": {
+      "import": "./dist/role-permission/tcp/patterns/index.js",
+      "types": "./dist/role-permission/tcp/patterns/index.d.ts"
+    },
+    "./user-role": {
+      "import": "./dist/user-role/index.js",
+      "types": "./dist/user-role/index.d.ts"
+    },
+    "./user-role/tcp": {
+      "import": "./dist/user-role/tcp/index.js",
+      "types": "./dist/user-role/tcp/index.d.ts"
+    },
+    "./user-role/tcp/interfaces": {
+      "import": "./dist/user-role/tcp/interfaces/index.js",
+      "types": "./dist/user-role/tcp/interfaces/index.d.ts"
+    },
+    "./user-role/tcp/patterns": {
+      "import": "./dist/user-role/tcp/patterns/index.js",
+      "types": "./dist/user-role/tcp/patterns/index.d.ts"
+    },
+    "./user-role/codes": {
+      "import": "./dist/user-role/codes/index.js",
+      "types": "./dist/user-role/codes/index.d.ts"
+    },
+    "./user-role/messages": {
+      "import": "./dist/user-role/messages/index.js",
+      "types": "./dist/user-role/messages/index.d.ts"
+    },
+    "./user-role/response": {
+      "import": "./dist/user-role/response/index.js",
+      "types": "./dist/user-role/response/index.d.ts"
+    },
+    "./user-role/exception": {
+      "import": "./dist/user-role/exception/index.js",
+      "types": "./dist/user-role/exception/index.d.ts"
+    },
+    "./user-role/dtos": {
+      "import": "./dist/user-role/dtos/index.js",
+      "types": "./dist/user-role/dtos/index.d.ts"
     }
   },
   "typesVersions": {
@@ -62,6 +110,78 @@
       ],
       "role-permission/exception/*": [
         "dist/role-permission/exception/*"
+      ],
+      "role-permission/tcp": [
+        "dist/role-permission/tcp/index.d.ts"
+      ],
+      "role-permission/tcp/*": [
+        "dist/role-permission/tcp/*"
+      ],
+      "role-permission/tcp/interfaces": [
+        "dist/role-permission/tcp/interfaces/index.d.ts"
+      ],
+      "role-permission/tcp/interfaces/*": [
+        "dist/role-permission/tcp/interfaces/*"
+      ],
+      "role-permission/tcp/patterns": [
+        "dist/role-permission/tcp/patterns/index.d.ts"
+      ],
+      "role-permission/tcp/patterns/*": [
+        "dist/role-permission/tcp/patterns/*"
+      ],
+      "user-role": [
+        "dist/user-role/index.d.ts"
+      ],
+      "user-role/*": [
+        "dist/user-role/*"
+      ],
+      "user-role/tcp": [
+        "dist/user-role/tcp/index.d.ts"
+      ],
+      "user-role/tcp/*": [
+        "dist/user-role/tcp/*"
+      ],
+      "user-role/tcp/interfaces": [
+        "dist/user-role/tcp/interfaces/index.d.ts"
+      ],
+      "user-role/tcp/interfaces/*": [
+        "dist/user-role/tcp/interfaces/*"
+      ],
+      "user-role/tcp/patterns": [
+        "dist/user-role/tcp/patterns/index.d.ts"
+      ],
+      "user-role/tcp/patterns/*": [
+        "dist/user-role/tcp/patterns/*"
+      ],
+      "user-role/codes": [
+        "dist/user-role/codes/index.d.ts"
+      ],
+      "user-role/codes/*": [
+        "dist/user-role/codes/*"
+      ],
+      "user-role/messages": [
+        "dist/user-role/messages/index.d.ts"
+      ],
+      "user-role/messages/*": [
+        "dist/user-role/messages/*"
+      ],
+      "user-role/response": [
+        "dist/user-role/response/index.d.ts"
+      ],
+      "user-role/response/*": [
+        "dist/user-role/response/*"
+      ],
+      "user-role/exception": [
+        "dist/user-role/exception/index.d.ts"
+      ],
+      "user-role/exception/*": [
+        "dist/user-role/exception/*"
+      ],
+      "user-role/dtos": [
+        "dist/user-role/dtos/index.d.ts"
+      ],
+      "user-role/dtos/*": [
+        "dist/user-role/dtos/*"
       ]
     }
   },
