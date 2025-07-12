@@ -4,6 +4,7 @@
  */
 
 import type { RoleIdParams } from '@krgeobuk/shared/role/interfaces';
+
 import type { UpdateRole } from '../../interfaces/index.js';
 
 // shared의 RoleIdParams를 재사용

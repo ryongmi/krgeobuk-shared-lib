@@ -1,1 +1,1 @@
-export * from './role.patterns.js';
+export * from './patterns.js';
