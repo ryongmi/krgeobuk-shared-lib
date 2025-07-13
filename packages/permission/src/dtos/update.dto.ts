@@ -1,5 +1,5 @@
 import { UuidIdDto } from '@krgeobuk/core/dtos';
-import { IsValidServiceId } from '@krgeobuk/shared/permission';
+import { IsValidServiceId } from '@krgeobuk/shared/service';
 import { IsValidPermissionAction, IsValidPermissionDescription } from '@krgeobuk/shared/permission';
 
 import type { UpdatePermission } from '../interfaces/index.js';
@@ -14,3 +14,4 @@ export class UpdatePermissionDto extends UuidIdDto implements UpdatePermission {
   @IsValidServiceId({ isOptional: true })
   serviceId?: string;
 }
+

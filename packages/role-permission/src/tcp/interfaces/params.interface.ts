@@ -3,10 +3,10 @@
  * 중간테이블 관계 전용 파라미터만 정의
  */
 
-import type { RolePermission } from '@krgeobuk/shared/role-permision';
+import type { RolePermissionParams } from '@krgeobuk/shared/role-permission';
 
 // role-permission 관계 전용 파라미터
-export type TcpRolePermissionParams = RolePermission;
+export type TcpRolePermissionParams = RolePermissionParams;
 
 // 배치 처리용 파라미터
 export interface TcpRolePermissionBatch {

@@ -3,7 +3,7 @@
  * 간단한 ID 기반 조회/수정/삭제 작업용
  */
 
-import type { RoleIdParams } from '@krgeobuk/shared/role/interfaces';
+import type { RoleIdParams } from '@krgeobuk/shared/role';
 
 import type { UpdateRole } from '../../interfaces/index.js';
 

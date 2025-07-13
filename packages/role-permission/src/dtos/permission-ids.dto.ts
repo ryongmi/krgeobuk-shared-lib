@@ -1,4 +1,4 @@
-import { IsValidPermissionIds } from '@krgeobuk/shared/role-permission/validation';
+import { IsValidPermissionIds } from '@krgeobuk/shared/permission';
 
 import { PermissionIds } from '../interfaces/index.js';
 /**

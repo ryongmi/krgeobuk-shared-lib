@@ -3,7 +3,7 @@
  * 중간테이블 관계 전용 파라미터만 정의
  */
 
-import type { UserRoleParams } from '@krgeobuk/shared/user-role/interfaces';
+import type { UserRoleParams } from '@krgeobuk/shared/user-role';
 
 // 중간테이블 관계 전용 파라미터
 export type TcpUserRoleParams = UserRoleParams;

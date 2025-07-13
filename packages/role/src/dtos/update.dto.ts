@@ -1,10 +1,6 @@
 import { UuidIdDto } from '@krgeobuk/core/dtos';
-import {
-  IsValidRoleName,
-  IsValidDescription,
-  IsValidPriority,
-  IsValidServiceId,
-} from '@krgeobuk/shared/role';
+import { IsValidRoleName, IsValidDescription, IsValidPriority } from '@krgeobuk/shared/role';
+import { IsValidServiceId } from '@krgeobuk/shared/service';
 
 import type { UpdateRole } from '../interfaces/index.js';
 

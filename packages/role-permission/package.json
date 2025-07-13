@@ -1,0 +1,99 @@
+{
+  "name": "@krgeobuk/role-permission",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./exception": "./dist/exception/index.js",
+    "./interfaces": "./dist/interfaces/index.js",
+    "./response": "./dist/response/index.js",
+    "./tcp": "./dist/tcp/index.js",
+    "./tcp/interfaces": "./dist/tcp/interfaces/index.js",
+    "./tcp/patterns": "./dist/tcp/patterns/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
+      ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ],
+      "response": [
+        "dist/response/index.d.ts"
+      ],
+      "response/*": [
+        "dist/response/*"
+      ],
+      "tcp": [
+        "dist/tcp/index.d.ts"
+      ],
+      "tcp/*": [
+        "dist/tcp/*"
+      ],
+      "tcp/interfaces": [
+        "dist/tcp/interfaces/index.d.ts"
+      ],
+      "tcp/interfaces/*": [
+        "dist/tcp/interfaces/*"
+      ],
+      "tcp/patterns": [
+        "dist/tcp/patterns/index.d.ts"
+      ],
+      "tcp/patterns/*": [
+        "dist/tcp/patterns/*"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "private": true,
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@types/express": "^5.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/swagger": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^20.19.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "typescript": "^5.8.3"
+  }
+}

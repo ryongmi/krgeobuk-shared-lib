@@ -1,4 +1,5 @@
-import { ExposeRoleId, ExposeUserId } from '../validation/index.js';
+import { ExposeRoleId } from '../../role/validation/index.js';
+import { ExposeUserId } from '../../user/validation/index.js';
 import type { UserRole } from '../interfaces/index.js';
 
 export class UserRoleDto implements UserRole {

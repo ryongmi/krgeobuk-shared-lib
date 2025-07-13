@@ -1,4 +1,4 @@
-import { IsValidRoleIds } from '@krgeobuk/shared/user-role/validation';
+import { IsValidRoleIds } from '@krgeobuk/shared/role';
 
 import { RoleIds } from '../interfaces/role-ids.interface.js';
 

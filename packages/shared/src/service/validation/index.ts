@@ -6,5 +6,7 @@ export * from './is-visible-by-role.decorator.js';
 export * from './is-visible.decorator.js';
 export * from './name.decorator.js';
 export * from './params.decorator.js';
+export * from './service-id.decorator.js';
+export * from './service-ids.decorator.js';
 export * from './visible-role-count.decorator.js';
 

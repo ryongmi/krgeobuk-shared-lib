@@ -24,12 +24,11 @@ export function IsValidPermissionIds(options: IsValidOptions = {}): PropertyDeco
   const validators = [
     IsArray({ message: '권한 ID 목록은 배열이어야 합니다' }),
     IsUUID(4, { each: true, message: '올바른 권한 ID 형식이 아닙니다' }),
-    IsNotEmpty({ each: true, message: '권한 ID는 필수입니다' }),
   ];
   const exposeDators = [Expose({ name: 'permission_ids' })];
   const optionality = isOptional
     ? IsOptional()
-    : IsNotEmpty({ message: '권한 ID 목록은 필수입니다' });
+    : IsNotEmpty({ each: true,message: '권한 ID 목록은 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
 }

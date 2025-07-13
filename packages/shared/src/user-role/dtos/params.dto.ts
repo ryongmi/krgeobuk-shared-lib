@@ -1,6 +1,5 @@
 import { IsValidUserIdParams } from '../../user/validation/params.decorator.js';
 import { IsValidRoleIdParams } from '../../role/validation/params.decorator.js';
-
 import { UserRoleParams } from '../interfaces/index.js';
 
 /**

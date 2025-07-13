@@ -1,4 +1,4 @@
-import { IsValidServiceId } from '@krgeobuk/shared/permission';
+import { IsValidServiceId } from '@krgeobuk/shared/service';
 import { IsValidPermissionAction, IsValidPermissionDescription } from '@krgeobuk/shared/permission';
 
 import type { CreatePermission } from '../interfaces/index.js';
