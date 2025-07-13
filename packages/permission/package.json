@@ -85,7 +85,6 @@
     "exception"
   ],
   "sideEffects": false,
-  "private": true,
   "license": "UNLICENSED",
   "publishConfig": {
     "registry": "http://localhost:4873/"
