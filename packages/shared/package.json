@@ -37,6 +37,10 @@
       "import": "./dist/service/index.js",
       "types": "./dist/service/index.d.ts"
     },
+    "./service-visible-role": {
+      "import": "./dist/service-visible-role/index.js",
+      "types": "./dist/service-visible-role/index.d.ts"
+    },
     "./user": {
       "import": "./dist/user/index.js",
       "types": "./dist/user/index.d.ts"
@@ -91,6 +95,12 @@
       ],
       "service/*": [
         "dist/service/*"
+      ],
+      "service-visible-role": [
+        "dist/service-visible-role/index.d.ts"
+      ],
+      "service-visible-role/*": [
+        "dist/service-visible-role/*"
       ],
       "user": [
         "dist/user/index.d.ts"
