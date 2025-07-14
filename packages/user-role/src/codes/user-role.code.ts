@@ -1,48 +1,36 @@
 export const UserRoleCode = {
-  /**  =============================================================================
-   *
-   *        000 ~ 099	에러 코드
-   *
-   *   =============================================================================
-   */
-  /** */
+  // 성공 응답
+  ASSIGN_SUCCESS: 'USER_ROLE_001',
+  REVOKE_SUCCESS: 'USER_ROLE_002',
+  ASSIGN_MULTIPLE_SUCCESS: 'USER_ROLE_003',
+  REVOKE_MULTIPLE_SUCCESS: 'USER_ROLE_004',
+  REVOKE_ALL_FROM_USER_SUCCESS: 'USER_ROLE_005',
+  REVOKE_ALL_FROM_ROLE_SUCCESS: 'USER_ROLE_006',
+  REPLACE_SUCCESS: 'USER_ROLE_007',
+  FETCH_SUCCESS: 'USER_ROLE_008',
 
-  ASSIGN_ERROR: 'USER_ROLE_001',
-  REVOKE_ERROR: 'USER_ROLE_002',
-  ASSIGN_MULTIPLE_ERROR: 'USER_ROLE_003',
-  REVOKE_MULTIPLE_ERROR: 'USER_ROLE_004',
-  REVOKE_ALL_FROM_USER_ERROR: 'USER_ROLE_005',
-  REVOKE_ALL_FROM_ROLE_ERROR: 'USER_ROLE_006',
-  FETCH_ERROR: 'USER_ROLE_007',
+  // 서버 에러 (000-099)
+  ASSIGN_ERROR: 'USER_ROLE_ERR_001',
+  REVOKE_ERROR: 'USER_ROLE_ERR_002',
+  ASSIGN_MULTIPLE_ERROR: 'USER_ROLE_ERR_003',
+  REVOKE_MULTIPLE_ERROR: 'USER_ROLE_ERR_004',
+  REVOKE_ALL_FROM_USER_ERROR: 'USER_ROLE_ERR_005',
+  REVOKE_ALL_FROM_ROLE_ERROR: 'USER_ROLE_ERR_006',
+  REPLACE_ERROR: 'USER_ROLE_ERR_007',
+  FETCH_ERROR: 'USER_ROLE_ERR_008',
 
-  /**  =============================================================================
-   *
-   *        100 ~ 199 에러 코드
-   *
-   *   =============================================================================
-   */
-  /** */
+  // 관계 조회 에러 (100-199)
+  USER_ROLE_NOT_FOUND: 'USER_ROLE_ERR_101',
+  USER_NOT_FOUND: 'USER_ROLE_ERR_102',
+  ROLE_NOT_FOUND: 'USER_ROLE_ERR_103',
 
-  ALREADY_ASSIGNED: 'USER_ROLE_101',
-  NOT_ASSIGNED: 'USER_ROLE_102',
-  INVALID_USER: 'USER_ROLE_103',
-  INVALID_ROLE: 'USER_ROLE_104',
+  // 관계 할당 에러 (200-299)
+  USER_ROLE_ALREADY_EXISTS: 'USER_ROLE_ERR_201',
+  INVALID_USER_ROLE_RELATION: 'USER_ROLE_ERR_202',
 
-  /**  =============================================================================
-   *
-   *        200 ~ 299 성공 응답 코드
-   *
-   *   =============================================================================
-   */
-  /** */
-
-  ASSIGN_SUCCESS: 'USER_ROLE_201',
-  REVOKE_SUCCESS: 'USER_ROLE_202',
-  ASSIGN_MULTIPLE_SUCCESS: 'USER_ROLE_203',
-  REVOKE_MULTIPLE_SUCCESS: 'USER_ROLE_204',
-  REVOKE_ALL_FROM_USER_SUCCESS: 'USER_ROLE_205',
-  REVOKE_ALL_FROM_ROLE_SUCCESS: 'USER_ROLE_206',
-  FETCH_SUCCESS: 'USER_ROLE_207',
+  // 배치 처리 에러 (300-399)
+  BULK_OPERATION_PARTIAL_FAILURE: 'USER_ROLE_ERR_301',
+  BULK_OPERATION_VALIDATION_FAILED: 'USER_ROLE_ERR_302',
 } as const;
 
 export type UserRoleCodeType = typeof UserRoleCode[keyof typeof UserRoleCode];

@@ -4,7 +4,7 @@ import { UserRoleMessage } from '../messages/index.js';
 export class UserRoleError {
   /**  =============================================================================
    *
-   *        000 ~ 099	에러 코드
+   *        000 ~ 099	서버 에러 코드
    *
    *   =============================================================================
    */
@@ -46,6 +46,12 @@ export class UserRoleError {
     statusCode: 500,
   };
 
+  static readonly REPLACE_ERROR = {
+    code: UserRoleCode.REPLACE_ERROR,
+    message: UserRoleMessage.REPLACE_ERROR,
+    statusCode: 500,
+  };
+
   static readonly FETCH_ERROR = {
     code: UserRoleCode.FETCH_ERROR,
     message: UserRoleMessage.FETCH_ERROR,
@@ -54,33 +60,67 @@ export class UserRoleError {
 
   /**  =============================================================================
    *
-   *        100 ~ 199 에러 코드
+   *        100 ~ 199 관계 조회 에러 코드
    *
    *   =============================================================================
    */
   /** */
 
-  static readonly ALREADY_ASSIGNED = {
-    code: UserRoleCode.ALREADY_ASSIGNED,
-    message: UserRoleMessage.ALREADY_ASSIGNED,
+  static readonly USER_ROLE_NOT_FOUND = {
+    code: UserRoleCode.USER_ROLE_NOT_FOUND,
+    message: UserRoleMessage.USER_ROLE_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  static readonly USER_NOT_FOUND = {
+    code: UserRoleCode.USER_NOT_FOUND,
+    message: UserRoleMessage.USER_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  static readonly ROLE_NOT_FOUND = {
+    code: UserRoleCode.ROLE_NOT_FOUND,
+    message: UserRoleMessage.ROLE_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  /**  =============================================================================
+   *
+   *        200 ~ 299 관계 할당 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly USER_ROLE_ALREADY_EXISTS = {
+    code: UserRoleCode.USER_ROLE_ALREADY_EXISTS,
+    message: UserRoleMessage.USER_ROLE_ALREADY_EXISTS,
     statusCode: 409,
   };
 
-  static readonly NOT_ASSIGNED = {
-    code: UserRoleCode.NOT_ASSIGNED,
-    message: UserRoleMessage.NOT_ASSIGNED,
-    statusCode: 404,
+  static readonly INVALID_USER_ROLE_RELATION = {
+    code: UserRoleCode.INVALID_USER_ROLE_RELATION,
+    message: UserRoleMessage.INVALID_USER_ROLE_RELATION,
+    statusCode: 400,
   };
 
-  static readonly INVALID_USER = {
-    code: UserRoleCode.INVALID_USER,
-    message: UserRoleMessage.INVALID_USER,
-    statusCode: 404,
+  /**  =============================================================================
+   *
+   *        300 ~ 399 배치 처리 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly BULK_OPERATION_PARTIAL_FAILURE = {
+    code: UserRoleCode.BULK_OPERATION_PARTIAL_FAILURE,
+    message: UserRoleMessage.BULK_OPERATION_PARTIAL_FAILURE,
+    statusCode: 207, // Multi-Status
   };
 
-  static readonly INVALID_ROLE = {
-    code: UserRoleCode.INVALID_ROLE,
-    message: UserRoleMessage.INVALID_ROLE,
-    statusCode: 404,
+  static readonly BULK_OPERATION_VALIDATION_FAILED = {
+    code: UserRoleCode.BULK_OPERATION_VALIDATION_FAILED,
+    message: UserRoleMessage.BULK_OPERATION_VALIDATION_FAILED,
+    statusCode: 400,
   };
 }
