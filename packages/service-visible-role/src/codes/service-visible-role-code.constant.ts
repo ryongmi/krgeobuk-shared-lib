@@ -1,42 +1,32 @@
 export const ServiceVisibleRoleCode = {
-  /**  =============================================================================
-   *
-   *        000 ~ 099	에러 코드
-   *
-   *   =============================================================================
-   */
+  // 성공 응답
+  ASSIGN_SUCCESS: 'SERVICE_VISIBLE_ROLE_001',
+  REVOKE_SUCCESS: 'SERVICE_VISIBLE_ROLE_002',
+  ASSIGN_MULTIPLE_SUCCESS: 'SERVICE_VISIBLE_ROLE_003',
+  REVOKE_MULTIPLE_SUCCESS: 'SERVICE_VISIBLE_ROLE_004',
+  REPLACE_SUCCESS: 'SERVICE_VISIBLE_ROLE_005',
+  FETCH_SUCCESS: 'SERVICE_VISIBLE_ROLE_006',
 
-  OPERATION_ERROR: 'SVR_000',
-  VALIDATION_ERROR: 'SVR_001',
-  NETWORK_ERROR: 'SVR_002',
+  // 서버 에러 (000-099)
+  ASSIGN_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_001',
+  REVOKE_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_002',
+  ASSIGN_MULTIPLE_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_003',
+  REVOKE_MULTIPLE_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_004',
+  REPLACE_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_005',
+  FETCH_ERROR: 'SERVICE_VISIBLE_ROLE_ERR_006',
 
-  /**  =============================================================================
-   *
-   *        100 ~ 199 에러 코드
-   *
-   *   =============================================================================
-   */
+  // 관계 조회 에러 (100-199)
+  SERVICE_VISIBLE_ROLE_NOT_FOUND: 'SERVICE_VISIBLE_ROLE_ERR_101',
+  SERVICE_NOT_FOUND: 'SERVICE_VISIBLE_ROLE_ERR_102',
+  ROLE_NOT_FOUND: 'SERVICE_VISIBLE_ROLE_ERR_103',
 
-  SERVICE_VISIBLE_ROLE_NOT_FOUND: 'SVR_100',
-  SERVICE_VISIBLE_ROLE_ALREADY_EXISTS: 'SVR_101',
-  INVALID_SERVICE_ID: 'SVR_102',
-  INVALID_ROLE_ID: 'SVR_103',
+  // 관계 할당 에러 (200-299)
+  SERVICE_VISIBLE_ROLE_ALREADY_EXISTS: 'SERVICE_VISIBLE_ROLE_ERR_201',
+  INVALID_SERVICE_VISIBLE_ROLE_RELATION: 'SERVICE_VISIBLE_ROLE_ERR_202',
 
-  /**  =============================================================================
-   *
-   *        200 ~ 299 성공 응답 코드
-   *
-   *   =============================================================================
-   */
-
-  FETCH_SUCCESS: 'SVR_200',
-  CREATE_SUCCESS: 'SVR_201',
-  UPDATE_SUCCESS: 'SVR_202',
-  DELETE_SUCCESS: 'SVR_203',
-  ASSIGN_SUCCESS: 'SVR_204',
-  REMOVE_SUCCESS: 'SVR_205',
-  BATCH_SUCCESS: 'SVR_206',
-  REPLACE_SUCCESS: 'SVR_207',
+  // 배치 처리 에러 (300-399)
+  BULK_OPERATION_PARTIAL_FAILURE: 'SERVICE_VISIBLE_ROLE_ERR_301',
+  BULK_OPERATION_VALIDATION_FAILED: 'SERVICE_VISIBLE_ROLE_ERR_302',
 } as const;
 
 export type ServiceVisibleRoleCodeType = typeof ServiceVisibleRoleCode[keyof typeof ServiceVisibleRoleCode];

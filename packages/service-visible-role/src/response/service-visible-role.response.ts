@@ -15,23 +15,6 @@ export class ServiceVisibleRoleResponse {
     statusCode: 200,
   };
 
-  static readonly CREATE_SUCCESS = {
-    code: ServiceVisibleRoleCode.CREATE_SUCCESS,
-    message: ServiceVisibleRoleMessage.CREATE_SUCCESS,
-    statusCode: 201,
-  };
-
-  static readonly UPDATE_SUCCESS = {
-    code: ServiceVisibleRoleCode.UPDATE_SUCCESS,
-    message: ServiceVisibleRoleMessage.UPDATE_SUCCESS,
-    statusCode: 200,
-  };
-
-  static readonly DELETE_SUCCESS = {
-    code: ServiceVisibleRoleCode.DELETE_SUCCESS,
-    message: ServiceVisibleRoleMessage.DELETE_SUCCESS,
-    statusCode: 204,
-  };
 
   static readonly ASSIGN_SUCCESS = {
     code: ServiceVisibleRoleCode.ASSIGN_SUCCESS,
@@ -39,15 +22,15 @@ export class ServiceVisibleRoleResponse {
     statusCode: 201,
   };
 
-  static readonly REMOVE_SUCCESS = {
-    code: ServiceVisibleRoleCode.REMOVE_SUCCESS,
-    message: ServiceVisibleRoleMessage.REMOVE_SUCCESS,
+  static readonly REVOKE_SUCCESS = {
+    code: ServiceVisibleRoleCode.REVOKE_SUCCESS,
+    message: ServiceVisibleRoleMessage.REVOKE_SUCCESS,
     statusCode: 204,
   };
 
-  static readonly BATCH_SUCCESS = {
-    code: ServiceVisibleRoleCode.BATCH_SUCCESS,
-    message: ServiceVisibleRoleMessage.BATCH_SUCCESS,
+  static readonly ASSIGN_MULTIPLE_SUCCESS = {
+    code: ServiceVisibleRoleCode.ASSIGN_MULTIPLE_SUCCESS,
+    message: ServiceVisibleRoleMessage.ASSIGN_MULTIPLE_SUCCESS,
     statusCode: 201,
   };
 
