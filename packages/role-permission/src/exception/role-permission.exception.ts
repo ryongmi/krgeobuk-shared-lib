@@ -5,7 +5,7 @@ import { RolePermissionError } from './role-permission.error.js';
 export class RolePermissionException {
   /**  =============================================================================
    *
-   *        000 ~ 099	에러 코드
+   *        000 ~ 099	서버 에러 코드
    *
    *   =============================================================================
    */
@@ -49,33 +49,67 @@ export class RolePermissionException {
 
   /**  =============================================================================
    *
-   *        100 ~ 199 에러 코드
+   *        100 ~ 199 관계 조회 에러 코드
    *
    *   =============================================================================
    */
   /** */
 
-  /** 이미 할당된 권한 */
-  static alreadyAssigned(): HttpException {
-    const e = RolePermissionError.ALREADY_ASSIGNED;
+  /** 역할-권한 관계를 찾을 수 없음 */
+  static rolePermissionNotFound(): HttpException {
+    const e = RolePermissionError.ROLE_PERMISSION_NOT_FOUND;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 
-  /** 할당되지 않은 권한 */
-  static notAssigned(): HttpException {
-    const e = RolePermissionError.NOT_ASSIGNED;
+  /** 역할을 찾을 수 없음 */
+  static roleNotFound(): HttpException {
+    const e = RolePermissionError.ROLE_NOT_FOUND;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 
-  /** 유효하지 않은 역할 */
-  static invalidRole(): HttpException {
-    const e = RolePermissionError.INVALID_ROLE;
+  /** 권한을 찾을 수 없음 */
+  static permissionNotFound(): HttpException {
+    const e = RolePermissionError.PERMISSION_NOT_FOUND;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 
-  /** 유효하지 않은 권한 */
-  static invalidPermission(): HttpException {
-    const e = RolePermissionError.INVALID_PERMISSION;
+  /**  =============================================================================
+   *
+   *        200 ~ 299 관계 할당 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  /** 역할에 이미 할당된 권한 */
+  static rolePermissionAlreadyExists(): HttpException {
+    const e = RolePermissionError.ROLE_PERMISSION_ALREADY_EXISTS;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /** 유효하지 않은 역할-권한 관계 */
+  static invalidRolePermissionRelation(): HttpException {
+    const e = RolePermissionError.INVALID_ROLE_PERMISSION_RELATION;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /**  =============================================================================
+   *
+   *        300 ~ 399 배치 처리 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  /** 배치 작업 부분 실패 */
+  static bulkOperationPartialFailure(): HttpException {
+    const e = RolePermissionError.BULK_OPERATION_PARTIAL_FAILURE;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /** 배치 작업 유효성 검사 실패 */
+  static bulkOperationValidationFailed(): HttpException {
+    const e = RolePermissionError.BULK_OPERATION_VALIDATION_FAILED;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 }

@@ -4,7 +4,7 @@ import { RolePermissionMessage } from '../messages/index.js';
 export class RolePermissionError {
   /**  =============================================================================
    *
-   *        000 ~ 099	에러 코드
+   *        000 ~ 099	서버 에러 코드
    *
    *   =============================================================================
    */
@@ -48,33 +48,68 @@ export class RolePermissionError {
 
   /**  =============================================================================
    *
-   *        100 ~ 199 에러 코드
+   *        100 ~ 199 관계 조회 에러 코드
    *
    *   =============================================================================
    */
   /** */
 
-  static readonly ALREADY_ASSIGNED = {
-    code: RolePermissionCode.ALREADY_ASSIGNED,
-    message: RolePermissionMessage.ALREADY_ASSIGNED,
-    statusCode: 409,
-  };
-
-  static readonly NOT_ASSIGNED = {
-    code: RolePermissionCode.NOT_ASSIGNED,
-    message: RolePermissionMessage.NOT_ASSIGNED,
+  static readonly ROLE_PERMISSION_NOT_FOUND = {
+    code: RolePermissionCode.ROLE_PERMISSION_NOT_FOUND,
+    message: RolePermissionMessage.ROLE_PERMISSION_NOT_FOUND,
     statusCode: 404,
   };
 
-  static readonly INVALID_ROLE = {
-    code: RolePermissionCode.INVALID_ROLE,
-    message: RolePermissionMessage.INVALID_ROLE,
+  static readonly ROLE_NOT_FOUND = {
+    code: RolePermissionCode.ROLE_NOT_FOUND,
+    message: RolePermissionMessage.ROLE_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  static readonly PERMISSION_NOT_FOUND = {
+    code: RolePermissionCode.PERMISSION_NOT_FOUND,
+    message: RolePermissionMessage.PERMISSION_NOT_FOUND,
+    statusCode: 404,
+  };
+
+  /**  =============================================================================
+   *
+   *        200 ~ 299 관계 할당 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly ROLE_PERMISSION_ALREADY_EXISTS = {
+    code: RolePermissionCode.ROLE_PERMISSION_ALREADY_EXISTS,
+    message: RolePermissionMessage.ROLE_PERMISSION_ALREADY_EXISTS,
+    statusCode: 409,
+  };
+
+  static readonly INVALID_ROLE_PERMISSION_RELATION = {
+    code: RolePermissionCode.INVALID_ROLE_PERMISSION_RELATION,
+    message: RolePermissionMessage.INVALID_ROLE_PERMISSION_RELATION,
     statusCode: 400,
   };
 
-  static readonly INVALID_PERMISSION = {
-    code: RolePermissionCode.INVALID_PERMISSION,
-    message: RolePermissionMessage.INVALID_PERMISSION,
+  /**  =============================================================================
+   *
+   *        300 ~ 399 배치 처리 에러 코드
+   *
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly BULK_OPERATION_PARTIAL_FAILURE = {
+    code: RolePermissionCode.BULK_OPERATION_PARTIAL_FAILURE,
+    message: RolePermissionMessage.BULK_OPERATION_PARTIAL_FAILURE,
+    statusCode: 207, // Multi-Status
+  };
+
+  static readonly BULK_OPERATION_VALIDATION_FAILED = {
+    code: RolePermissionCode.BULK_OPERATION_VALIDATION_FAILED,
+    message: RolePermissionMessage.BULK_OPERATION_VALIDATION_FAILED,
     statusCode: 400,
   };
 }
