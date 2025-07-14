@@ -1,0 +1,53 @@
+{
+  "name": "@krgeobuk/msa-commons",
+  "version": "1.0.0",
+  "description": "MSA common utilities for krgeobuk ecosystem",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./strategies": "./dist/strategies/index.js",
+    "./aggregators": "./dist/aggregators/index.js",
+    "./clients": "./dist/clients/index.js",
+    "./types": "./dist/types/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "strategies": ["dist/strategies/index.d.ts"],
+      "strategies/*": ["dist/strategies/*"],
+      "aggregators": ["dist/aggregators/index.d.ts"],
+      "aggregators/*": ["dist/aggregators/*"],
+      "clients": ["dist/clients/index.d.ts"],
+      "clients/*": ["dist/clients/*"],
+      "types": ["dist/types/index.d.ts"],
+      "types/*": ["dist/types/*"]
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "rxjs": "^7.8.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "rxjs": "^7.8.1",
+    "typescript": "^5.8.3"
+  }
+}
