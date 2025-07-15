@@ -35,6 +35,7 @@ export interface JunctionTableBatchRevocationResult extends JunctionTableOperati
 
 export interface JunctionTableReplaceResult extends JunctionTableOperationResult {
   details: {
+    assigned?: number;
     removed: number;
     added: number;
     unchanged: number;
@@ -57,3 +58,4 @@ export interface UserRoleBatchAssignmentResult extends JunctionTableBatchAssignm
     assignedRoles: string[];
   };
 }
+

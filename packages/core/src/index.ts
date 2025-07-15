@@ -5,7 +5,7 @@ export * from './entities/index.js';
 export * from './enum/index.js';
 export * from './exception/index.js';
 export * from './filters/index.js';
-export * from './guards/index.js';
+// export * from './guards/index.js'; // Authorization guards moved to @krgeobuk/authorization package
 export * from './interceptors/index.js';
 export * from './interfaces/index.js';
 export * from './interfaces/express/index.js'; // express request type용 이것만 따로 분리함

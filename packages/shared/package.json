@@ -13,6 +13,22 @@
     "dist"
   ],
   "exports": {
+    "./authorization": {
+      "import": "./dist/authorization/index.js",
+      "types": "./dist/authorization/index.d.ts"
+    },
+    "./authorization/dtos": {
+      "import": "./dist/authorization/dtos/index.js",
+      "types": "./dist/authorization/dtos/index.d.ts"
+    },
+    "./authorization/interfaces": {
+      "import": "./dist/authorization/interfaces/index.js",
+      "types": "./dist/authorization/interfaces/index.d.ts"
+    },
+    "./authorization/validation": {
+      "import": "./dist/authorization/validation/index.js",
+      "types": "./dist/authorization/validation/index.d.ts"
+    },
     "./oauth": {
       "import": "./dist/oauth/index.js",
       "types": "./dist/oauth/index.d.ts"
@@ -60,6 +76,30 @@
   },
   "typesVersions": {
     "*": {
+      "authorization": [
+        "dist/authorization/index.d.ts"
+      ],
+      "authorization/*": [
+        "dist/authorization/*"
+      ],
+      "authorization/dtos": [
+        "dist/authorization/dtos/index.d.ts"
+      ],
+      "authorization/dtos/*": [
+        "dist/authorization/dtos/*"
+      ],
+      "authorization/interfaces": [
+        "dist/authorization/interfaces/index.d.ts"
+      ],
+      "authorization/interfaces/*": [
+        "dist/authorization/interfaces/*"
+      ],
+      "authorization/validation": [
+        "dist/authorization/validation/index.d.ts"
+      ],
+      "authorization/validation/*": [
+        "dist/authorization/validation/*"
+      ],
       "oauth": [
         "dist/oauth/index.d.ts"
       ],

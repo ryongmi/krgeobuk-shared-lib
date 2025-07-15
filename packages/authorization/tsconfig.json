@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": true, // 프로젝트 참조를 사용할 경우 반드시 필요
+    "outDir": "./dist",
+    "rootDir": "./src", // Ensure the root directory is set correctly
+    "types": [
+      "express"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@krgeobuk/core/interfaces/express"
+    ],
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
+}

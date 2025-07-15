@@ -1,0 +1,88 @@
+{
+  "name": "@krgeobuk/authorization",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
+  },  
+  "files": ["dist"],  
+  "exports": {
+    ".": "./dist/index.js",
+    "./codes": "./dist/codes/index.js",
+    "./decorators": "./dist/decorators/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./exception": "./dist/exception/index.js",
+    "./guards": "./dist/guards/index.js",
+    "./interfaces": "./dist/interfaces/index.js",
+    "./messages": "./dist/messages/index.js",
+    "./response": "./dist/response/index.js",
+    "./tcp": "./dist/tcp/index.js",
+    "./tcp/interfaces": "./dist/tcp/interfaces/index.js",
+    "./tcp/patterns": "./dist/tcp/patterns/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "codes": ["dist/codes/index.d.ts"],
+      "codes/*": ["dist/codes/*"],
+      "decorators": ["dist/decorators/index.d.ts"],
+      "decorators/*": ["dist/decorators/*"],
+      "dtos": ["dist/dtos/index.d.ts"],
+      "dtos/*": ["dist/dtos/*"],
+      "exception": ["dist/exception/index.d.ts"],
+      "exception/*": ["dist/exception/*"],
+      "guards": ["dist/guards/index.d.ts"],
+      "guards/*": ["dist/guards/*"],
+      "interfaces": ["dist/interfaces/index.d.ts"],
+      "interfaces/*": ["dist/interfaces/*"],
+      "messages": ["dist/messages/index.d.ts"],
+      "messages/*": ["dist/messages/*"],
+      "response": ["dist/response/index.d.ts"],
+      "response/*": ["dist/response/*"],
+      "tcp": ["dist/tcp/index.d.ts"],
+      "tcp/*": ["dist/tcp/*"],
+      "tcp/interfaces": ["dist/tcp/interfaces/index.d.ts"],
+      "tcp/interfaces/*": ["dist/tcp/interfaces/*"],
+      "tcp/patterns": ["dist/tcp/patterns/index.d.ts"],
+      "tcp/patterns/*": ["dist/tcp/patterns/*"]
+    }
+  },
+  "sideEffects": false,
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
+    "@types/express": "^5.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "@nestjs/swagger": "^8.0.7",
+    "@types/express": "^5.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
+    "typescript": "^5.8.3"
+  }
+}
