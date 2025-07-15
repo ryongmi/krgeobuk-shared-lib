@@ -6,7 +6,7 @@
 import type { RolePermissionParams } from '@krgeobuk/shared/role-permission';
 
 // role-permission 관계 전용 파라미터
-export type TcpRolePermissionParams = RolePermissionParams;
+export type TcpRolePermission = RolePermissionParams;
 
 // 배치 처리용 파라미터
 export interface TcpRolePermissionBatch {

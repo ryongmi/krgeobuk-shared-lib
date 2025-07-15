@@ -13,7 +13,6 @@ export function IsValidPermissionId(options: IsValidOptions = {}): PropertyDecor
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174001',
     description: '권한 ID',
-    name: 'permission_id',
     type: String,
     format: 'uuid',
   };
@@ -23,7 +22,7 @@ export function IsValidPermissionId(options: IsValidOptions = {}): PropertyDecor
     : SwaggerApiProperty(propertyData);
 
   const validators = [IsUUID(4, { message: '올바른 권한 ID 형식이 아닙니다' })];
-  const exposeDators = [Expose({ name: 'permission_id' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '권한 ID는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
@@ -33,11 +32,9 @@ export function ExposePermissionId(): PropertyDecorator {
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174001',
     description: '권한 ID',
-    name: 'permission_id',
     type: String,
     format: 'uuid',
   };
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
-

@@ -11,7 +11,6 @@ export function IsValidProfileImageUrl(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'profile_image_Url',
     type: String,
     example:
       'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',
@@ -27,7 +26,7 @@ export function IsValidProfileImageUrl(options: IsValidOptions = {}): PropertyDe
     ),
     MaxLength(2048, { message: 'Profile image URL is too long' }), // URL 길이 제한,
   ];
-  const exposeDators = [Expose({ name: 'profile_image_Url' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '프로필 URL은 필수입니다' });
@@ -37,7 +36,6 @@ export function IsValidProfileImageUrl(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeProfileImageUrl(): PropertyDecorator {
   const propertyData = {
-    name: 'profile_image_Url',
     type: String,
     example:
       'https://yt3.ggpht.com/yti/ANjgQV-jbwsLEWnWPVS2r82jtApxqmShu-nPXW-_S1n7FCmlug=s88-c-k-c0x00ffffff-no-rj',

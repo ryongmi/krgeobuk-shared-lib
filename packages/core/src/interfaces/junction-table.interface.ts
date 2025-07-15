@@ -44,18 +44,3 @@ export interface JunctionTableReplaceResult extends JunctionTableOperationResult
   };
 }
 
-// 중간테이블별 특화된 결과 타입 예시
-export interface RolePermissionBatchAssignmentResult extends JunctionTableBatchAssignmentResult {
-  details: JunctionTableBatchAssignmentResult['details'] & {
-    roleId: string;
-    assignedPermissions: string[];
-  };
-}
-
-export interface UserRoleBatchAssignmentResult extends JunctionTableBatchAssignmentResult {
-  details: JunctionTableBatchAssignmentResult['details'] & {
-    userId: string;
-    assignedRoles: string[];
-  };
-}
-

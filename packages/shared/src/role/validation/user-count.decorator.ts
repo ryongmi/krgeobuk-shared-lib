@@ -6,7 +6,6 @@ import { SwaggerApiProperty } from '@krgeobuk/swagger/decorators';
 
 export function ExposeUserCount(): PropertyDecorator {
   const propertyData = {
-    name: 'user_count',
     type: Number,
     example: 5,
     description: '해당 역활 사용하는 유저 수',
@@ -14,4 +13,3 @@ export function ExposeUserCount(): PropertyDecorator {
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
-

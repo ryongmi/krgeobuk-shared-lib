@@ -13,7 +13,6 @@ export function IsValidUserId(options: IsValidOptions = {}): PropertyDecorator {
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174001',
     description: '유저 ID',
-    name: 'user_id',
     type: String,
     format: 'uuid',
   };
@@ -23,7 +22,7 @@ export function IsValidUserId(options: IsValidOptions = {}): PropertyDecorator {
     : SwaggerApiProperty(propertyData);
 
   const validators = [IsUUID(4, { message: '올바른 유저 ID 형식이 아닙니다' })];
-  const exposeDators = [Expose({ name: 'user_id' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '유저 ID는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
@@ -33,11 +32,9 @@ export function ExposeUserId(): PropertyDecorator {
   const propertyData = {
     example: '123e4567-e89b-12d3-a456-426614174001',
     description: '유저 ID',
-    name: 'user_id',
     type: String,
     format: 'uuid',
   };
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());
 }
-

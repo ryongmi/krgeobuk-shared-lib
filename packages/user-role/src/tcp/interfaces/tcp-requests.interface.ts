@@ -6,7 +6,7 @@
 import type { UserRoleParams } from '@krgeobuk/shared/user-role';
 
 // 중간테이블 관계 전용 파라미터
-export type TcpUserRoleParams = UserRoleParams;
+export type TcpUserRole = UserRoleParams;
 
 // TCP 전용 복합 파라미터 (배치 처리용)
 export interface TcpUserRoleBatch {

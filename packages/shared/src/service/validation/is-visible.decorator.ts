@@ -11,7 +11,6 @@ export function IsValidIsVisible(options: IsValidOptions = {}): PropertyDecorato
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'is_visible',
     type: Boolean,
     example: true,
     description: '포탈 표시 여부',
@@ -20,7 +19,7 @@ export function IsValidIsVisible(options: IsValidOptions = {}): PropertyDecorato
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsBoolean()];
-  const exposeDators = [Expose({ name: 'is_visible' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '포탈 표시 여부는 필수입니다' });
@@ -30,7 +29,6 @@ export function IsValidIsVisible(options: IsValidOptions = {}): PropertyDecorato
 
 export function ExposeIsVisible(): PropertyDecorator {
   const propertyData = {
-    name: 'is_visible',
     type: Boolean,
     example: true,
     description: '포탈 표시 여부',

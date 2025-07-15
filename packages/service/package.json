@@ -18,7 +18,8 @@
     "./dtos": "./dist/dtos/index.js",
     "./exception": "./dist/exception/index.js",
     "./interfaces": "./dist/interfaces/index.js",
-    "./response": "./dist/response/index.js"
+    "./response": "./dist/response/index.js",
+    "./tcp": "./dist/tcp/index.js"
   },
   "types": "dist/index.d.ts",
   "typesVersions": {
@@ -52,6 +53,12 @@
       ],
       "response/*": [
         "dist/response/*"
+      ],
+      "tcp": [
+        "dist/tcp/index.d.ts"
+      ],
+      "tcp/*": [
+        "dist/tcp/*"
       ]
     }
   },

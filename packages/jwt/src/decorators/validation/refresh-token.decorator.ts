@@ -11,7 +11,6 @@ export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecor
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'refresh_token',
     type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Refresh Token',
@@ -20,7 +19,7 @@ export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecor
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsString()];
-  const exposeDators = [Expose({ name: 'refresh_token' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Refresh Token은 필수입니다' });
@@ -30,7 +29,6 @@ export function IsValidRefreshToken(options: IsValidOptions = {}): PropertyDecor
 
 export function ExposeRefreshToken(): PropertyDecorator {
   const propertyData = {
-    name: 'refresh_token',
     type: String,
     example: 'AAAAQosjWDJieBiQZc3to9YQp6HDLvrmyKC+6+iZ3gq7qrkqf50ljZC+Lgoqrg',
     description: 'Refresh Token',

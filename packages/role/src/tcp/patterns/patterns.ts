@@ -6,8 +6,8 @@
 export const RoleTcpPatterns = {
   // 조회 패턴
   SEARCH: 'role.search',
-  FIND_BY_ID: 'role.findById',
-  FIND_BY_SERVICE_IDS: 'role.findByServiceIds',
+  FIND_BY_ID: 'role.find-by-id',
+  FIND_BY_SERVICE_IDS: 'role.find-by-service-ids',
   EXISTS: 'role.exists',
 
   // 변경 패턴
@@ -16,4 +16,4 @@ export const RoleTcpPatterns = {
   DELETE: 'role.delete',
 } as const;
 
-export type RoleTcpPattern = typeof RoleTcpPatterns[keyof typeof RoleTcpPatterns];
+export type RoleTcpPattern = (typeof RoleTcpPatterns)[keyof typeof RoleTcpPatterns];

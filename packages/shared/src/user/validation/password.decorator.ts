@@ -36,7 +36,6 @@ export function IsValidCurrentPassword(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'current_password',
     type: String,
     example: 'P@ssw0rd!',
     description: '현재 사용자 비밀번호',
@@ -50,7 +49,7 @@ export function IsValidCurrentPassword(options: IsValidOptions = {}): PropertyDe
       message: '비밀번호는 최소 하나의 대문자, 소문자, 숫자나 특수문자를 포함해야 합니다',
     }),
   ];
-  const exposeDators = [Expose({ name: 'current_password' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '비밀번호는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
@@ -60,7 +59,6 @@ export function IsValidNewPassword(options: IsValidOptions = {}): PropertyDecora
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'new_password',
     type: String,
     example: 'P@ssw0rd!',
     description: '변경할 사용자 비밀번호',
@@ -74,7 +72,7 @@ export function IsValidNewPassword(options: IsValidOptions = {}): PropertyDecora
       message: '비밀번호는 최소 하나의 대문자, 소문자, 숫자나 특수문자를 포함해야 합니다',
     }),
   ];
-  const exposeDators = [Expose({ name: 'new_password' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '비밀번호는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);

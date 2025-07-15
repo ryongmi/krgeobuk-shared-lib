@@ -11,7 +11,6 @@ export function IsValidIsVisibleByRole(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'is_visible_by_role',
     type: Boolean,
     example: false,
     description: '권한 기반 표시 여부',
@@ -20,7 +19,7 @@ export function IsValidIsVisibleByRole(options: IsValidOptions = {}): PropertyDe
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsBoolean()];
-  const exposeDators = [Expose({ name: 'is_visible_by_role' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '권한 기반 표시 여부는 필수입니다' });
@@ -30,7 +29,6 @@ export function IsValidIsVisibleByRole(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeIsVisibleByRole(): PropertyDecorator {
   const propertyData = {
-    name: 'is_visible_by_role',
     type: Boolean,
     example: false,
     description: '권한 기반 표시 여부',

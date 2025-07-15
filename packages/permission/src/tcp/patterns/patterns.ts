@@ -6,8 +6,8 @@
 export const PermissionTcpPatterns = {
   // 조회 패턴
   SEARCH: 'permission.search',
-  FIND_BY_ID: 'permission.findById',
-  FIND_BY_SERVICE_IDS: 'permission.findByServiceIds',
+  FIND_BY_ID: 'permission.find-by-id',
+  FIND_BY_SERVICE_IDS: 'permission.find-by-service-ids',
   EXISTS: 'permission.exists',
 
   // 변경 패턴
@@ -16,4 +16,5 @@ export const PermissionTcpPatterns = {
   DELETE: 'permission.delete',
 } as const;
 
-export type PermissionTcpPattern = typeof PermissionTcpPatterns[keyof typeof PermissionTcpPatterns];
+export type PermissionTcpPattern =
+  (typeof PermissionTcpPatterns)[keyof typeof PermissionTcpPatterns];

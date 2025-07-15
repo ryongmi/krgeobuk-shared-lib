@@ -5,19 +5,16 @@
 
 export const ServiceVisibleRoleTcpPatterns = {
   // 조회 패턴
-  FIND_ROLES_BY_SERVICE: 'service-visible-role.findRolesByService',
-  FIND_SERVICES_BY_ROLE: 'service-visible-role.findServicesByRole',
-  FIND_ROLES_BY_SERVICES: 'service-visible-role.findRolesByServices',
-  FIND_SERVICES_BY_ROLES: 'service-visible-role.findServicesByRoles',
+  FIND_ROLES_BY_SERVICE: 'service-visible-role.find-roles-by-service',
+  FIND_SERVICES_BY_ROLE: 'service-visible-role.find-services-by-role',
   EXISTS: 'service-visible-role.exists',
 
-  // 변경 패턴
-  ASSIGN: 'service-visible-role.assign',
-  REMOVE: 'service-visible-role.remove',
-  ASSIGN_MULTIPLE_ROLES: 'service-visible-role.assignMultipleRoles',
-  ASSIGN_MULTIPLE_SERVICES: 'service-visible-role.assignMultipleServices',
-  REPLACE_SERVICE_ROLES: 'service-visible-role.replaceServiceRoles',
-  REPLACE_ROLE_SERVICES: 'service-visible-role.replaceRoleServices',
+  // 배치 관리 패턴
+  ASSIGN_MULTIPLE: 'service-visible-role.assign-multiple',
+  REVOKE_MULTIPLE: 'service-visible-role.revoke-multiple',
+  REPLACE_SERVICE_ROLES: 'service-visible-role.replace-permissions',
 } as const;
 
-export type ServiceVisibleRoleTcpPattern = typeof ServiceVisibleRoleTcpPatterns[keyof typeof ServiceVisibleRoleTcpPatterns];
+export type ServiceVisibleRoleTcpPattern =
+  (typeof ServiceVisibleRoleTcpPatterns)[keyof typeof ServiceVisibleRoleTcpPatterns];
+

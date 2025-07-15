@@ -11,7 +11,6 @@ export function IsValidDisplayName(options: IsValidOptions = {}): PropertyDecora
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'display_name',
     type: String,
     example: '서비스명',
     description: '통합로그인 사이트',
@@ -24,7 +23,7 @@ export function IsValidDisplayName(options: IsValidOptions = {}): PropertyDecora
     MinLength(2, { message: '서비스명은 최소 2자 이상이어야 합니다' }),
     Length(2, 50),
   ];
-  const exposeDators = [Expose({ name: 'display_name' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: '서비스명은 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
@@ -32,7 +31,6 @@ export function IsValidDisplayName(options: IsValidOptions = {}): PropertyDecora
 
 export function ExposeDisplayName(): PropertyDecorator {
   const propertyData = {
-    name: 'display_name',
     type: String,
     example: '서비스명',
     description: '통합로그인 사이트',

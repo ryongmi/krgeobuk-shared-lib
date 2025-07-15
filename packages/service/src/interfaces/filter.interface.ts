@@ -7,8 +7,3 @@ export interface ServiceFilter {
   displayName?: string;
   iconUrl?: string;
 }
-
-export interface ServiceVisibleRoleFilter {
-  serviceId?: string;
-  roleId?: string;
-}

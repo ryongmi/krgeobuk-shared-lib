@@ -11,7 +11,6 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'is_email_verified',
     type: Boolean,
     example: false,
     description: '이메일 검증 여부',
@@ -20,7 +19,7 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsBoolean()];
-  const exposeDators = [Expose({ name: 'is_email_verified' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '이메일 검증유무는 필수입니다' });
@@ -30,7 +29,6 @@ export function IsValidIsEmailVerified(options: IsValidOptions = {}): PropertyDe
 
 export function ExposeEmailVerified(): PropertyDecorator {
   const propertyData = {
-    name: 'is_email_verified',
     type: Boolean,
     example: false,
     description: '이메일 검증 여부',

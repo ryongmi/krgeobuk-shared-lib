@@ -11,7 +11,6 @@ export function IsValidIsIntegrated(options: IsValidOptions = {}): PropertyDecor
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'is_integrated',
     type: Boolean,
     example: false,
     description: 'OAuth 통합 여부',
@@ -20,7 +19,7 @@ export function IsValidIsIntegrated(options: IsValidOptions = {}): PropertyDecor
     ? SwaggerApiPropertyOptional(propertyData)
     : SwaggerApiProperty(propertyData);
   const validators = [IsBoolean()];
-  const exposeDators = [Expose({ name: 'is_integrated' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'OAuth 통합 여부는 필수입니다' });
@@ -30,7 +29,6 @@ export function IsValidIsIntegrated(options: IsValidOptions = {}): PropertyDecor
 
 export function ExposeIsIntegrated(): PropertyDecorator {
   const propertyData = {
-    name: 'is_integrated',
     type: Boolean,
     example: false,
     description: 'OAuth 통합 여부',

@@ -5,14 +5,14 @@
 
 export const UserRoleTcpPatterns = {
   // 조회 패턴
-  FIND_ROLES_BY_USER: 'user-role.findRolesByUser',
-  FIND_USERS_BY_ROLE: 'user-role.findUsersByRole',
+  FIND_ROLES_BY_USER: 'user-role.find-roles-by-user',
+  FIND_USERS_BY_ROLE: 'user-role.find-users-by-role',
   EXISTS: 'user-role.exists',
 
   // 배치 처리 패턴 (마이크로서비스 간 효율적 통신용)
-  ASSIGN_MULTIPLE_ROLES: 'user-role.assignMultipleRoles',
-  REVOKE_MULTIPLE_ROLES: 'user-role.revokeMultipleRoles',
-  REPLACE_ROLES: 'user-role.replaceRoles',
+  ASSIGN_MULTIPLE: 'user-role.assign-multiple',
+  REVOKE_MULTIPLE: 'user-role.revoke-multiple',
+  REPLACE_ROLES: 'user-role.replace-roles',
 } as const;
 
-export type UserRoleTcpPattern = typeof UserRoleTcpPatterns[keyof typeof UserRoleTcpPatterns];
+export type UserRoleTcpPattern = (typeof UserRoleTcpPatterns)[keyof typeof UserRoleTcpPatterns];

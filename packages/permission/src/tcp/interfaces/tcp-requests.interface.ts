@@ -8,12 +8,12 @@ import type { PermissionIdParams } from '@krgeobuk/shared/permission';
 import type { UpdatePermission } from '../../interfaces/index.js';
 
 // shared의 PermissionIdParams를 재사용
-export type TcpPermissionParams = PermissionIdParams;
+export type TcpPermissionId = PermissionIdParams;
 
-export interface TcpMultiServiceParams {
+export interface TcpMultiService {
   serviceIds: string[];
 }
 
-export interface TcpPermissionUpdateParams extends PermissionIdParams {
+export interface TcpPermissionUpdate extends PermissionIdParams {
   updateData: UpdatePermission;
 }

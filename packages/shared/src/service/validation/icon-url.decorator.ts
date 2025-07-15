@@ -11,7 +11,6 @@ export function IsValidIconUrl(options: IsValidOptions = {}): PropertyDecorator 
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'icon_url',
     type: String,
     example: 'https://service.krgeobuk.com',
     description: '서비스 Icon URL',
@@ -26,7 +25,7 @@ export function IsValidIconUrl(options: IsValidOptions = {}): PropertyDecorator 
     ),
     MaxLength(2048, { message: 'Service Icon URL is too long' }), // URL 길이 제한
   ];
-  const exposeDators = [Expose({ name: 'icon_url' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '서비스 Icon URL은 필수입니다' });
@@ -36,7 +35,6 @@ export function IsValidIconUrl(options: IsValidOptions = {}): PropertyDecorator 
 
 export function ExposeIconUrl(): PropertyDecorator {
   const propertyData = {
-    name: 'icon_url',
     type: String,
     example: 'https://service.krgeobuk.com',
     description: '서비스 Icon URL',

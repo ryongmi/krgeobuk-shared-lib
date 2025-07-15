@@ -74,12 +74,11 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
   const { isOptional = false, allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
 
   const propertyData = {
-    name: 'sort_order',
     example: allowedSortOrders[0],
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const exposeDators = [Expose({ name: 'sort_order' })];
+  const exposeDators = [Expose()];
   const validators = [
     IsIn(allowedSortOrders, {
       message: `SortOrder는 다음 값 중 하나여야 합니다: ${allowedSortOrders.join(', ')}`,
@@ -93,7 +92,6 @@ export function IsValidSortOrder(options: IsValidAllowedOptions = {}): PropertyD
 export function ExposeSortOrder(options: ExposeAllowedOptions = {}): PropertyDecorator {
   const { allowed: allowedSortOrders = SORT_ORDER_TYPE_VALUES } = options;
   const propertyData = {
-    name: 'sort_order',
     example: allowedSortOrders[0],
     description: `전체조회시 정렬 오름차순 / 내림차순. 허용값: ${allowedSortOrders.join(', ')}`,
   };
@@ -106,13 +104,12 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'sort_by',
     example: 'createdAt',
     description: '전체조회시 정렬기준',
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsString()];
-  const exposeDators = [Expose({ name: 'sort_by' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'SortBy는 필수입니다' });
 
   return applyDecorators(apiDecorator, optionality, ...validators, ...exposeDators);
@@ -120,7 +117,6 @@ export function IsValidSortBy(options: IsValidOptions = {}): PropertyDecorator {
 
 export function ExposeSortBy(): PropertyDecorator {
   const propertyData = {
-    name: 'sort_by',
     example: 'createdAt',
     description: '전체조회시 정렬기준',
   };
@@ -139,7 +135,6 @@ export function ExposeTotal(): PropertyDecorator {
 
 export function ExposeTotalPaages(): PropertyDecorator {
   const propertyData = {
-    name: 'total_pages',
     example: 100,
     description: '전체조회시 총 페이지 수',
     type: Number,
@@ -150,7 +145,6 @@ export function ExposeTotalPaages(): PropertyDecorator {
 
 export function ExposeHasPreviousPage(): PropertyDecorator {
   const propertyData = {
-    name: 'has_previous_page',
     example: false,
     description: '이전 페이지 존재 여부',
     type: Boolean,
@@ -160,7 +154,6 @@ export function ExposeHasPreviousPage(): PropertyDecorator {
 }
 export function ExposeHasNextPage(): PropertyDecorator {
   const propertyData = {
-    name: 'has_next_page',
     example: true,
     description: '다음 페이지 존재 여부',
     type: Boolean,
@@ -186,4 +179,3 @@ export function ExposePageInfo(): PropertyDecorator {
 
   return applyDecorators(ApiProperty(propertyData), Expose());
 }
-

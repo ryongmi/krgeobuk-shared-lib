@@ -11,7 +11,6 @@ export function IsValidBaseUrl(options: IsValidOptions = {}): PropertyDecorator 
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'base_url',
     type: String,
     example: 'https://service.krgeobuk.com',
     description: '서비스 Base URL',
@@ -26,7 +25,7 @@ export function IsValidBaseUrl(options: IsValidOptions = {}): PropertyDecorator 
     ),
     MaxLength(2048, { message: 'Service Base URL is too long' }), // URL 길이 제한,
   ];
-  const exposeDators = [Expose({ name: 'base_url' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: '서비스 Base URL은 필수입니다' });
@@ -36,7 +35,6 @@ export function IsValidBaseUrl(options: IsValidOptions = {}): PropertyDecorator 
 
 export function ExposeBaseUrl(): PropertyDecorator {
   const propertyData = {
-    name: 'base_url',
     type: String,
     example: 'https://service.krgeobuk.com',
     description: '서비스 Base URL',

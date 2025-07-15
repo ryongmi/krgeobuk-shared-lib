@@ -1,11 +1,11 @@
-import { IsValidRoleIdParams } from '../../role/validation/params.decorator.js';
-import { IsValidServiceIdParams } from '../../service/validation/params.decorator.js';
+import { IsValidRoleId } from '../../role/validation/role-id.decorator.js';
+import { IsValidServiceId } from '../../service/validation/service-id.decorator.js';
 import { ServiceVisibleRoleParams } from '../interfaces/index.js';
 
 export class ServiceVisibleRoleParamsDto implements ServiceVisibleRoleParams {
-  @IsValidServiceIdParams()
+  @IsValidServiceId()
   serviceId!: string;
 
-  @IsValidRoleIdParams()
+  @IsValidRoleId()
   roleId!: string;
 }

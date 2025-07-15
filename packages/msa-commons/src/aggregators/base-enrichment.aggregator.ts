@@ -1,16 +1,17 @@
 import { Injectable, Logger } from '@nestjs/common';
+
 import { CacheStrategy } from '../strategies/cache.strategy.js';
 import { TcpFallbackStrategy } from '../strategies/tcp-fallback.strategy.js';
-import type { 
-  EnrichmentContext, 
-  AggregationResult, 
+import type {
+  EnrichmentContext,
+  AggregationResult,
   CacheOptions,
-  FallbackOptions 
+  FallbackOptions,
 } from '../types/index.js';
 
 /**
  * 기본 데이터 집계 클래스
- * 
+ *
  * 책임:
  * - 외부 데이터와의 통합 및 집계
  * - 캐시 전략 적용
@@ -23,7 +24,7 @@ export class BaseEnrichmentAggregator {
 
   constructor(
     protected readonly cacheStrategy: CacheStrategy,
-    protected readonly fallbackStrategy: TcpFallbackStrategy,
+    protected readonly fallbackStrategy: TcpFallbackStrategy
   ) {}
 
   /**
@@ -38,7 +39,7 @@ export class BaseEnrichmentAggregator {
     entity: T,
     context: EnrichmentContext,
     enrichFn: (entity: T, context: EnrichmentContext) => Promise<R>,
-    cacheOptions?: CacheOptions,
+    cacheOptions?: CacheOptions
   ): Promise<AggregationResult<R>> {
     const startTime = Date.now();
     const cacheKey = this.generateCacheKey(context, entity);
@@ -47,11 +48,7 @@ export class BaseEnrichmentAggregator {
     if (cacheOptions) {
       const cached = this.cacheStrategy.get<R>(cacheKey, cacheOptions);
       if (cached) {
-        return this.cacheStrategy.wrapResult(
-          cached,
-          true,
-          Date.now() - startTime,
-        );
+        return this.cacheStrategy.wrapResult(cached, true, Date.now() - startTime);
       }
     }
 
@@ -69,7 +66,7 @@ export class BaseEnrichmentAggregator {
       }
 
       const processingTime = Date.now() - startTime;
-      
+
       this.logger.debug('Single enrichment completed', {
         sourceType: context.sourceType,
         sourceId: context.sourceId,
@@ -100,10 +97,10 @@ export class BaseEnrichmentAggregator {
     entities: T[],
     context: EnrichmentContext,
     enrichFn: (entities: T[], context: EnrichmentContext) => Promise<R[]>,
-    cacheOptions?: CacheOptions,
+    cacheOptions?: CacheOptions
   ): Promise<AggregationResult<R[]>> {
     const startTime = Date.now();
-    
+
     if (entities.length === 0) {
       return this.cacheStrategy.wrapResult([], false, 0);
     }
@@ -118,7 +115,7 @@ export class BaseEnrichmentAggregator {
       const { cached, uncached } = await this.splitCachedAndUncached(
         entities,
         context,
-        cacheOptions,
+        cacheOptions
       );
 
       let enrichedResults: R[] = [];
@@ -126,7 +123,7 @@ export class BaseEnrichmentAggregator {
       // 캐시되지 않은 항목들만 enrichment 수행
       if (uncached.entities.length > 0) {
         const freshResults = await enrichFn(uncached.entities, context);
-        
+
         // 새로 조회한 결과를 캐시에 저장
         if (cacheOptions) {
           freshResults.forEach((result, index) => {
@@ -142,7 +139,7 @@ export class BaseEnrichmentAggregator {
       }
 
       const processingTime = Date.now() - startTime;
-      
+
       this.logger.debug('Batch enrichment completed', {
         sourceType: context.sourceType,
         totalEntities: entities.length,
@@ -154,7 +151,7 @@ export class BaseEnrichmentAggregator {
       return this.cacheStrategy.wrapResult(
         enrichedResults,
         cached.results.length > 0,
-        processingTime,
+        processingTime
       );
     } catch (error: unknown) {
       this.logger.error('Batch enrichment failed', {
@@ -181,7 +178,7 @@ export class BaseEnrichmentAggregator {
     context: EnrichmentContext,
     enrichFn: (entities: T[], context: EnrichmentContext) => Promise<R[]>,
     fallbackOptions: FallbackOptions<R[]>,
-    cacheOptions?: CacheOptions,
+    cacheOptions?: CacheOptions
   ): Promise<AggregationResult<R[]>> {
     try {
       return await this.enrichBatch(entities, context, enrichFn, cacheOptions);
@@ -194,12 +191,8 @@ export class BaseEnrichmentAggregator {
       });
 
       const fallbackResult = (fallbackOptions.fallbackValue || []) as R[];
-      
-      return this.cacheStrategy.wrapResult(
-        fallbackResult,
-        false,
-        0,
-      );
+
+      return this.cacheStrategy.wrapResult(fallbackResult, false, 0);
     }
   }
 
@@ -213,7 +206,7 @@ export class BaseEnrichmentAggregator {
   private async splitCachedAndUncached<T, R>(
     entities: T[],
     context: EnrichmentContext,
-    cacheOptions?: CacheOptions,
+    cacheOptions?: CacheOptions
   ): Promise<{
     cached: { results: R[] };
     uncached: { entities: T[] };
@@ -228,10 +221,10 @@ export class BaseEnrichmentAggregator {
       };
     }
 
-    entities.forEach(entity => {
+    entities.forEach((entity) => {
       const cacheKey = this.generateCacheKey(context, entity);
       const cachedResult = this.cacheStrategy.get<R>(cacheKey, cacheOptions);
-      
+
       if (cachedResult) {
         cached.push(cachedResult);
       } else {
@@ -253,11 +246,7 @@ export class BaseEnrichmentAggregator {
    */
   private generateCacheKey<T>(context: EnrichmentContext, entity: T): string {
     const entityId = this.extractEntityId(entity);
-    return this.cacheStrategy.generateKey(
-      'enrichment',
-      context.sourceType,
-      entityId,
-    );
+    return this.cacheStrategy.generateKey('enrichment', context.sourceType, entityId);
   }
 
   /**
@@ -270,7 +259,7 @@ export class BaseEnrichmentAggregator {
     if (entity && typeof entity === 'object' && 'id' in entity) {
       return String((entity as { id: unknown }).id);
     }
-    
+
     // 문자열인 경우 그대로 사용
     if (typeof entity === 'string') {
       return entity;

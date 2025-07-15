@@ -14,7 +14,6 @@ export function IsValidServiceIds(options: IsValidOptions = {}): PropertyDecorat
     example: ['123e4567-e89b-12d3-a456-426614174001', '123e4567-e89b-12d3-a456-426614174002'],
     description: '서비스 ID 목록',
     type: [String],
-    name: 'service_ids',
   };
 
   const apiDecorator = isOptional
@@ -25,7 +24,7 @@ export function IsValidServiceIds(options: IsValidOptions = {}): PropertyDecorat
     IsArray({ message: '서비스 ID 목록은 배열이어야 합니다' }),
     IsUUID(4, { each: true, message: '올바른 서비스 ID 형식이 아닙니다' }),
   ];
-  const exposeDators = [Expose({ name: 'service_ids' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ each: true, message: '서비스 ID 목록은 필수입니다' });
@@ -38,7 +37,6 @@ export function ExposeServiceIds(): PropertyDecorator {
     example: ['123e4567-e89b-12d3-a456-426614174001', '123e4567-e89b-12d3-a456-426614174002'],
     description: '서비스 ID 목록',
     type: [String],
-    name: 'service_ids',
   };
 
   return applyDecorators(SwaggerApiProperty(propertyData), Expose());

@@ -8,12 +8,12 @@ import type { RoleIdParams } from '@krgeobuk/shared/role';
 import type { UpdateRole } from '../../interfaces/index.js';
 
 // shared의 RoleIdParams를 재사용
-export type TcpRoleParams = RoleIdParams;
+export type TcpRoleId = RoleIdParams;
 
-export interface TcpMultiServiceParams {
+export interface TcpMultiServiceIds {
   serviceIds: string[];
 }
 
-export interface TcpRoleUpdateParams extends RoleIdParams {
+export interface TcpRoleUpdate extends RoleIdParams {
   updateData: UpdateRole;
 }

@@ -11,14 +11,13 @@ export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorat
   const { isOptional = false } = options;
 
   const propertyData = {
-    name: 'status_code',
     example: 0,
     description: '해당 HTTP 코드',
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const validators = [IsNumber()];
-  const exposeDators = [Expose({ name: 'status_code' })];
+  const exposeDators = [Expose()];
   const optionality = isOptional
     ? IsOptional()
     : IsNotEmpty({ message: 'Status Code는 필수입니다' });
@@ -28,7 +27,6 @@ export function IsValidStatusCode(options: IsValidOptions = {}): PropertyDecorat
 
 export function ExposeStatusCode(): PropertyDecorator {
   const propertyData = {
-    name: 'status_code',
     example: 0,
     description: '해당 HTTP 코드',
     type: Number,

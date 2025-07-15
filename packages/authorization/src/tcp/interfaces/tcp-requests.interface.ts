@@ -4,17 +4,17 @@ import { CheckRole } from '../../interfaces/check-role.interface.js';
 /**
  * 권한 체크 요청 메시지
  */
-export type TcpCheckPermissionRequest = CheckPermission;
+export type TcpCheckPermission = CheckPermission;
 
 /**
  * 역할 체크 요청 메시지
  */
-export type TcpCheckRoleRequest = CheckRole;
+export type TcpCheckRole = CheckRole;
 
 /**
  * 사용자 권한 조회 요청 메시지
  */
-export interface TcpGetUserPermissionsRequest {
+export interface TcpGetUserPermissions {
   userId: string;
   serviceId?: string;
 }
@@ -22,7 +22,7 @@ export interface TcpGetUserPermissionsRequest {
 /**
  * 사용자 역할 조회 요청 메시지
  */
-export interface TcpGetUserRolesRequest {
+export interface TcpGetUserRoles {
   userId: string;
   serviceId?: string;
 }
