@@ -1,1 +1,1 @@
-export * from './params.interface.js';
+export * from './tcp-requests.interface.js';
