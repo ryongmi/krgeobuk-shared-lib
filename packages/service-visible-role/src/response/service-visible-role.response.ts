@@ -15,7 +15,6 @@ export class ServiceVisibleRoleResponse {
     statusCode: 200,
   };
 
-
   static readonly ASSIGN_SUCCESS = {
     code: ServiceVisibleRoleCode.ASSIGN_SUCCESS,
     message: ServiceVisibleRoleMessage.ASSIGN_SUCCESS,
@@ -34,9 +33,16 @@ export class ServiceVisibleRoleResponse {
     statusCode: 201,
   };
 
+  static readonly REVOKE_MULTIPLE_SUCCESS = {
+    code: ServiceVisibleRoleCode.REVOKE_MULTIPLE_SUCCESS,
+    message: ServiceVisibleRoleMessage.REVOKE_MULTIPLE_SUCCESS,
+    statusCode: 204,
+  };
+
   static readonly REPLACE_SUCCESS = {
     code: ServiceVisibleRoleCode.REPLACE_SUCCESS,
     message: ServiceVisibleRoleMessage.REPLACE_SUCCESS,
     statusCode: 200,
   };
 }
+

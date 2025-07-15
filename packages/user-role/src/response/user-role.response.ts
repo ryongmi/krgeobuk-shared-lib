@@ -34,16 +34,10 @@ export class UserRoleResponse {
     statusCode: 204,
   };
 
-  static readonly REVOKE_ALL_FROM_USER_SUCCESS = {
-    code: UserRoleCode.REVOKE_ALL_FROM_USER_SUCCESS,
-    message: UserRoleMessage.REVOKE_ALL_FROM_USER_SUCCESS,
-    statusCode: 204,
-  };
-
-  static readonly REVOKE_ALL_FROM_ROLE_SUCCESS = {
-    code: UserRoleCode.REVOKE_ALL_FROM_ROLE_SUCCESS,
-    message: UserRoleMessage.REVOKE_ALL_FROM_ROLE_SUCCESS,
-    statusCode: 204,
+  static readonly REPLACE_SUCCESS = {
+    code: UserRoleCode.REPLACE_SUCCESS,
+    message: UserRoleCode.REPLACE_SUCCESS,
+    statusCode: 200,
   };
 
   static readonly FETCH_SUCCESS = {

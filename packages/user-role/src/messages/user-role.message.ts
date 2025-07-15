@@ -11,8 +11,6 @@ export const UserRoleMessage = {
   REVOKE_ERROR: '사용자로부터 역할 해제 중 서버 오류가 발생했습니다.',
   ASSIGN_MULTIPLE_ERROR: '사용자에게 여러 역할 할당 중 서버 오류가 발생했습니다.',
   REVOKE_MULTIPLE_ERROR: '사용자로부터 여러 역할 해제 중 서버 오류가 발생했습니다.',
-  REVOKE_ALL_FROM_USER_ERROR: '사용자의 모든 역할 해제 중 서버 오류가 발생했습니다.',
-  REVOKE_ALL_FROM_ROLE_ERROR: '역할의 모든 사용자 해제 중 서버 오류가 발생했습니다.',
   REPLACE_ERROR: '사용자의 역할 교체 중 서버 오류가 발생했습니다.',
   FETCH_ERROR: '사용자-역할 관계 조회 중 서버 오류가 발생했습니다.',
 
@@ -62,10 +60,8 @@ export const UserRoleMessage = {
   REVOKE_SUCCESS: '사용자로부터 역할이 성공적으로 해제되었습니다.',
   ASSIGN_MULTIPLE_SUCCESS: '사용자에게 여러 역할이 성공적으로 할당되었습니다.',
   REVOKE_MULTIPLE_SUCCESS: '사용자로부터 여러 역할이 성공적으로 해제되었습니다.',
-  REVOKE_ALL_FROM_USER_SUCCESS: '사용자의 모든 역할이 성공적으로 해제되었습니다.',
-  REVOKE_ALL_FROM_ROLE_SUCCESS: '역할의 모든 사용자가 성공적으로 해제되었습니다.',
   REPLACE_SUCCESS: '사용자의 역할이 성공적으로 교체되었습니다.',
   FETCH_SUCCESS: '사용자-역할 관계 조회가 성공적으로 완료되었습니다.',
 } as const;
 
-export type UserRoleMessageType = typeof UserRoleMessage[keyof typeof UserRoleMessage];
+export type UserRoleMessageType = (typeof UserRoleMessage)[keyof typeof UserRoleMessage];

@@ -34,18 +34,6 @@ export class UserRoleError {
     statusCode: 500,
   };
 
-  static readonly REVOKE_ALL_FROM_USER_ERROR = {
-    code: UserRoleCode.REVOKE_ALL_FROM_USER_ERROR,
-    message: UserRoleMessage.REVOKE_ALL_FROM_USER_ERROR,
-    statusCode: 500,
-  };
-
-  static readonly REVOKE_ALL_FROM_ROLE_ERROR = {
-    code: UserRoleCode.REVOKE_ALL_FROM_ROLE_ERROR,
-    message: UserRoleMessage.REVOKE_ALL_FROM_ROLE_ERROR,
-    statusCode: 500,
-  };
-
   static readonly REPLACE_ERROR = {
     code: UserRoleCode.REPLACE_ERROR,
     message: UserRoleMessage.REPLACE_ERROR,

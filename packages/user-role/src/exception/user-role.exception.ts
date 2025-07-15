@@ -35,18 +35,6 @@ export class UserRoleException {
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 
-  /** 사용자의 모든 역할 해제 중 서버 오류 */
-  static revokeAllFromUserError(): HttpException {
-    const e = UserRoleError.REVOKE_ALL_FROM_USER_ERROR;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 역할의 모든 사용자 해제 중 서버 오류 */
-  static revokeAllFromRoleError(): HttpException {
-    const e = UserRoleError.REVOKE_ALL_FROM_ROLE_ERROR;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
   /** 사용자의 역할 교체 중 서버 오류 */
   static replaceError(): HttpException {
     const e = UserRoleError.REPLACE_ERROR;
@@ -124,5 +112,4 @@ export class UserRoleException {
     const e = UserRoleError.BULK_OPERATION_VALIDATION_FAILED;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
-
 }
