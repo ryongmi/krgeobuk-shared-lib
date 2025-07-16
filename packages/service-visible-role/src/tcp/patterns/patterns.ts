@@ -7,6 +7,7 @@ export const ServiceVisibleRoleTcpPatterns = {
   // 조회 패턴
   FIND_ROLES_BY_SERVICE: 'service-visible-role.find-roles-by-service',
   FIND_SERVICES_BY_ROLE: 'service-visible-role.find-services-by-role',
+  FIND_ROLE_COUNTS_BATCH: 'service-visible-role.find-role-counts-batch',
   EXISTS: 'service-visible-role.exists',
 
   // 배치 관리 패턴
