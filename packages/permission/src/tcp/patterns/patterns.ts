@@ -7,6 +7,7 @@ export const PermissionTcpPatterns = {
   // 조회 패턴
   SEARCH: 'permission.search',
   FIND_BY_ID: 'permission.find-by-id',
+  FIND_BY_IDS: 'permission.find-by-ids',
   FIND_BY_SERVICE_IDS: 'permission.find-by-service-ids',
   EXISTS: 'permission.exists',
 

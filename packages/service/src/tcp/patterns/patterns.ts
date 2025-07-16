@@ -5,14 +5,15 @@
 
 export const SerivceTcpPatterns = {
   // 조회 패턴
-  FIND_ROLES_BY_USER: 'service.find-roles-by-user',
-  FIND_USERS_BY_ROLE: 'service.find-users-by-role',
+  SEARCH: 'service.search',
+  FIND_BY_ID: 'service.find-by-id',
+  FIND_BY_IDS: 'service.find-by-ids',
   EXISTS: 'service.exists',
 
-  // 배치 처리 패턴 (마이크로서비스 간 효율적 통신용)
-  ASSIGN_MULTIPLE: 'service.assign-multiple',
-  REVOKE_MULTIPLE: 'service.revoke-multiple',
-  REPLACE_ROLES: 'service.replace-roles',
+  // 변경 패턴
+  CREATE: 'service.create',
+  UPDATE: 'service.update',
+  DELETE: 'service.delete',
 } as const;
 
 export type SerivceTcpPattern = (typeof SerivceTcpPatterns)[keyof typeof SerivceTcpPatterns];

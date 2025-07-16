@@ -7,6 +7,7 @@ export const RoleTcpPatterns = {
   // 조회 패턴
   SEARCH: 'role.search',
   FIND_BY_ID: 'role.find-by-id',
+  FIND_BY_IDS: 'role.find-by-ids',
   FIND_BY_SERVICE_IDS: 'role.find-by-service-ids',
   EXISTS: 'role.exists',
 

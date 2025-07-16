@@ -5,14 +5,15 @@
 
 export const OAuthTcpPatterns = {
   // 조회 패턴
-  FIND_ROLES_BY_USER: 'oauth.find-roles-by-user',
-  FIND_USERS_BY_ROLE: 'oauth.find-users-by-role',
+  SEARCH: 'oauth.search',
+  FIND_BY_ID: 'oauth.find-by-id',
+  FIND_BY_IDS: 'oauth.find-by-ids',
   EXISTS: 'oauth.exists',
 
-  // 배치 처리 패턴 (마이크로서비스 간 효율적 통신용)
-  ASSIGN_MULTIPLE: 'oauth.assign-multiple',
-  REVOKE_MULTIPLE: 'oauth.revoke-multiple',
-  REPLACE_ROLES: 'oauth.replace-roles',
+  // 변경 패턴
+  CREATE: 'oauth.create',
+  UPDATE: 'oauth.update',
+  DELETE: 'oauth.delete',
 } as const;
 
 export type OAuthTcpPattern = (typeof OAuthTcpPatterns)[keyof typeof OAuthTcpPatterns];
