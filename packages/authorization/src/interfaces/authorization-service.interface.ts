@@ -46,3 +46,47 @@ export interface AuthorizationConfig {
    */
   failureMode?: 'allow' | 'deny';
 }
+
+
+export interface RequireRoleMetadata {
+  roleName: string;
+  serviceId?: string;
+}
+
+export interface RequirePermissionMetadata {
+  action: string;
+  serviceId?: string;
+}
+
+/**
+ * 권한 체크 결과를 위한 캐시 인터페이스
+ */
+export interface CacheEntry {
+  result: boolean;
+  timestamp: number;
+  ttl: number;
+}
+
+/**
+ * 권한 검증 메타데이터
+ */
+export interface AuthorizationMetadata {
+  // 기존 데코레이터
+  permission?: RequirePermissionMetadata;
+  role?: RequireRoleMetadata;
+  
+  // 새로운 데코레이터
+  requiredAnyPermissions?: string[];
+  requiredAllPermissions?: string[];
+  requiredAnyRoles?: string[];
+  requiredAllRoles?: string[];
+  
+  // 설정
+  combinationOperator?: 'AND' | 'OR';
+  permissionServiceId?: string;
+  roleServiceId?: string;
+  
+  // 캐시
+  cacheTtl?: number;
+  cacheKey?: string;
+}

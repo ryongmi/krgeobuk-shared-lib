@@ -1,0 +1,11 @@
+export const REQUIRED_ANY_PERMISSIONS_META_KEY = 'required-any-permissions:meta';
+export const REQUIRED_ALL_PERMISSIONS_META_KEY = 'required-all-permissions:meta';
+export const REQUIRED_ANY_ROLES_META_KEY = 'required-any-roles:meta';
+export const REQUIRED_ALL_ROLES_META_KEY = 'required-all-roles:meta';
+export const COMBINATION_OPERATOR_META_KEY = 'combination-operator:meta';
+export const PERMISSION_SERVICE_ID_META_KEY = 'permission-service-id:meta';
+export const ROLE_SERVICE_ID_META_KEY = 'role-service-id:meta';
+export const PERMISSION_CACHE_TTL_META_KEY = 'permission-cache-ttl:meta';
+export const PERMISSION_CACHE_META_KEY = 'permission-cache-key:meta';
+export const REQUIRE_PERMISSION_META_KEY = 'require_permission:meta';
+export const REQUIRE_ROLE_META_KEY = 'require_role:meta';

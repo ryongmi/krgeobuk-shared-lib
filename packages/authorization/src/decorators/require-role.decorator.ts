@@ -1,11 +1,7 @@
 import { SetMetadata } from '@nestjs/common';
 
-export const REQUIRE_ROLE_KEY = 'require_role';
-
-export interface RequireRoleMetadata {
-  roleName: string;
-  serviceId?: string;
-}
+import { REQUIRE_ROLE_META_KEY } from'../constants/index.js';
+import { RequireRoleMetadata } from '../interfaces/index.js';
 
 /**
  * 특정 역할이 필요한 엔드포인트에 사용하는 데코레이터
@@ -29,4 +25,4 @@ export interface RequireRoleMetadata {
  * ```
  */
 export const RequireRole = (roleName: string, serviceId?: string) =>
-  SetMetadata(REQUIRE_ROLE_KEY, { roleName, serviceId } as RequireRoleMetadata);
+  SetMetadata(REQUIRE_ROLE_META_KEY, { roleName, serviceId } as RequireRoleMetadata);

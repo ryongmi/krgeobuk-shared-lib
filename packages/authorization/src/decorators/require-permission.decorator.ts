@@ -1,11 +1,7 @@
 import { SetMetadata } from '@nestjs/common';
 
-export const REQUIRE_PERMISSION_KEY = 'require_permission';
-
-export interface RequirePermissionMetadata {
-  action: string;
-  serviceId?: string;
-}
+import { REQUIRE_PERMISSION_META_KEY } from'../constants/index.js';
+import { RequirePermissionMetadata } from '../interfaces/index.js';
 
 /**
  * 권한이 필요한 엔드포인트에 사용하는 데코레이터
@@ -30,6 +26,6 @@ export interface RequirePermissionMetadata {
  */
 
 export const RequirePermission = (action: string, serviceId?: string): MethodDecorator => {
-  return SetMetadata(REQUIRE_PERMISSION_KEY, { action, serviceId } as RequirePermissionMetadata);
+  return SetMetadata(REQUIRE_PERMISSION_META_KEY, { action, serviceId } as RequirePermissionMetadata);
 };
 
