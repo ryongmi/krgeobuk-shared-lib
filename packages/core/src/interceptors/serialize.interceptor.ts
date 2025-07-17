@@ -16,7 +16,6 @@ import { Request } from 'express';
 
 import { CoreCode } from '../codes/index.js';
 import { CoreMessage } from '../messages/index.js';
-import { toSnakeCase } from '../utils/index.js';
 import { SERIALIZE_META_KEY } from '../constants/index.js';
 import type { SerializeOptions } from '../interfaces/index.js';
 
@@ -45,14 +44,12 @@ export class SerializerInterceptor implements NestInterceptor {
           transformed = this.handlePrimitiveType(data);
         }
 
-        const responseData = toSnakeCase(transformed);
-
         return {
           code: options?.code || CoreCode.REQUEST_SUCCESS,
           status_code: statusCode || HttpStatus.OK,
           message: options?.message || CoreMessage.REQUEST_SUCCESS,
           isLogin: Boolean(req?.user),
-          data: responseData,
+          data: transformed,
         };
       })
     );
