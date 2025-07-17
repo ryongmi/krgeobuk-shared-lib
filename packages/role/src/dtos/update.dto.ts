@@ -1,10 +1,9 @@
-import { UuidIdDto } from '@krgeobuk/core/dtos';
 import { IsValidRoleName, IsValidDescription, IsValidPriority } from '@krgeobuk/shared/role';
 import { IsValidServiceId } from '@krgeobuk/shared/service';
 
 import type { UpdateRole } from '../interfaces/index.js';
 
-export class UpdateRoleDto extends UuidIdDto implements UpdateRole {
+export class UpdateRoleDto implements UpdateRole {
   @IsValidRoleName({ isOptional: true })
   name?: string;
 

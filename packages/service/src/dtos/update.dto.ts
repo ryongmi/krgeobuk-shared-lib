@@ -1,4 +1,3 @@
-import { UuidIdDto } from '@krgeobuk/core/dtos';
 import {
   IsValidServiceName,
   IsValidDescription,
@@ -11,7 +10,7 @@ import {
 
 import type { UpdateService } from '../interfaces/index.js';
 
-export class UpdateServiceDto extends UuidIdDto implements UpdateService {
+export class UpdateServiceDto implements UpdateService {
   @IsValidServiceName({ isOptional: true })
   name?: string;
 
