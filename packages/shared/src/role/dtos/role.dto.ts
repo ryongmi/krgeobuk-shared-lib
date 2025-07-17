@@ -9,7 +9,7 @@ export class RoleDto extends ExposeUuidIdDto implements Role {
   name?: string;
 
   @ExposeDescription()
-  description?: string;
+  description?: string | null;
 
   @ExposePriority()
   priority?: number;
