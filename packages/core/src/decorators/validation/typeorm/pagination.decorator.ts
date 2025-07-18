@@ -1,7 +1,7 @@
 import { applyDecorators } from '@nestjs/common';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
-import { Expose, Transform } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 import { IsNotEmpty, IsOptional, Min, IsInt, IsIn, IsString } from 'class-validator';
 
 import { SORT_ORDER_TYPE_VALUES, LIMIT_TYPE_VALUES } from '../../../enum/index.js';
@@ -21,7 +21,7 @@ export function IsValidPage(options: IsValidOptions = {}): PropertyDecorator {
     type: Number,
   };
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
-  const validators = [Transform(({ value }) => Number(value)), IsInt(), Min(1)];
+  const validators = [Type(() => Number), IsInt(), Min(1)];
   const exposeDators = [Expose()];
   const optionality = isOptional ? IsOptional() : IsNotEmpty({ message: 'page는 필수입니다' });
 
@@ -49,7 +49,8 @@ export function IsValidLimit(options: IsValidAllowedOptions = {}): PropertyDecor
   const apiDecorator = isOptional ? ApiPropertyOptional(propertyData) : ApiProperty(propertyData);
   const exposeDators = [Expose()];
   const validators = [
-    Transform(({ value }) => Number(value)),
+    // Transform(({ value }) => Number(value)),
+    Type(() => Number),
     IsIn(allowedLimits, {
       message: `Limit는 다음 값 중 하나여야 합니다: ${allowedLimits.join(', ')}`,
     }),
