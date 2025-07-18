@@ -16,10 +16,10 @@ export class ServiceDto extends ExposeUuidIdDto implements Service {
   name?: string;
 
   @ExposeDescription()
-  description?: string;
+  description?: string | null;
 
   @ExposeBaseUrl()
-  baseUrl?: string;
+  baseUrl?: string | null;
 
   @ExposeIsVisible()
   isVisible?: boolean;
@@ -28,8 +28,8 @@ export class ServiceDto extends ExposeUuidIdDto implements Service {
   isVisibleByRole?: boolean;
 
   @ExposeDisplayName()
-  displayName?: string;
+  displayName?: string | null;
 
   @ExposeIconUrl()
-  iconUrl?: string;
+  iconUrl?: string | null;
 }
