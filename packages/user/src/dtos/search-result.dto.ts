@@ -1,5 +1,5 @@
-import { ExposeUuidIdDto, PageInfoWrapperDto } from '@krgeobuk/core/dtos';
-import { ExposeNested } from '@krgeobuk/core/decorators';
+import { PageInfoWrapperDto } from '@krgeobuk/core/dtos';
+import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
 import { PaginatedResult } from '@krgeobuk/core/interfaces';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
@@ -13,7 +13,9 @@ import {
 
 import type { UserSearchResult } from '../interfaces/index.js';
 
-export class UserSearchResultDto extends ExposeUuidIdDto implements UserSearchResult {
+export class UserSearchResultDto implements UserSearchResult {
+  @ExposeUuidId()
+  id!: string;
   @ExposeEmail()
   email!: string;
 
