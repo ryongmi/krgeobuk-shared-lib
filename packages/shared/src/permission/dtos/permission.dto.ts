@@ -9,7 +9,7 @@ export class PermissionDto extends ExposeUuidIdDto implements Permission {
   action?: string;
 
   @ExposePermissionDescription()
-  description?: string;
+  description?: string | null;
 
   @ExposeUuidId()
   serviceId?: string;
