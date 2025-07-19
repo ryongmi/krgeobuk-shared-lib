@@ -5,5 +5,11 @@
 
 import type { ServiceIdParams } from '@krgeobuk/shared/service';
 
+import type { UpdateService } from '../../interfaces/index.js';
+
 // shared의 기본 ID params 재사용
 export type TcpServiceId = ServiceIdParams;
+
+export interface TcpSerivceUpdate extends ServiceIdParams {
+  updateData: UpdateService;
+}
