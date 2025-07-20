@@ -5,6 +5,7 @@
 
 export const ServiceTcpPatterns = {
   // 조회 패턴
+  FIND_ALL: 'service.find-all',
   SEARCH: 'service.search',
   FIND_BY_ID: 'service.find-by-id',
   FIND_BY_IDS: 'service.find-by-ids',

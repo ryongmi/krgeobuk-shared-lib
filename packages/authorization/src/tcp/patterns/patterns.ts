@@ -13,6 +13,7 @@ export const AuthorizationTcpPatterns = {
   // 사용자 권한 조회 패턴
   GET_USER_PERMISSIONS: 'authorization.get-user-permissions',
   GET_USER_ROLES: 'authorization.get-user-roles',
+  GET_AVAILABLE_SERVICES: 'authorization.get-available-services',
 } as const;
 
 export type AuthorizationTcpPattern =

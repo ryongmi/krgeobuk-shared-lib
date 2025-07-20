@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler",
-    "types": ["node", "DOM"],
+    "types": ["node"],
     "lib": [
       "dom",
       "dom.iterable",
