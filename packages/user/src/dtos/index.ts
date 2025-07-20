@@ -1,3 +1,4 @@
+export * from './authorization.dto.js';
 export * from './change-password.dto.js';
 export * from './detail.dto.js';
 export * from './search-query.dto.js';

@@ -39,9 +39,9 @@ export abstract class UuidIdDto extends TimestampDto implements UuidId {
   id!: string;
 }
 
-export abstract class ExposeUuidIdDto extends TimestampDto implements OptionalUuidId {
+export abstract class ExposeUuidIdDto extends TimestampDto implements UuidId {
   @ExposeUuidId()
-  id?: string;
+  id!: string;
 }
 
 export abstract class OptionalUuidIdDto extends TimestampDto implements OptionalUuidId {
