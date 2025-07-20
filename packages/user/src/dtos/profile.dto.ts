@@ -1,4 +1,4 @@
-import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
+import { ExposeNested } from '@krgeobuk/core/decorators';
 import { ExposeUuidIdDto } from '@krgeobuk/core/dtos';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import { ServiceDto } from '@krgeobuk/shared/service';
@@ -11,10 +11,11 @@ import {
   ExposeUsername,
 } from '@krgeobuk/shared/user';
 
-import {UserAuthorizationDto} from './authorization.dto.js';
-import type { UserProFile } from '../interfaces/index.js';
+import type { UserProfile } from '../interfaces/index.js';
 
-export class UserProFileDto extends ExposeUuidIdDto implements UserProFile  {
+import { UserAuthorizationDto } from './authorization.dto.js';
+
+export class UserProfileDto extends ExposeUuidIdDto implements UserProfile {
   @ExposeEmail()
   email!: string;
 
