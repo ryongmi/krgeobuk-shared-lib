@@ -1,6 +1,6 @@
-import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
+import type { UuidId } from '@krgeobuk/core/interfaces';
 
-export interface Role extends OptionalUuidId {
+export interface Role extends UuidId {
   name?: string;
   description?: string | null;
   priority?: number;

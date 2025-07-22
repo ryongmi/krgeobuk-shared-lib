@@ -1,6 +1,6 @@
-import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
+import type { UuidId } from '@krgeobuk/core/interfaces';
 
-export interface Service extends OptionalUuidId {
+export interface Service extends UuidId {
   name?: string;
   description?: string | null;
   baseUrl?: string | null;
@@ -9,3 +9,4 @@ export interface Service extends OptionalUuidId {
   displayName?: string | null;
   iconUrl?: string | null;
 }
+

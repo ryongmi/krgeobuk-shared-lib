@@ -1,6 +1,6 @@
-import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
+import type { UuidId } from '@krgeobuk/core/interfaces';
 
-export interface User extends OptionalUuidId {
+export interface User extends UuidId {
   email?: string;
   password?: string;
   name?: string;
@@ -9,3 +9,4 @@ export interface User extends OptionalUuidId {
   isIntegrated?: boolean;
   isEmailVerified?: boolean;
 }
+

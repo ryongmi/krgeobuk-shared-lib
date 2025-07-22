@@ -1,7 +1,7 @@
 import { Role } from '@krgeobuk/shared/role';
-import type { OptionalUuidId } from '@krgeobuk/core/interfaces';
+import type { UuidId } from '@krgeobuk/core/interfaces';
 
-export interface ServiceDetail extends OptionalUuidId {
+export interface ServiceDetail extends UuidId {
   name: string;
   description: string | null;
   baseUrl: string | null;
@@ -11,3 +11,4 @@ export interface ServiceDetail extends OptionalUuidId {
   iconUrl: string | null;
   visibleRoles: Role[];
 }
+
