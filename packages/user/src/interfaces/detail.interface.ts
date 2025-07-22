@@ -1,7 +1,7 @@
+import { UuidId } from '@krgeobuk/core/interfaces';
 import { OAuthAccount } from '@krgeobuk/shared/oauth';
 
-export interface UserDetail {
-  id?: string;
+export interface UserDetail extends UuidId {
   email: string;
   name: string;
   nickname: string | null;

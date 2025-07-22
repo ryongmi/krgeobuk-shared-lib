@@ -1,4 +1,5 @@
 import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
+import { ExposeUuidIdDto } from '@krgeobuk/core/dtos';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
   ExposeEmail,
@@ -11,10 +12,7 @@ import {
 
 import type { UserDetail } from '../interfaces/index.js';
 
-export class UserDetailDto implements UserDetail {
-  @ExposeUuidId()
-  id?: string;
-
+export class UserDetailDto extends ExposeUuidIdDto implements UserDetail {
   @ExposeEmail()
   email!: string;
 
