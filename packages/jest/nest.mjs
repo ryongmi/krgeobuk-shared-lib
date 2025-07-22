@@ -1,11 +1,16 @@
+import baseConfig from './base.mjs';
+
+/** @type {import('jest').Config} */
 export default {
+  ...baseConfig,
   preset: 'ts-jest/presets/default-esm',
   extensionsToTreatAsEsm: ['.ts'],
   moduleFileExtensions: ['js', 'json', 'ts'],
   rootDir: 'src',
   testRegex: '.*\\.spec\\.ts$',
+  testEnvironment: 'node',
   transform: {
-    '^.+\\.(t|j)s$': [
+    '^.+\\.(t|j)sx?$': [
       'ts-jest',
       {
         useESM: true,
@@ -26,9 +31,7 @@ export default {
     '^@krgeobuk/([^/]+)$': '<rootDir>/../node_modules/@krgeobuk/$1/dist',
     '^(\\.{1,2}/.*)\\.js$': '$1',
   },
-  transformIgnorePatterns: ['/node_modules/(?!(@krgeobuk|lodash-es|@nestjs)/).+\\.js$'],
+  transformIgnorePatterns: ['/node_modules/(?!(@krgeobuk|lodash-es)/).*'],
   collectCoverageFrom: ['**/*.(t|j)s'],
   coverageDirectory: '../coverage',
-  testEnvironment: 'node',
 };
-
