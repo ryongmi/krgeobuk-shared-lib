@@ -108,3 +108,26 @@ export interface InterceptorOptions {
   enableSecurityLogging?: boolean;
   customErrorHandler?: (error: ApiError) => void;
 }
+
+// 세션 데이터 타입
+export interface SessionData {
+  id: string;
+  csrf: string;
+  timestamp: number;
+  fingerprint: string;
+}
+
+// 토큰 갱신 응답 타입
+export interface TokenRefreshResponse {
+  data: {
+    accessToken: string;
+  };
+}
+
+// 브라우저 핑거프린트 정보 타입
+export interface BrowserFingerprint {
+  userAgent: string;
+  language: string;
+  screenResolution: string;
+  timezoneOffset: string;
+}

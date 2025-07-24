@@ -68,7 +68,9 @@ export function createRequestInterceptor(
  */
 export function createRequestErrorInterceptor() {
   return (error: unknown): Promise<never> => {
-    SecurityLogger.logSecurityEvent('REQUEST_INTERCEPTOR_ERROR', { error });
+    SecurityLogger.logSecurityEvent('REQUEST_INTERCEPTOR_ERROR', { 
+      error: error instanceof Error ? error.message : String(error)
+    });
     return Promise.reject(error);
   };
 }

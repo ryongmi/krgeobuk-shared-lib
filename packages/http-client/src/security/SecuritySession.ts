@@ -1,4 +1,5 @@
 import { generateSecureRandomString, generateCSRFToken } from './utils.js';
+import type { SessionData, BrowserFingerprint } from '../types/index.js';
 
 /**
  * 세션 관리
@@ -12,7 +13,7 @@ export class SecuritySession {
     const csrf = generateCSRFToken();
 
     // 세션 정보를 안전하게 저장
-    const sessionData = {
+    const sessionData: SessionData = {
       id: sessionId,
       csrf,
       timestamp: Date.now(),
@@ -39,7 +40,7 @@ export class SecuritySession {
       const sessionData = sessionStorage.getItem(this.SESSION_KEY);
       if (!sessionData) return false;
 
-      const parsed = JSON.parse(sessionData);
+      const parsed: SessionData = JSON.parse(sessionData);
       const now = Date.now();
 
       // 세션 만료 확인 (24시간)
@@ -75,7 +76,7 @@ export class SecuritySession {
       const sessionData = sessionStorage.getItem(this.SESSION_KEY);
       if (!sessionData) return null;
 
-      const parsed = JSON.parse(sessionData);
+      const parsed: SessionData = JSON.parse(sessionData);
       return parsed.id || null;
     } catch {
       return null;
@@ -90,7 +91,7 @@ export class SecuritySession {
       try {
         const sessionData = sessionStorage.getItem(this.SESSION_KEY);
         if (sessionData) {
-          const parsed = JSON.parse(sessionData);
+          const parsed: SessionData = JSON.parse(sessionData);
           parsed.timestamp = Date.now();
           sessionStorage.setItem(this.SESSION_KEY, JSON.stringify(parsed));
         }
@@ -105,12 +106,14 @@ export class SecuritySession {
       return 'server-side';
     }
 
-    const data = [
-      navigator.userAgent,
-      navigator.language,
-      screen.width + 'x' + screen.height,
-      new Date().getTimezoneOffset().toString(),
-    ].join('|');
+    const fingerprintData: BrowserFingerprint = {
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      screenResolution: screen.width + 'x' + screen.height,
+      timezoneOffset: new Date().getTimezoneOffset().toString(),
+    };
+
+    const data = Object.values(fingerprintData).join('|');
 
     // 간단한 해시 함수
     let hash = 0;

@@ -5,6 +5,7 @@ import type {
   JwtPayload,
   TokenRefreshConfig,
   TokenEvent,
+  TokenRefreshResponse,
 } from '../types/index.js';
 
 export class TokenManager {
@@ -141,7 +142,7 @@ export class TokenManager {
         throw new Error('토큰 갱신 실패');
       }
 
-      const data = await response.json();
+      const data: TokenRefreshResponse = await response.json();
       const newToken = data.data.accessToken;
 
       this.setAccessToken(newToken);
@@ -218,7 +219,8 @@ export class TokenManager {
   static resetInstance(): void {
     if (TokenManager.instance) {
       TokenManager.instance.cleanup();
-      TokenManager.instance = null as any;
+      // @ts-expect-error: 테스트용 인스턴스 리셋을 위한 의도적 undefined 할당
+      TokenManager.instance = undefined;
     }
   }
 }

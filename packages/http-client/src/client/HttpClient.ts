@@ -56,9 +56,9 @@ export class HttpClient {
   }
 
   private createInstances(config: MultiServerConfig): void {
-    Object.entries(config).forEach(([serverType, serverConfig]) => {
+    (Object.entries(config) as Array<[ServerType, HttpClientConfig]>).forEach(([serverType, serverConfig]) => {
       const instance = this.createAxiosInstance(serverConfig);
-      this.instances.set(serverType as ServerType, instance);
+      this.instances.set(serverType, instance);
     });
   }
 

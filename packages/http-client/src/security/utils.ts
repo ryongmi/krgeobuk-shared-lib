@@ -22,8 +22,8 @@ export function escapeHtml(unsafe: string): string {
  */
 export function sanitizeHtml(html: string): string {
   // 기본적인 태그만 허용
-  const allowedTags = ['p', 'br', 'strong', 'em', 'u', 'span'];
-  const allowedAttributes = ['class'];
+  const allowedTags: readonly string[] = ['p', 'br', 'strong', 'em', 'u', 'span'] as const;
+  const allowedAttributes: readonly string[] = ['class'] as const;
 
   // 스크립트 태그 완전 제거
   let sanitized = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
@@ -54,10 +54,10 @@ export function generateCSRFToken(): string {
  * 안전한 랜덤 문자열 생성
  */
 export function generateSecureRandomString(length: number = 32): string {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const chars: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' as const;
   const array = new Uint8Array(length);
   crypto.getRandomValues(array);
-  return Array.from(array, (byte) => chars[byte % chars.length]).join('');
+  return Array.from(array, (byte: number) => chars[byte % chars.length]).join('');
 }
 
 /**
@@ -92,11 +92,11 @@ export function validateURL(url: string, allowedDomains?: string[]): boolean {
  */
 export function validateUserInput(input: string): boolean {
   // SQL 키워드 패턴 검사
-  const sqlPatterns = [
+  const sqlPatterns: readonly RegExp[] = [
     /(\b(SELECT|INSERT|UPDATE|DELETE|DROP|CREATE|ALTER|EXEC|UNION|SCRIPT)\b)/i,
     /('|\\')|(;)|(--\s)|(\|)|(\*)|(%)/,  // -- 뒤에 공백이 있을 때만 SQL 주석으로 인식
     /(script|javascript|vbscript|onload|onerror|onclick)/i,
-  ];
+  ] as const;
 
   return !sqlPatterns.some((pattern) => pattern.test(input));
 }
@@ -172,7 +172,7 @@ export function maskSensitiveData(
  * Content Security Policy 헤더 생성
  */
 export function generateCSPHeader(): string {
-  const directives = [
+  const directives: readonly string[] = [
     "default-src 'self'",
     "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js 개발용, 프로덕션에서는 제거
     "style-src 'self' 'unsafe-inline'",
@@ -182,7 +182,7 @@ export function generateCSPHeader(): string {
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
-  ];
+  ] as const;
 
   return directives.join('; ');
 }
