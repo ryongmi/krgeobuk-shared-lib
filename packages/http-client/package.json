@@ -1,0 +1,66 @@
+{
+  "name": "@krgeobuk/http-client",
+  "version": "1.0.0",
+  "description": "Secure HTTP client with JWT token management for krgeobuk ecosystem",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./client": "./dist/client/index.js",
+    "./token": "./dist/token/index.js",
+    "./security": "./dist/security/index.js",
+    "./types": "./dist/types/index.js",
+    "./interceptors": "./dist/interceptors/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "client": ["dist/client/index.d.ts"],
+      "client/*": ["dist/client/*"],
+      "token": ["dist/token/index.d.ts"],
+      "token/*": ["dist/token/*"],
+      "security": ["dist/security/index.d.ts"],
+      "security/*": ["dist/security/*"],
+      "types": ["dist/types/index.d.ts"],
+      "types/*": ["dist/types/*"],
+      "interceptors": ["dist/interceptors/index.d.ts"],
+      "interceptors/*": ["dist/interceptors/*"]
+    }
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "axios": "^1.0.0",
+    "jwt-decode": "^4.0.0"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/jwt": "workspace:*",
+    "@krgeobuk/eslint-config": "workspace:*",
+    "@krgeobuk/tsconfig": "workspace:*",
+    "axios": "^1.6.8",
+    "jwt-decode": "^4.0.0",
+    "typescript": "^5.8.3",
+    "rimraf": "^5.0.5"
+  },
+  "keywords": [
+    "http-client",
+    "axios",
+    "jwt",
+    "security",
+    "krgeobuk"
+  ],
+  "author": "krgeobuk",
+  "license": "MIT"
+}
