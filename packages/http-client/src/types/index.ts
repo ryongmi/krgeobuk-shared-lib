@@ -1,11 +1,12 @@
 import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+
 import type { JwtPayload as BaseJwtPayload } from '@krgeobuk/jwt/interfaces';
 import type { ResponseFormat } from '@krgeobuk/core/interfaces';
 
 // JWT 표준 필드를 포함한 디코딩된 토큰 구조
 export interface DecodedJwtPayload extends BaseJwtPayload {
-  iat: number;  // 발행 시간 (issued at)
-  exp: number;  // 만료 시간 (expiration)
+  iat: number; // 발행 시간 (issued at)
+  exp: number; // 만료 시간 (expiration)
   sub?: string; // 주체 (subject) - 선택적 필드
 }
 
@@ -74,8 +75,12 @@ export interface SecurityLogEntry {
 }
 
 // Axios 인터셉터 타입
-export type RequestInterceptor = (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
-export type ResponseInterceptor = (response: AxiosResponse<ApiResponse>) => AxiosResponse<ApiResponse> | Promise<AxiosResponse<ApiResponse>>;
+export type RequestInterceptor = (
+  config: InternalAxiosRequestConfig
+) => InternalAxiosRequestConfig | Promise<InternalAxiosRequestConfig>;
+export type ResponseInterceptor = (
+  response: AxiosResponse<ApiResponse>
+) => AxiosResponse<ApiResponse> | Promise<AxiosResponse<ApiResponse>>;
 export type ErrorInterceptor = (error: unknown) => Promise<never>;
 
 // 토큰 새로고침 설정

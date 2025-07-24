@@ -1,19 +1,20 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from 'axios';
+
 import { TokenManager } from '../token/TokenManager.js';
 import { SecuritySession, SecurityLogger, RateLimiter } from '../security/index.js';
-import { 
-  createRequestInterceptor, 
+import {
+  createRequestInterceptor,
   createRequestErrorInterceptor,
   createResponseInterceptor,
-  createResponseErrorInterceptor 
+  createResponseErrorInterceptor,
 } from '../interceptors/index.js';
-import type { 
-  HttpClientConfig, 
-  MultiServerConfig, 
-  ServerType, 
-  SecurityPolicy, 
+import type {
+  HttpClientConfig,
+  MultiServerConfig,
+  ServerType,
+  SecurityPolicy,
   TokenRefreshConfig,
-  ApiResponse 
+  ApiResponse,
 } from '../types/index.js';
 
 export class HttpClient {
@@ -38,7 +39,7 @@ export class HttpClient {
 
     // 보안 정책 설정
     this.securityPolicy = {
-      allowedOrigins: ['localhost', 'krgeobuk.com', '127.0.0.1'],
+      allowedOrigins: this.getAllowedOrigins(),
       enableCSRF: true,
       enableInputValidation: true,
       enableSecurityLogging: true,
@@ -196,7 +197,7 @@ export class HttpClient {
   // 보안 정책 업데이트
   updateSecurityPolicy(policy: Partial<SecurityPolicy>): void {
     this.securityPolicy = { ...this.securityPolicy, ...policy };
-    
+
     // 레이트 리미터 설정 업데이트
     if (policy.rateLimitConfig) {
       this.rateLimiter.updateConfig(
@@ -228,6 +229,22 @@ export class HttpClient {
       timeout: instance.defaults.timeout,
       headers: instance.defaults.headers as Record<string, string>,
     };
+  }
+
+  // 환경변수에서 허용된 오리진 목록 가져오기
+  private getAllowedOrigins(): string[] {
+    const envOrigins = process.env.ALLOWED_ORIGINS;
+    
+    if (!envOrigins) {
+      // 환경변수가 없을 때 기본값 사용
+      return ['localhost', 'krgeobuk.com', '127.0.0.1'];
+    }
+
+    // 콤마로 구분된 문자열을 배열로 파싱
+    return envOrigins
+      .split(',')
+      .map(origin => origin.trim())
+      .filter(origin => origin.length > 0);
   }
 
   // 정리 함수

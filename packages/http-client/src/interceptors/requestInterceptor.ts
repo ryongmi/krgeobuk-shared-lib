@@ -1,5 +1,11 @@
 import type { InternalAxiosRequestConfig } from 'axios';
-import { SecuritySession, SecurityLogger, validateURL, validateApiRequestData } from '../security/index.js';
+
+import {
+  SecuritySession,
+  SecurityLogger,
+  validateURL,
+  validateApiRequestData,
+} from '../security/index.js';
 import type { TokenManager } from '../token/TokenManager.js';
 
 /**

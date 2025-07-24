@@ -1,5 +1,11 @@
 import { jwtDecode } from 'jwt-decode';
-import type { DecodedJwtPayload, JwtPayload, TokenRefreshConfig, TokenEvent } from '../types/index.js';
+
+import type {
+  DecodedJwtPayload,
+  JwtPayload,
+  TokenRefreshConfig,
+  TokenEvent,
+} from '../types/index.js';
 
 export class TokenManager {
   private static instance: TokenManager;
@@ -29,7 +35,7 @@ export class TokenManager {
   setAccessToken(token: string): void {
     this.accessToken = token;
     this.scheduleTokenRefresh(token);
-    
+
     // Redux 상태 업데이트를 위한 이벤트 발행
     this.dispatchTokenEvent('tokenUpdated', { accessToken: token });
   }
@@ -49,7 +55,7 @@ export class TokenManager {
   clearAccessToken(): void {
     this.accessToken = null;
     this.clearRefreshTimer();
-    
+
     // Redux 상태 클리어를 위한 이벤트 발행
     this.dispatchTokenEvent('tokenCleared');
   }
@@ -83,7 +89,10 @@ export class TokenManager {
 
     const timeUntilExpiration = this.getTimeUntilExpiration(token);
     // 설정된 시간 전에 갱신 시도
-    const refreshTime = Math.max(0, timeUntilExpiration - (this.refreshConfig.refreshBeforeExpiry || 5 * 60 * 1000));
+    const refreshTime = Math.max(
+      0,
+      timeUntilExpiration - (this.refreshConfig.refreshBeforeExpiry || 5 * 60 * 1000)
+    );
 
     if (refreshTime > 0) {
       this.refreshTimer = setTimeout(() => {
@@ -108,7 +117,7 @@ export class TokenManager {
     }
 
     this.refreshPromise = this.performTokenRefresh();
-    
+
     try {
       const newToken = await this.refreshPromise;
       return newToken;
@@ -141,10 +150,10 @@ export class TokenManager {
     } catch (error) {
       console.error('토큰 갱신 실패:', error);
       this.clearAccessToken();
-      
+
       // 로그아웃 이벤트 발행
       this.dispatchTokenEvent('tokenExpired');
-      
+
       throw error;
     }
   }
