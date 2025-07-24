@@ -11,11 +11,10 @@
     "registry": "http://localhost:4873/"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rimraf dist",
-    "lint": "eslint src --ext .ts",
-    "lint:fix": "eslint src --ext .ts --fix",
-    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
   },
   "exports": {
     ".": "./dist/index.js",
