@@ -27,6 +27,7 @@ export interface ApiError {
   config?: {
     url?: string;
     method?: string;
+    headers?: Record<string, string>;
   };
   response?: {
     status?: number;
