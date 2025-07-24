@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios';
+
 import { SecurityLogger } from '../security/index.js';
 import type { TokenManager } from '../token/TokenManager.js';
 import type { ApiResponse, ApiError } from '../types/index.js';
@@ -17,7 +18,7 @@ export function createResponseInterceptor(tokenManager: TokenManager) {
     // API 응답 구조 검증
     if (response.data && typeof response.data === 'object') {
       const apiResponse = response.data as ApiResponse;
-      
+
       // 표준 응답 형식 확인
       if (!apiResponse.code || typeof apiResponse.statusCode !== 'number') {
         SecurityLogger.logSecurityEvent('INVALID_RESPONSE_FORMAT', {
@@ -57,13 +58,14 @@ export function createResponseErrorInterceptor(tokenManager: TokenManager) {
       try {
         // 토큰 갱신 시도
         const newToken = await tokenManager.refreshToken();
-        
+
         // 원래 요청 재시도
         if (axiosError.config && newToken) {
           const axios = (await import('axios')).default;
-          axiosError.config.headers = axiosError.config.headers || {};
-          axiosError.config.headers.Authorization = `Bearer ${newToken}`;
-          return axios.request(axiosError.config);
+          const config = { ...axiosError.config };
+          config.headers = config.headers || {};
+          config.headers.Authorization = `Bearer ${newToken}`;
+          return axios.request(config);
         }
       } catch (refreshError) {
         // 토큰 갱신 실패 시 로그아웃 처리
@@ -99,7 +101,7 @@ export function createResponseErrorInterceptor(tokenManager: TokenManager) {
 
     // 네트워크 오류
     if (!axiosError.response && axiosError.code) {
-      SecurityLogger.logNetworkSecurityEvent('network_error', {
+      SecurityLogger.logSecurityEvent('NETWORK_ERROR', {
         code: axiosError.code,
         message: axiosError.message,
         url: axiosError.config?.url,
