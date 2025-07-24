@@ -67,7 +67,7 @@ export function createResponseErrorInterceptor(tokenManager: TokenManager) {
           config.headers.Authorization = `Bearer ${newToken}`;
           return axios.request(config);
         }
-      } catch (refreshError) {
+      } catch (_refreshError: unknown) {
         // 토큰 갱신 실패 시 로그아웃 처리
         tokenManager.clearAccessToken();
         SecurityLogger.logAuthenticationEvent('logout', {
