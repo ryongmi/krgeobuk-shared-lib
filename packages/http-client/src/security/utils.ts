@@ -186,3 +186,117 @@ export function generateCSPHeader(): string {
 
   return directives.join('; ');
 }
+
+/**
+ * 안전한 로컬 스토리지 래퍼
+ */
+export class SecureStorage {
+  private static readonly PREFIX = 'krgeobuk_';
+
+  static setItem(key: string, value: string, encrypt: boolean = false): void {
+    try {
+      const finalKey = this.PREFIX + key;
+      const finalValue = encrypt ? this.encrypt(value) : value;
+      
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem(finalKey, finalValue);
+      }
+    } catch (error) {
+      console.error('Failed to save to secure storage:', error);
+    }
+  }
+
+  static getItem(key: string, decrypt: boolean = false): string | null {
+    try {
+      const finalKey = this.PREFIX + key;
+      
+      if (typeof localStorage === 'undefined') {
+        return null;
+      }
+      
+      const value = localStorage.getItem(finalKey);
+      if (!value) return null;
+
+      return decrypt ? this.decrypt(value) : value;
+    } catch (error) {
+      console.error('Failed to read from secure storage:', error);
+      return null;
+    }
+  }
+
+  static removeItem(key: string): void {
+    try {
+      const finalKey = this.PREFIX + key;
+      if (typeof localStorage !== 'undefined') {
+        localStorage.removeItem(finalKey);
+      }
+    } catch (error) {
+      console.error('Failed to remove from secure storage:', error);
+    }
+  }
+
+  static clear(): void {
+    try {
+      if (typeof localStorage === 'undefined') {
+        return;
+      }
+      
+      const keys = Object.keys(localStorage);
+      keys.forEach((key) => {
+        if (key.startsWith(this.PREFIX)) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (error) {
+      console.error('Failed to clear secure storage:', error);
+    }
+  }
+
+  static hasItem(key: string): boolean {
+    try {
+      const finalKey = this.PREFIX + key;
+      if (typeof localStorage === 'undefined') {
+        return false;
+      }
+      return localStorage.getItem(finalKey) !== null;
+    } catch (error) {
+      console.error('Failed to check secure storage:', error);
+      return false;
+    }
+  }
+
+  static getAllKeys(): string[] {
+    try {
+      if (typeof localStorage === 'undefined') {
+        return [];
+      }
+      
+      const keys = Object.keys(localStorage);
+      return keys
+        .filter(key => key.startsWith(this.PREFIX))
+        .map(key => key.substring(this.PREFIX.length));
+    } catch (error) {
+      console.error('Failed to get keys from secure storage:', error);
+      return [];
+    }
+  }
+
+  private static encrypt(value: string): string {
+    try {
+      // 간단한 Base64 인코딩 (실제 환경에서는 더 강력한 암호화 사용)
+      return btoa(encodeURIComponent(value));
+    } catch (error) {
+      console.error('Failed to encrypt value:', error);
+      return value;
+    }
+  }
+
+  private static decrypt(value: string): string {
+    try {
+      return decodeURIComponent(atob(value));
+    } catch (error) {
+      console.error('Failed to decrypt value:', error);
+      return value;
+    }
+  }
+}
