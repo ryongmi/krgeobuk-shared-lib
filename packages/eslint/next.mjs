@@ -1,20 +1,37 @@
-import { configs as nextConfigs } from '@next/eslint-plugin-next';
+import { FlatCompat } from '@eslint/eslintrc';
+import { fixupPluginRules } from '@eslint/compat';
 import prettier from 'eslint-config-prettier';
 import globals from 'globals';
-// import next from 'eslint-plugin-next';
+import react from 'eslint-plugin-react';
 
 import baseConfig from './base.mjs';
 
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+});
+
 export default [
   ...baseConfig,
-  // next.configs.recommended, // Next.js 공식 권장 규칙 추가
-  nextConfigs.recommended, // ✅ 공식 Next.js ESLint 권장 규칙
+  
+  // Next.js ESLint 권장 규칙 (FlatCompat으로 변환 + ESLint 9 호환성 수정)
+  ...compat.config({
+    extends: ['plugin:@next/next/recommended'],
+  }).map(config => ({
+    ...config,
+    plugins: config.plugins ? 
+      Object.fromEntries(
+        Object.entries(config.plugins).map(([name, plugin]) => [
+          name, 
+          name.includes('next') ? fixupPluginRules(plugin) : plugin
+        ])
+      ) : config.plugins
+  })),
 
-  // {
-  //   ignores: ['dist', 'node_modules', '.next'], // Next.js 빌드 폴더도 무시
-  // },
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    plugins: {
+      react: react,
+    },
     languageOptions: {
       globals: {
         ...globals.node,
@@ -24,6 +41,14 @@ export default [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
   },
