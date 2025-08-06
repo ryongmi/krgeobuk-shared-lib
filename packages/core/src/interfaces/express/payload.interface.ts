@@ -9,6 +9,19 @@ export interface UserPayload {
 
 // packages\jwt\src\interfaces\jwt-payload.interface.ts
 export interface JwtPayload {
-  id: string;
+  sub: string;
   tokenData?: unknown | undefined | null;
 }
+
+export interface VerifiedJwtPayload extends JwtPayload {
+  iat: number;
+  exp: number;
+}
+
+export interface AuthenticatedUser {
+  userId: string;
+  tokenData?: unknown | undefined | null;
+  iat: number;
+  exp: number;
+}
+

@@ -1,8 +1,8 @@
 import { jwtDecode } from 'jwt-decode';
 
 import type {
-  DecodedJwtPayload,
-  JwtPayload,
+  VerifiedJwtPayload,
+  AuthenticatedUser,
   TokenRefreshConfig,
   TokenEvent,
   TokenRefreshResponse,
@@ -64,7 +64,7 @@ export class TokenManager {
   // 토큰 만료 시간 확인
   getTokenExpiration(token: string): number {
     try {
-      const decoded = jwtDecode<DecodedJwtPayload>(token);
+      const decoded = jwtDecode<VerifiedJwtPayload>(token);
       return decoded.exp * 1000; // 밀리초로 변환
     } catch (error) {
       console.error('토큰 디코딩 실패:', error);
@@ -168,7 +168,7 @@ export class TokenManager {
   // 토큰 유효성 검사
   isValidToken(token: string): boolean {
     try {
-      const decoded = jwtDecode<DecodedJwtPayload>(token);
+      const decoded = jwtDecode<VerifiedJwtPayload>(token);
       return decoded.exp > Date.now() / 1000;
     } catch (error) {
       return false;
@@ -176,13 +176,15 @@ export class TokenManager {
   }
 
   // 토큰에서 사용자 정보 추출
-  getUserFromToken(token: string): JwtPayload | null {
+  getUserFromToken(token: string): AuthenticatedUser | null {
     try {
-      const decoded = jwtDecode<DecodedJwtPayload>(token);
+      const decoded = jwtDecode<VerifiedJwtPayload>(token);
       // 비즈니스 데이터만 반환 (JWT 표준 필드 제외)
       return {
-        id: decoded.id,
+        userId: decoded.sub,
         tokenData: decoded.tokenData,
+        iat: decoded.iat,
+        exp: decoded.exp,
       };
     } catch (error) {
       console.error('토큰에서 사용자 정보 추출 실패:', error);
@@ -198,7 +200,7 @@ export class TokenManager {
   }
 
   // 현재 사용자 정보 가져오기
-  getCurrentUser(): JwtPayload | null {
+  getCurrentUser(): AuthenticatedUser | null {
     const token = this.getAccessToken();
     if (!token) return null;
     return this.getUserFromToken(token);
@@ -224,3 +226,4 @@ export class TokenManager {
     }
   }
 }
+

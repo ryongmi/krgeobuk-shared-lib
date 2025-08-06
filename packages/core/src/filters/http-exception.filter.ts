@@ -30,7 +30,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const queryParams = JSON.stringify(request.query);
     const routeParams = JSON.stringify(request.params);
     const requestBody = method !== 'GET' ? JSON.stringify(request.body) : null;
-    const sessionUserId = request?.jwt?.id ?? 'UNKNOWN_USER';
+    const sessionUserId = request?.jwt?.userId ?? 'UNKNOWN_USER';
     const sessionUser = request?.user?.name ?? 'UNKNOWN_USER';
 
     // Chrome DevTools 관련 요청은 무시
@@ -137,3 +137,4 @@ export class HttpExceptionFilter implements ExceptionFilter {
 //     // });
 //   }
 // }
+

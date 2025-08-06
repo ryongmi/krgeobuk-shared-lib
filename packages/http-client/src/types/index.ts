@@ -1,17 +1,7 @@
 import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
-import type { JwtPayload as BaseJwtPayload } from '@krgeobuk/jwt/interfaces';
+export type { JwtPayload, VerifiedJwtPayload, AuthenticatedUser } from '@krgeobuk/jwt/interfaces';
 import type { ResponseFormat } from '@krgeobuk/core/interfaces';
-
-// JWT 표준 필드를 포함한 디코딩된 토큰 구조
-export interface DecodedJwtPayload extends BaseJwtPayload {
-  iat: number; // 발행 시간 (issued at)
-  exp: number; // 만료 시간 (expiration)
-  sub?: string; // 주체 (subject) - 선택적 필드
-}
-
-// 기존 JwtPayload 타입을 공유 패키지에서 가져와서 재사용
-export type JwtPayload = BaseJwtPayload;
 
 // API 응답 타입 (core 패키지의 ResponseFormat 사용)
 export type ApiResponse<T = unknown> = ResponseFormat<T>;
@@ -131,3 +121,4 @@ export interface BrowserFingerprint {
   screenResolution: string;
   timezoneOffset: string;
 }
+

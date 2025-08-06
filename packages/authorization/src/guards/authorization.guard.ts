@@ -16,7 +16,14 @@ import { Request } from 'express';
 
 import { PermissionCheckResponse, RoleCheckResponse } from '@krgeobuk/shared/authorization';
 
-import { AuthorizationService, AuthorizationConfig, CacheEntry, AuthorizationMetadata, RequirePermissionMetadata, RequireRoleMetadata } from '../interfaces/index.js';
+import {
+  AuthorizationService,
+  AuthorizationConfig,
+  CacheEntry,
+  AuthorizationMetadata,
+  RequirePermissionMetadata,
+  RequireRoleMetadata,
+} from '../interfaces/index.js';
 import { AuthorizationTcpPatterns } from '../tcp/patterns/index.js';
 import { AuthorizationException } from '../exception/index.js';
 import {
@@ -30,7 +37,7 @@ import {
   PERMISSION_CACHE_TTL_META_KEY,
   PERMISSION_CACHE_META_KEY,
   REQUIRE_PERMISSION_META_KEY,
-  REQUIRE_ROLE_META_KEY
+  REQUIRE_ROLE_META_KEY,
 } from '../constants/authorization.constants.js';
 
 /**
@@ -127,13 +134,13 @@ export class AuthorizationGuard implements CanActivate {
       const user = request.jwt;
 
       // 사용자 정보가 없으면 거부
-      if (!user?.id) {
+      if (!user?.userId) {
         this.logger.warn('User ID not found in request. Make sure JWT guard is applied first.');
         throw AuthorizationException.userNotAuthenticated();
       }
 
       // 캐시 체크
-      const cacheKey = this.generateCacheKey(user.id, metadata);
+      const cacheKey = this.generateCacheKey(user.userId, metadata);
       const cachedResult = this.getCachedResult(cacheKey);
       if (cachedResult !== null) {
         this.logger.debug(`Authorization check result from cache: ${cachedResult}`);
@@ -141,7 +148,7 @@ export class AuthorizationGuard implements CanActivate {
       }
 
       // 권한 체크 수행
-      const hasPermission = await this.checkAuthorizationMetadata(user.id, metadata);
+      const hasPermission = await this.checkAuthorizationMetadata(user.userId, metadata);
 
       // 결과 캐싱
       if (metadata.cacheTtl && metadata.cacheTtl > 0) {
@@ -152,12 +159,12 @@ export class AuthorizationGuard implements CanActivate {
 
       if (hasPermission) {
         this.logger.debug(`Authorization check passed in ${duration}ms`, {
-          userId: user.id,
+          userId: user.userId,
           metadata: this.sanitizeMetadataForLogging(metadata),
         });
       } else {
         this.logger.warn(`Authorization check failed in ${duration}ms`, {
-          userId: user.id,
+          userId: user.userId,
           metadata: this.sanitizeMetadataForLogging(metadata),
         });
       }
@@ -190,23 +197,33 @@ export class AuthorizationGuard implements CanActivate {
    */
   private extractAuthorizationMetadata(context: ExecutionContext): AuthorizationMetadata {
     const handler = context.getHandler();
-    
+
     return {
       // 기존 데코레이터
-      permission: this.reflector.get<RequirePermissionMetadata>(REQUIRE_PERMISSION_META_KEY, handler),
+      permission: this.reflector.get<RequirePermissionMetadata>(
+        REQUIRE_PERMISSION_META_KEY,
+        handler
+      ),
       role: this.reflector.get<RequireRoleMetadata>(REQUIRE_ROLE_META_KEY, handler),
-      
+
       // 새로운 데코레이터
-      requiredAnyPermissions: this.reflector.get<string[]>(REQUIRED_ANY_PERMISSIONS_META_KEY, handler),
-      requiredAllPermissions: this.reflector.get<string[]>(REQUIRED_ALL_PERMISSIONS_META_KEY, handler),
+      requiredAnyPermissions: this.reflector.get<string[]>(
+        REQUIRED_ANY_PERMISSIONS_META_KEY,
+        handler
+      ),
+      requiredAllPermissions: this.reflector.get<string[]>(
+        REQUIRED_ALL_PERMISSIONS_META_KEY,
+        handler
+      ),
       requiredAnyRoles: this.reflector.get<string[]>(REQUIRED_ANY_ROLES_META_KEY, handler),
       requiredAllRoles: this.reflector.get<string[]>(REQUIRED_ALL_ROLES_META_KEY, handler),
-      
+
       // 설정
-      combinationOperator: this.reflector.get<'AND' | 'OR'>(COMBINATION_OPERATOR_META_KEY, handler) || 'AND',
+      combinationOperator:
+        this.reflector.get<'AND' | 'OR'>(COMBINATION_OPERATOR_META_KEY, handler) || 'AND',
       permissionServiceId: this.reflector.get<string>(PERMISSION_SERVICE_ID_META_KEY, handler),
       roleServiceId: this.reflector.get<string>(ROLE_SERVICE_ID_META_KEY, handler),
-      
+
       // 캐시
       cacheTtl: this.reflector.get<number>(PERMISSION_CACHE_TTL_META_KEY, handler),
       cacheKey: this.reflector.get<string>(PERMISSION_CACHE_META_KEY, handler),
@@ -230,7 +247,10 @@ export class AuthorizationGuard implements CanActivate {
   /**
    * 권한 메타데이터 기반 체크 수행
    */
-  private async checkAuthorizationMetadata(userId: string, metadata: AuthorizationMetadata): Promise<boolean> {
+  private async checkAuthorizationMetadata(
+    userId: string,
+    metadata: AuthorizationMetadata
+  ): Promise<boolean> {
     const permissionResults: boolean[] = [];
     const roleResults: boolean[] = [];
 
@@ -238,19 +258,31 @@ export class AuthorizationGuard implements CanActivate {
       // 권한 체크
       if (metadata.permission) {
         permissionResults.push(
-          await this.checkUserPermission(userId, metadata.permission.action, metadata.permission.serviceId)
+          await this.checkUserPermission(
+            userId,
+            metadata.permission.action,
+            metadata.permission.serviceId
+          )
         );
       }
 
       if (metadata.requiredAnyPermissions?.length) {
         permissionResults.push(
-          await this.checkAnyPermissions(userId, metadata.requiredAnyPermissions, metadata.permissionServiceId)
+          await this.checkAnyPermissions(
+            userId,
+            metadata.requiredAnyPermissions,
+            metadata.permissionServiceId
+          )
         );
       }
 
       if (metadata.requiredAllPermissions?.length) {
         permissionResults.push(
-          await this.checkAllPermissions(userId, metadata.requiredAllPermissions, metadata.permissionServiceId)
+          await this.checkAllPermissions(
+            userId,
+            metadata.requiredAllPermissions,
+            metadata.permissionServiceId
+          )
         );
       }
 
@@ -274,12 +306,15 @@ export class AuthorizationGuard implements CanActivate {
       }
 
       // 결과 조합
-      const hasValidPermissions = permissionResults.length === 0 || permissionResults.every(result => result);
-      const hasValidRoles = roleResults.length === 0 || roleResults.every(result => result);
+      const hasValidPermissions =
+        permissionResults.length === 0 || permissionResults.every((result) => result);
+      const hasValidRoles = roleResults.length === 0 || roleResults.every((result) => result);
 
       // 조합 연산자에 따른 결과 반환
       if (metadata.combinationOperator === 'OR') {
-        const result = (permissionResults.length > 0 && hasValidPermissions) || (roleResults.length > 0 && hasValidRoles);
+        const result =
+          (permissionResults.length > 0 && hasValidPermissions) ||
+          (roleResults.length > 0 && hasValidRoles);
         if (!result) {
           throw this.generateAuthorizationError(metadata, permissionResults, roleResults);
         }
@@ -301,12 +336,16 @@ export class AuthorizationGuard implements CanActivate {
   /**
    * 여러 권한 중 하나라도 있는지 확인 (OR 조건)
    */
-  private async checkAnyPermissions(userId: string, permissions: string[], serviceId?: string): Promise<boolean> {
+  private async checkAnyPermissions(
+    userId: string,
+    permissions: string[],
+    serviceId?: string
+  ): Promise<boolean> {
     try {
       const results = await Promise.all(
-        permissions.map(permission => this.checkUserPermission(userId, permission, serviceId))
+        permissions.map((permission) => this.checkUserPermission(userId, permission, serviceId))
       );
-      return results.some(result => result);
+      return results.some((result) => result);
     } catch (error) {
       this.logger.error('Error checking any permissions:', error);
       return false;
@@ -316,12 +355,16 @@ export class AuthorizationGuard implements CanActivate {
   /**
    * 모든 권한을 가지고 있는지 확인 (AND 조건)
    */
-  private async checkAllPermissions(userId: string, permissions: string[], serviceId?: string): Promise<boolean> {
+  private async checkAllPermissions(
+    userId: string,
+    permissions: string[],
+    serviceId?: string
+  ): Promise<boolean> {
     try {
       const results = await Promise.all(
-        permissions.map(permission => this.checkUserPermission(userId, permission, serviceId))
+        permissions.map((permission) => this.checkUserPermission(userId, permission, serviceId))
       );
-      return results.every(result => result);
+      return results.every((result) => result);
     } catch (error) {
       this.logger.error('Error checking all permissions:', error);
       return false;
@@ -331,12 +374,16 @@ export class AuthorizationGuard implements CanActivate {
   /**
    * 여러 역할 중 하나라도 있는지 확인 (OR 조건)
    */
-  private async checkAnyRoles(userId: string, roles: string[], serviceId?: string): Promise<boolean> {
+  private async checkAnyRoles(
+    userId: string,
+    roles: string[],
+    serviceId?: string
+  ): Promise<boolean> {
     try {
       const results = await Promise.all(
-        roles.map(role => this.checkUserRole(userId, role, serviceId))
+        roles.map((role) => this.checkUserRole(userId, role, serviceId))
       );
-      return results.some(result => result);
+      return results.some((result) => result);
     } catch (error) {
       this.logger.error('Error checking any roles:', error);
       return false;
@@ -346,12 +393,16 @@ export class AuthorizationGuard implements CanActivate {
   /**
    * 모든 역할을 가지고 있는지 확인 (AND 조건)
    */
-  private async checkAllRoles(userId: string, roles: string[], serviceId?: string): Promise<boolean> {
+  private async checkAllRoles(
+    userId: string,
+    roles: string[],
+    serviceId?: string
+  ): Promise<boolean> {
     try {
       const results = await Promise.all(
-        roles.map(role => this.checkUserRole(userId, role, serviceId))
+        roles.map((role) => this.checkUserRole(userId, role, serviceId))
       );
-      return results.every(result => result);
+      return results.every((result) => result);
     } catch (error) {
       this.logger.error('Error checking all roles:', error);
       return false;
@@ -509,8 +560,8 @@ export class AuthorizationGuard implements CanActivate {
       }
     }
 
-    keysToDelete.forEach(key => this.cache.delete(key));
-    
+    keysToDelete.forEach((key) => this.cache.delete(key));
+
     if (keysToDelete.length > 0) {
       this.logger.debug(`Cleaned up ${keysToDelete.length} expired cache entries`);
     }
@@ -528,7 +579,7 @@ export class AuthorizationGuard implements CanActivate {
     if (metadata.permission && permissionResults.length > 0 && !permissionResults[0]) {
       return AuthorizationException.permissionDenied(metadata.permission.action);
     }
-    
+
     if (metadata.role && roleResults.length > 0 && !roleResults[0]) {
       return AuthorizationException.roleAccessDenied(metadata.role.roleName);
     }

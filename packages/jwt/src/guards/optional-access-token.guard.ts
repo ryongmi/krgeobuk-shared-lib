@@ -26,7 +26,7 @@ export class OptionalAccessTokenGuard implements CanActivate {
     let token = request.body.accessToken;
 
     // 기본값 세팅
-    request.jwt = { id: '' };
+    request.jwt = { userId: '', iat: 0, exp: 0 };
 
     if (!token) {
       const authorization = request.headers.authorization;
@@ -51,10 +51,10 @@ export class OptionalAccessTokenGuard implements CanActivate {
 
     try {
       // 2. 토큰이 있으면 검증
-      const { id, tokenData } = decodeAccessToken({ token, publicKey: this.publicKey });
+      const { sub, tokenData, iat, exp } = decodeAccessToken({ token, publicKey: this.publicKey });
 
       // 3. 요청에 유저 정보 주입
-      request.jwt = { id, tokenData };
+      request.jwt = { userId: sub, tokenData, iat, exp };
 
       return true;
     } catch (error: unknown) {

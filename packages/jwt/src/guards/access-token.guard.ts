@@ -35,10 +35,10 @@ export class AccessTokenGuard implements CanActivate {
 
     try {
       // 2. 토큰 검증
-      const { id, tokenData } = decodeAccessToken({ token, publicKey: this.publicKey });
+      const { sub, tokenData, iat, exp } = decodeAccessToken({ token, publicKey: this.publicKey });
 
       // 3. 요청에 유저 정보 주입
-      request.jwt = { id, tokenData };
+      request.jwt = { userId: sub, tokenData, iat, exp };
 
       return true;
     } catch (error: unknown) {
@@ -64,3 +64,4 @@ export class AccessTokenGuard implements CanActivate {
     }
   }
 }
+
