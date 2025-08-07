@@ -20,10 +20,20 @@ export const AuthMessage = {
    */
   /** */
 
-  LOGIN_SUCCESS: '로그인 성공',
-  SIGNUP_SUCCESS: '회원가입 성공',
   LOGOUT_SUCCESS: '로그아웃 성공',
   REFRESH_SUCCESS: '토큰 재발급 성공',
+
+  /**  =============================================================================
+   *
+   *        300 ~ 399	리다이렉트 응답 코드 (SSO)
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  SSO_LOGIN_REDIRECT: 'SSO 로그인 성공 후 원래 서비스로 리다이렉트',
+  SSO_SIGNUP_REDIRECT: 'SSO 회원가입 성공 후 자동 로그인 및 원래 서비스로 리다이렉트',
+  SSO_LOGIN_START_REDIRECT: 'SSO 로그인 시작 - Auth Client로 리다이렉트',
 } as const;
 
 export type AuthMessageType = (typeof AuthMessage)[keyof typeof AuthMessage];

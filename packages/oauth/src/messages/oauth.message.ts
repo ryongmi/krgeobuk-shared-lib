@@ -37,9 +37,17 @@ export const OAuthMessage = {
    */
   /** */
 
-  LOGIN_SUCCESS: 'OAuth 로그인 성공',
-  SIGNUP_SUCCESS: 'OAuth 회원가입 성공',
-  LOGOUT_SUCCESS: 'OAuth 로그아웃 성공',
+  /**  =============================================================================
+   *
+   *        300 ~ 399	리다이렉트 응답 코드 (SSO)
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  GOOGLE_SSO_REDIRECT: 'Google OAuth SSO 로그인 성공 후 원래 서비스로 리다이렉트',
+  NAVER_SSO_REDIRECT: 'Naver OAuth SSO 로그인 성공 후 원래 서비스로 리다이렉트',
+  OAUTH_LOGIN_START_REDIRECT: 'OAuth SSO 로그인 시작 - Auth Client로 리다이렉트',
 } as const;
 
 export type OAuthMessageType = (typeof OAuthMessage)[keyof typeof OAuthMessage];

@@ -10,17 +10,6 @@ export class AuthResponse {
    */
   /** */
 
-  static readonly LOGIN_SUCCESS = {
-    code: AuthCode.LOGIN_SUCCESS,
-    message: AuthMessage.LOGIN_SUCCESS,
-    statusCode: 200,
-  };
-
-  static readonly SIGNUP_SUCCESS = {
-    code: AuthCode.SIGNUP_SUCCESS,
-    message: AuthMessage.SIGNUP_SUCCESS,
-    statusCode: 201,
-  };
 
   static readonly LOGOUT_SUCCESS = {
     code: AuthCode.LOGOUT_SUCCESS,
@@ -32,5 +21,31 @@ export class AuthResponse {
     code: AuthCode.REFRESH_SUCCESS,
     message: AuthMessage.REFRESH_SUCCESS,
     statusCode: 200,
+  };
+
+  /**  =============================================================================
+   *
+   *        300 ~ 399	리다이렉트 응답 코드 (SSO)
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly SSO_LOGIN_REDIRECT = {
+    code: AuthCode.SSO_LOGIN_REDIRECT,
+    message: AuthMessage.SSO_LOGIN_REDIRECT,
+    statusCode: 302,
+  };
+
+  static readonly SSO_SIGNUP_REDIRECT = {
+    code: AuthCode.SSO_SIGNUP_REDIRECT,
+    message: AuthMessage.SSO_SIGNUP_REDIRECT,
+    statusCode: 302,
+  };
+
+  static readonly SSO_LOGIN_START_REDIRECT = {
+    code: AuthCode.SSO_LOGIN_START_REDIRECT,
+    message: AuthMessage.SSO_LOGIN_START_REDIRECT,
+    statusCode: 302,
   };
 }

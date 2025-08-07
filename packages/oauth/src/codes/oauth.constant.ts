@@ -15,7 +15,7 @@
  * - 000 ~ 099: 도메인 내 에러 코드
  * - 100 ~ 199: 도메인 내 경고 / 정보 코드
  * - 200 ~ 299: 도메인 내 성공 응답 코드
- * - 300 ~ 399: 기타 상태 (처리중, 보류 등)
+ * - 300 ~ 399: 리다이렉트 응답 코드 (SSO)
  */
 export const OAuthCode = {
   // 에러 코드 000~099
@@ -34,10 +34,10 @@ export const OAuthCode = {
   PROFILE_FETCH_FAILED: 'OAUTH_106',
   UNSUPPORTED_PROVIDER: 'OAUTH_107',
 
-  // 성공 코드 200~299
-  LOGIN_SUCCESS: 'OAUTH_200',
-  SIGNUP_SUCCESS: 'OAUTH_201',
-  LOGOUT_SUCCESS: 'OAUTH_202',
+  // 300 ~ 399	리다이렉트 응답 코드 (SSO)
+  GOOGLE_SSO_REDIRECT: 'OAUTH_300',
+  NAVER_SSO_REDIRECT: 'OAUTH_301',
+  OAUTH_LOGIN_START_REDIRECT: 'OAUTH_302',
 } as const;
 
 export type OAuthCodeType = (typeof OAuthCode)[keyof typeof OAuthCode];

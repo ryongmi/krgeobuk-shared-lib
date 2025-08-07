@@ -10,21 +10,30 @@ export class OAuthResponse {
    */
   /** */
 
-  static readonly LOGIN_SUCCESS = {
-    code: OAuthCode.LOGIN_SUCCESS,
-    message: OAuthMessage.LOGIN_SUCCESS,
-    statusCode: 200,
+
+  /**  =============================================================================
+   *
+   *        300 ~ 399	리다이렉트 응답 코드 (SSO)
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly GOOGLE_SSO_REDIRECT = {
+    code: OAuthCode.GOOGLE_SSO_REDIRECT,
+    message: OAuthMessage.GOOGLE_SSO_REDIRECT,
+    statusCode: 302,
   };
 
-  static readonly SIGNUP_SUCCESS = {
-    code: OAuthCode.SIGNUP_SUCCESS,
-    message: OAuthMessage.SIGNUP_SUCCESS,
-    statusCode: 201,
+  static readonly NAVER_SSO_REDIRECT = {
+    code: OAuthCode.NAVER_SSO_REDIRECT,
+    message: OAuthMessage.NAVER_SSO_REDIRECT,
+    statusCode: 302,
   };
 
-  static readonly LOGOUT_SUCCESS = {
-    code: OAuthCode.LOGOUT_SUCCESS,
-    message: OAuthMessage.LOGOUT_SUCCESS,
-    statusCode: 204,
+  static readonly OAUTH_LOGIN_START_REDIRECT = {
+    code: OAuthCode.OAUTH_LOGIN_START_REDIRECT,
+    message: OAuthMessage.OAUTH_LOGIN_START_REDIRECT,
+    statusCode: 302,
   };
 }
