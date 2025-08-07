@@ -1,6 +1,6 @@
 import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
-export type { JwtPayload, VerifiedJwtPayload, AuthenticatedUser } from '@krgeobuk/jwt/interfaces';
+export type { JwtPayload, VerifiedJwtPayload, AuthenticatedJwt } from '@krgeobuk/jwt/interfaces';
 import type { ResponseFormat } from '@krgeobuk/core/interfaces';
 
 // API 응답 타입 (core 패키지의 ResponseFormat 사용)

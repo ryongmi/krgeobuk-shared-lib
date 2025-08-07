@@ -2,7 +2,7 @@ import { jwtDecode } from 'jwt-decode';
 
 import type {
   VerifiedJwtPayload,
-  AuthenticatedUser,
+  AuthenticatedJwt,
   TokenRefreshConfig,
   TokenEvent,
   TokenRefreshResponse,
@@ -176,7 +176,7 @@ export class TokenManager {
   }
 
   // 토큰에서 사용자 정보 추출
-  getUserFromToken(token: string): AuthenticatedUser | null {
+  getUserFromToken(token: string): AuthenticatedJwt | null {
     try {
       const decoded = jwtDecode<VerifiedJwtPayload>(token);
       // 비즈니스 데이터만 반환 (JWT 표준 필드 제외)
@@ -200,7 +200,7 @@ export class TokenManager {
   }
 
   // 현재 사용자 정보 가져오기
-  getCurrentUser(): AuthenticatedUser | null {
+  getCurrentUser(): AuthenticatedJwt | null {
     const token = this.getAccessToken();
     if (!token) return null;
     return this.getUserFromToken(token);

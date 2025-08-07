@@ -18,7 +18,7 @@ export interface VerifiedJwtPayload extends JwtPayload {
   exp: number;
 }
 
-export interface AuthenticatedUser {
+export interface AuthenticatedJwt {
   userId: string;
   tokenData?: unknown | undefined | null;
   iat: number;
