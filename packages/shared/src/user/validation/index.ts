@@ -5,6 +5,7 @@ export * from './name.decorator.js';
 export * from './nickname.decorator.js';
 export * from './password.decorator.js';
 export * from './profile-image-url.decorator.js';
+export * from './redirect-url.decorator.js';
 export * from './user-id.decorator.js';
 export * from './user-ids.decorator.js';
 
