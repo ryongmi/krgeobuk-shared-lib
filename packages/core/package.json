@@ -14,6 +14,9 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./constants": "./dist/constants/index.js",
+    "./constants/service": "./dist/constants/service.constants.js",
+    "./constants/role": "./dist/constants/role.constants.js",
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./entities": "./dist/entities/index.js",
@@ -32,6 +35,12 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "constants": [
+        "dist/constants/index.d.ts"
+      ],
+      "constants/*": [
+        "dist/constants/*"
+      ],
       "decorators": [
         "dist/decorators/index.d.ts"
       ],
