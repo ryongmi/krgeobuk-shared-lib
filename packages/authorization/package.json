@@ -13,6 +13,7 @@
   "exports": {
     ".": "./dist/index.js",
     "./codes": "./dist/codes/index.js",
+    "./constants": "./dist/constants/index.js",
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./exception": "./dist/exception/index.js",
@@ -29,6 +30,8 @@
     "*": {
       "codes": ["dist/codes/index.d.ts"],
       "codes/*": ["dist/codes/*"],
+      "constants": ["dist/constants/index.d.ts"],
+      "constants/*": ["dist/constants/*"],
       "decorators": ["dist/decorators/index.d.ts"],
       "decorators/*": ["dist/decorators/*"],
       "dtos": ["dist/dtos/index.d.ts"],

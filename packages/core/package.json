@@ -15,8 +15,6 @@
   "exports": {
     ".": "./dist/index.js",
     "./constants": "./dist/constants/index.js",
-    "./constants/service": "./dist/constants/service.constants.js",
-    "./constants/role": "./dist/constants/role.constants.js",
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./entities": "./dist/entities/index.js",
