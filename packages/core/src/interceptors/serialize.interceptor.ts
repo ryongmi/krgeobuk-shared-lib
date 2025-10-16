@@ -33,7 +33,7 @@ export class SerializerInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data: unknown) => {
         let transformed: unknown;
-        
+
         if (options.dto !== undefined) {
           // DTO가 있으면 기존 로직
           transformed = plainToInstance(options.dto, data, {
@@ -48,7 +48,7 @@ export class SerializerInterceptor implements NestInterceptor {
           code: options?.code || CoreCode.REQUEST_SUCCESS,
           status_code: statusCode || HttpStatus.OK,
           message: options?.message || CoreMessage.REQUEST_SUCCESS,
-          isLogin: Boolean(req?.user),
+          isLogin: Boolean(req?.jwt?.userId),
           data: transformed,
         };
       })
@@ -70,8 +70,10 @@ export class SerializerInterceptor implements NestInterceptor {
       if (firstItem !== undefined) {
         const itemType = typeof firstItem;
         // 모든 요소가 같은 primitive type인지 확인
-        if (['string', 'number', 'boolean'].includes(itemType) && 
-            data.every(item => typeof item === itemType)) {
+        if (
+          ['string', 'number', 'boolean'].includes(itemType) &&
+          data.every((item) => typeof item === itemType)
+        ) {
           return data; // primitive array는 그대로 유지
         }
       }
