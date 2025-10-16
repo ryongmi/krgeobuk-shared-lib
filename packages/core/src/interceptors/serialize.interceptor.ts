@@ -46,7 +46,7 @@ export class SerializerInterceptor implements NestInterceptor {
 
         return {
           code: options?.code || CoreCode.REQUEST_SUCCESS,
-          status_code: statusCode || HttpStatus.OK,
+          statusCode: statusCode || HttpStatus.OK,
           message: options?.message || CoreMessage.REQUEST_SUCCESS,
           isLogin: Boolean(req?.jwt?.userId),
           data: transformed,
