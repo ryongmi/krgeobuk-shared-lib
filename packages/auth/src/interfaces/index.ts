@@ -1,3 +1,4 @@
+export * from './initialize-response.interface.js';
 export * from './login-request.interface.js';
 export * from './login-response.interface.js';
 export * from './refresh-response.interface.js';

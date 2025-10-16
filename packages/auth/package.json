@@ -65,6 +65,7 @@
     "@krgeobuk/core": "workspace:*",
     "@krgeobuk/shared": "workspace:*",
     "@krgeobuk/jwt": "workspace:*",
+    "@krgeobuk/user": "workspace:*",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
     "@types/node": "^20.19.0",

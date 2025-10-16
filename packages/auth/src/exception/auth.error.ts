@@ -33,4 +33,10 @@ export class AuthError {
     message: AuthMessage.REFRESH_ERROR,
     statusCode: 500,
   };
+
+  static readonly INVALID_REDIRECT_URI = {
+    code: AuthCode.INVALID_REDIRECT_URI,
+    message: AuthMessage.INVALID_REDIRECT_URI,
+    statusCode: 400,
+  };
 }

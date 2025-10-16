@@ -35,6 +35,12 @@ export class AuthResponse {
     statusCode: 200,
   };
 
+  static readonly INITIALIZE_SUCCESS = {
+    code: AuthCode.INITIALIZE_SUCCESS,
+    message: AuthMessage.INITIALIZE_SUCCESS,
+    statusCode: 200,
+  };
+
   /**  =============================================================================
    *
    *        300 ~ 399	리다이렉트 응답 코드 (SSO)

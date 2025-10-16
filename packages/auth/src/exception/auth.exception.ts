@@ -33,4 +33,10 @@ export class AuthException {
     const e = AuthError.REFRESH_ERROR;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
+
+  /** 잘못된 리다이렉트 URI */
+  static invalidRedirectUri(): HttpException {
+    const e = AuthError.INVALID_REDIRECT_URI;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
 }

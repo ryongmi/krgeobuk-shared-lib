@@ -11,6 +11,7 @@ export const AuthMessage = {
   SIGNUP_ERROR: '회원가입 처리 중 서버에서 오류가 발생했습니다.',
   LOGOUT_ERROR: '로그아웃 처리 중 서버에서 오류가 발생했습니다.',
   REFRESH_ERROR: '토큰 재발급 처리 중 서버에서 오류가 발생했습니다.',
+  INVALID_REDIRECT_URI: '잘못된 리다이렉트 URI입니다.',
 
   /**  =============================================================================
    *
@@ -22,6 +23,7 @@ export const AuthMessage = {
 
   LOGOUT_SUCCESS: '로그아웃 성공',
   REFRESH_SUCCESS: '토큰 재발급 성공',
+  INITIALIZE_SUCCESS: '초기 데이터 로드 성공',
 
   /**  =============================================================================
    *
