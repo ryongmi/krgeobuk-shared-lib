@@ -42,10 +42,10 @@ export type ServerType = 'auth' | 'authz' | 'portal' | 'mypick';
 
 // 멀티 서버 설정
 export interface MultiServerConfig {
-  auth: HttpClientConfig;
-  authz: HttpClientConfig;
-  portal: HttpClientConfig;
-  mypick: HttpClientConfig;
+  auth?: HttpClientConfig;
+  authz?: HttpClientConfig;
+  portal?: HttpClientConfig;
+  mypick?: HttpClientConfig;
 }
 
 // 토큰 관리자 이벤트
