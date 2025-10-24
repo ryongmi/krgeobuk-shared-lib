@@ -20,9 +20,25 @@ export interface TcpGetUserPermissions {
 }
 
 /**
- * 사용자 역할 조회 요청 메시지
+ * 사용자 역할 조회 요청 메시지 (ID 배열 반환)
  */
 export interface TcpGetUserRoles {
+  userId: string;
+  serviceId?: string;
+}
+
+/**
+ * 사용자 역할 이름 조회 요청 메시지 (Name 배열 반환)
+ */
+export interface TcpGetUserRoleNames {
+  userId: string;
+  serviceId?: string;
+}
+
+/**
+ * 사용자 권한 액션 조회 요청 메시지 (Action 배열 반환)
+ */
+export interface TcpGetUserPermissionActions {
   userId: string;
   serviceId?: string;
 }
