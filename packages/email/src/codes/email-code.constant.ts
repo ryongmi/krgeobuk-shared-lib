@@ -1,0 +1,30 @@
+/**
+ * 번호 범위별 의미:
+ * - 000 ~ 099: 도메인 내 에러 코드
+ * - 100 ~ 199: 도메인 내 경고 / 정보 코드
+ * - 200 ~ 299: 도메인 내 성공 응답 코드
+ * - 300 ~ 399: 기타 상태 코드
+ */
+export const EmailCode = {
+  // 000 ~ 099	에러 코드
+  SEND_FAILED: 'EMAIL_000',
+  TEMPLATE_NOT_FOUND: 'EMAIL_001',
+  TEMPLATE_COMPILE_ERROR: 'EMAIL_002',
+  TEMPLATE_RENDER_ERROR: 'EMAIL_003',
+  CONNECTION_FAILED: 'EMAIL_004',
+  INVALID_RECIPIENT: 'EMAIL_005',
+  INVALID_SENDER: 'EMAIL_006',
+  SMTP_CONFIG_MISSING: 'EMAIL_007',
+  VERIFICATION_TOKEN_INVALID: 'EMAIL_008',
+  ALREADY_VERIFIED: 'EMAIL_009',
+
+  // 200 ~ 299	성공 응답 코드
+  SEND_SUCCESS: 'EMAIL_200',
+  TEMPLATE_LOADED: 'EMAIL_201',
+  TEMPLATE_COMPILED: 'EMAIL_202',
+  CONNECTION_SUCCESS: 'EMAIL_203',
+  VERIFICATION_REQUEST_SUCCESS: 'EMAIL_204',
+  VERIFICATION_SUCCESS: 'EMAIL_205',
+} as const;
+
+export type EmailCodeType = (typeof EmailCode)[keyof typeof EmailCode];

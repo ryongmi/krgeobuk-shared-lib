@@ -1,0 +1,133 @@
+{
+  "name": "@krgeobuk/email",
+  "version": "1.0.0",
+  "description": "Email service package for krgeobuk ecosystem with Nodemailer and Handlebars template support",
+  "type": "module",
+  "main": "dist/index.js",  
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:publish": "npm publish --registry http://localhost:4873/"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./codes": "./dist/codes/index.js",
+    "./messages": "./dist/messages/index.js",
+    "./config": "./dist/config/index.js",
+    "./dtos": "./dist/dtos/index.js",
+    "./interfaces": "./dist/interfaces/index.js",
+    "./templates": "./dist/templates/index.js",
+    "./services": "./dist/services/index.js",
+    "./modules": "./dist/modules/index.js",
+    "./exception": "./dist/exception/index.js",
+    "./response": "./dist/response/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "codes": [
+        "dist/codes/index.d.ts"
+      ],
+      "codes/*": [
+        "dist/codes/*"
+      ],
+      "messages": [
+        "dist/messages/index.d.ts"
+      ],
+      "messages/*": [
+        "dist/messages/*"
+      ],
+      "config": [
+        "dist/config/index.d.ts"
+      ],
+      "config/*": [
+        "dist/config/*"
+      ],
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ],
+      "templates": [
+        "dist/templates/index.d.ts"
+      ],
+      "templates/*": [
+        "dist/templates/*"
+      ],
+      "services": [
+        "dist/services/index.d.ts"
+      ],
+      "services/*": [
+        "dist/services/*"
+      ],
+      "modules": [
+        "dist/modules/index.d.ts"
+      ],
+      "modules/*": [
+        "dist/modules/*"
+      ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
+      ],
+      "response": [
+        "dist/response/index.d.ts"
+      ],
+      "response/*": [
+        "dist/response/*"
+      ]
+    }
+  },
+  "sideEffects": false,  
+  "keywords": [
+    "krgeobuk",
+    "email",
+    "nodemailer",
+    "handlebars",
+    "nestjs",
+    "smtp"
+  ],
+  "author": "krgeobuk",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/swagger": "^7.0.0",
+    "class-validator": "^0.14.0",
+    "handlebars": "^4.7.8",
+    "nodemailer": "^7.0.10"
+  },
+  "devDependencies": {
+    "@krgeobuk/core": "workspace:*",
+    "@krgeobuk/shared": "workspace:*",
+    "@krgeobuk/tsconfig": "workspace:*",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/swagger": "^7.3.1",
+    "@types/handlebars": "^4.0.40",
+    "@types/nodemailer": "^7.0.3",
+    "@types/node": "^20.19.0",
+    "class-validator": "^0.14.1",
+    "handlebars": "^4.7.8",
+    "nodemailer": "^7.0.10",
+    "typescript": "^5.8.3"
+  }  
+}

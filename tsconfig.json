@@ -17,7 +17,8 @@
     { "path": "./packages/service-visible-role" },
     { "path": "./packages/service" },
     { "path": "./packages/oauth" },
-    { "path": "./packages/permission" }
+    { "path": "./packages/permission" },
+    { "path": "./packages/email" }
   ],
   "compilerOptions": {
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
@@ -55,7 +56,9 @@
       "@krgeobuk/oauth": ["packages/oauth"],
       "@krgeobuk/oauth/*": ["packages/oauth/*"],
       "@krgeobuk/permission": ["packages/permission"],
-      "@krgeobuk/permission/*": ["packages/permission/*"]
+      "@krgeobuk/permission/*": ["packages/permission/*"],
+      "@krgeobuk/email": ["packages/email"],
+      "@krgeobuk/email/*": ["packages/email/*"]
     },
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
