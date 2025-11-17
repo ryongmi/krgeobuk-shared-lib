@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 
-import * as handlebars from 'handlebars';
+import Handlebars from 'handlebars';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -10,14 +10,14 @@ import type { EmailTemplateData } from '../interfaces/index.js';
 @Injectable()
 export class TemplateLoaderService {
   private readonly logger = new Logger(TemplateLoaderService.name);
-  private readonly templates: Map<string, handlebars.TemplateDelegate> = new Map();
+  private readonly templates: Map<string, HandlebarsTemplateDelegate> = new Map();
 
   /**
    * 템플릿 파일 로드 및 컴파일
    * @param templatePath 템플릿 파일 경로
    * @param templateName 템플릿 이름 (캐싱 키)
    */
-  loadTemplate(templatePath: string, templateName: string): handlebars.TemplateDelegate {
+  loadTemplate(templatePath: string, templateName: string): HandlebarsTemplateDelegate {
     // 캐시된 템플릿 확인
     if (this.templates.has(templateName)) {
       return this.templates.get(templateName)!;
@@ -33,7 +33,7 @@ export class TemplateLoaderService {
       const templateSource = fs.readFileSync(templatePath, 'utf-8');
 
       // Handlebars 컴파일
-      const template = handlebars.compile(templateSource);
+      const template = Handlebars.compile(templateSource);
 
       // 캐싱
       this.templates.set(templateName, template);

@@ -2,13 +2,18 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 
 import * as nodemailer from 'nodemailer';
-import * as path from 'path';
 import * as fs from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 
 import type { EmailConfig } from '../interfaces/email-config.interface.js';
 import type { SendEmailOptions, SendEmailResult } from '../interfaces/email-template.interface.js';
 import { EmailException } from '../exception/index.js';
 import { TemplateLoaderService } from '../templates/index.js';
+
+// ESM에서 __dirname 대체
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 @Injectable()
 export class EmailService {
@@ -29,7 +34,9 @@ export class EmailService {
     const emailConfig = this.configService.get<EmailConfig>('email');
 
     if (!emailConfig || !emailConfig.smtp.auth.user || !emailConfig.smtp.auth.pass) {
-      this.logger.warn('Email configuration not found or incomplete. Email service will be disabled.');
+      this.logger.warn(
+        'Email configuration not found or incomplete. Email service will be disabled.'
+      );
       return;
     }
 
@@ -63,18 +70,18 @@ export class EmailService {
    */
   loadAllTemplates(): void {
     try {
-      const templatesDir = path.join(__dirname, '../templates/files');
+      const templatesDir = join(__dirname, '../templates/files');
 
       if (!fs.existsSync(templatesDir)) {
         this.logger.warn(`Templates directory not found: ${templatesDir}`);
         return;
       }
 
-      const templateFiles = fs.readdirSync(templatesDir).filter(file => file.endsWith('.hbs'));
+      const templateFiles = fs.readdirSync(templatesDir).filter((file) => file.endsWith('.hbs'));
 
-      templateFiles.forEach(file => {
+      templateFiles.forEach((file) => {
         const templateName = file.replace('.hbs', '');
-        const templatePath = path.join(templatesDir, file);
+        const templatePath = join(templatesDir, file);
         this.loadTemplate(templatePath, templateName);
         this.logger.log(`Template loaded: ${templateName}`);
       });

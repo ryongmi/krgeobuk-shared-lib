@@ -5,7 +5,8 @@
   "type": "module",
   "main": "dist/index.js",  
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc -b && npm run copy-templates",
+    "copy-templates": "node scripts/copy-templates.js",
     "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
     "verdaccio:publish": "npm publish --registry http://localhost:4873/"
   },
