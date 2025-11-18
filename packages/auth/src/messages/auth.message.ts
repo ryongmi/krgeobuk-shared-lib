@@ -12,6 +12,7 @@ export const AuthMessage = {
   LOGOUT_ERROR: '로그아웃 처리 중 서버에서 오류가 발생했습니다.',
   REFRESH_ERROR: '토큰 재발급 처리 중 서버에서 오류가 발생했습니다.',
   INVALID_REDIRECT_URI: '잘못된 리다이렉트 URI입니다.',
+  PASSWORD_RESET_TOKEN_INVALID: '유효하지 않거나 만료된 비밀번호 재설정 토큰입니다.',
 
   /**  =============================================================================
    *
@@ -24,6 +25,8 @@ export const AuthMessage = {
   LOGOUT_SUCCESS: '로그아웃 성공',
   REFRESH_SUCCESS: '토큰 재발급 성공',
   INITIALIZE_SUCCESS: '초기 데이터 로드 성공',
+  PASSWORD_RESET_EMAIL_SENT: '비밀번호 재설정 이메일이 발송되었습니다.',
+  PASSWORD_RESET_SUCCESS: '비밀번호가 성공적으로 변경되었습니다.',
 
   /**  =============================================================================
    *

@@ -39,4 +39,10 @@ export class AuthError {
     message: AuthMessage.INVALID_REDIRECT_URI,
     statusCode: 400,
   };
+
+  static readonly PASSWORD_RESET_TOKEN_INVALID = {
+    code: AuthCode.PASSWORD_RESET_TOKEN_INVALID,
+    message: AuthMessage.PASSWORD_RESET_TOKEN_INVALID,
+    statusCode: 400,
+  };
 }

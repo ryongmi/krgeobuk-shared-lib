@@ -41,6 +41,18 @@ export class AuthResponse {
     statusCode: 200,
   };
 
+  static readonly PASSWORD_RESET_EMAIL_SENT = {
+    code: AuthCode.PASSWORD_RESET_EMAIL_SENT,
+    message: AuthMessage.PASSWORD_RESET_EMAIL_SENT,
+    statusCode: 200,
+  };
+
+  static readonly PASSWORD_RESET_SUCCESS = {
+    code: AuthCode.PASSWORD_RESET_SUCCESS,
+    message: AuthMessage.PASSWORD_RESET_SUCCESS,
+    statusCode: 200,
+  };
+
   /**  =============================================================================
    *
    *        300 ~ 399	리다이렉트 응답 코드 (SSO)

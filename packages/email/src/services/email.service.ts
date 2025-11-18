@@ -196,4 +196,24 @@ export class EmailService {
       },
     });
   }
+
+  /**
+   * 비밀번호 재설정 메일 발송 헬퍼 메서드
+   * @param options 비밀번호 재설정 이메일 발송 옵션
+   */
+  async sendPasswordResetEmail(options: {
+    to: string;
+    name: string;
+    resetUrl: string;
+  }): Promise<SendEmailResult> {
+    return this.sendEmail({
+      to: options.to,
+      subject: '[krgeobuk] 비밀번호 재설정 요청',
+      templateName: 'password-reset',
+      templateData: {
+        name: options.name,
+        resetUrl: options.resetUrl,
+      },
+    });
+  }
 }

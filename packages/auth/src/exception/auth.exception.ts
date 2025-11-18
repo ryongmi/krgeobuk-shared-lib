@@ -39,4 +39,10 @@ export class AuthException {
     const e = AuthError.INVALID_REDIRECT_URI;
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
+
+  /** 유효하지 않거나 만료된 비밀번호 재설정 토큰 */
+  static passwordResetTokenInvalid(): HttpException {
+    const e = AuthError.PASSWORD_RESET_TOKEN_INVALID;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
 }
