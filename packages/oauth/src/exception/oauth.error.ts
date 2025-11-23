@@ -89,4 +89,42 @@ export class OAuthError {
     message: OAuthMessage.UNSUPPORTED_PROVIDER,
     statusCode: 400,
   };
+
+  static readonly INVALID_STATE = {
+    code: OAuthCode.INVALID_STATE,
+    message: OAuthMessage.INVALID_STATE,
+    statusCode: 400,
+  };
+
+  /**  =============================================================================
+   *
+   *        200 ~ 299 계정 연동 관련 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly CANNOT_UNLINK_LAST_ACCOUNT = {
+    code: OAuthCode.CANNOT_UNLINK_LAST_ACCOUNT,
+    message: OAuthMessage.CANNOT_UNLINK_LAST_ACCOUNT,
+    statusCode: 400,
+  };
+
+  static readonly PROVIDER_NOT_LINKED = {
+    code: OAuthCode.PROVIDER_NOT_LINKED,
+    message: OAuthMessage.PROVIDER_NOT_LINKED,
+    statusCode: 404,
+  };
+
+  static readonly ALREADY_LINKED_TO_ANOTHER_ACCOUNT = {
+    code: OAuthCode.ALREADY_LINKED_TO_ANOTHER_ACCOUNT,
+    message: OAuthMessage.ALREADY_LINKED_TO_ANOTHER_ACCOUNT,
+    statusCode: 409,
+  };
+
+  static readonly PROVIDER_ALREADY_LINKED = {
+    code: OAuthCode.PROVIDER_ALREADY_LINKED,
+    message: OAuthMessage.PROVIDER_ALREADY_LINKED,
+    statusCode: 409,
+  };
 }

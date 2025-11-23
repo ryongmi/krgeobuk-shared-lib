@@ -128,4 +128,50 @@ export class OAuthException {
     const e = OAuthError.UNSUPPORTED_PROVIDER;
     return new HttpException({ code: e.code, message: `${provider} - ${e.message}` }, e.statusCode);
   }
+
+  /** state 데이터가 올바르지 않음 */
+  static invalidState(): HttpException {
+    const e = OAuthError.INVALID_STATE;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /**  =============================================================================
+   *
+   *        200 ~ 299 계정 연동 관련 에러 코드
+   *
+   *   =============================================================================
+   */
+
+  /** 마지막 계정 연동 해제 불가 */
+  static cannotUnlinkLastAccount(): HttpException {
+    const e = OAuthError.CANNOT_UNLINK_LAST_ACCOUNT;
+    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
+  }
+
+  /** 연동되지 않은 provider */
+  static providerNotLinked(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.PROVIDER_NOT_LINKED;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** 이미 다른 계정에 연동된 OAuth 계정 */
+  static alreadyLinkedToAnotherAccount(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.ALREADY_LINKED_TO_ANOTHER_ACCOUNT;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** 이미 연동된 provider */
+  static providerAlreadyLinked(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.PROVIDER_ALREADY_LINKED;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
 }

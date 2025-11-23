@@ -26,8 +26,8 @@ export class GoogleUserProfileResponseDto implements GoogleUserProfileResponse {
   @IsValidGoogleGivenName()
   givenName!: string;
 
-  @IsValidGoogleFamilyName()
-  familyName!: string;
+  @IsValidGoogleFamilyName({ isOptional: true })
+  familyName?: string;
 
   @IsValidGooglePicture()
   picture!: string;

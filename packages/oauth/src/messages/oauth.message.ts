@@ -28,18 +28,24 @@ export const OAuthMessage = {
   TOKEN_EXCHANGE_FAILED: 'OAuth 토큰 교환에 실패했습니다.',
   PROFILE_FETCH_FAILED: '사용자 프로필 정보를 가져오는 데 실패했습니다.',
   UNSUPPORTED_PROVIDER: '지원하지 않는 OAuth 공급자입니다.',
+  INVALID_STATE: 'state 데이터가 올바르지 않습니다.',
 
   /**  =============================================================================
    *
-   *        200 ~ 299 성공 응답 코드
+   *        200 ~ 299 계정 연동 관련 에러 코드
    *
    *   =============================================================================
    */
   /** */
 
+  CANNOT_UNLINK_LAST_ACCOUNT: '최소 1개의 로그인 방식은 유지되어야 합니다.',
+  PROVIDER_NOT_LINKED: '연동되지 않은 계정입니다.',
+  ALREADY_LINKED_TO_ANOTHER_ACCOUNT: '이미 다른 계정에 연동된 OAuth 계정입니다.',
+  PROVIDER_ALREADY_LINKED: '이미 연동된 계정입니다.',
+
   /**  =============================================================================
    *
-   *        300 ~ 399	리다이렉트 응답 코드 (SSO)
+   *        300 ~ 399	리다이렉트 응답 코드 (SSO & Link)
    *
    *   =============================================================================
    */
@@ -48,6 +54,8 @@ export const OAuthMessage = {
   GOOGLE_SSO_REDIRECT: 'Google OAuth SSO 로그인 성공 후 원래 서비스로 리다이렉트',
   NAVER_SSO_REDIRECT: 'Naver OAuth SSO 로그인 성공 후 원래 서비스로 리다이렉트',
   OAUTH_LOGIN_START_REDIRECT: 'OAuth SSO 로그인 시작 - Auth Client로 리다이렉트',
+  GOOGLE_LINK_START_REDIRECT: 'Google OAuth 계정 연동 시작 - Google 인증 페이지로 리다이렉트',
+  NAVER_LINK_START_REDIRECT: 'Naver OAuth 계정 연동 시작 - Naver 인증 페이지로 리다이렉트',
 } as const;
 
 export type OAuthMessageType = (typeof OAuthMessage)[keyof typeof OAuthMessage];

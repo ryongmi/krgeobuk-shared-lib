@@ -4,7 +4,7 @@ export interface GoogleUserProfileResponse {
   email: string;
   verifiedEmail: boolean;
   givenName: string;
-  familyName: string;
+  familyName?: string;
   picture: string;
   locale?: string;
 }
