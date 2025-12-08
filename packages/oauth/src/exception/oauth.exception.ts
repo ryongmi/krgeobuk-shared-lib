@@ -135,6 +135,15 @@ export class OAuthException {
     return new HttpException({ code: e.code, message: e.message }, e.statusCode);
   }
 
+  /** 사용자가 인증을 취소함 */
+  static cancelled(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.OAUTH_CANCELLED;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
   /**  =============================================================================
    *
    *        200 ~ 299 계정 연동 관련 에러 코드
@@ -171,6 +180,15 @@ export class OAuthException {
     const e = OAuthError.PROVIDER_ALREADY_LINKED;
     return new HttpException(
       { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** OAuth 계정이 존재하지 않음 (이메일은 있지만 OAuth 계정 미연동) */
+  static oauthAccountNotFound(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.OAUTH_ACCOUNT_NOT_FOUND;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} - ${e.message}` },
       e.statusCode
     );
   }

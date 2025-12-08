@@ -29,6 +29,7 @@ export const OAuthMessage = {
   PROFILE_FETCH_FAILED: '사용자 프로필 정보를 가져오는 데 실패했습니다.',
   UNSUPPORTED_PROVIDER: '지원하지 않는 OAuth 공급자입니다.',
   INVALID_STATE: 'state 데이터가 올바르지 않습니다.',
+  OAUTH_CANCELLED: '사용자가 인증을 취소했습니다.',
 
   /**  =============================================================================
    *
@@ -42,6 +43,7 @@ export const OAuthMessage = {
   PROVIDER_NOT_LINKED: '연동되지 않은 계정입니다.',
   ALREADY_LINKED_TO_ANOTHER_ACCOUNT: '이미 다른 계정에 연동된 OAuth 계정입니다.',
   PROVIDER_ALREADY_LINKED: '이미 연동된 계정입니다.',
+  OAUTH_ACCOUNT_NOT_FOUND: '해당 이메일로 가입된 계정이 있지만 OAuth 계정이 연동되지 않았습니다.',
 
   /**  =============================================================================
    *

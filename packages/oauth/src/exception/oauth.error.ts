@@ -96,6 +96,12 @@ export class OAuthError {
     statusCode: 400,
   };
 
+  static readonly OAUTH_CANCELLED = {
+    code: OAuthCode.OAUTH_CANCELLED,
+    message: OAuthMessage.OAUTH_CANCELLED,
+    statusCode: 400,
+  };
+
   /**  =============================================================================
    *
    *        200 ~ 299 계정 연동 관련 에러 코드
@@ -126,5 +132,11 @@ export class OAuthError {
     code: OAuthCode.PROVIDER_ALREADY_LINKED,
     message: OAuthMessage.PROVIDER_ALREADY_LINKED,
     statusCode: 409,
+  };
+
+  static readonly OAUTH_ACCOUNT_NOT_FOUND = {
+    code: OAuthCode.OAUTH_ACCOUNT_NOT_FOUND,
+    message: OAuthMessage.OAUTH_ACCOUNT_NOT_FOUND,
+    statusCode: 404,
   };
 }
