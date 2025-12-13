@@ -4,5 +4,4 @@ export interface UserFilter {
   nickname?: string;
   profileImageUrl?: string;
   isEmailVerified?: boolean;
-  isIntegrated?: boolean;
 }

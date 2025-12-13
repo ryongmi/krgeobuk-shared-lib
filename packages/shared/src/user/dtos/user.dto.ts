@@ -3,7 +3,6 @@ import { ExposeUuidIdDto } from '@krgeobuk/core/dtos';
 import {
   ExposeEmail,
   ExposeEmailVerified,
-  ExposeIsIntegrated,
   ExposeNickname,
   ExposePassword,
   ExposeProfileImageUrl,
@@ -26,9 +25,6 @@ export class UserDto extends ExposeUuidIdDto implements User {
 
   @ExposeProfileImageUrl()
   profileImageUrl?: string | null;
-
-  @ExposeIsIntegrated()
-  isIntegrated?: boolean;
 
   @ExposeEmailVerified()
   isEmailVerified?: boolean;

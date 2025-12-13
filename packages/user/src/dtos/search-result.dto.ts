@@ -5,7 +5,6 @@ import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
   ExposeEmail,
   ExposeEmailVerified,
-  ExposeIsIntegrated,
   ExposeNickname,
   ExposeProfileImageUrl,
   ExposeUsername,
@@ -27,9 +26,6 @@ export class UserSearchResultDto implements UserSearchResult {
 
   @ExposeProfileImageUrl()
   profileImageUrl!: string | null;
-
-  @ExposeIsIntegrated()
-  isIntegrated!: boolean;
 
   @ExposeEmailVerified()
   isEmailVerified!: boolean;

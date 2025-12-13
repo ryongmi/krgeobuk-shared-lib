@@ -5,7 +5,6 @@ import { ServiceDto } from '@krgeobuk/shared/service';
 import {
   ExposeEmail,
   ExposeEmailVerified,
-  ExposeIsIntegrated,
   ExposeNickname,
   ExposeProfileImageUrl,
   ExposeUsername,
@@ -27,9 +26,6 @@ export class UserProfileDto extends ExposeUuidIdDto implements UserProfile {
 
   @ExposeProfileImageUrl()
   profileImageUrl!: string | null;
-
-  @ExposeIsIntegrated()
-  isIntegrated!: boolean;
 
   @ExposeEmailVerified()
   isEmailVerified!: boolean;

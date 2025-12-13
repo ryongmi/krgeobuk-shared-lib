@@ -6,7 +6,6 @@ export interface User extends UuidId {
   name?: string;
   nickname?: string | null;
   profileImageUrl?: string | null;
-  isIntegrated?: boolean;
   isEmailVerified?: boolean;
 }
 
