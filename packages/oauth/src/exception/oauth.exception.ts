@@ -192,4 +192,43 @@ export class OAuthException {
       e.statusCode
     );
   }
+
+  /** OAuth 로그인 시 이메일이 이미 사용 중인 경우 */
+  static emailAlreadyInUse(data: {
+    email: string;
+    provider: OAuthAccountProviderType;
+    hasPassword: boolean;
+    hasOAuthProviders?: OAuthAccountProviderType[];
+  }): HttpException {
+    const e = OAuthError.EMAIL_ALREADY_IN_USE;
+
+    const loginMethods: string[] = [];
+
+    if (data.hasPassword) {
+      loginMethods.push('email');
+    }
+
+    if (data.hasOAuthProviders && data.hasOAuthProviders.length > 0) {
+      loginMethods.push(...data.hasOAuthProviders);
+    }
+
+    const suggestion =
+      loginMethods.length > 0
+        ? `다음 방법으로 로그인 후 설정에서 ${this.label(data.provider)} 연동이 가능합니다.`
+        : '고객센터에 문의해주세요.';
+
+    return new HttpException(
+      {
+        code: e.code,
+        message: `${data.email}${e.message}`,
+        details: {
+          email: data.email,
+          attemptedProvider: data.provider,
+          availableLoginMethods: loginMethods,
+          suggestion,
+        },
+      },
+      e.statusCode
+    );
+  }
 }

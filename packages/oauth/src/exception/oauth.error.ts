@@ -139,4 +139,10 @@ export class OAuthError {
     message: OAuthMessage.OAUTH_ACCOUNT_NOT_FOUND,
     statusCode: 404,
   };
+
+  static readonly EMAIL_ALREADY_IN_USE = {
+    code: OAuthCode.EMAIL_ALREADY_IN_USE,
+    message: OAuthMessage.EMAIL_ALREADY_IN_USE,
+    statusCode: 409,
+  };
 }

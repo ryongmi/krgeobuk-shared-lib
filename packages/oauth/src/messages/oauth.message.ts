@@ -44,6 +44,7 @@ export const OAuthMessage = {
   ALREADY_LINKED_TO_ANOTHER_ACCOUNT: '이미 다른 계정에 연동된 OAuth 계정입니다.',
   PROVIDER_ALREADY_LINKED: '이미 연동된 계정입니다.',
   OAUTH_ACCOUNT_NOT_FOUND: '해당 이메일로 가입된 계정이 있지만 OAuth 계정이 연동되지 않았습니다.',
+  EMAIL_ALREADY_IN_USE: '은(는) 이미 가입된 계정입니다.',
 
   /**  =============================================================================
    *
