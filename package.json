@@ -9,8 +9,6 @@
     "clean": "tsc -b --clean",
     "publish:all": "pnpm -r publish --force --no-git-checks",
     "npm:i:core": "pnpm --filter @krgeobuk/core install",
-    "docker:up": "docker-compose up -d",
-    "docker:down": "docker-compose down",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint-orgin": "eslint src/**/*.{ts,js} --format=stylish",
