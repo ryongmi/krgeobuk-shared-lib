@@ -216,4 +216,32 @@ export class EmailService {
       },
     });
   }
+
+  /**
+   * 계정 병합 확인 메일 발송 헬퍼 메서드
+   * @param options 계정 병합 이메일 발송 옵션
+   */
+  async sendAccountMergeEmail(options: {
+    to: string;
+    name: string;
+    targetUserEmail: string;
+    provider: string;
+    providerId: string;
+    confirmUrl: string;
+    expiresAt: string;
+  }): Promise<SendEmailResult> {
+    return this.sendEmail({
+      to: options.to,
+      subject: '[krgeobuk] 계정 병합 확인 요청',
+      templateName: 'account-merge',
+      templateData: {
+        name: options.name,
+        targetUserEmail: options.targetUserEmail,
+        provider: options.provider,
+        providerId: options.providerId,
+        confirmUrl: options.confirmUrl,
+        expiresAt: options.expiresAt,
+      },
+    });
+  }
 }

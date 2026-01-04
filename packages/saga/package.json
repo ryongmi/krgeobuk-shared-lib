@@ -1,0 +1,57 @@
+{
+  "name": "@krgeobuk/saga",
+  "version": "1.0.0",
+  "description": "Saga orchestration pattern with smart retry logic for krgeobuk microservices",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "rm -rf dist",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./retry": "./dist/retry/index.js",
+    "./orchestrator": "./dist/orchestrator/index.js"
+  },
+  "typesVersions": {
+    "*": {
+      "retry": [
+        "dist/retry/index.d.ts"
+      ],
+      "orchestrator": [
+        "dist/orchestrator/index.d.ts"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/microservices": "^10.0.0",
+    "rxjs": "^7.8.0",
+    "typescript": "^5.8.3"
+  },
+  "keywords": [
+    "saga",
+    "orchestration",
+    "microservices",
+    "retry",
+    "compensation",
+    "distributed-transactions"
+  ],
+  "author": "krgeobuk",
+  "license": "MIT"
+}

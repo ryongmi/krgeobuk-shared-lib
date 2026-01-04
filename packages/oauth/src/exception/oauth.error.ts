@@ -145,4 +145,48 @@ export class OAuthError {
     message: OAuthMessage.EMAIL_ALREADY_IN_USE,
     statusCode: 409,
   };
+
+  /**  =============================================================================
+   *
+   *        210 ~ 215 계정 병합 관련 에러 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  static readonly MERGE_REQUEST_CREATION_FAILED = {
+    code: OAuthCode.MERGE_REQUEST_CREATION_FAILED,
+    message: OAuthMessage.MERGE_REQUEST_CREATION_FAILED,
+    statusCode: 500,
+  };
+
+  static readonly MERGE_EMAIL_SEND_FAILED = {
+    code: OAuthCode.MERGE_EMAIL_SEND_FAILED,
+    message: OAuthMessage.MERGE_EMAIL_SEND_FAILED,
+    statusCode: 500,
+  };
+
+  static readonly MERGE_TOKEN_INVALID_OR_EXPIRED = {
+    code: OAuthCode.MERGE_TOKEN_INVALID_OR_EXPIRED,
+    message: OAuthMessage.MERGE_TOKEN_INVALID_OR_EXPIRED,
+    statusCode: 401,
+  };
+
+  static readonly MERGE_EXECUTION_FAILED = {
+    code: OAuthCode.MERGE_EXECUTION_FAILED,
+    message: OAuthMessage.MERGE_EXECUTION_FAILED,
+    statusCode: 500,
+  };
+
+  static readonly MERGE_CANNOT_CANCEL = {
+    code: OAuthCode.MERGE_CANNOT_CANCEL,
+    message: OAuthMessage.MERGE_CANNOT_CANCEL,
+    statusCode: 400,
+  };
+
+  static readonly MERGE_REQUEST_NOT_FOUND = {
+    code: OAuthCode.MERGE_REQUEST_NOT_FOUND,
+    message: OAuthMessage.MERGE_REQUEST_NOT_FOUND,
+    statusCode: 404,
+  };
 }

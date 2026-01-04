@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계정 병합 확인</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 30px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .content {
+      padding: 40px 30px;
+    }
+    .content h2 {
+      margin-top: 0;
+      color: #333;
+      font-size: 24px;
+    }
+    .content h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 18px;
+    }
+    .content p {
+      margin: 16px 0;
+      color: #555;
+      font-size: 16px;
+    }
+    .content ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    .content li {
+      margin: 8px 0;
+      color: #555;
+      font-size: 16px;
+    }
+    .button {
+      display: inline-block;
+      padding: 14px 32px;
+      margin: 24px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: transform 0.2s;
+    }
+    .button:hover {
+      transform: translateY(-2px);
+    }
+    .info-box {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-left: 4px solid #667eea;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 4px;
+    }
+    .info-box h3 {
+      margin-top: 0;
+      color: #667eea;
+      font-size: 18px;
+    }
+    .link-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #667eea;
+      padding: 16px;
+      margin: 24px 0;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+    .link-box p {
+      margin: 0;
+      color: #666;
+      font-size: 14px;
+    }
+    .link-box code {
+      background: #e9ecef;
+      padding: 8px;
+      display: block;
+      margin-top: 10px;
+      word-break: break-all;
+      border-radius: 4px;
+      color: #495057;
+      font-size: 13px;
+    }
+    .warning {
+      margin-top: 24px;
+      padding: 16px;
+      background-color: #fff3cd;
+      border-left: 4px solid #ffc107;
+      border-radius: 4px;
+    }
+    .warning p {
+      margin: 0;
+      color: #856404;
+      font-size: 14px;
+    }
+    .warning strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .warning ul {
+      margin: 8px 0 0 0;
+      padding-left: 20px;
+    }
+    .warning li {
+      margin: 4px 0;
+      color: #856404;
+      font-size: 14px;
+    }
+    .critical {
+      margin-top: 24px;
+      padding: 16px;
+      background-color: #f8d7da;
+      border-left: 4px solid #dc3545;
+      border-radius: 4px;
+    }
+    .critical p {
+      margin: 0;
+      color: #721c24;
+      font-size: 14px;
+    }
+    .critical strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .footer {
+      background-color: #f8f9fa;
+      padding: 24px 30px;
+      text-align: center;
+      border-top: 1px solid #e9ecef;
+    }
+    .footer p {
+      margin: 8px 0;
+      color: #999;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🔗 krgeobuk</h1>
+    </div>
+
+    <div class="content">
+      <h2>계정 병합 확인 요청</h2>
+      <p>안녕하세요, <strong>{{name}}</strong>님!</p>
+
+      <div class="critical">
+        <strong>⚠️ 중요한 계정 변경 사항</strong>
+        <p>다른 사용자(<strong>{{targetUserEmail}}</strong>)가 회원님의 OAuth 계정을 자신의 계정에 연결하려고 합니다.</p>
+      </div>
+
+      <div class="info-box">
+        <h3>📋 병합 요청 정보</h3>
+        <ul>
+          <li><strong>요청한 사용자:</strong> {{targetUserEmail}}</li>
+          <li><strong>병합 대상 계정:</strong> {{provider}} ({{providerId}})</li>
+          <li><strong>만료 시간:</strong> {{expiresAt}} (24시간)</li>
+        </ul>
+      </div>
+
+      <div class="warning">
+        <strong>🔍 이 작업의 의미</strong>
+        <p>확인 시 회원님의 모든 데이터(역할, 구독, 상호작용 등)가 상대방 계정으로 이전되며, 회원님의 현재 계정은 삭제됩니다.</p>
+      </div>
+
+      <p style="text-align: center; margin-top: 24px;">
+        <strong>이 요청을 승인하시려면 아래 버튼을 클릭하세요:</strong>
+      </p>
+
+      <div style="text-align: center;">
+        <a href="{{confirmUrl}}" class="button">✅ 계정 병합 승인</a>
+      </div>
+
+      <div class="link-box">
+        <p>버튼이 작동하지 않는 경우, 아래 링크를 복사하여 브라우저 주소창에 붙여넣으세요:</p>
+        <code>{{confirmUrl}}</code>
+      </div>
+
+      <div class="warning">
+        <strong>⏰ 보안 안내</strong>
+        <ul>
+          <li>이 링크는 24시간 동안만 유효합니다</li>
+          <li>한 번만 사용할 수 있습니다</li>
+          <li>요청하지 않은 경우 이 이메일을 무시하세요</li>
+          <li>의심스러운 경우 관리자에게 문의하세요</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>krgeobuk</strong></p>
+      <p>이 메일은 krgeobuk 계정 보안을 위해 자동으로 발송되었습니다.</p>
+      <p style="margin-top: 16px; color: #ccc;">© 2025 krgeobuk. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
