@@ -1,8 +1,8 @@
 import { Logger } from '@nestjs/common';
 
 import { RetryUtil } from '../retry/retry.util.js';
-import { SagaStep } from './saga-step.interface.js';
-import { SagaContext } from './saga-context.interface.js';
+import { SagaStep } from '../interfaces/saga-step.interface.js';
+import { SagaContext } from '../interfaces/saga-context.interface.js';
 
 /**
  * Saga 오케스트레이터 추상 베이스 클래스

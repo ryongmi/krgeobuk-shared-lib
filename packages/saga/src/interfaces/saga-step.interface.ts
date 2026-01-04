@@ -1,4 +1,4 @@
-import { RetryOptions } from '../retry/retry-options.interface.js';
+import { RetryOptions } from './retry-options.interface.js';
 
 /**
  * Saga 단계 인터페이스

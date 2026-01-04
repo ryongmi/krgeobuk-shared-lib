@@ -1,5 +1,5 @@
 import { ErrorClassifier } from './error-classifier.js';
-import { RetryOptions, DEFAULT_RETRY_OPTIONS } from './retry-options.interface.js';
+import { RetryOptions, DEFAULT_RETRY_OPTIONS } from '../interfaces/retry-options.interface.js';
 
 /**
  * 스마트 재시도 유틸리티
