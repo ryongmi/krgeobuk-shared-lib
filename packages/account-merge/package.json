@@ -1,0 +1,75 @@
+{
+  "name": "@krgeobuk/account-merge",
+  "version": "1.0.0",
+  "description": "Account merge workflow interfaces and patterns for krgeobuk ecosystem",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rm -rf dist && rm -rf node_modules",
+    "verdaccio:login": "pnpm login --registry=http://localhost:4873",
+    "verdaccio:publish": "pnpm publish"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./tcp": {
+      "import": "./dist/tcp/index.js",
+      "types": "./dist/tcp/index.d.ts"
+    },
+    "./tcp/patterns": {
+      "import": "./dist/tcp/patterns/index.js",
+      "types": "./dist/tcp/patterns/index.d.ts"
+    },
+    "./tcp/interfaces": {
+      "import": "./dist/tcp/interfaces/index.js",
+      "types": "./dist/tcp/interfaces/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "tcp": [
+        "dist/tcp/index.d.ts"
+      ],
+      "tcp/*": [
+        "dist/tcp/*"
+      ],
+      "tcp/patterns": [
+        "dist/tcp/patterns/index.d.ts"
+      ],
+      "tcp/patterns/*": [
+        "dist/tcp/patterns/*"
+      ],
+      "tcp/interfaces": [
+        "dist/tcp/interfaces/index.d.ts"
+      ],
+      "tcp/interfaces/*": [
+        "dist/tcp/interfaces/*"
+      ]
+    }
+  },
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "keywords": [
+    "krgeobuk",
+    "account-merge",
+    "saga",
+    "distributed-transaction",
+    "microservices"
+  ],
+  "author": "krgeobuk",
+  "license": "UNLICENSED"
+}

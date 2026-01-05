@@ -18,3 +18,9 @@ export interface TcpRoleUserBatch {
   roleId: string;
   userIds: string[];
 }
+
+// 계정 병합 파라미터
+export interface TcpMergeUserRoles {
+  sourceUserId: string;
+  targetUserId: string;
+}

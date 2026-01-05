@@ -19,7 +19,8 @@
     { "path": "./packages/oauth" },
     { "path": "./packages/permission" },
     { "path": "./packages/email" },
-    { "path": "./packages/saga" }
+    { "path": "./packages/saga" },
+    { "path": "./packages/account-merge" }
   ],
   "compilerOptions": {
     "baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
@@ -61,7 +62,9 @@
       "@krgeobuk/email": ["packages/email"],
       "@krgeobuk/email/*": ["packages/email/*"],
       "@krgeobuk/saga": ["packages/saga"],
-      "@krgeobuk/saga/*": ["packages/saga/*"]
+      "@krgeobuk/saga/*": ["packages/saga/*"],
+      "@krgeobuk/account-merge": ["packages/account-merge"],
+      "@krgeobuk/account-merge/*": ["packages/account-merge/*"]
     },
     "module": "NodeNext",
     "moduleResolution": "NodeNext",

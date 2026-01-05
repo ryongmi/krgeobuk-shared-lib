@@ -13,6 +13,10 @@ export const UserRoleTcpPatterns = {
   ASSIGN_MULTIPLE: 'user-role.assign-multiple',
   REVOKE_MULTIPLE: 'user-role.revoke-multiple',
   REPLACE_ROLES: 'user-role.replace-roles',
+
+  // 계정 병합 패턴
+  MERGE_USER_ROLES: 'user-role.merge-user-roles',
+  ROLLBACK_MERGE: 'user-role.rollback-merge',
 } as const;
 
 export type UserRoleTcpPattern = (typeof UserRoleTcpPatterns)[keyof typeof UserRoleTcpPatterns];
