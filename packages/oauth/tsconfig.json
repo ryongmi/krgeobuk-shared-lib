@@ -5,6 +5,6 @@
     "outDir": "./dist",
     "rootDir": "./src" // Ensure the root directory is set correctly
   },
-  "include": ["src"],
+  "include": ["src", "../account-merge/src/enum/account-merge-status.enum.ts"],
   "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts"]
 }

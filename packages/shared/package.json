@@ -13,6 +13,10 @@
     "dist"
   ],
   "exports": {
+    "./account-merge": {
+      "import": "./dist/account-merge/index.js",
+      "types": "./dist/account-merge/index.d.ts"
+    },
     "./authorization": {
       "import": "./dist/authorization/index.js",
       "types": "./dist/authorization/index.d.ts"
@@ -64,6 +68,12 @@
   },
   "typesVersions": {
     "*": {
+      "account-merge": [
+        "dist/account-merge/index.d.ts"
+      ],
+      "account-merge/*": [
+        "dist/account-merge/*"
+      ],
       "authorization": [
         "dist/authorization/index.d.ts"
       ],

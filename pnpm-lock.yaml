@@ -35,6 +35,18 @@ importers:
 
   packages/account-merge:
     devDependencies:
+      '@krgeobuk/core':
+        specifier: workspace:*
+        version: link:../core
+      '@krgeobuk/shared':
+        specifier: workspace:*
+        version: link:../shared
+      class-transformer:
+        specifier: ^0.5.1
+        version: 0.5.1
+      class-validator:
+        specifier: ^0.14.2
+        version: 0.14.2
       typescript:
         specifier: ^5.8.3
         version: 5.8.3

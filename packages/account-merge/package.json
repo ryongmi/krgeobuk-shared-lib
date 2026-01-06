@@ -23,6 +23,10 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
+    "./dtos": {
+      "import": "./dist/dtos/index.js",
+      "types": "./dist/dtos/index.d.ts"
+    },
     "./tcp": {
       "import": "./dist/tcp/index.js",
       "types": "./dist/tcp/index.d.ts"
@@ -38,6 +42,12 @@
   },
   "typesVersions": {
     "*": {
+      "dtos": [
+        "dist/dtos/index.d.ts"
+      ],
+      "dtos/*": [
+        "dist/dtos/*"
+      ],
       "tcp": [
         "dist/tcp/index.d.ts"
       ],
@@ -59,8 +69,17 @@
     }
   },
   "dependencies": {},
-  "peerDependencies": {},
+  "peerDependencies": {
+    "@krgeobuk/shared": "workspace:*",
+    "@krgeobuk/core": "workspace:*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2"
+  },
   "devDependencies": {
+    "@krgeobuk/shared": "workspace:*",
+    "@krgeobuk/core": "workspace:*",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
     "typescript": "^5.8.3"
   },
   "keywords": [
