@@ -22,5 +22,11 @@ export default registerAs(
           baseUrl: process.env.EMAIL_VERIFICATION_BASE_URL,
         }
       : undefined, // 각 서비스가 환경변수로 설정 (auth-server 등)
+    passwordReset: process.env.EMAIL_PASSWORD_RESET_BASE_URL
+      ? {
+          expiresIn: parseInt(process.env.EMAIL_PASSWORD_RESET_EXPIRES || '3600', 10),
+          baseUrl: process.env.EMAIL_PASSWORD_RESET_BASE_URL,
+        }
+      : undefined, // 각 서비스가 환경변수로 설정 (auth-server 등)
   })
 );

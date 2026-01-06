@@ -27,4 +27,5 @@ export interface EmailConfig {
   from: string;
   templateDir?: string; // 템플릿 디렉토리 경로 (각 서비스에서 주입 가능)
   verification?: EmailVerificationConfig; // 이메일 인증 설정 (auth-server 등에서 사용)
+  passwordReset?: EmailVerificationConfig; // 비밀번호 재설정 설정 (auth-server 등에서 사용)
 }
