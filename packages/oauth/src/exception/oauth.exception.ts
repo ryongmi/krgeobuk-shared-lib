@@ -231,47 +231,4 @@ export class OAuthException {
       e.statusCode
     );
   }
-
-  /**  =============================================================================
-   *
-   *        210 ~ 215 계정 병합 관련 에러 코드
-   *
-   *   =============================================================================
-   */
-
-  /** 계정 병합 요청 생성 실패 */
-  static mergeRequestCreationFailed(): HttpException {
-    const e = OAuthError.MERGE_REQUEST_CREATION_FAILED;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 확인 이메일 발송 실패 */
-  static mergeEmailSendFailed(): HttpException {
-    const e = OAuthError.MERGE_EMAIL_SEND_FAILED;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 유효하지 않거나 만료된 토큰 */
-  static mergeTokenInvalidOrExpired(): HttpException {
-    const e = OAuthError.MERGE_TOKEN_INVALID_OR_EXPIRED;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 계정 병합 실행 실패 */
-  static mergeExecutionFailed(): HttpException {
-    const e = OAuthError.MERGE_EXECUTION_FAILED;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 진행 중인 병합은 취소 불가 */
-  static mergeCannotCancel(): HttpException {
-    const e = OAuthError.MERGE_CANNOT_CANCEL;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
-
-  /** 계정 병합 요청을 찾을 수 없음 */
-  static mergeRequestNotFound(): HttpException {
-    const e = OAuthError.MERGE_REQUEST_NOT_FOUND;
-    return new HttpException({ code: e.code, message: e.message }, e.statusCode);
-  }
 }

@@ -23,9 +23,21 @@
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
+    "./codes": {
+      "import": "./dist/codes/index.js",
+      "types": "./dist/codes/index.d.ts"
+    },
     "./dtos": {
       "import": "./dist/dtos/index.js",
       "types": "./dist/dtos/index.d.ts"
+    },
+    "./exception": {
+      "import": "./dist/exception/index.js",
+      "types": "./dist/exception/index.d.ts"
+    },
+    "./messages": {
+      "import": "./dist/messages/index.js",
+      "types": "./dist/messages/index.d.ts"
     },
     "./tcp": {
       "import": "./dist/tcp/index.js",
@@ -42,11 +54,29 @@
   },
   "typesVersions": {
     "*": {
+      "codes": [
+        "dist/codes/index.d.ts"
+      ],
+      "codes/*": [
+        "dist/codes/*"
+      ],
       "dtos": [
         "dist/dtos/index.d.ts"
       ],
       "dtos/*": [
         "dist/dtos/*"
+      ],
+      "exception": [
+        "dist/exception/index.d.ts"
+      ],
+      "exception/*": [
+        "dist/exception/*"
+      ],
+      "messages": [
+        "dist/messages/index.d.ts"
+      ],
+      "messages/*": [
+        "dist/messages/*"
       ],
       "tcp": [
         "dist/tcp/index.d.ts"
@@ -72,12 +102,14 @@
   "peerDependencies": {
     "@krgeobuk/shared": "workspace:*",
     "@krgeobuk/core": "workspace:*",
+    "@nestjs/common": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2"
   },
   "devDependencies": {
     "@krgeobuk/shared": "workspace:*",
     "@krgeobuk/core": "workspace:*",
+    "@nestjs/common": "^10.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "typescript": "^5.8.3"
