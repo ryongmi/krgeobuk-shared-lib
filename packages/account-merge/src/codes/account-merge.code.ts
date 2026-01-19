@@ -52,6 +52,26 @@ export const AccountMergeCode = {
 
   /** 계정 병합 요청을 찾을 수 없음 */
   REQUEST_NOT_FOUND: 'ACCOUNT_MERGE_105',
+
+  /**  =============================================================================
+   *
+   *        200 ~ 299 성공 응답 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  /** 계정 병합 요청 생성 성공 */
+  REQUEST_CREATED: 'ACCOUNT_MERGE_200',
+
+  /** 조회 성공 */
+  FETCH_SUCCESS: 'ACCOUNT_MERGE_201',
+
+  /** 계정 병합 완료 */
+  MERGE_COMPLETED: 'ACCOUNT_MERGE_202',
+
+  /** 계정 병합 요청 거부됨 */
+  MERGE_REJECTED: 'ACCOUNT_MERGE_203',
 } as const;
 
 export type AccountMergeCodeType = (typeof AccountMergeCode)[keyof typeof AccountMergeCode];

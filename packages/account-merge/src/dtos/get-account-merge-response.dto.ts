@@ -9,10 +9,15 @@ import {
 } from '@krgeobuk/shared/account-merge';
 import type { OAuthAccountProviderType } from '@krgeobuk/shared/oauth';
 
+import type { GetAccountMergeResponse } from '../interfaces/get-account-merge-response.interface.js';
+
 /**
  * 계정 병합 요청 조회 응답 DTO
  */
-export class AccountMergeResponseDto extends ExposeAutoIncrementIdDto {
+export class GetAccountMergeResponseDto
+  extends ExposeAutoIncrementIdDto
+  implements GetAccountMergeResponse
+{
   @ExposeExpiresAt()
   expiresAt!: Date;
 

@@ -35,9 +35,17 @@
       "import": "./dist/exception/index.js",
       "types": "./dist/exception/index.d.ts"
     },
+    "./interfaces": {
+      "import": "./dist/interfaces/index.js",
+      "types": "./dist/interfaces/index.d.ts"
+    },
     "./messages": {
       "import": "./dist/messages/index.js",
       "types": "./dist/messages/index.d.ts"
+    },
+    "./response": {
+      "import": "./dist/response/index.js",
+      "types": "./dist/response/index.d.ts"
     },
     "./tcp": {
       "import": "./dist/tcp/index.js",
@@ -72,11 +80,23 @@
       "exception/*": [
         "dist/exception/*"
       ],
+      "interfaces": [
+        "dist/interfaces/index.d.ts"
+      ],
+      "interfaces/*": [
+        "dist/interfaces/*"
+      ],
       "messages": [
         "dist/messages/index.d.ts"
       ],
       "messages/*": [
         "dist/messages/*"
+      ],
+      "response": [
+        "dist/response/index.d.ts"
+      ],
+      "response/*": [
+        "dist/response/*"
       ],
       "tcp": [
         "dist/tcp/index.d.ts"
