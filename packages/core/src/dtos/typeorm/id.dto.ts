@@ -14,16 +14,8 @@ import type {
 import { TimestampDto } from './timestamp.dto.js';
 
 export abstract class AutoIncrementIdDto extends TimestampDto implements AutoIncrementId {
-  @IsValidAutoIncrementId({ isOptional: false })
+  @IsValidAutoIncrementId()
   id!: number;
-}
-
-export abstract class ExposeAutoIncrementIdDto
-  extends TimestampDto
-  implements OptionalAutoIncrementId
-{
-  @ExposeAutoIncrementId()
-  id?: number;
 }
 
 export abstract class OptionalAutoIncrementIdDto
@@ -34,9 +26,27 @@ export abstract class OptionalAutoIncrementIdDto
   id?: number;
 }
 
+export abstract class ExposeAutoIncrementIdDto extends TimestampDto implements AutoIncrementId {
+  @ExposeAutoIncrementId()
+  id!: number;
+}
+
+export abstract class ExposeOptionalAutoIncrementIdDto
+  extends TimestampDto
+  implements OptionalAutoIncrementId
+{
+  @ExposeAutoIncrementId()
+  id?: number;
+}
+
 export abstract class UuidIdDto extends TimestampDto implements UuidId {
-  @IsValidUuidId({ isOptional: false })
+  @IsValidUuidId()
   id!: string;
+}
+
+export abstract class OptionalUuidIdDto extends TimestampDto implements OptionalUuidId {
+  @IsValidUuidId({ isOptional: true })
+  id?: string;
 }
 
 export abstract class ExposeUuidIdDto extends TimestampDto implements UuidId {
@@ -44,7 +54,7 @@ export abstract class ExposeUuidIdDto extends TimestampDto implements UuidId {
   id!: string;
 }
 
-export abstract class OptionalUuidIdDto extends TimestampDto implements OptionalUuidId {
-  @IsValidUuidId({ isOptional: true })
+export abstract class ExposeOptionalUuidIdDto extends TimestampDto implements OptionalUuidId {
+  @ExposeUuidId()
   id?: string;
 }
