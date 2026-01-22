@@ -8,6 +8,7 @@ import {
   ExposeExpiresAt,
 } from '@krgeobuk/shared/account-merge';
 import type { OAuthAccountProviderType } from '@krgeobuk/shared/oauth';
+import type { AccountMergeStatus } from '@krgeobuk/shared/account-merge';
 
 import type { GetAccountMergeResponse } from '../interfaces/get-account-merge-response.interface.js';
 
@@ -25,7 +26,7 @@ export class GetAccountMergeResponseDto
   provider!: OAuthAccountProviderType;
 
   @ExposeStatus()
-  status!: string;
+  status!: AccountMergeStatus;
 
   @ExposeSourceEmail()
   sourceEmail!: string;
