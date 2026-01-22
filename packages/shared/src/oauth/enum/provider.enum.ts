@@ -1,5 +1,5 @@
 export const OAuthAccountProviderType = {
-  HOMEPAGE: 'homePage',
+  HOMEPAGE: 'homepage',
   GOOGLE: 'google',
   NAVER: 'naver',
 } as const;
