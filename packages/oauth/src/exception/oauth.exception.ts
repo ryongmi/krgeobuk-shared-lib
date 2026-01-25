@@ -144,6 +144,35 @@ export class OAuthException {
     );
   }
 
+  // 110 ~ 119 토큰 관련 에러
+
+  /** 액세스 토큰이 존재하지 않음 */
+  static tokenNotFound(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.TOKEN_NOT_FOUND;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** 리프레시 토큰이 없어 토큰을 갱신할 수 없음 */
+  static refreshTokenNotFound(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.REFRESH_TOKEN_NOT_FOUND;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
+  /** 토큰 갱신 실패 */
+  static tokenRefreshFailed(provider: OAuthAccountProviderType): HttpException {
+    const e = OAuthError.TOKEN_REFRESH_FAILED;
+    return new HttpException(
+      { code: e.code, message: `${this.label(provider)} ${e.message}` },
+      e.statusCode
+    );
+  }
+
   /**  =============================================================================
    *
    *        200 ~ 299 계정 연동 관련 에러 코드
