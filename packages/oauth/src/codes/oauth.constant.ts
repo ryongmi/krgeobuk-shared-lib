@@ -55,6 +55,10 @@ export const OAuthCode = {
   OAUTH_LOGIN_START_REDIRECT: 'OAUTH_302',
   GOOGLE_LINK_START_REDIRECT: 'OAUTH_303',
   NAVER_LINK_START_REDIRECT: 'OAUTH_304',
+
+  // 400 ~ 499 성공 응답 코드
+  LINKED_ACCOUNTS_FETCHED: 'OAUTH_400',
+  ACCOUNT_UNLINKED: 'OAUTH_401',
 } as const;
 
 export type OAuthCodeType = (typeof OAuthCode)[keyof typeof OAuthCode];

@@ -1,4 +1,4 @@
-import { ExposeUuidId } from '@krgeobuk/core/decorators';
+import { ExposeUuidId, ExposeCreatedAt } from '@krgeobuk/core/decorators';
 import { ExposeProvider } from '@krgeobuk/shared/oauth';
 import type { OAuthAccountProviderType } from '@krgeobuk/shared/oauth';
 
@@ -10,4 +10,7 @@ export class OAuthAccountSearchResultDto implements OAuthAccountSearchResult {
 
   @ExposeProvider()
   provider!: OAuthAccountProviderType;
+
+  @ExposeCreatedAt()
+  createdAt!: Date;
 }

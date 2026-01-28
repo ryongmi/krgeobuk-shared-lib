@@ -64,6 +64,20 @@ export const OAuthMessage = {
   OAUTH_LOGIN_START_REDIRECT: 'OAuth SSO 로그인 시작 - Auth Client로 리다이렉트',
   GOOGLE_LINK_START_REDIRECT: 'Google OAuth 계정 연동 시작 - Google 인증 페이지로 리다이렉트',
   NAVER_LINK_START_REDIRECT: 'Naver OAuth 계정 연동 시작 - Naver 인증 페이지로 리다이렉트',
+
+  /**  =============================================================================
+   *
+   *        400 ~ 499 성공 응답 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  /** 연동된 OAuth 계정 목록 조회 성공 */
+  LINKED_ACCOUNTS_FETCHED: '연동된 OAuth 계정 목록을 조회했습니다.',
+
+  /** OAuth 계정 연동 해제 성공 */
+  ACCOUNT_UNLINKED: 'OAuth 계정 연동이 해제되었습니다.',
 } as const;
 
 export type OAuthMessageType = (typeof OAuthMessage)[keyof typeof OAuthMessage];

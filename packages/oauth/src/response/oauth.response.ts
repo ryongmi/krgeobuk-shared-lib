@@ -4,15 +4,6 @@ import { OAuthMessage } from '../messages/index.js';
 export class OAuthResponse {
   /**  =============================================================================
    *
-   *        200 ~ 299	성공 응답 코드
-   *
-   *   =============================================================================
-   */
-  /** */
-
-
-  /**  =============================================================================
-   *
    *        300 ~ 399	리다이렉트 응답 코드 (SSO & Link)
    *
    *   =============================================================================
@@ -47,5 +38,27 @@ export class OAuthResponse {
     code: OAuthCode.NAVER_LINK_START_REDIRECT,
     message: OAuthMessage.NAVER_LINK_START_REDIRECT,
     statusCode: 302,
+  };
+
+  /**  =============================================================================
+   *
+   *        400 ~ 499 성공 응답 코드
+   *
+   *   =============================================================================
+   */
+  /** */
+
+  /** 연동된 OAuth 계정 목록 조회 성공 */
+  static readonly LINKED_ACCOUNTS_FETCHED = {
+    code: OAuthCode.LINKED_ACCOUNTS_FETCHED,
+    message: OAuthMessage.LINKED_ACCOUNTS_FETCHED,
+    statusCode: 200,
+  };
+
+  /** OAuth 계정 연동 해제 성공 */
+  static readonly ACCOUNT_UNLINKED = {
+    code: OAuthCode.ACCOUNT_UNLINKED,
+    message: OAuthMessage.ACCOUNT_UNLINKED,
+    statusCode: 200,
   };
 }
