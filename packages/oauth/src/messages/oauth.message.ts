@@ -31,6 +31,11 @@ export const OAuthMessage = {
   INVALID_STATE: 'state 데이터가 올바르지 않습니다.',
   OAUTH_CANCELLED: '사용자가 인증을 취소했습니다.',
 
+  // 110 ~ 119 토큰 관련 에러 코드
+  TOKEN_NOT_FOUND: '액세스 토큰이 존재하지 않습니다.',
+  REFRESH_TOKEN_NOT_FOUND: '리프레시 토큰이 없어 토큰을 갱신할 수 없습니다.',
+  TOKEN_REFRESH_FAILED: '토큰 갱신에 실패했습니다.',
+
   /**  =============================================================================
    *
    *        200 ~ 299 계정 연동 관련 에러 코드

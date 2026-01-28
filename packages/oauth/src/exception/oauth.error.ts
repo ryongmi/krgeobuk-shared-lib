@@ -102,6 +102,26 @@ export class OAuthError {
     statusCode: 400,
   };
 
+  // 110 ~ 119 토큰 관련 에러 코드
+
+  static readonly TOKEN_NOT_FOUND = {
+    code: OAuthCode.TOKEN_NOT_FOUND,
+    message: OAuthMessage.TOKEN_NOT_FOUND,
+    statusCode: 401,
+  };
+
+  static readonly REFRESH_TOKEN_NOT_FOUND = {
+    code: OAuthCode.REFRESH_TOKEN_NOT_FOUND,
+    message: OAuthMessage.REFRESH_TOKEN_NOT_FOUND,
+    statusCode: 401,
+  };
+
+  static readonly TOKEN_REFRESH_FAILED = {
+    code: OAuthCode.TOKEN_REFRESH_FAILED,
+    message: OAuthMessage.TOKEN_REFRESH_FAILED,
+    statusCode: 500,
+  };
+
   /**  =============================================================================
    *
    *        200 ~ 299 계정 연동 관련 에러 코드
