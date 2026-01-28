@@ -72,6 +72,9 @@ export const AccountMergeMessage = {
 
   /** 계정 병합 요청 거부됨 */
   MERGE_REJECTED: '계정 병합 요청이 거부되었습니다.',
+
+  /** 토큰 검증 성공 */
+  TOKEN_VERIFIED: '토큰 검증이 성공적으로 완료되었습니다.',
 } as const;
 
 export type AccountMergeMessageType =

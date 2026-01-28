@@ -72,6 +72,9 @@ export const AccountMergeCode = {
 
   /** 계정 병합 요청 거부됨 */
   MERGE_REJECTED: 'ACCOUNT_MERGE_203',
+
+  /** 토큰 검증 성공 */
+  TOKEN_VERIFIED: 'ACCOUNT_MERGE_204',
 } as const;
 
 export type AccountMergeCodeType = (typeof AccountMergeCode)[keyof typeof AccountMergeCode];

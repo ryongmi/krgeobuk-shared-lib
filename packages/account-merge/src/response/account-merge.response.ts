@@ -42,4 +42,11 @@ export class AccountMergeResponse {
     message: AccountMergeMessage.MERGE_REJECTED,
     statusCode: 200,
   };
+
+  /** 토큰 검증 성공 */
+  static readonly TOKEN_VERIFIED = {
+    code: AccountMergeCode.TOKEN_VERIFIED,
+    message: AccountMergeMessage.TOKEN_VERIFIED,
+    statusCode: 200,
+  };
 }
