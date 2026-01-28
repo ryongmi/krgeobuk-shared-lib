@@ -8,6 +8,8 @@ export const UserTcpPatterns = {
   SEARCH: 'user.search',
   FIND_BY_ID: 'user.find-by-id',
   FIND_BY_IDS: 'user.find-by-ids',
+  GET_DETAIL_BY_ID: 'user.get-detail-by-id',
+  IS_EMAIL_VERIFIED: 'user.is-email-verified',
   EXISTS: 'user.exists',
 
   // 변경 패턴
