@@ -17,6 +17,10 @@
       "import": "./dist/account-merge/index.js",
       "types": "./dist/account-merge/index.d.ts"
     },
+    "./account-merge/enum": {
+      "import": "./dist/account-merge/enum/index.js",
+      "types": "./dist/account-merge/enum/index.d.ts"
+    },
     "./authorization": {
       "import": "./dist/authorization/index.js",
       "types": "./dist/authorization/index.d.ts"
@@ -24,6 +28,10 @@
     "./oauth": {
       "import": "./dist/oauth/index.js",
       "types": "./dist/oauth/index.d.ts"
+    },
+    "./oauth/enum": {
+      "import": "./dist/oauth/enum/index.js",
+      "types": "./dist/oauth/enum/index.d.ts"
     },
     "./permission": {
       "import": "./dist/permission/index.js",
@@ -74,6 +82,12 @@
       "account-merge/*": [
         "dist/account-merge/*"
       ],
+      "account-merge/enum": [
+        "dist/account-merge/enum/index.d.ts"
+      ],
+      "account-merge/enum/*": [
+        "dist/account-merge/enum/*"
+      ],
       "authorization": [
         "dist/authorization/index.d.ts"
       ],
@@ -85,6 +99,12 @@
       ],
       "oauth/*": [
         "dist/oauth/*"
+      ],
+      "oauth/enum": [
+        "dist/oauth/enum/index.d.ts"
+      ],
+      "oauth/enum/*": [
+        "dist/oauth/enum/*"
       ],
       "permission": [
         "dist/permission/index.d.ts"
