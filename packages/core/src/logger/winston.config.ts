@@ -24,10 +24,13 @@ export const winstonConfig: WinstonModuleOptions = {
       level: 'info',
       format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.printf(
-          (info: winston.Logform.TransformableInfo) =>
-            `[${info.timestamp}] [${info.level}]${info.context ? ` [${info.context}]` : ''} ${info.message}`
-        )
+        winston.format.printf((info: winston.Logform.TransformableInfo) => {
+          const base = `[${info.timestamp}] [${info.level}]${info.context ? ` [${info.context}]` : ''} ${info.message}`;
+          const stack = info.stack
+            ? '\n' + (typeof info.stack === 'object' ? JSON.stringify(info.stack) : info.stack)
+            : '';
+          return base + stack;
+        })
       ),
     }),
 
@@ -40,12 +43,13 @@ export const winstonConfig: WinstonModuleOptions = {
       level: 'error',
       format: winston.format.combine(
         winston.format.timestamp(),
-        winston.format.printf(
-          (info: winston.Logform.TransformableInfo) =>
-            `[${info.timestamp}] [${info.level}]${info.context ? ` [${info.context}]` : ''} ${info.message}${
-              info.stack ? '\n' + info.stack : ''
-            }`
-        )
+        winston.format.printf((info: winston.Logform.TransformableInfo) => {
+          const base = `[${info.timestamp}] [${info.level}]${info.context ? ` [${info.context}]` : ''} ${info.message}`;
+          const stack = info.stack
+            ? '\n' + (typeof info.stack === 'object' ? JSON.stringify(info.stack) : info.stack)
+            : '';
+          return base + stack;
+        })
       ),
     }),
   ],
