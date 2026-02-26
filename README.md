@@ -1,14 +1,14 @@
 # krgeobuk-shared-lib
 
 krgeobuk 생태계의 모든 서비스에서 공유하는 TypeScript 패키지 모노레포입니다.
-pnpm 워크스페이스로 23개 패키지를 관리하며, Verdaccio 로컬 레지스트리를 통해 배포합니다.
+pnpm 워크스페이스로 23개 패키지를 관리하며, Verdaccio K8s 레지스트리를 통해 배포합니다.
 
 ## 기술 스택
 
 - **pnpm** - 워크스페이스 패키지 관리
 - **TypeScript 5.8.3** - 컴포지트 프로젝트 설정 (증분 빌드)
 - **ESM** - 모든 패키지 ES Modules 전용 (`"type": "module"`)
-- **Verdaccio** - 로컬 프라이빗 NPM 레지스트리 (포트 4873)
+- **Verdaccio** - 프라이빗 NPM 레지스트리 (K8s 운영, `krgeobuk-deployment`에서 관리)
 - **NestJS 10** - 백엔드 패키지의 주요 프레임워크
 
 ---
@@ -67,22 +67,16 @@ pnpm 워크스페이스로 23개 패키지를 관리하며, Verdaccio 로컬 레
 
 ## 개발 워크플로우
 
-### 1. Verdaccio 레지스트리 시작
+> Verdaccio 레지스트리는 `krgeobuk-deployment/verdaccio/k8s/`에서 K8s로 운영합니다.
+> 패키지를 게시하려면 Verdaccio가 실행 중이어야 합니다.
 
-```bash
-pnpm docker:up
-```
-
-로컬 레지스트리(`http://localhost:4873`)가 실행됩니다.
-서비스에서 `@krgeobuk/*` 패키지를 설치하려면 반드시 실행 중이어야 합니다.
-
-### 2. 의존성 설치
+### 1. 의존성 설치
 
 ```bash
 pnpm install
 ```
 
-### 3. 전체 빌드
+### 2. 전체 빌드
 
 ```bash
 pnpm build
@@ -90,7 +84,7 @@ pnpm build
 
 TypeScript 컴포지트 프로젝트로 의존성 순서에 맞게 자동 빌드됩니다.
 
-### 4. 로컬 레지스트리에 게시
+### 3. Verdaccio 레지스트리에 게시
 
 변경된 패키지 디렉토리에서 실행합니다.
 
@@ -104,7 +98,7 @@ pnpm --filter @krgeobuk/core build
 cd packages/core && pnpm verdaccio:publish
 ```
 
-### 5. 서비스에 반영
+### 4. 서비스에 반영
 
 패키지를 게시한 후 대상 서비스에서 업데이트합니다.
 
@@ -133,10 +127,6 @@ pnpm lint:fix
 
 # 포맷팅
 pnpm format
-
-# Verdaccio 레지스트리 시작/중지
-pnpm docker:up
-pnpm docker:down
 ```
 
 ---
@@ -145,13 +135,7 @@ pnpm docker:down
 
 ### 레지스트리 설정
 
-서비스 프로젝트 루트의 `.npmrc`에 추가합니다.
-
-```
-@krgeobuk:registry=http://localhost:4873
-```
-
-또는 K8s Verdaccio를 사용하는 경우:
+서비스 프로젝트 루트의 `.npmrc`에 환경에 맞는 Verdaccio URL을 추가합니다.
 
 ```
 # dev
