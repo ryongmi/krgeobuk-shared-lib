@@ -501,7 +501,7 @@ shared-lib는 krgeobuk 생태계 전반의 API 응답 포맷을 표준화합니�
 - **`@krgeobuk/core`** 패키지의 `SerializerInterceptor`: 성공 응답 포맷 처리
 - **`@krgeobuk/core`** 패키지의 `HttpExceptionFilter`: 에러 응답 포맷 처리
 
-상세한 API 응답 포맷 표준은 [authz-server/CLAUDE.md](../authz-server/CLAUDE.md)의 **"API 응답 포맷 표준"** 섹션을 참조하세요.
+상세한 API 응답 포맷 표준은 [docs/KRGEOBUK_NESTJS_SERVER_GUIDE.md](../docs/KRGEOBUK_NESTJS_SERVER_GUIDE.md)를 참조하세요.
 
 ---
 
