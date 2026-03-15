@@ -2,7 +2,7 @@
  * Permission 도메인 역할 상수
  * 권한 관리 시스템에서 사용되는 도메인별 역할들
  */
-export const PermissionNames = {
+export const PERMISSION_NAMES = {
   /**
    * 권한 관리자 - 권한 생성/수정/삭제 권한
    * 시스템 권한을 관리할 수 있는 전문 관리자
@@ -10,13 +10,13 @@ export const PermissionNames = {
   PERMISSION_MANAGER: 'permissionManager',
 } as const;
 
-export type PermissionName = (typeof PermissionNames)[keyof typeof PermissionNames];
+export type PermissionName = (typeof PERMISSION_NAMES)[keyof typeof PERMISSION_NAMES];
 
 /**
  * Permission 도메인 권한 상수
  * 권한 관리 시스템에서 사용되는 권한 액션들
  */
-export const PermissionPermissions = {
+export const PERMISSION_PERMISSIONS = {
   PERMISSION_READ: 'permission:read',
   PERMISSION_CREATE: 'permission:create',
   PERMISSION_UPDATE: 'permission:update',
@@ -24,4 +24,4 @@ export const PermissionPermissions = {
   PERMISSION_MANAGE: 'permission:manage',
 } as const;
 
-export type PermissionPermission = (typeof PermissionPermissions)[keyof typeof PermissionPermissions];
+export type PermissionPermission = (typeof PERMISSION_PERMISSIONS)[keyof typeof PERMISSION_PERMISSIONS];

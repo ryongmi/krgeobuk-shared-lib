@@ -14,9 +14,9 @@ export const REQUIRE_ROLE_META_KEY = 'require_role:meta';
  * Authorization 도메인 권한 상수
  * 권한 검증 시스템에서 사용되는 권한 액션들
  */
-export const AuthorizationPermissions = {
+export const AUTHORIZATION_PERMISSIONS = {
   AUTHORIZATION_CHECK: 'authorization:check',
   AUTHORIZATION_MANAGE: 'authorization:manage',
 } as const;
 
-export type AuthorizationPermission = (typeof AuthorizationPermissions)[keyof typeof AuthorizationPermissions];
+export type AuthorizationPermission = (typeof AUTHORIZATION_PERMISSIONS)[keyof typeof AUTHORIZATION_PERMISSIONS];
