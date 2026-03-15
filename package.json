@@ -13,7 +13,9 @@
     "lint:fix": "eslint . --fix",
     "lint-orgin": "eslint src/**/*.{ts,js} --format=stylish",
     "lint-fix-orgin": "eslint src/**/*.{ts,js} --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "docker:up": "docker-compose -f ../krgeobuk-infrastructure/docker-compose/docker-compose.local.yaml up -d",
+    "docker:down": "docker-compose -f ../krgeobuk-infrastructure/docker-compose/docker-compose.local.yaml down"
   },
   "keywords": [],
   "author": "",
