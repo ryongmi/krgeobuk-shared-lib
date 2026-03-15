@@ -15,6 +15,7 @@
   ],
   "exports": {
     ".": "./dist/index.js",
+    "./constants": "./dist/constants/index.js",
     "./decorators": "./dist/decorators/index.js",
     "./dtos": "./dist/dtos/index.js",
     "./exception": "./dist/exception/index.js",
@@ -27,6 +28,12 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
+      "constants": [
+        "dist/constants/index.d.ts"
+      ],
+      "constants/*": [
+        "dist/constants/*"
+      ],
       "decorators": [
         "dist/decorators/index.d.ts"
       ],
@@ -111,5 +118,4 @@
     "class-validator": "^0.14.2",
     "typescript": "^5.8.3"
   }
-  
 }
