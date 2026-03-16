@@ -54,10 +54,11 @@ export function createRequestInterceptor(
     // 요청 ID 추가 (추적용)
     config.headers['X-Request-ID'] = `req_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
-    // User-Agent 헤더 추가 (브라우저에서 자동으로 설정되지 않는 경우)
-    if (!config.headers['User-Agent'] && typeof navigator !== 'undefined') {
-      config.headers['User-Agent'] = navigator.userAgent;
-    }
+    // User-Agent 헤더 제거
+    // 브라우저에서 자동 설정하며, JS 코드상에서 해당 헤더는 확인이 불가능함
+    // if (!config.headers['User-Agent'] && typeof navigator !== 'undefined') {
+    //   config.headers['User-Agent'] = navigator.userAgent;
+    // }
 
     return config;
   };
@@ -68,8 +69,8 @@ export function createRequestInterceptor(
  */
 export function createRequestErrorInterceptor() {
   return (error: unknown): Promise<never> => {
-    SecurityLogger.logSecurityEvent('REQUEST_INTERCEPTOR_ERROR', { 
-      error: error instanceof Error ? error.message : String(error)
+    SecurityLogger.logSecurityEvent('REQUEST_INTERCEPTOR_ERROR', {
+      error: error instanceof Error ? error.message : String(error),
     });
     return Promise.reject(error);
   };
