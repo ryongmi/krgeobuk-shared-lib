@@ -17,7 +17,7 @@ export function createTypeOrmConfig(entityPaths: string[]): TypeOrmModuleAsyncOp
       logging: configService.get<boolean>('db-mysql.logging'),
       entities: entityPaths,
       migrations: [configService.get<string>('db-mysql.migrations') || 'dist/migrations/*.js'],
-      timezone: configService.get<string>('db-mysql.timezone') || '+09:00',
+      timezone: configService.get<string>('db-mysql.timezone') || 'Z',
       charset: configService.get<string>('db-mysql.charset') || 'utf8mb4',
       autoLoadEntities: true,
     }),

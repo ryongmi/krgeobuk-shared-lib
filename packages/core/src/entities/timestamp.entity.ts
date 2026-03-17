@@ -1,12 +1,12 @@
 import { CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm";
 
 export abstract class TimestampEntity {
-  @CreateDateColumn({ type: "timestamp" })
+  @CreateDateColumn({ type: "datetime", precision: 6 })
   createdAt!: Date;
 
-  @UpdateDateColumn({ type: "timestamp" })
+  @UpdateDateColumn({ type: "datetime", precision: 6 })
   updatedAt!: Date;
 
-  @DeleteDateColumn({ type: "timestamp" })
+  @DeleteDateColumn({ type: "datetime", precision: 6 })
   deletedAt?: Date | null;
 }
