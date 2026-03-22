@@ -24,3 +24,13 @@ export interface TcpMergeUserRoles {
   sourceUserId: string;
   targetUserId: string;
 }
+
+// 계정 병합 롤백 파라미터
+export interface TcpRollbackMergeUserRoles {
+  sourceUserId: string;
+  targetUserId: string;
+  /** 병합 전 source 유저가 가지고 있던 역할 목록 */
+  sourceRoleIds: string[];
+  /** 병합 전 target 유저가 가지고 있던 역할 목록 */
+  targetRoleIds: string[];
+}
