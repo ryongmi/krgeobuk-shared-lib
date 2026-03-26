@@ -17,7 +17,7 @@ export enum AccountMergeStatus {
   /** 2단계: authz-server 역할 병합 완료 */
   STEP2_AUTHZ_MERGE = 'STEP2_AUTHZ_MERGE',
 
-  /** 3단계: my-pick-server 데이터 병합 완료 */
+  /** 3단계: mypick-server 데이터 병합 완료 */
   STEP3_MYPICK_MERGE = 'STEP3_MYPICK_MERGE',
 
   /** 4단계: 사용자 삭제 완료 */

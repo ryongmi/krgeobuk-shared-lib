@@ -7,14 +7,14 @@
 
 export const AccountMergeTcpPatterns = {
   /**
-   * my-pick-server TCP 엔드포인트
-   * 사용자 구독, 인터랙션 등 my-pick 데이터 병합
+   * mypick-server TCP 엔드포인트
+   * 사용자 구독, 인터랙션 등 mypick 데이터 병합
    */
   MERGE_USER_DATA: 'account-merge.merge-user-data',
 
   /**
-   * my-pick-server TCP 롤백 엔드포인트
-   * 병합된 my-pick 데이터를 원래 사용자로 복원
+   * mypick-server TCP 롤백 엔드포인트
+   * 병합된 mypick 데이터를 원래 사용자로 복원
    */
   ROLLBACK_MERGE: 'account-merge.rollback-merge',
 } as const;

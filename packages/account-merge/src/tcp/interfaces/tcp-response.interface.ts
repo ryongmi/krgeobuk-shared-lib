@@ -5,7 +5,7 @@
  */
 
 /**
- * my-pick 스냅샷 데이터 인터페이스
+ * mypick 스냅샷 데이터 인터페이스
  * 병합 시 이전된 데이터 ID 목록 (롤백용)
  */
 export interface MyPickSnapshotData {
