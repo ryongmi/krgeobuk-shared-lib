@@ -7,5 +7,5 @@ export interface UserDetail extends UuidId {
   nickname: string | null;
   profileImageUrl: string | null;
   isEmailVerified: boolean;
-  oauthAccount: OAuthAccount;
+  oauthAccounts: OAuthAccount[];
 }

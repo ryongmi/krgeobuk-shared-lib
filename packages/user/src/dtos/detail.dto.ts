@@ -1,4 +1,4 @@
-import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
+import { ExposeNested } from '@krgeobuk/core/decorators';
 import { ExposeUuidIdDto } from '@krgeobuk/core/dtos';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
@@ -30,7 +30,8 @@ export class UserDetailDto extends ExposeUuidIdDto implements UserDetail {
   @ExposeNested({
     type: OAuthAccountDto,
     typeFn: () => OAuthAccountDto,
-    description: '해당 User의 OAuth 데이터',
+    description: '해당 User의 OAuth 데이터 목록',
+    options: { isArray: true },
   })
-  oauthAccount!: OAuthAccountDto;
+  oauthAccounts!: OAuthAccountDto[];
 }

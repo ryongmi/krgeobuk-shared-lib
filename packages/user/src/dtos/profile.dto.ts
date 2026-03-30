@@ -33,9 +33,10 @@ export class UserProfileDto extends ExposeUuidIdDto implements UserProfile {
   @ExposeNested({
     type: OAuthAccountDto,
     typeFn: () => OAuthAccountDto,
-    description: '해당 User의 OAuth 데이터',
+    description: '해당 User의 OAuth 데이터 목록',
+    options: { isArray: true },
   })
-  oauthAccount!: OAuthAccountDto;
+  oauthAccounts!: OAuthAccountDto[];
 
   @ExposeNested({
     type: UserAuthorizationDto,

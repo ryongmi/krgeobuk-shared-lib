@@ -12,7 +12,7 @@ export interface UserProfile extends UuidId {
   isEmailVerified: boolean;
 
   // OAuth 정보
-  oauthAccount: OAuthAccount;
+  oauthAccounts: OAuthAccount[];
 
   // 권한 정보
   authorization: UserAuthorization;
