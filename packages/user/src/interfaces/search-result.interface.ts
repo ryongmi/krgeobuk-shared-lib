@@ -7,5 +7,6 @@ export interface UserSearchResult {
   nickname: string | null;
   profileImageUrl: string | null;
   isEmailVerified: boolean;
-  oauthAccount: OAuthAccount;
+  createdAt: Date;
+  oauthAccounts: OAuthAccount[];
 }

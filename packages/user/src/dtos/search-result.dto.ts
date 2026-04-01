@@ -1,5 +1,5 @@
 import { PageInfoWrapperDto } from '@krgeobuk/core/dtos';
-import { ExposeNested, ExposeUuidId } from '@krgeobuk/core/decorators';
+import { ExposeNested, ExposeUuidId, ExposeCreatedAt } from '@krgeobuk/core/decorators';
 import { PaginatedResult } from '@krgeobuk/core/interfaces';
 import { OAuthAccountDto } from '@krgeobuk/shared/oauth';
 import {
@@ -30,12 +30,16 @@ export class UserSearchResultDto implements UserSearchResult {
   @ExposeEmailVerified()
   isEmailVerified!: boolean;
 
+  @ExposeCreatedAt()
+  createdAt!: Date;
+
   @ExposeNested({
     type: OAuthAccountDto,
     typeFn: () => OAuthAccountDto,
-    description: '해당 User의 OAuth 데이터',
+    description: '해당 User의 OAuth 데이터 목록',
+    options: { isArray: true },
   })
-  oauthAccount!: OAuthAccountDto;
+  oauthAccounts!: OAuthAccountDto[];
 }
 
 export class UserPaginatedSearchResultDto
