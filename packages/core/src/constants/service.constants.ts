@@ -28,7 +28,7 @@ export const SERVICE_CONSTANTS = {
   // 애플리케이션 서버
   MYPICK_SERVICE: {
     id: '550e8400-e29b-41d4-a716-446655440004',
-    name: 'mypick-server',
+    name: 'mypick-service',
     displayName: 'MyPick 서비스',
   },
 } as const;
